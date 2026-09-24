@@ -1,0 +1,11 @@
+# Direct dependencies for the research workspace and M0 audit.
+# Exact resolved versions are recorded in requirements.lock.
+numpy
+scipy
+pandas
+statsmodels
+matplotlib
+pytest
+hypothesis
+sympy
+pypdf

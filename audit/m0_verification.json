@@ -1,0 +1,180 @@
+{
+  "milestone": "M0",
+  "verified_at_utc": "2026-09-24T22:54:58.854450+00:00",
+  "python": "3.12.14",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "scope": "Local specification-audit evidence and baseline only; no original research gate is certified.",
+  "commands": [
+    {
+      "command": "python -m pip check",
+      "returncode": 0,
+      "stdout": "No broken requirements found.\n",
+      "stderr": ""
+    },
+    {
+      "command": "python tools/audit_baseline.py",
+      "returncode": 0,
+      "stdout": "Evidence written: audit\\baseline_results.json\nPassed: AT-1, AT-2, AT-3, AT-4, AT-6\nSymbolic checks: algebra_verified; Monte Carlo checks not run.\n",
+      "stderr": ""
+    },
+    {
+      "command": "python -m pytest tests/test_audit_baseline.py -q",
+      "returncode": 0,
+      "stdout": "............                                                             [100%]\n12 passed in 2.17s\n",
+      "stderr": ""
+    }
+  ],
+  "errors": [],
+  "dependency_versions": {
+    "colorama": {
+      "expected": "0.4.6",
+      "actual": "0.4.6"
+    },
+    "contourpy": {
+      "expected": "1.4.0",
+      "actual": "1.4.0"
+    },
+    "cycler": {
+      "expected": "0.12.1",
+      "actual": "0.12.1"
+    },
+    "fonttools": {
+      "expected": "4.66.0",
+      "actual": "4.66.0"
+    },
+    "formulaic": {
+      "expected": "1.2.2",
+      "actual": "1.2.2"
+    },
+    "hypothesis": {
+      "expected": "6.168.1",
+      "actual": "6.168.1"
+    },
+    "iniconfig": {
+      "expected": "2.3.0",
+      "actual": "2.3.0"
+    },
+    "interface_meta": {
+      "expected": "2.0.1",
+      "actual": "2.0.1"
+    },
+    "kiwisolver": {
+      "expected": "1.5.1",
+      "actual": "1.5.1"
+    },
+    "matplotlib": {
+      "expected": "3.11.2",
+      "actual": "3.11.2"
+    },
+    "mpmath": {
+      "expected": "1.3.0",
+      "actual": "1.3.0"
+    },
+    "narwhals": {
+      "expected": "2.26.0",
+      "actual": "2.26.0"
+    },
+    "numpy": {
+      "expected": "2.5.3",
+      "actual": "2.5.3"
+    },
+    "packaging": {
+      "expected": "26.3",
+      "actual": "26.3"
+    },
+    "pandas": {
+      "expected": "3.0.6",
+      "actual": "3.0.6"
+    },
+    "patsy": {
+      "expected": "1.0.3",
+      "actual": "1.0.3"
+    },
+    "pillow": {
+      "expected": "12.3.0",
+      "actual": "12.3.0"
+    },
+    "pluggy": {
+      "expected": "1.6.0",
+      "actual": "1.6.0"
+    },
+    "Pygments": {
+      "expected": "2.21.0",
+      "actual": "2.21.0"
+    },
+    "pyparsing": {
+      "expected": "3.3.3",
+      "actual": "3.3.3"
+    },
+    "pypdf": {
+      "expected": "6.19.0",
+      "actual": "6.19.0"
+    },
+    "pytest": {
+      "expected": "9.1.1",
+      "actual": "9.1.1"
+    },
+    "python-dateutil": {
+      "expected": "2.9.0.post0",
+      "actual": "2.9.0.post0"
+    },
+    "scipy": {
+      "expected": "1.18.1",
+      "actual": "1.18.1"
+    },
+    "six": {
+      "expected": "1.17.0",
+      "actual": "1.17.0"
+    },
+    "sortedcontainers": {
+      "expected": "2.4.0",
+      "actual": "2.4.0"
+    },
+    "statsmodels": {
+      "expected": "0.15.0",
+      "actual": "0.15.0"
+    },
+    "sympy": {
+      "expected": "1.14.0",
+      "actual": "1.14.0"
+    },
+    "typing_extensions": {
+      "expected": "4.16.0",
+      "actual": "4.16.0"
+    },
+    "tzdata": {
+      "expected": "2026.4",
+      "actual": "2026.4"
+    },
+    "wrapt": {
+      "expected": "2.4.1",
+      "actual": "2.4.1"
+    }
+  },
+  "original_plan": {
+    "sha256": "85a594b0baf6d7b5a72d3ca1ec856f0df06b1106aaf3319e48f5b3967854dde7",
+    "expected_sha256": "85a594b0baf6d7b5a72d3ca1ec856f0df06b1106aaf3319e48f5b3967854dde7",
+    "status": "verified"
+  },
+  "file_sha256": {
+    "README.md": "e91cf74ed87c684c683392258056e216316214029e8c0b0daadd54088a671c0e",
+    "STATUS.md": "08659230fd0b2c225f8d007dd651328f932d9afa1b0ffbf82d0b6bb3e0083466",
+    "MILESTONES.md": "e957cb9106be268e52d62e305317dc0612c378e13eb3ae93d93a974ac134f25a",
+    "DECISIONS.md": "7a79018be0e1a899d373bc3a73afc7dfa10175f4e2c4aa2e0ee255e9cfc3d445",
+    "DEVIATIONS.md": "74b89e28882a36e1dd4cb26cfca8cdd1aefa10e2f7c839b7987e7e31aa83a804",
+    "requirements.lock": "56a0682b57a92eb6f121b033dde577c75eafe91e0901604ad7aff449e1823298",
+    "audit/SPECIFICATION_AUDIT.md": "3ea7205949396d12dc5e6f627de8373e42286b686b8a89e864051e63feea8ecc",
+    "audit/STATISTICAL_DESIGN.md": "38bb32dfe9e1876b59a37c12ccd76192fd59c17a907ae7f094f27a3a0d6df8e3",
+    "audit/STATISTICAL_SOURCES.json": "0c9416983fc93aa18ab813f46c5b76eb115ca6be7a594cd1a2db6059d008ca83",
+    "audit/FORMAL_FEASIBILITY.md": "fad6d04be1e2e1fb9b3355af9f56e4b6884716a49ff7d30c80bc90650d23e2a9",
+    "audit/FORMAL_SOURCES.json": "9ce871049d3d350d537a594a4ee19eea91fd877a322de6dddb2808c8a18eff8d",
+    "audit/BASELINE_CHECKS.md": "0b0dd353482be23d3edc0aa26133d77ab32eb4f737206d5f284b9eae81ef89c8",
+    "audit/PREREGISTRATION_READINESS.md": "b51e07822f45ad5f7f06773d9cf8c2d8eb79fea8802c2b3a97759beb012aabe4",
+    "tools/audit_baseline.py": "961c9210ea838197aa908371184d8cc733b54362043fc5c028854521241d880b",
+    "tools/verify_m0.py": "c085daecd3b7123ab6c5d19d1f5366be5b9cae7c0cf54d0c9be12eace8046e6b",
+    "tests/test_audit_baseline.py": "fcb34073e4c7b69d0b808eade1a6c259f152a2c186c6e2427b03610343accf12",
+    "pyproject.toml": "88793b2b51f7785e3aa9b10c802dfadc050d10083ac2cd5d2d5455c8a3d00657",
+    "audit/baseline_results.json": "1a6e50f800369954b3244144367a90776970ccf38f162f1a79189dc80bbc9d1b"
+  },
+  "passed": true
+}

@@ -1,0 +1,464 @@
+{
+  "audit_date": "2026-09-24",
+  "scope": "M0 formal-source audit only; PDF pp15-17. No Lean installation, compilation, local proof or third-party communications. Hashes identify retrieved bytes, not archived snapshots.",
+  "original_plan_sha256": "85a594b0baf6d7b5a72d3ca1ec856f0df06b1106aaf3319e48f5b3967854dde7",
+  "repository": {
+    "name": "S-Kamaguchi/ar456-stationarity-lean",
+    "html_url": "https://github.com/S-Kamaguchi/ar456-stationarity-lean",
+    "created_at": "2026-09-20T03:30:12Z",
+    "pushed_at": "2026-09-20T10:41:28Z",
+    "inspected_commit": "da3605efdc3728e87f90284535083a4f1d588ce3",
+    "api_license": null,
+    "tree_truncated": false,
+    "license_named_files": [],
+    "commit_count_returned": 6,
+    "commits": [
+      {
+        "sha": "da3605efdc3728e87f90284535083a4f1d588ce3",
+        "author_date": "2026-09-20T10:41:28Z",
+        "committer_date": "2026-09-20T10:41:28Z",
+        "message": "Update README.md"
+      },
+      {
+        "sha": "3e914cf7fd4bd23f17a3704cb0bb42cc6fd1d944",
+        "author_date": "2026-09-20T03:56:50Z",
+        "committer_date": "2026-09-20T03:56:50Z",
+        "message": "Create update.yml"
+      },
+      {
+        "sha": "cd8bf585e0281ff4e9039d7ec8ec870a8d8d7eeb",
+        "author_date": "2026-09-20T03:54:46Z",
+        "committer_date": "2026-09-20T03:54:46Z",
+        "message": "Create create-release.yml"
+      },
+      {
+        "sha": "169388c18433f0a6bf16881ea9fc99edf09382bb",
+        "author_date": "2026-09-20T03:52:08Z",
+        "committer_date": "2026-09-20T03:52:08Z",
+        "message": "Create lean_action_ci.yml"
+      },
+      {
+        "sha": "5d860e1e8cb3826baf77f2243c9328806fa84a0a",
+        "author_date": "2026-09-20T03:49:03Z",
+        "committer_date": "2026-09-20T03:49:03Z",
+        "message": "Create .gitignore"
+      },
+      {
+        "sha": "415e789f649cfc0d0f994325541ffcfad41f072d",
+        "author_date": "2026-09-20T03:42:39Z",
+        "committer_date": "2026-09-20T03:42:39Z",
+        "message": "Add files via upload\n\nInitial commit"
+      }
+    ],
+    "ci_for_inspected_commit": [
+      {
+        "id": 35505775626,
+        "html_url": "https://github.com/S-Kamaguchi/ar456-stationarity-lean/actions/runs/35505775626",
+        "name": "Lean Action CI",
+        "conclusion": "success",
+        "status": "completed",
+        "head_sha": "da3605efdc3728e87f90284535083a4f1d588ce3",
+        "updated_at": "2026-09-20T12:28:01Z"
+      }
+    ],
+    "issues_returned": 0,
+    "local_build_performed": false,
+    "independent_axiom_audit_performed": false,
+    "toolchain": "leanprover/lean4:v4.32.2",
+    "mathlib_manifest_commit": "905b95818eb32af7874a58b427f50c1711a5e96c"
+  },
+  "mathlib": {
+    "inspected_current_commit": "045acef0f761280401116e3801cb78ed1b2e716b",
+    "commit_date": "2026-09-23T23:41:41Z",
+    "toolchain": "leanprover/lean4:v4.35.0-rc2",
+    "tree_truncated": false,
+    "filename_search_terms": [
+      "Schur",
+      "Cohn",
+      "Jury",
+      "Hurwitz",
+      "Rouche"
+    ],
+    "matching_paths": [
+      "Mathlib/CategoryTheory/Preadditive/Schur.lean",
+      "Mathlib/GroupTheory/SchurZassenhaus.lean",
+      "Mathlib/LinearAlgebra/Matrix/SchurComplement.lean",
+      "Mathlib/NumberTheory/LSeries/HurwitzZeta.lean",
+      "Mathlib/NumberTheory/LSeries/HurwitzZetaEven.lean",
+      "Mathlib/NumberTheory/LSeries/HurwitzZetaOdd.lean",
+      "Mathlib/NumberTheory/LSeries/HurwitzZetaValues.lean"
+    ],
+    "search_limit": "Filename search and selected source inspection only; no theorem-absence or novelty conclusion."
+  },
+  "unverified": [
+    "Complete local rebuild and axiom closure of Kamaguchi proofs",
+    "Kamaguchi code reuse terms or permission",
+    "Kamaguchi identity beyond repository account and cited plan",
+    "Plans to upstream or coauthor; no coordination responses",
+    "Absence of criteria under all possible mathlib declaration names",
+    "Novelty across proof assistants",
+    "Proof scripts compile on selected future toolchain",
+    "Formal stochastic-process bridge"
+  ],
+  "sources": [
+    {
+      "url": "https://api.github.com/repos/S-Kamaguchi/ar456-stationarity-lean",
+      "retrieved_at_utc": "2026-09-24T02:31:22.250268+00:00",
+      "http_status": 200,
+      "sha256": "7ea2aa1aeb9549ef3eaacd2033d3c7240f5711670392b685ca3547a5f1f6ce16",
+      "bytes": 5920,
+      "kind": "github_api"
+    },
+    {
+      "url": "https://api.github.com/repos/S-Kamaguchi/ar456-stationarity-lean/commits?per_page=100",
+      "retrieved_at_utc": "2026-09-24T02:31:22.250268+00:00",
+      "http_status": 200,
+      "sha256": "5eada4caa86c93d9ba88e711a4dad08953ecf6602b4eb1baf756c1c00feec896",
+      "bytes": 26706,
+      "kind": "github_api"
+    },
+    {
+      "url": "https://api.github.com/repos/S-Kamaguchi/ar456-stationarity-lean/git/trees/da3605efdc3728e87f90284535083a4f1d588ce3?recursive=1",
+      "retrieved_at_utc": "2026-09-24T02:31:22.250268+00:00",
+      "http_status": 200,
+      "sha256": "f45ab445ec2f69809caea588051ccc46698fa60365f9e8a3ec569740656c8f53",
+      "bytes": 11159,
+      "kind": "github_api"
+    },
+    {
+      "url": "https://api.github.com/repos/S-Kamaguchi/ar456-stationarity-lean/actions/runs?per_page=10",
+      "retrieved_at_utc": "2026-09-24T02:31:22.250268+00:00",
+      "http_status": 200,
+      "sha256": "21a9f4009060f5fec08aed378f963d71b9c470bf05c50c58c5b30693e267b850",
+      "bytes": 69081,
+      "kind": "github_api"
+    },
+    {
+      "url": "https://api.github.com/repos/S-Kamaguchi/ar456-stationarity-lean/issues?state=all&per_page=100",
+      "retrieved_at_utc": "2026-09-24T02:31:22.250268+00:00",
+      "http_status": 200,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "bytes": 2,
+      "kind": "github_api"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/S-Kamaguchi/ar456-stationarity-lean/da3605efdc3728e87f90284535083a4f1d588ce3/README.md",
+      "retrieved_at_utc": "2026-09-24T02:31:22.250268+00:00",
+      "http_status": 200,
+      "sha256": "477718e5f403eac53547b4cf44711c5766659153de9c5bb6583dfc626be37bc1",
+      "bytes": 2386,
+      "kind": "pinned_source",
+      "line_count": 52,
+      "license_marker_in_first_20_lines": false
+    },
+    {
+      "url": "https://raw.githubusercontent.com/S-Kamaguchi/ar456-stationarity-lean/da3605efdc3728e87f90284535083a4f1d588ce3/StTopology/StepDown.lean",
+      "retrieved_at_utc": "2026-09-24T02:31:22.250268+00:00",
+      "http_status": 200,
+      "sha256": "bceb0432d31939342287d3d1697584b99fb2b6b0fabde0f01b2db2f15777bbdb",
+      "bytes": 25130,
+      "kind": "pinned_source",
+      "line_count": 481,
+      "license_marker_in_first_20_lines": false,
+      "relevant_declarations": [
+        {
+          "line": 64,
+          "declaration_line": "noncomputable def phiDownGen {n : ℕ} (φ : Fin (n + 1) → ℝ) : Fin n → ℝ :="
+        },
+        {
+          "line": 433,
+          "declaration_line": "theorem isStationary_iff_stepDown_gen {n : ℕ} (hn : 0 < n) {φ : Fin (n + 1) → ℝ} :"
+        }
+      ]
+    },
+    {
+      "url": "https://raw.githubusercontent.com/S-Kamaguchi/ar456-stationarity-lean/da3605efdc3728e87f90284535083a4f1d588ce3/StTopology/AR2.lean",
+      "retrieved_at_utc": "2026-09-24T02:31:22.250268+00:00",
+      "http_status": 200,
+      "sha256": "0766d0eb79813ddcb9689cc491bf16d7a966d0af6de954018560f9b99193a07e",
+      "bytes": 9766,
+      "kind": "pinned_source",
+      "line_count": 210,
+      "license_marker_in_first_20_lines": false,
+      "relevant_declarations": [
+        {
+          "line": 26,
+          "declaration_line": "theorem St2.isStationary {φ : Fin 2 → ℝ} (h : St2 φ) : IsStationary φ := by"
+        },
+        {
+          "line": 82,
+          "declaration_line": "theorem St2.of_isStationary {φ : Fin 2 → ℝ} (h : IsStationary φ) : St2 φ := by"
+        }
+      ]
+    },
+    {
+      "url": "https://raw.githubusercontent.com/S-Kamaguchi/ar456-stationarity-lean/da3605efdc3728e87f90284535083a4f1d588ce3/StTopology/StationarityRegions.lean",
+      "retrieved_at_utc": "2026-09-24T02:31:22.250268+00:00",
+      "http_status": 200,
+      "sha256": "e6c714a96387be09b13afbc8851eae438a49194b0e33fdb231c28b29fc505137",
+      "bytes": 3773,
+      "kind": "pinned_source",
+      "line_count": 78,
+      "license_marker_in_first_20_lines": false,
+      "relevant_declarations": [
+        {
+          "line": 75,
+          "declaration_line": "def IsStationary {p : ℕ} (φ : Fin p → ℝ) : Prop :="
+        }
+      ]
+    },
+    {
+      "url": "https://raw.githubusercontent.com/S-Kamaguchi/ar456-stationarity-lean/da3605efdc3728e87f90284535083a4f1d588ce3/StTopology/StOpen.lean",
+      "retrieved_at_utc": "2026-09-24T02:31:22.250268+00:00",
+      "http_status": 200,
+      "sha256": "35aebfbe82221c9155055e2632e1e797a581207b87fc79727aeb8e36a66f2092",
+      "bytes": 9093,
+      "kind": "pinned_source",
+      "line_count": 204,
+      "license_marker_in_first_20_lines": false,
+      "relevant_declarations": [
+        {
+          "line": 109,
+          "declaration_line": "theorem isOpen_isStationary {p : ℕ} (hp : 0 < p) :"
+        }
+      ]
+    },
+    {
+      "url": "https://raw.githubusercontent.com/S-Kamaguchi/ar456-stationarity-lean/da3605efdc3728e87f90284535083a4f1d588ce3/lean-toolchain",
+      "retrieved_at_utc": "2026-09-24T02:31:22.250268+00:00",
+      "http_status": 200,
+      "sha256": "2bdc48adfa58d0017e538a0ad117c5d73d35deec879978f909406a80c8037273",
+      "bytes": 25,
+      "kind": "pinned_source",
+      "line_count": 1,
+      "license_marker_in_first_20_lines": false
+    },
+    {
+      "url": "https://raw.githubusercontent.com/S-Kamaguchi/ar456-stationarity-lean/da3605efdc3728e87f90284535083a4f1d588ce3/lakefile.toml",
+      "retrieved_at_utc": "2026-09-24T02:31:22.250268+00:00",
+      "http_status": 200,
+      "sha256": "18f884625cc03ea41e2ccfe0779db43286abc69cae8bce5f96b5d56b84e4c9fa",
+      "bytes": 360,
+      "kind": "pinned_source",
+      "line_count": 18,
+      "license_marker_in_first_20_lines": false
+    },
+    {
+      "url": "https://raw.githubusercontent.com/S-Kamaguchi/ar456-stationarity-lean/da3605efdc3728e87f90284535083a4f1d588ce3/lake-manifest.json",
+      "retrieved_at_utc": "2026-09-24T02:31:22.250268+00:00",
+      "http_status": 200,
+      "sha256": "c1b2dd3b46797420b331d21f34085e8f709c41f31007453576a8ac9a7c0c4f7c",
+      "bytes": 3145,
+      "kind": "pinned_source",
+      "line_count": 96,
+      "license_marker_in_first_20_lines": false
+    },
+    {
+      "url": "https://raw.githubusercontent.com/S-Kamaguchi/ar456-stationarity-lean/da3605efdc3728e87f90284535083a4f1d588ce3/.github/workflows/lean_action_ci.yml",
+      "retrieved_at_utc": "2026-09-24T02:31:22.250268+00:00",
+      "http_status": 200,
+      "sha256": "3b0d49449c2e6d4ee04ce6e57c23dde1a836314b502351f1f6203477e2aafe8f",
+      "bytes": 487,
+      "kind": "pinned_source",
+      "line_count": 21,
+      "license_marker_in_first_20_lines": false
+    },
+    {
+      "url": "https://api.github.com/repos/leanprover-community/mathlib4/commits/045acef0f761280401116e3801cb78ed1b2e716b",
+      "retrieved_at_utc": "2026-09-24T02:31:22.250268+00:00",
+      "http_status": 200,
+      "sha256": "bc58ed2de511516222db1dbffd1a2ac13654427332def0d5baa017a663bc3a97",
+      "bytes": 26126,
+      "kind": "github_api"
+    },
+    {
+      "url": "https://api.github.com/repos/leanprover-community/mathlib4/git/trees/045acef0f761280401116e3801cb78ed1b2e716b?recursive=1",
+      "retrieved_at_utc": "2026-09-24T02:31:22.250268+00:00",
+      "http_status": 200,
+      "sha256": "870841102dfcf1912927c811afcfc13b50336f57127fd4ae424ea3fcc25edf08",
+      "bytes": 2794983,
+      "kind": "github_api"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/leanprover-community/mathlib4/045acef0f761280401116e3801cb78ed1b2e716b/Mathlib/Algebra/Polynomial/Reverse.lean",
+      "retrieved_at_utc": "2026-09-24T02:31:22.250268+00:00",
+      "http_status": 200,
+      "sha256": "7ec968d2fabc16e4d604b4cff9a282c08308d8d7aaaf09b0c724b22866b79863",
+      "bytes": 13849,
+      "kind": "pinned_source",
+      "line_count": 362,
+      "relevant_declarations": [
+        {
+          "line": 88,
+          "declaration_line": "noncomputable def reflect (N : ℕ) : R[X] → R[X]"
+        },
+        {
+          "line": 95,
+          "declaration_line": "theorem coeff_reflect (N : ℕ) (f : R[X]) (i : ℕ) : coeff (reflect N f) i = f.coeff (revAt N i) := by"
+        },
+        {
+          "line": 103,
+          "declaration_line": "@[simp] lemma reflect_reflect {N : ℕ} {p : R[X]} : (p.reflect N).reflect N = p := by ext; simp"
+        },
+        {
+          "line": 137,
+          "declaration_line": "lemma reflect_map {S : Type*} [Semiring S] (f : R →+* S) (p : R[X]) (n : ℕ) :"
+        },
+        {
+          "line": 176,
+          "declaration_line": "theorem reflect_mul (f g : R[X]) {F G : ℕ} (Ff : f.natDegree ≤ F) (Gg : g.natDegree ≤ G) :"
+        },
+        {
+          "line": 217,
+          "declaration_line": "noncomputable def reverse (f : R[X]) : R[X] :="
+        }
+      ]
+    },
+    {
+      "url": "https://raw.githubusercontent.com/leanprover-community/mathlib4/045acef0f761280401116e3801cb78ed1b2e716b/Mathlib/Algebra/Polynomial/Mirror.lean",
+      "retrieved_at_utc": "2026-09-24T02:31:22.250268+00:00",
+      "http_status": 200,
+      "sha256": "f22c60376f46e8de86f4793aa77ad26114e61373339edb7ebae1eb8399c1e2f6",
+      "bytes": 8321,
+      "kind": "pinned_source",
+      "line_count": 222,
+      "relevant_declarations": [
+        {
+          "line": 39,
+          "declaration_line": "noncomputable def mirror :="
+        }
+      ]
+    },
+    {
+      "url": "https://raw.githubusercontent.com/leanprover-community/mathlib4/045acef0f761280401116e3801cb78ed1b2e716b/Mathlib/Algebra/Polynomial/Inductions.lean",
+      "retrieved_at_utc": "2026-09-24T02:31:22.250268+00:00",
+      "http_status": 200,
+      "sha256": "93f9fc64a024bbbf54c7a38bd264abc4f109193200599e5d88b999f5bf659d92",
+      "bytes": 7969,
+      "kind": "pinned_source",
+      "line_count": 219,
+      "relevant_declarations": [
+        {
+          "line": 38,
+          "declaration_line": "def divX (p : R[X]) : R[X] :="
+        },
+        {
+          "line": 42,
+          "declaration_line": "theorem coeff_divX : (divX p).coeff n = p.coeff (n + 1) := by"
+        },
+        {
+          "line": 49,
+          "declaration_line": "theorem X_mul_divX_add (p : R[X]) : X * divX p + C (p.coeff 0) = p :="
+        },
+        {
+          "line": 83,
+          "declaration_line": "def divX_hom : R[X] →+ R[X] :="
+        },
+        {
+          "line": 90,
+          "declaration_line": "theorem natDegree_divX_eq_natDegree_tsub_one : p.divX.natDegree = p.natDegree - 1 := by"
+        },
+        {
+          "line": 101,
+          "declaration_line": "  natDegree_divX_eq_natDegree_tsub_one.trans_le (Nat.pred_le _)"
+        }
+      ]
+    },
+    {
+      "url": "https://raw.githubusercontent.com/leanprover-community/mathlib4/045acef0f761280401116e3801cb78ed1b2e716b/Mathlib/Algebra/Polynomial/Splits.lean",
+      "retrieved_at_utc": "2026-09-24T02:31:22.250268+00:00",
+      "http_status": 200,
+      "sha256": "4fb1e2341c7333660cd2e5468569d9dfa4ce5e7985edb6afd695e8da6e13f042",
+      "bytes": 28988,
+      "kind": "pinned_source",
+      "line_count": 702,
+      "relevant_declarations": [
+        {
+          "line": 368,
+          "declaration_line": "theorem Splits.natDegree_eq_card_roots (hf : Splits f) :"
+        }
+      ]
+    },
+    {
+      "url": "https://raw.githubusercontent.com/leanprover-community/mathlib4/045acef0f761280401116e3801cb78ed1b2e716b/Mathlib/Analysis/Complex/Polynomial/Basic.lean",
+      "retrieved_at_utc": "2026-09-24T02:31:22.250268+00:00",
+      "http_status": 200,
+      "sha256": "754f86ac5a636d76c3e84838057b5a7698eeb597a2ee714f92f8fd249ffe0b69",
+      "bytes": 9444,
+      "kind": "pinned_source",
+      "line_count": 208,
+      "relevant_declarations": [
+        {
+          "line": 37,
+          "declaration_line": "theorem exists_root {f : ℂ[X]} (hf : 0 < degree f) : ∃ z : ℂ, IsRoot f z := by"
+        }
+      ]
+    },
+    {
+      "url": "https://raw.githubusercontent.com/leanprover-community/mathlib4/045acef0f761280401116e3801cb78ed1b2e716b/lean-toolchain",
+      "retrieved_at_utc": "2026-09-24T02:31:22.250268+00:00",
+      "http_status": 200,
+      "sha256": "8dc8d6f560141069d9073e370611716ef77ada0da8ffa37e2149f44b2e63ac7a",
+      "bytes": 29,
+      "kind": "pinned_source",
+      "line_count": 1
+    },
+    {
+      "url": "https://raw.githubusercontent.com/leanprover-community/mathlib4/045acef0f761280401116e3801cb78ed1b2e716b/LICENSE",
+      "retrieved_at_utc": "2026-09-24T02:31:22.250268+00:00",
+      "http_status": 200,
+      "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1",
+      "bytes": 11357,
+      "kind": "pinned_source",
+      "line_count": 201
+    },
+    {
+      "url": "https://lean-lang.org/doc/reference/latest/ValidatingProofs/",
+      "retrieved_at_utc": "2026-09-24T02:31:22.250268+00:00",
+      "http_status": 200,
+      "sha256": "a8d6648cfe53473daae652994ed453de3548b080c84e539e20c475a868cb2fe7",
+      "bytes": 133465,
+      "kind": "primary_documentation"
+    },
+    {
+      "url": "https://lean-lang.org/doc/api/Init/Tactics.html",
+      "retrieved_at_utc": "2026-09-24T02:31:22.250268+00:00",
+      "http_status": 200,
+      "sha256": "bf048dc4c62d9f54c7036e7a77b5341208b1634b4aac29a8ec9030672720822c",
+      "bytes": 494650,
+      "kind": "primary_documentation"
+    },
+    {
+      "url": "https://leanprover-community.github.io/mathlib4_docs/Mathlib/Algebra/Polynomial/Reverse.html",
+      "retrieved_at_utc": "2026-09-24T02:31:22.250268+00:00",
+      "http_status": 200,
+      "sha256": "bd0e26734a7a0efc2f61af4fff76b1dbcce7c6e18f9a26bc61ceba05ee34fa14",
+      "bytes": 127892,
+      "kind": "primary_documentation"
+    },
+    {
+      "url": "https://leanprover-community.github.io/mathlib4_docs/Mathlib/Algebra/Polynomial/Mirror.html",
+      "retrieved_at_utc": "2026-09-24T02:31:22.250268+00:00",
+      "http_status": 200,
+      "sha256": "e32b79002dd5f1aacc3b177de0d73963673e9833fc9a57f22d0f5769c31187f6",
+      "bytes": 52220,
+      "kind": "primary_documentation"
+    },
+    {
+      "url": "https://leanprover-community.github.io/mathlib4_docs/Mathlib/Algebra/Polynomial/Inductions.html",
+      "retrieved_at_utc": "2026-09-24T02:31:22.250268+00:00",
+      "http_status": 200,
+      "sha256": "09fc9ffcc49b4f68de94c8655fd3256c9aa0c6e9904665d3522ee137b40ad5d9",
+      "bytes": 52951,
+      "kind": "primary_documentation"
+    },
+    {
+      "url": "https://www.stat.berkeley.edu/~bartlett/courses/153-fall2010/lectures/5.pdf",
+      "retrieved_at_utc": "2026-09-24T02:31:22.250268+00:00",
+      "http_status": 200,
+      "sha256": "ae77182669a671e67241182e1796a1d5fdb08dd86a0f5a6f2d69a6bfd9b3e7d9",
+      "bytes": 81242,
+      "kind": "primary_documentation"
+    }
+  ]
+}

@@ -1,0 +1,451 @@
+{
+  "schema_version": 1,
+  "purpose": "M0 independent acceptance-target audit; no registration or original programme gate is passed by this output.",
+  "source_plan": {
+    "relative_path": "../Unit_Circle_Programme_Plan.pdf",
+    "pages": [
+      13,
+      14,
+      21,
+      22
+    ],
+    "sha256": "85a594b0baf6d7b5a72d3ca1ec856f0df06b1106aaf3319e48f5b3967854dde7",
+    "expected_sha256": "85a594b0baf6d7b5a72d3ca1ec856f0df06b1106aaf3319e48f5b3967854dde7",
+    "status": "verified",
+    "matches_preserved_original": true
+  },
+  "environment": {
+    "python": "3.12.14",
+    "platform": "Windows-10-10.0.19045-SP0",
+    "packages": {
+      "numpy": "2.5.3",
+      "scipy": "1.18.1",
+      "pandas": "3.0.6",
+      "statsmodels": "0.15.0",
+      "sympy": "1.14.0",
+      "pytest": "9.1.1"
+    }
+  },
+  "audit_script_sha256": "961c9210ea838197aa908371184d8cc733b54362043fc5c028854521241d880b",
+  "data_provenance": {
+    "source": "statsmodels.datasets.sunspots bundled data; no network request",
+    "coverage": [
+      1700,
+      2008
+    ],
+    "observation_count": 309,
+    "array_columns": [
+      "YEAR",
+      "SUNACTIVITY"
+    ],
+    "array_digest_encoding": "C-order little-endian IEEE-754 float64 bytes; year then activity in each row",
+    "full_year_value_array_sha256": "8079d305fa3cb6b7bb916342bf69900a2cd9df93634e3db3153f8e4a9d72964a",
+    "package_csv_sha256": "df04b629a69bc68611a4d1d1a8cf7a3a9b10d43a003693c22d7baac56a17bc46"
+  },
+  "sample_conventions": {
+    "ols": "Restrict to inclusive year interval first, then regress x[2:] on [1, x[1:-1], x[:-2]]. No preceding-period observations.",
+    "yule_walker": "Subtract full interval mean; r_k=sum_{t=1}^{N-k}(x_t-mean)(x_{t+k}-mean)/sum_{t=1}^N(x_t-mean)^2.",
+    "roots": "Companion roots of lambda^2-phi1*lambda-phi2; these are not reciprocal lag-polynomial roots.",
+    "AT-4": "Transform each raw observation as x/0.6+5 and refit with an intercept; compare both AR coefficients."
+  },
+  "intervals": {
+    "1749-1924": {
+      "year_start": 1749,
+      "year_end": 1924,
+      "regression_year_start": 1751,
+      "regression_year_end": 1924,
+      "year_value_array_sha256": "b6f242da36c8894a60c24f03b3601a5dca2ab46c6de1f05e28779f34eb3e2c95",
+      "ols": {
+        "intercept": 13.94055834323718,
+        "phi": [
+          1.3359496152045298,
+          -0.6498534685821509
+        ],
+        "input_count": 176,
+        "regression_count": 174
+      },
+      "root_metrics": {
+        "discriminant": -0.8146524999634721,
+        "roots_real_imag": [
+          [
+            0.6679748076022648,
+            0.4512905106368491
+          ],
+          [
+            0.6679748076022648,
+            -0.4512905106368491
+          ]
+        ],
+        "spectral_radius": 0.8061348947801172,
+        "complex_pair": true,
+        "stable": true,
+        "period_years": 10.574750375006364,
+        "half_life_years": 3.216397739062443,
+        "complex_modulus_formula": 0.8061348947801174,
+        "angle_radians": 0.5941686644471553
+      }
+    },
+    "1925-2008": {
+      "year_start": 1925,
+      "year_end": 2008,
+      "regression_year_start": 1927,
+      "regression_year_end": 2008,
+      "year_value_array_sha256": "4025f6848f2c67269cf0ff5e5c2a334b081b464da0c7b21cf0b73e150414abf7",
+      "ols": {
+        "intercept": 23.629169892065768,
+        "phi": [
+          1.413864633095901,
+          -0.7623731048322332
+        ],
+        "input_count": 84,
+        "regression_count": 82
+      },
+      "root_metrics": {
+        "discriminant": -1.050479218609526,
+        "roots_real_imag": [
+          [
+            0.7069323165479504,
+            0.5124644423297888
+          ],
+          [
+            0.7069323165479504,
+            -0.5124644423297888
+          ]
+        ],
+        "spectral_radius": 0.8731397968436858,
+        "complex_pair": true,
+        "stable": true,
+        "period_years": 10.01701633827579,
+        "half_life_years": 5.10945904103103,
+        "complex_modulus_formula": 0.8731397968436859,
+        "angle_radians": 0.6272511788935645
+      }
+    }
+  },
+  "yule_walker_1749_1924": {
+    "fit": {
+      "phi": [
+        1.3262603368466936,
+        -0.6418867557613004
+      ],
+      "r1_r2": [
+        0.8077660241748774,
+        0.4294212835541869
+      ],
+      "input_count": 176,
+      "mean_removed": 44.78409090909091,
+      "common_sum_of_squares_denominator": 211789.39545454545
+    },
+    "root_metrics": {
+      "discriminant": -0.8085805419524963,
+      "roots_real_imag": [
+        [
+          0.6631301684233468,
+          0.4496055332045238
+        ],
+        [
+          0.6631301684233468,
+          -0.4496055332045238
+        ]
+      ],
+      "spectral_radius": 0.8011783545261943,
+      "complex_pair": true,
+      "stable": true,
+      "period_years": 10.54559857895995,
+      "half_life_years": 3.1269088745730893,
+      "complex_modulus_formula": 0.8011783545261943,
+      "angle_radians": 0.5958111585733485
+    }
+  },
+  "affine_transform_1749_1924": {
+    "fit": {
+      "intercept": 24.80378317228339,
+      "phi": [
+        1.33594961520453,
+        -0.649853468582151
+      ],
+      "input_count": 176,
+      "regression_count": 174
+    },
+    "phi_absolute_changes": [
+      2.220446049250313e-16,
+      1.1102230246251565e-16
+    ]
+  },
+  "acceptance_tests": {
+    "AT-1": {
+      "status": "passed",
+      "checks": {
+        "phi1": {
+          "computed": 1.3359496152045298,
+          "stated": 1.336,
+          "absolute_error": 5.038479547025965e-05,
+          "absolute_tolerance": 0.001,
+          "passed": true
+        },
+        "phi2": {
+          "computed": -0.6498534685821509,
+          "stated": -0.65,
+          "absolute_error": 0.00014653141784914947,
+          "absolute_tolerance": 0.001,
+          "passed": true
+        },
+        "modulus": {
+          "computed": 0.8061348947801172,
+          "stated": 0.806,
+          "absolute_error": 0.00013489478011718958,
+          "absolute_tolerance": 0.001,
+          "passed": true
+        },
+        "period_years": {
+          "computed": 10.574750375006364,
+          "stated": 10.57,
+          "absolute_error": 0.004750375006363328,
+          "absolute_tolerance": 0.01,
+          "passed": true
+        },
+        "half_life_years": {
+          "computed": 3.216397739062443,
+          "stated": 3.2,
+          "absolute_error": 0.016397739062442795,
+          "absolute_tolerance": 0.1,
+          "passed": true
+        }
+      }
+    },
+    "AT-2": {
+      "status": "passed",
+      "checks": {
+        "phi1": {
+          "computed": 1.3262603368466936,
+          "stated": 1.326,
+          "absolute_error": 0.00026033684669357626,
+          "absolute_tolerance": 0.001,
+          "passed": true
+        },
+        "phi2": {
+          "computed": -0.6418867557613004,
+          "stated": -0.642,
+          "absolute_error": 0.00011324423869962796,
+          "absolute_tolerance": 0.001,
+          "passed": true
+        },
+        "modulus": {
+          "computed": 0.8011783545261943,
+          "stated": 0.801,
+          "absolute_error": 0.00017835452619430203,
+          "absolute_tolerance": 0.001,
+          "passed": true
+        },
+        "period_years": {
+          "computed": 10.54559857895995,
+          "stated": 10.55,
+          "absolute_error": 0.004401421040050479,
+          "absolute_tolerance": 0.01,
+          "passed": true
+        }
+      }
+    },
+    "AT-3": {
+      "status": "passed",
+      "checks": {
+        "phi1": {
+          "computed": 1.413864633095901,
+          "stated": 1.414,
+          "absolute_error": 0.00013536690409887697,
+          "absolute_tolerance": 0.001,
+          "passed": true
+        },
+        "phi2": {
+          "computed": -0.7623731048322332,
+          "stated": -0.762,
+          "absolute_error": 0.00037310483223318425,
+          "absolute_tolerance": 0.001,
+          "passed": true
+        },
+        "modulus": {
+          "computed": 0.8731397968436858,
+          "stated": 0.873,
+          "absolute_error": 0.00013979684368581324,
+          "absolute_tolerance": 0.001,
+          "passed": true
+        },
+        "period_years": {
+          "computed": 10.01701633827579,
+          "stated": 10.02,
+          "absolute_error": 0.0029836617242100516,
+          "absolute_tolerance": 0.01,
+          "passed": true
+        }
+      }
+    },
+    "AT-4": {
+      "status": "passed",
+      "checks": {
+        "phi1_absolute_change": {
+          "computed": 2.220446049250313e-16,
+          "stated": 0.0,
+          "absolute_error": 2.220446049250313e-16,
+          "absolute_tolerance": 1e-06,
+          "passed": true
+        },
+        "phi2_absolute_change": {
+          "computed": 1.1102230246251565e-16,
+          "stated": 0.0,
+          "absolute_error": 1.1102230246251565e-16,
+          "absolute_tolerance": 1e-06,
+          "passed": true
+        }
+      }
+    },
+    "AT-5": {
+      "status": "not_run",
+      "reason": "Outside this bounded M0 baseline audit."
+    },
+    "AT-6": {
+      "status": "passed",
+      "checks": {
+        "modulus_formula": {
+          "computed": 0.8061348947801174,
+          "stated": 0.806,
+          "absolute_error": 0.0001348947801173006,
+          "absolute_tolerance": 0.001,
+          "passed": true
+        },
+        "formula_minus_root_modulus": {
+          "computed": 1.1102230246251565e-16,
+          "stated": 0.0,
+          "absolute_error": 1.1102230246251565e-16,
+          "absolute_tolerance": 1e-12,
+          "passed": true
+        }
+      },
+      "extra_audit_tolerance": "1e-12 for formula/root agreement; the plan's target tolerance is 0.001."
+    },
+    "AT-7": {
+      "status": "not_run",
+      "reason": "Outside this bounded M0 baseline audit."
+    },
+    "AT-8": {
+      "status": "not_run",
+      "reason": "Outside this bounded M0 baseline audit."
+    },
+    "AT-9": {
+      "status": "partial_algebra_only",
+      "reason": "Covariance algebra verified; required finite-sample Monte Carlo experiment not run."
+    },
+    "AT-10": {
+      "status": "partial_algebra_only",
+      "reason": "Strict-inclusion algebra/example verified; required numerical spectral grid not run."
+    },
+    "AT-11": {
+      "status": "not_run",
+      "reason": "Outside this bounded M0 baseline audit."
+    },
+    "AT-12": {
+      "status": "not_run",
+      "reason": "Outside this bounded M0 baseline audit."
+    },
+    "AT-13": {
+      "status": "not_run",
+      "reason": "Outside this bounded M0 baseline audit."
+    },
+    "AT-14": {
+      "status": "not_run",
+      "reason": "Outside this bounded M0 baseline audit."
+    },
+    "AT-15": {
+      "status": "not_run",
+      "reason": "Outside this bounded M0 baseline audit."
+    },
+    "AT-16": {
+      "status": "not_run",
+      "reason": "Outside this bounded M0 baseline audit."
+    },
+    "AT-17": {
+      "status": "partial_algebra_only",
+      "reason": "Boundary variance algebra and displayed values verified; required Monte Carlo experiment not run."
+    },
+    "AT-18": {
+      "status": "not_run",
+      "reason": "Outside this bounded M0 baseline audit."
+    },
+    "AT-19": {
+      "status": "not_run",
+      "reason": "Outside this bounded M0 baseline audit."
+    },
+    "AT-20": {
+      "status": "not_run",
+      "reason": "Outside this bounded M0 baseline audit."
+    },
+    "AT-21": {
+      "status": "not_run",
+      "reason": "Outside this bounded M0 baseline audit."
+    }
+  },
+  "symbolic_checks": {
+    "status": "algebra_verified",
+    "identities": {
+      "innovation_variance_times_inverse_lag_covariance_equals_Sigma": true,
+      "delta_method_gradient_identity": true,
+      "boundary_variance_identity": true,
+      "spectral_inclusion_gap_identity": true
+    },
+    "covariance_residual": "Matrix([[0, 0], [0, 0]])",
+    "delta_method_residual": "0",
+    "boundary_residual": "0",
+    "boundary_variance_formula": "-(phi1 - 2)**3*(phi1 + 2)**3/4",
+    "AT_17_boundary_display_values": [
+      {
+        "phi1_exact": "0",
+        "variance_exact": "16",
+        "variance_computed": 16.0,
+        "plan_display": 16.0,
+        "absolute_display_difference": 0.0
+      },
+      {
+        "phi1_exact": "4/5",
+        "variance_exact": "148176/15625",
+        "variance_computed": 9.483264,
+        "plan_display": 9.48,
+        "absolute_display_difference": 0.0032639999999997116
+      },
+      {
+        "phi1_exact": "7/5",
+        "variance_exact": "132651/62500",
+        "variance_computed": 2.122416,
+        "plan_display": 2.12,
+        "absolute_display_difference": 0.0024159999999997517
+      }
+    ],
+    "spectral_inclusion_nonnegative_gap_for_phi2_negative": "-4*phi2*(phi2 + 1)**2/(phi2 - 1)**2",
+    "strict_inclusion_example": {
+      "phi_exact": [
+        "1",
+        "-3/10"
+      ],
+      "discriminant_exact": "-1/5",
+      "spectral_peak_margin_exact": "-1/10",
+      "stability_triangle_positive_margins_exact": [
+        "3/10",
+        "23/10",
+        "7/10"
+      ],
+      "complex_roots": true,
+      "interior_spectral_peak": false
+    },
+    "scope": "Exact computer algebra, not a Lean proof, asymptotic-normality proof, or Monte Carlo acceptance check.",
+    "assumptions": [
+      "Stationary AR(2) under the stochastic assumptions needed for OLS asymptotic covariance; positive innovation variance.",
+      "The Yule-Walker covariance equations are assumed. Their rational matrix identity is checked exactly.",
+      "The repeated-root boundary is stationary only for abs(phi1) < 2.",
+      "The spectral-density interpretation is restricted to stationary AR(2); the inclusion gap is nonnegative for phi2 < 0."
+    ]
+  },
+  "audit_success": true,
+  "limitations": [
+    "Only AT-1, AT-2, AT-3, AT-4 and AT-6 are claimed passed; all other acceptance tests retain explicit partial/not-run states.",
+    "The dataset is the specified statsmodels series, not an independently reconstructed historical Yule dataset.",
+    "No synthetic Monte Carlo evidence, asymptotic theorem proof, formal Lean proof, or real UK analysis is produced."
+  ]
+}

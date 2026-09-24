@@ -1,0 +1,66 @@
+{
+  "milestone": "M1b",
+  "verified_at_utc": "2026-09-24T02:49:23.189211+00:00",
+  "passed": true,
+  "scope": "Synthetic software verification; these numbers have no empirical or power interpretation.",
+  "fixture": {
+    "seed": 1927140,
+    "rng": "PCG64",
+    "length": 140,
+    "input_sha256": "27c5ce37e92623fc619d76bfda6fd44f185c401a26c99fe59a1de5ee95c54564",
+    "negative_runs": [
+      [
+        48,
+        49
+      ],
+      [
+        60,
+        61
+      ],
+      [
+        100,
+        101
+      ]
+    ]
+  },
+  "observed_episode_positions": [
+    [
+      48,
+      49
+    ],
+    [
+      60,
+      61
+    ],
+    [
+      100,
+      101
+    ]
+  ],
+  "eligible_onsets": [
+    48,
+    60,
+    100
+  ],
+  "synthetic_changes": [
+    0.15762515930072796,
+    -0.09106256708708604,
+    -0.21724424408911336
+  ],
+  "synthetic_mean_change": -0.05022721729182381,
+  "prefix_invariance": true,
+  "rolling_140_observation_runtime_seconds": 0.013151300023309886,
+  "pytest": {
+    "returncode": 0,
+    "stdout": "........................................................................ [ 96%]\n...                                                                      [100%]\n75 passed in 3.20s\n",
+    "stderr": ""
+  },
+  "file_sha256": {
+    "src/uc_core/ar.py": "19ea466d4829de08a18a6d1efd1ba10aebcf55cc3e7efc556f87001ed352a936",
+    "src/uc_core/rolling.py": "e335a4dcf3d159294ac5e84a99b27f46a21b347c400cdfbcae236f7f3843d5ee",
+    "src/uc_core/recession.py": "e9dcde4abac3bcf98fd027d2dd7735da1de61b65b8ae69f005d4793849359834",
+    "tests/test_rolling_recession.py": "2dbc42f1220e223b0859132545808a601d5e4c7b9b09a6504e47f8545e77bf53",
+    "docs/M1B_CONVENTIONS.md": "3c001db71931da264c7b35f311c5a5afbe925d1a787c6184f377811d36d01bd7",
+    "tools/verify_m1b.py": "45e6c29aa9ff5518417f4b0fc7c3e7300ab567ab6a5f760074fa4e5446e4ab9b"
+  }
+}

@@ -1,0 +1,183 @@
+{
+  "audit": "M0 statistical design",
+  "audited_at": "2026-09-24",
+  "original_plan": {
+    "path": "../Unit_Circle_Programme_Plan.pdf",
+    "sha256": "85a594b0baf6d7b5a72d3ca1ec856f0df06b1106aaf3319e48f5b3967854dde7",
+    "pages": [
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      21,
+      22
+    ],
+    "evidence_status": "Proposed specification and author-reported pilot targets; not independently reproduced by this audit."
+  },
+  "method": "Focused primary-source methodological checks and algebraic inspection of the supplied specification; not a systematic literature review.",
+  "sources": [
+    {
+      "id": "STAT-S01",
+      "authors": "Boettiger, C.; Hastings, A.",
+      "year": 2012,
+      "title": "Early warning signals and the prosecutor's fallacy",
+      "doi": "10.1098/rspb.2012.2085",
+      "url": "https://arxiv.org/abs/1210.1204",
+      "kind": "Original methodological research; author preprint",
+      "access": "Author abstract inspected; no claim of full-paper replication.",
+      "supports": [
+        "Conditional selection of transition cases can inflate false-positive early-warning patterns."
+      ],
+      "audit_use": [
+        "SD-01"
+      ],
+      "limits": "The ecological simulation does not establish validity of the proposed UK AR(2) design."
+    },
+    {
+      "id": "STAT-S02",
+      "authors": "Dakos, V. et al.",
+      "year": 2012,
+      "title": "Methods for Detecting Early Warnings of Critical Transitions in Time Series Illustrated Using Simulated Ecological Data",
+      "doi": "10.1371/journal.pone.0041010",
+      "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0041010",
+      "kind": "Original methods study",
+      "access": "Publisher full text, Step 5 Significance Testing and Discussion, inspected.",
+      "supports": [
+        "Interpretation of surrogate significance depends on the chosen model.",
+        "False alarms, missed signals and system characteristics limit early-warning interpretation."
+      ],
+      "audit_use": [
+        "SD-01"
+      ],
+      "limits": "No claim that this study validates H1 or that its particular method is adopted."
+    },
+    {
+      "id": "STAT-S03",
+      "authors": "Lakens, D.",
+      "year": 2017,
+      "title": "Equivalence Tests: A Practical Primer for t Tests, Correlations, and Meta-Analyses",
+      "doi": "10.1177/1948550617697177",
+      "url": "https://doi.org/10.1177/1948550617697177",
+      "full_text_url": "https://pure.tue.nl/ws/portalfiles/portal/80918653/lakeequi2017.pdf",
+      "kind": "Author methodological article",
+      "access": "Institutional full-text PDF inspected, opening rationale and equivalence-bounds discussion.",
+      "supports": [
+        "Non-significance does not establish absence of a meaningful effect.",
+        "Exclusion or equivalence claims require a defined effect threshold and appropriate inference."
+      ],
+      "audit_use": [
+        "SD-02"
+      ],
+      "limits": "The t-test and correlation procedures are not adopted for selected, dependent recession episodes; the audit's target-mismatch diagnosis is its own analysis."
+    },
+    {
+      "id": "STAT-S04",
+      "authors": "Berger, R. L.; Boos, D. D.",
+      "year": 1994,
+      "title": "P Values Maximized Over a Confidence Set for the Nuisance Parameter",
+      "doi": "10.1080/01621459.1994.10476836",
+      "url": "https://www.tandfonline.com/doi/abs/10.1080/01621459.1994.10476836",
+      "kind": "Original theoretical methods paper",
+      "access": "Publisher abstract available in search output; subsequent direct open failed. Full paper not inspected.",
+      "supports": [
+        "Nuisance-parameter testing can use maximization over parameter space or restriction to a confidence set."
+      ],
+      "audit_use": [
+        "SD-04"
+      ],
+      "limits": "Does not prove an AR(2) least-favourable projection or validate the proposed bootstrap. No uninspected theorem is being applied."
+    },
+    {
+      "id": "STAT-S05",
+      "authors": "Morris, T. P.; White, I. R.; Crowther, M. J.",
+      "year": 2019,
+      "title": "Using simulation studies to evaluate statistical methods",
+      "doi": "10.1002/sim.8086",
+      "url": "https://doi.org/10.1002/sim.8086",
+      "kind": "Author methodological study and tutorial",
+      "access": "Publisher full text inspected, sections 3–5 and reporting recommendations. PMC direct opening returned a challenge; publisher version supplied the full text.",
+      "supports": [
+        "ADEMP specification separates aims, generating mechanisms, targets, methods and performance.",
+        "Simulation performance estimates have Monte Carlo uncertainty.",
+        "Verification under limited settings is distinct from robustness investigation."
+      ],
+      "audit_use": [
+        "SD-05"
+      ],
+      "limits": "The AR(2)-specific checklist and independent-finalist-validation proposal are audit recommendations, not claims that this article prescribes those exact choices."
+    },
+    {
+      "id": "STAT-S06",
+      "authors": "Giacomini, R.; Politis, D. N.; White, H.",
+      "year": 2013,
+      "title": "A Warp-Speed Method for Conducting Monte Carlo Experiments Involving Bootstrap Estimators",
+      "url": "https://www.cambridge.org/core/journals/econometric-theory/article/abs/warpspeed-method-for-conducting-monte-carlo-experiments-involving-bootstrap-estimators/1AAC5F31AB01CE60405A8B4D3FF90D4C",
+      "kind": "Original theoretical methods paper",
+      "access": "Publisher abstract and bibliographic record inspected; detailed theorem and algorithm audit remains pending.",
+      "supports": [
+        "Warp-speed Monte Carlo procedures have formal results under conditions."
+      ],
+      "audit_use": [
+        "SD-05"
+      ],
+      "limits": "No claim of general applicability to the proposed C3 bootstrap. Exact construction and conditions must be inspected before implementation."
+    },
+    {
+      "id": "STAT-S07",
+      "authors": "Office for National Statistics",
+      "year": 2022,
+      "title": "Gross domestic product (GDP) QMI",
+      "url": "https://www.ons.gov.uk/economy/grossdomesticproductgdp/methodologies/grossdomesticproductgdpqmi",
+      "kind": "Official producer methodology",
+      "access": "Methodology-only search result supplied full text including timeliness and dissemination; last revised date shown as 8 April 2022.",
+      "supports": [
+        "Reference period and publication date differ.",
+        "The methodology describes first quarterly estimates around six weeks after the reference quarter."
+      ],
+      "audit_use": [
+        "SD-07"
+      ],
+      "limits": "Does not verify each historical vintage release date; no dataset download or values are needed for the timing inference."
+    }
+  ],
+  "derivations": [
+    {
+      "id": "STAT-A01",
+      "topic": "Wald normalization and rejection directions",
+      "basis": "PDF page 14 asymptotic covariance statement, delta-method statement and definitions of D and G",
+      "execution": "Algebraic derivation only; no new C3 simulation."
+    },
+    {
+      "id": "STAT-A02",
+      "topic": "Possible overlap of episode estimation windows",
+      "basis": "PDF page 11 specifies 40-quarter windows and an 8-quarter episode-merging threshold",
+      "execution": "Logical implication of window support; no inspection of actual episode dates."
+    },
+    {
+      "id": "STAT-A03",
+      "topic": "Monte Carlo standard errors",
+      "basis": "sqrt(p*(1-p)/R)",
+      "execution": "Analytic arithmetic, not empirical results."
+    }
+  ],
+  "data_exposure": {
+    "raw_uk_data_downloaded": false,
+    "primary_sample_observations_deliberately_inspected": false,
+    "uk_data_fitted_or_analysed": false,
+    "c3_registered_simulation_cells_run": false,
+    "incidental_exposure": true,
+    "description": "A search intended to locate ONS publication-timing methodology returned unsolicited GDP landing-page and recent-news snippets containing post-2019 GDP headlines. Later targeted metadata searching also returned post-2019 context in unrelated snippets. These results were not deliberately opened as data sources. No primary-sample series was obtained or analysed, and snippet values were not used to choose the design.",
+    "action": "Retain this access record and distinguish incidental headline exposure from access to the research series. Use direct methodology URLs and metadata-only retrieval before registration.",
+    "numerical_values_reproduced_here": false,
+    "prior_data_declaration": {
+      "date": "2026-09-24",
+      "scope": "Before the project began",
+      "uk_gdp_data_inspected_or_downloaded": false,
+      "uk_recession_analysis_performed": false,
+      "basis": "Explicit declaration; preparation-stage literature and headline exposure are recorded separately above."
+    }
+  }
+}

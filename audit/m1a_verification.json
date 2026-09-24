@@ -1,0 +1,67 @@
+{
+  "milestone": "M1a",
+  "verified_at_utc": "2026-09-24T22:55:09.681478+00:00",
+  "passed": true,
+  "AT-7": {
+    "seed": 1927007,
+    "rng": "PCG64",
+    "draws": 100000,
+    "kept": 100000,
+    "edge_exclusion": 1e-09,
+    "mismatches": 0,
+    "reference": "LAPACK companion eigenvalues; tested against open triangle",
+    "coefficient_draws_sha256": "79aeca6e409e5dcd58017f9c56d7c51857687b22f9048ad5bf19d36d8da1d062"
+  },
+  "sunspot_fits_1749_1924": {
+    "ols": {
+      "coefficients": [
+        1.3359496152045296,
+        -0.649853468582151
+      ],
+      "intercept": 13.940558343237196,
+      "modulus": 0.8061348947801175,
+      "period": 10.57475037500636,
+      "half_life": 3.2163977390624474
+    },
+    "yw": {
+      "coefficients": [
+        1.3262603368466923,
+        -0.6418867557612992
+      ],
+      "intercept": 14.135042237982564,
+      "modulus": 0.8011783545261936,
+      "period": 10.545598578959948,
+      "half_life": 3.1269088745730755
+    }
+  },
+  "proof_pdf_pages": 1,
+  "pytest": {
+    "returncode": 0,
+    "stdout": "........................................................................ [ 35%]\n........................................................................ [ 70%]\n............................................................             [100%]\n204 passed in 3.70s\n",
+    "stderr": ""
+  },
+  "file_sha256": {
+    "src/uc_core/ar.py": "19ea466d4829de08a18a6d1efd1ba10aebcf55cc3e7efc556f87001ed352a936",
+    "src/uc_core/__init__.py": "eb58d4da1cee47cc0ecdd77ff6aa2cbd40aa5ab245e5239cd53ee96b31616d20",
+    "tests/test_ar_core.py": "c9c29a696b0f295b59ea6bbb027482a7089f75231b7a38fa2caf513d95594bd7",
+    "proof/triangle.md": "4f260fcaf00333b0bc45245b77022c380285feed3869ca227730429c32390b30",
+    "proof/triangle.tex": "fe52ff329e713f6c707e7a77017a0ce5fd96f4f8b3d2a23ddaf4d94478d6e21b",
+    "proof/triangle.pdf": "d6332f472cace33d0b46ad16eced33ff1e2f4d760fd012a076d0bbd526da0bf4",
+    "docs/CORE_CONVENTIONS.md": "87555b75a98b2693173f9e2a415e9be57600026dab06cea51ba3d6586fb0afd1",
+    "requirements.lock": "56a0682b57a92eb6f121b033dde577c75eafe91e0901604ad7aff449e1823298",
+    "tools/verify_m1a.py": "1c2520478a758508106664f7f36f3554624901d00644b43cd9b7109b4aac6350"
+  },
+  "packages": {
+    "numpy": "2.5.3",
+    "statsmodels": "0.15.0",
+    "pytest": "9.1.1",
+    "hypothesis": "6.168.1",
+    "pypdf": "6.19.0"
+  },
+  "missing_files": [],
+  "limits": [
+    "AT-7 is numerical agreement, not formal proof.",
+    "Visual and mathematical review of the PDF is recorded separately in the milestone report.",
+    "No G0-G7 gate, Lean certificate, preregistration, H1 analysis or C3 simulation is claimed."
+  ]
+}

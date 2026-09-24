@@ -1,0 +1,13 @@
+# H1 source metadata and access record
+
+Checked 2026-09-24. No raw UK observations were requested, downloaded or analysed. The ABMI identifier, chained-volume/seasonal-adjustment identity and proposed canonical series URL originate in the original plan; the series page was deliberately not opened because it displays observations. Its release-specific endpoint must be verified from metadata before post-registration acquisition.
+
+The official [ONS GDP QMI](https://www.ons.gov.uk/economy/grossdomesticproductgdp/methodologies/grossdomesticproductgdpqmi), last revised 8 April 2022, was inspected. It describes UK coverage, comparable quarterly data from 1955, and two quarterly publication stages: first estimates and quarterly national accounts. This supports the intended coverage and the choice of publication family. It does not prove the eventual downloaded file is complete. The registered selection rule chooses the latest completed quarterly national accounts publication strictly before the verified public registration timestamp, with no mutable-latest-file fallback. Exact release metadata, file identity and hashes remain future rule-derived records. Sample completeness is checked after G1, with no filling or splicing.
+
+This visit concerned methodology and revision descriptions, not observed quarterly GDP values. Earlier literature and incidental headline exposure remain recorded in STATISTICAL_SOURCES.json. The declaration dated 2026-09-24 records no inspection/download of UK GDP data or UK recession analysis before the project.
+
+The official [OSF registration guidance](https://help.osf.io/article/330-welcome-to-registrations) was checked for the distinction between a mutable project and frozen registration. No registration was created. Submission requires the supported workflow and verification of public status, the attachment and its hash; this document is not registration evidence.
+
+The official [GitHub Python CI guide](https://docs.github.com/en/actions/tutorials/build-and-test-code/python) was checked for workflow syntax. The research workflow pins Python 3.12.14 and the checkout/setup actions to official commits, then installs requirements.lock before dependency/test checks. A workflow definition is not evidence of a hosted run. Publication and hosted results are recorded separately in GITHUB_PUBLICATION.json; verification of the revised publication remains pending.
+
+Prior-art context is the previously inspected [Rye and Jackson article](https://www.nature.com/articles/s41598-020-66996-6), as recorded in the M0 audit. The draft's five-line summary stays within those inspected facts and makes no exhaustive novelty claim.

@@ -1,0 +1,84 @@
+{
+  "recorded_at_utc": "2026-09-24T15:18:34.3716876Z",
+  "scope": "M1 package and Lean development setup; hosted evidence is recorded separately. No programme theorem, registration or release claimed.",
+  "package": {
+    "path": "../unitcircle",
+    "version": "0.0.1.dev0",
+    "python": "3.12.14",
+    "pip": "25.0.1",
+    "setuptools": "84.0.0",
+    "installed_wheel": true,
+    "tests_passed": 3,
+    "required_example": "roots(0.3, 0.1) approximately (0.5, -0.2), checked to 14 decimal places",
+    "runtime_dependencies": [],
+    "remote": "https://github.com/kostadinstoyanovuk/unitcircle",
+    "hosted_ci": "See GITHUB_PUBLICATION.json for edition-specific verification",
+    "full_research_extraction": false,
+    "commit": "55b3c906aa1da28cf384eba296ea20918c40e65d"
+  },
+  "lean": {
+    "path": "../schur-cohn",
+    "toolchain": "leanprover/lean4:v4.32.2",
+    "lean_commit": "f3b06c705e6c85f5314019d5d3baab0fec5b580c",
+    "lake_version": "5.0.0-src+f3b06c7",
+    "mathlib_commit": "905b95818eb32af7874a58b427f50c1711a5e96c",
+    "official_archive_bytes": 832110051,
+    "official_archive_sha256": "369c2b480a2a6f8bfb727af42c333c894c4872a73b3503099abad7bef67549fa",
+    "digest_verified_before_execution": true,
+    "portable_local_install": true,
+    "global_path_modified": false,
+    "lake_update_exit_code": 0,
+    "first_cache_exit_code": 1,
+    "first_cache_failure": "Cache.IO invokes lean --print-prefix; executable was missing from process PATH",
+    "fix": "Prepend portable bin to smoke process PATH and restore afterward",
+    "selective_import": "Mathlib.Algebra.Polynomial.Eval.Defs",
+    "cache_files_downloaded_and_decompressed": 1166,
+    "final_cache_exit_code": 0,
+    "lake_build_exit_code": 0,
+    "lake_build_total_jobs_including_cached_dependencies": 1184,
+    "axioms": {
+      "SchurCohn.arithmetic_smoke": [],
+      "SchurCohn.polynomial_smoke": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    "programme_theorems_produced": 0,
+    "remote": "https://github.com/kostadinstoyanovuk/schur-cohn",
+    "hosted_ci": "See GITHUB_PUBLICATION.json for edition-specific verification",
+    "resume_command": "./tools/smoke.ps1",
+    "commit": "3b1b0fe01bde881944985967c4ffa0eb2a0a1f20"
+  },
+  "workflow_pins": {
+    "checkout": "11d5960a326750d5838078e36cf38b85af677262",
+    "lean_action": "50fcf42d2e460296f1a34b402e990d1b24f8b596",
+    "setup_python": "a26af69be951a213d495a4c3e4e4022e16d87065"
+  },
+  "gates": {
+    "G0": "pending edition publication and hosted checks",
+    "G7": "open: no programme formal result",
+    "G6": "open: blueprint and external coordination requirements pending"
+  },
+  "evidence_sha256": {
+    "unitcircle/.github/workflows/ci.yml": "82a6488b426324f70deef2b0e326deab43e198f04e722b619facdf6ec36c8fca",
+    "schur-cohn/evidence/source-provenance.json": "e77ed278ca25906369ee0b9373ad0b4704ed5b2c0dbac72dd9c14f436919a6b1",
+    "schur-cohn/lake-manifest.json": "8bbd165c78521af2fafd7d3c7ab33bfbba82419ae2cf068c1a1fa856d4c2182f",
+    "schur-cohn/evidence/lake-update.log": "d375ff120570858c4463812e7522e3a06fd917a0b3ed0bf176226c095b882d65",
+    "schur-cohn/evidence/lake-build.log": "8c631c3378b7a48fdffce4dd2b5ea5f3f8654da5f2ed0704a874d07a499de12e",
+    "schur-cohn/evidence/cache-get.log": "4391de18260fef7816b1a2ef652a3f3a9ea13de935cca9bc4040dea9085d455f",
+    "unitcircle/requirements-dev.lock": "fbdd3cdae9f6e63b12fecd77b0ef1ff72a112e06304c4360cdfbeee9c4d19656",
+    "unitcircle/evidence/tests.log": "a3a207f8f920c254065951f224b37d681239c6ae9829edd8a46ff46614b65f19",
+    "schur-cohn/SchurCohn/Smoke.lean": "27e7da556258cadb15a8a837a197505b11dd38c5d47cdc0479a493e723976e2a",
+    "schur-cohn/lean-toolchain": "2bdc48adfa58d0017e538a0ad117c5d73d35deec879978f909406a80c8037273",
+    "schur-cohn/.github/workflows/ci.yml": "8feb7680d7f762d76243311078a5ee240195c468973641e3e63b985948f699a7",
+    "unitcircle/pyproject.toml": "2f0a41f4c0a7f71e07cd671ab9563bd3d6d23133b447b065440ed5c7a4fd4c62",
+    "schur-cohn/evidence/lean-download.log": "6a4df4c0f1d2c900eee11c1a9f8f20dcf65ac461d68745d17b4b1d30a75a0935",
+    "schur-cohn/evidence/cache-first-attempt.log": "b2d2536d0f7562af67bf9d012a1862fa7116a21c78e43bef3de54c66aa4aefb4",
+    "unitcircle/evidence/package-install.log": "64a72d2e40c12bdb9b11eafa396551b803f1e84ec755e2e1eeca78264f7d10b2",
+    "schur-cohn/lakefile.toml": "f0700fbec8a04702161fc5d53af9e3ed49f8d002fdee7db40fb0b8a60835d910",
+    "unitcircle/src/unitcircle/roots.py": "0271fc29cc8d51bb2a6e2452ca29f44a24b9b05b514c1c1a2a4fbc4b359d51ee"
+  },
+  "evidence_hash_note": "Hashes identify the distributed evidence files. Local workstation paths in logs are normalized to <workspace>; numerical outcomes and build results are unchanged.",
+  "subsequent_publication_record": "audit/GITHUB_PUBLICATION.json"
+}

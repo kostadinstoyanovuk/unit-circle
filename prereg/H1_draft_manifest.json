@@ -1,0 +1,27 @@
+{
+  "artifact": "H1 protocol draft",
+  "status": "unregistered; submission details pending",
+  "prepared_date": "2026-09-24",
+  "protocol": "prereg/H1.md",
+  "protocol_sha256": "b8eef810cba2ca2df41605711059b0d1531344337a058809a8dd80ccb8866a68",
+  "research_verification": "audit/m1c2_verification.json",
+  "research_tests_passed": 204,
+  "official_size_power_runs": 0,
+  "raw_UK_data_acquired": false,
+  "declarations": {
+    "prior_data_exposure": "No previous UK GDP inspection, download or recession analysis declared on 24 September 2026",
+    "existing_registration": "No known earlier registration; uncertainty retained"
+  },
+  "publication_record": "audit/GITHUB_PUBLICATION.json",
+  "osf_registration": null,
+  "prereg_H1_tag": null,
+  "remaining_before_submission": [
+    "Final registration submission details",
+    "Metadata-only verification of release-specific acquisition route"
+  ],
+  "source_sha256": {
+    "docs/M1C2_SECONDARY_CONTRACT.md": "d9dc530a2c9c33cb08ae7337addd1fd9f57bc99701df1dafbe63ec71f6bd30cd",
+    "src/uc_core/constants.py": "33c66c58573bab32bd58a451c8d6e060dbae67b609d70ea4a4bfa1da9879b8d8",
+    "audit/m1c2_verification.json": "d3f4ee13b14886af75abddaf1df6fdf61b14cbf2f2d3847fadd40a86ca24e4c1"
+  }
+}

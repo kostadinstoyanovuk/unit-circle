@@ -1,0 +1,48 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[margin=18mm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+\pagestyle{empty}
+\begin{document}
+{\Large\bfseries The AR(2) stability triangle}\hfill{\small Unit Circle Programme}
+
+{\small Mathematical foundations: S0.1 \quad $\cdot$ \quad 24 September 2026}
+\vspace{4pt}\hrule\vspace{6pt}
+
+\textbf{Theorem.} For real $a,b$, both roots of $p(z)=z^2-az-b$ have modulus strictly below one if and only if
+\[
+\boxed{a+b<1,\qquad b-a<1,\qquad b>-1.}\tag{T}
+\]
+This is the open triangle with vertices $(-2,-1),(2,-1),(0,1)$. Stability here is a polynomial-root property; a stochastic-process statement requires additional assumptions.
+
+\textbf{1. Elementary proof.} Write the roots, counted with multiplicity, as $r,s$. Then
+\[
+r+s=a,\quad rs=-b,\quad p(1)=(1-r)(1-s)=1-a-b,
+\quad p(-1)=(1+r)(1+s)=1+a-b.
+\]
+Thus (T) says exactly $p(1)>0$, $p(-1)>0$, $rs<1$.
+
+\emph{Necessity.} If the roots are real and satisfy $|r|,|s|<1$, both displayed products are positive and $rs\leq |r||s|<1$. If they are nonreal, real coefficients give $s=\bar r$, so $p(1)=|1-r|^2>0$, $p(-1)=|1+r|^2>0$ and $rs=|r|^2<1$. Hence (T) holds in both cases.
+
+\emph{Sufficiency.} Suppose (T). For a nonreal conjugate pair, $|r|^2=|s|^2=rs=-b<1$. For real roots, order $r\leq s$. If $s\geq1$, positivity of $p(1)$ excludes equality and forces $r>1$ as well, contradicting $rs<1$. If $r\leq-1$, positivity of $p(-1)$ excludes equality and forces $s<-1$, again contradicting $rs<1$. Therefore $-1<r\leq s<1$. Repeated roots are included.\hfill$\square$
+
+\textbf{2. Schur-step crosscheck.} Using the programme's general Schur-step theorem, a polynomial is stable precisely when its constant coefficient has smaller modulus than its leading coefficient and its Schur transform is stable. At formal degree two,
+\[
+p^*(z)=1-az-bz^2,\qquad zq(z)=p(z)+bp^*(z)
+ =(1-b^2)z^2-a(1+b)z.
+\]
+The first check is $|b|<1$. Under it $1\pm b>0$, and the linear transform has root
+\[
+\frac{a(1+b)}{1-b^2}=\frac{a}{1-b}.
+\]
+Its stability is equivalent to $|a|<1-b$. The two checks therefore say $-1<b<1$ and the first two inequalities in (T). Conversely, those two inequalities imply $2b<2$, so (T) already implies $b<1$. The Schur checks and (T) agree. This route uses the stated general theorem; the elementary proof above is independent of it.
+
+\textbf{Degeneracies and strict boundary.} When $a^2+4b=0$, the double root is $a/2$, stable exactly for $|a|<2$. When $b=0$, the roots are $0,a$, stable exactly for $|a|<1$; the origin is a stable double-zero root. The edge $a+b=1$ has a root at $1$; $b-a=1$ has a root at $-1$. On $b=-1$, $-2\leq a\leq2$, the roots have modulus one, including the repeated endpoint roots. Every boundary point is excluded. The Schur cancellation was used only for $|b|<1$, never at its endpoints.
+
+\vfill
+{\footnotesize Scope: the real AR(2) characteristic polynomial, with companion roots rather than reciprocal lag-polynomial roots. Source specification: Unit Circle Programme execution plan, pp.\ 8, 15--16. Detailed review source: \texttt{proof/triangle.md}.}
+\end{document}
