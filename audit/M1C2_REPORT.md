@@ -1,6 +1,6 @@
 # M1c.2 completion report
 
-Date: 2026-09-24. **M1c.2a and the M1c.2b methodological draft are complete. Local infrastructure and the prior-data declaration are complete. M1 closure awaits verification of the current public repositories and hosted checks under G0.**
+Methods recorded 2026-09-24; completion verified 2026-09-25. **M1c.2a, M1c.2b and overall M1 are complete. The current public repositories and successful hosted checks satisfy G0.**
 
 ## Methods delivered
 
@@ -29,6 +29,6 @@ The research repository now has a pinned CI recipe. The separate `unitcircle` de
 
 ## M1 closure and subsequent registration
 
-G0 requires the current research, package and Lean repositories to be public, with successful hosted checks at their published commits. Verification of the revised publication is pending. `GITHUB_PUBLICATION.json` records the publication evidence; local build results do not establish current hosted success.
+G0 requires the current research, package and Lean repositories to be public, with successful hosted checks at their published commits. The current publication satisfies these requirements. `GITHUB_PUBLICATION.json` records the publication evidence; local build results do not establish current hosted success.
 
-M1 can close once G0 is verified. Public OSF registration and the matching pushed `prereg-H1` tag belong to M2/G1. That tag must identify the registered protocol, not this draft. No UK observations may be acquired before G1, and no preregistration is claimed by this report.
+M1 is closed with G0 verified. Public OSF registration and the matching pushed `prereg-H1` tag belong to M2/G1. That tag must identify the registered protocol, not this draft. No UK observations may be acquired before G1, and no preregistration is claimed by this report.

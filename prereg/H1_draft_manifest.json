@@ -3,7 +3,7 @@
   "status": "unregistered; submission details pending",
   "prepared_date": "2026-09-24",
   "protocol": "prereg/H1.md",
-  "protocol_sha256": "b8eef810cba2ca2df41605711059b0d1531344337a058809a8dd80ccb8866a68",
+  "protocol_sha256": "421edad7d346e8cb03ef2e02432b20ce4491b713bf208bdc6c5fdd86c1c3854c",
   "research_verification": "audit/m1c2_verification.json",
   "research_tests_passed": 204,
   "official_size_power_runs": 0,
@@ -22,6 +22,10 @@
   "source_sha256": {
     "docs/M1C2_SECONDARY_CONTRACT.md": "d9dc530a2c9c33cb08ae7337addd1fd9f57bc99701df1dafbe63ec71f6bd30cd",
     "src/uc_core/constants.py": "33c66c58573bab32bd58a451c8d6e060dbae67b609d70ea4a4bfa1da9879b8d8",
-    "audit/m1c2_verification.json": "d3f4ee13b14886af75abddaf1df6fdf61b14cbf2f2d3847fadd40a86ca24e4c1"
-  }
+    "audit/m1c2_verification.json": "ac2a3f0919261857adf16bdac9bbe82c60a89f1fdf407a7f0194562a25f4d8fa",
+    "audit/GITHUB_PUBLICATION.json": "b8c8e74c074db076b5aa27e3f58d20d443ba27636d0b9b84a27f89c512582ba5"
+  },
+  "updated_at_utc": "2026-09-24T23:10:18.952809+00:00",
+  "M1": "complete",
+  "G0": "passed"
 }

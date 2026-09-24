@@ -1,6 +1,6 @@
 {
   "milestone": "M0",
-  "verified_at_utc": "2026-09-24T22:54:58.854450+00:00",
+  "verified_at_utc": "2026-09-24T23:09:35.082221+00:00",
   "python": "3.12.14",
   "platform": "Windows-10-10.0.19045-SP0",
   "scope": "Local specification-audit evidence and baseline only; no original research gate is certified.",
@@ -20,7 +20,7 @@
     {
       "command": "python -m pytest tests/test_audit_baseline.py -q",
       "returncode": 0,
-      "stdout": "............                                                             [100%]\n12 passed in 2.17s\n",
+      "stdout": "............                                                             [100%]\n12 passed in 2.11s\n",
       "stderr": ""
     }
   ],
@@ -157,19 +157,19 @@
     "status": "verified"
   },
   "file_sha256": {
-    "README.md": "e91cf74ed87c684c683392258056e216316214029e8c0b0daadd54088a671c0e",
-    "STATUS.md": "08659230fd0b2c225f8d007dd651328f932d9afa1b0ffbf82d0b6bb3e0083466",
+    "README.md": "f18b6109c8a1f725c15fec8f4b62076da65e2223aa707e71076b86a209266945",
+    "STATUS.md": "6730203299f33b2a79632f23cccadb8c1c1b05671b7aa6084067d81720f9772d",
     "MILESTONES.md": "e957cb9106be268e52d62e305317dc0612c378e13eb3ae93d93a974ac134f25a",
     "DECISIONS.md": "7a79018be0e1a899d373bc3a73afc7dfa10175f4e2c4aa2e0ee255e9cfc3d445",
     "DEVIATIONS.md": "74b89e28882a36e1dd4cb26cfca8cdd1aefa10e2f7c839b7987e7e31aa83a804",
     "requirements.lock": "56a0682b57a92eb6f121b033dde577c75eafe91e0901604ad7aff449e1823298",
     "audit/SPECIFICATION_AUDIT.md": "3ea7205949396d12dc5e6f627de8373e42286b686b8a89e864051e63feea8ecc",
-    "audit/STATISTICAL_DESIGN.md": "38bb32dfe9e1876b59a37c12ccd76192fd59c17a907ae7f094f27a3a0d6df8e3",
+    "audit/STATISTICAL_DESIGN.md": "0afef2c41e16dadeade4d537019ecd25bc53c344cae2934c66d6cc2746738e46",
     "audit/STATISTICAL_SOURCES.json": "0c9416983fc93aa18ab813f46c5b76eb115ca6be7a594cd1a2db6059d008ca83",
     "audit/FORMAL_FEASIBILITY.md": "fad6d04be1e2e1fb9b3355af9f56e4b6884716a49ff7d30c80bc90650d23e2a9",
     "audit/FORMAL_SOURCES.json": "9ce871049d3d350d537a594a4ee19eea91fd877a322de6dddb2808c8a18eff8d",
     "audit/BASELINE_CHECKS.md": "0b0dd353482be23d3edc0aa26133d77ab32eb4f737206d5f284b9eae81ef89c8",
-    "audit/PREREGISTRATION_READINESS.md": "b51e07822f45ad5f7f06773d9cf8c2d8eb79fea8802c2b3a97759beb012aabe4",
+    "audit/PREREGISTRATION_READINESS.md": "8c6025e01766c03f6d3f35bc5fc5a3c8964d4d21bec5eb2458f9078e5b9a94cb",
     "tools/audit_baseline.py": "961c9210ea838197aa908371184d8cc733b54362043fc5c028854521241d880b",
     "tools/verify_m0.py": "c085daecd3b7123ab6c5d19d1f5366be5b9cae7c0cf54d0c9be12eace8046e6b",
     "tests/test_audit_baseline.py": "fcb34073e4c7b69d0b808eade1a6c259f152a2c186c6e2427b03610343accf12",

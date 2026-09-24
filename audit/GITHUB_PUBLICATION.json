@@ -1,6 +1,72 @@
 {
   "edition": "M1 foundations",
-  "status": "pending edition publication and hosted checks",
-  "G0": "pending",
-  "repositories": []
+  "verified_at_utc": "2026-09-24T23:09:27.231148+00:00",
+  "status": "verified",
+  "G0": "passed",
+  "repositories": [
+    {
+      "name": "unit-circle",
+      "url": "https://github.com/kostadinstoyanovuk/unit-circle",
+      "repository_id": 1386465549,
+      "visibility": "public",
+      "branch": "main",
+      "verified_commit": "ec44bbdf33e9cddb11d5fdbf8e26e96ffeba40b3",
+      "hosted_runs": [
+        {
+          "id": 36070988843,
+          "name": "Research verification",
+          "head_sha": "ec44bbdf33e9cddb11d5fdbf8e26e96ffeba40b3",
+          "event": "push",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/kostadinstoyanovuk/unit-circle/actions/runs/36070988843",
+          "created_at": "2026-09-24T23:05:55Z",
+          "updated_at": "2026-09-24T23:06:44Z"
+        }
+      ]
+    },
+    {
+      "name": "unitcircle",
+      "url": "https://github.com/kostadinstoyanovuk/unitcircle",
+      "repository_id": 1386465630,
+      "visibility": "public",
+      "branch": "main",
+      "verified_commit": "55b3c906aa1da28cf384eba296ea20918c40e65d",
+      "hosted_runs": [
+        {
+          "id": 36070996591,
+          "name": "package smoke",
+          "head_sha": "55b3c906aa1da28cf384eba296ea20918c40e65d",
+          "event": "push",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/kostadinstoyanovuk/unitcircle/actions/runs/36070996591",
+          "created_at": "2026-09-24T23:06:01Z",
+          "updated_at": "2026-09-24T23:06:13Z"
+        }
+      ]
+    },
+    {
+      "name": "schur-cohn",
+      "url": "https://github.com/kostadinstoyanovuk/schur-cohn",
+      "repository_id": 1386465691,
+      "visibility": "public",
+      "branch": "main",
+      "verified_commit": "3b1b0fe01bde881944985967c4ffa0eb2a0a1f20",
+      "hosted_runs": [
+        {
+          "id": 36071006392,
+          "name": "Lean smoke",
+          "head_sha": "3b1b0fe01bde881944985967c4ffa0eb2a0a1f20",
+          "event": "push",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/kostadinstoyanovuk/schur-cohn/actions/runs/36071006392",
+          "created_at": "2026-09-24T23:06:07Z",
+          "updated_at": "2026-09-24T23:07:39Z"
+        }
+      ]
+    }
+  ],
+  "scope": "Public visibility, published commits and successful hosted checks were verified at the exact snapshots listed. Subsequent documentation commits are separate from these snapshots."
 }

@@ -1,6 +1,6 @@
 # M1 closure checklist
 
-Updated: 2026-09-24. This is an evidence checklist, not a percentage of the whole programme.
+Updated: 2026-09-25. This is an evidence checklist, not a percentage of the whole programme.
 
 | M1 condition | Evidence | Status |
 |---|---|---|
@@ -13,6 +13,6 @@ Updated: 2026-09-24. This is an evidence checklist, not a percentage of the whol
 | Separate package setup | M1_INFRASTRUCTURE.json; 3 installed tests | Complete locally |
 | Separate Lean setup | M1_INFRASTRUCTURE.json; successful pinned build | Complete locally; no programme proof |
 | Prior-data declaration | Declaration dated 2026-09-24 in ../prereg/H1.md: no UK GDP inspection/download or UK recession analysis before the project; preparation exposure recorded separately | Complete for M1 |
-| Three public repositories and green hosted CI | GITHUB_PUBLICATION.json: current public repositories, exact commits and successful hosted runs must be verified | Pending verification of revised publication |
+| Three public repositories and green hosted CI | GITHUB_PUBLICATION.json: verified public repositories, exact commits and successful hosted runs | Complete; G0 passed |
 
-Nine of the ten listed conditions are satisfied. This is an unweighted checklist count, not 90% of programme work or time. M1 closes when current public infrastructure and hosted checks satisfy G0. Public registration is a later M2/G1 action and requires final registration details and an identical protocol attachment; this draft does not authorize data access. G2 calibration and all subsequent programme gates remain open.
+All ten listed conditions are satisfied. **M1 is complete.** This checklist concerns M1; it is not a percentage of the full programme. Public registration is a later M2/G1 action and requires final registration details and an identical protocol attachment; this draft does not authorize data access. G2 calibration and all subsequent programme gates remain open.

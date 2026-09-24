@@ -6,7 +6,7 @@ The programme combines a preregistered empirical study of UK recessions, reprodu
 
 ## Research status
 
-The M1 methods are implemented and the H1 protocol is drafted. The research suite contains 204 passing tests covering estimation, companion roots, rolling calculations, episode identification, surrogate comparisons and secondary analyses. A one-page paper proof establishes the real AR(2) stability triangle.
+M1 Foundations and Registration Preparation is complete. The methods are implemented, the H1 protocol is drafted and all three repositories have passing hosted checks. The research suite contains 204 passing tests covering estimation, companion roots, rolling calculations, episode identification, surrogate comparisons and secondary analyses. A one-page paper proof establishes the real AR(2) stability triangle.
 
 The H1 protocol is **unregistered**. No raw UK research series has been acquired or analysed, and the official size and power experiments have not run. Software checks establish implementation behaviour; they do not establish an empirical finding, statistical calibration or a completed formal theorem. Current milestone and gate evidence is recorded in [STATUS.md](STATUS.md).
 

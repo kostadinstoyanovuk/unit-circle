@@ -1,6 +1,6 @@
 # Preregistration readiness
 
-Status: **methodological draft complete; final submission checks remain**. Date: 2026-09-24. The standalone protocol is prereg/H1.md. The prior-data declaration is complete. G0 awaits verification of the revised public repositories and hosted checks; registration details and release-route metadata remain to be finalized. No OSF registration or confirmatory result is claimed.
+Status: **methodological draft complete; final submission checks remain**. Date: 2026-09-24. The standalone protocol is prereg/H1.md. The prior-data declaration is complete. G0 is verified for the current public repositories and successful hosted checks; registration details and release-route metadata remain to be finalized. No OSF registration or confirmatory result is claimed.
 
 ## What is preserved
 
@@ -22,7 +22,7 @@ H1 remains the single primary question using the original pre-pandemic sample, 4
 | Power study | Exact design frozen in draft; helpers tested without official cells | H1 sections8/9; AT5/15/16 execution remains after registration |
 | Estimator verification | Production AT1-4 comparisons and secondary engineering checks pass locally | G2 still needs large registered checks; local suite is not calibration evidence |
 | Exposure controls | Literature reviewed; no raw UK series acquired | A retained access log; synthetic builds separated from real-data ingestion |
-| External evidence | Revised public repositories and hosted checks await verification in GITHUB_PUBLICATION.json | Verified G0, then public frozen OSF record, verified status/date, identical attached protocol hash and pushed supporting tag |
+| External evidence | Public repositories and successful hosted checks are verified in GITHUB_PUBLICATION.json | Public frozen OSF record, verified status/date, identical attached protocol hash and pushed supporting tag |
 
 No observed real outcome may decide any of the above. Synthetic development runs must be logged and must not silently become the registered power results. The registered design must identify which synthetic checks occurred before registration and which are subsequently run under the frozen protocol.
 
@@ -42,4 +42,4 @@ OSF's announced project transition leaves registrations available and supports d
 
 ## Next deliverable
 
-The draft, fixtures, report, prior-data declaration and source/coverage inventory are complete. Finalize the registration details, retain uncertainty about earlier registration, verify release-route metadata and establish G0 before submission. G1 requires the actual public registration and an identical protocol attachment; this checklist does not satisfy that gate.
+The draft, fixtures, report, prior-data declaration and source/coverage inventory are complete. Finalize the registration details, retain uncertainty about earlier registration, verify release-route metadata before submission. G1 requires the actual public registration and an identical protocol attachment; this checklist does not satisfy that gate.

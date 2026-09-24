@@ -1,6 +1,6 @@
 # Programme status
 
-Updated 24 September 2026. M1's mathematical and computational methods and registration preparation are complete. Public infrastructure verification is being refreshed for this edition. No empirical H1 result or completed programme formal theorem is claimed.
+Updated 25 September 2026. **M1 Foundations and Registration Preparation is complete.** The mathematical and computational methods, protocol draft, exposure declaration and public infrastructure meet the M1 checklist. All three repositories have successful hosted checks, satisfying G0. No empirical H1 result or completed programme formal theorem is claimed.
 
 | Output | Evidence | Status |
 |---|---|---|
@@ -14,13 +14,13 @@ Updated 24 September 2026. M1's mathematical and computational methods and regis
 | Historical exposure declaration | prereg/H1.md, section 1 | Recorded |
 | Python package foundation | unitcircle repository; installed-package checks | Complete development setup |
 | Lean foundation | schur-cohn repository; pinned build evidence | Complete setup; programme theorems remain |
-| Public infrastructure | audit/GITHUB_PUBLICATION.json | Verification pending for this edition |
+| Public infrastructure | audit/GITHUB_PUBLICATION.json | Complete; all three hosted checks passed |
 
 ## Research gates
 
 | Gate | Status | Required evidence |
 |---|---|---|
-| G0 | Pending edition verification | Three public repositories and passing hosted checks |
+| G0 | Passed | audit/GITHUB_PUBLICATION.json: verified public commits and successful hosted checks |
 | G1 | Pending | Public immutable H1 registration and identical protocol |
 | G2 | Pending | Complete registered baseline and simulation checks |
 | G3 | Pending | Frozen H1 analysis and core note |

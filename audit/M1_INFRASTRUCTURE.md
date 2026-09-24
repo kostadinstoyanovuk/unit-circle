@@ -2,8 +2,8 @@
 
 Prepared 2026-09-24. This preserves local preparation evidence for G0.
 Publication and hosted-check results are recorded separately in
-`GITHUB_PUBLICATION.json`. **G0 awaits verification of the revised public
-repositories and their hosted checks.** Local builds do not establish hosted success.
+`GITHUB_PUBLICATION.json`. **G0 passed on 2026-09-25 with the current public repositories
+and successful hosted checks.** Local builds do not establish hosted success.
 
 ## Separate Python package
 

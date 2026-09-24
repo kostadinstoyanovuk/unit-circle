@@ -1,6 +1,6 @@
 {
   "milestone": "M1c.2 local engineering and protocol draft",
-  "verified_at_utc": "2026-09-24T22:55:15.685291+00:00",
+  "verified_at_utc": "2026-09-24T23:09:45.343303+00:00",
   "passed": true,
   "scope": "Development-only synthetic fixtures. G0/G1 and full M1 closure require external evidence and declarations.",
   "fixture": {
@@ -13,7 +13,7 @@
   },
   "primary_reference_identical": true,
   "no_numerical_failures": true,
-  "seconds": 0.4457649999530986,
+  "seconds": 0.4405129000078887,
   "outputs": {
     "joint": {
       "primary": {
@@ -2985,7 +2985,7 @@
   },
   "pytest": {
     "returncode": 0,
-    "stdout": "........................................................................ [ 35%]\n........................................................................ [ 70%]\n............................................................             [100%]\n204 passed in 3.73s\n",
+    "stdout": "........................................................................ [ 35%]\n........................................................................ [ 70%]\n............................................................             [100%]\n204 passed in 3.76s\n",
     "stderr": ""
   },
   "file_sha256": {
@@ -3001,7 +3001,7 @@
     "tests/test_h1.py": "928eb5f68dcc7d9e83b615d6b18be00573a433fac6e82ef7040d24f942bed60e",
     "tests/test_validation_design.py": "bd4c512c21c57066ff7da06ad099d47cf3f166c94734312921ba36fcb92b719b",
     "docs/M1C2_SECONDARY_CONTRACT.md": "d9dc530a2c9c33cb08ae7337addd1fd9f57bc99701df1dafbe63ec71f6bd30cd",
-    "prereg/H1.md": "b8eef810cba2ca2df41605711059b0d1531344337a058809a8dd80ccb8866a68",
+    "prereg/H1.md": "421edad7d346e8cb03ef2e02432b20ce4491b713bf208bdc6c5fdd86c1c3854c",
     "tools/verify_m1c2.py": "ef910ff57086c0b1fdf1ec9ebe27ffb9f5406ac455fe4ee86a6d6e3bd3e8e1a1",
     "requirements.lock": "56a0682b57a92eb6f121b033dde577c75eafe91e0901604ad7aff449e1823298",
     ".github/workflows/research-tests.yml": "b975dd03253a03d71e94d40e3060f02d354dd88ab3bf93832d8ef8d22ea4bcb9"
