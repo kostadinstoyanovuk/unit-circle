@@ -49,3 +49,9 @@ Adopt prereg/H1.md's release rule (latest completed QNA publication strictly bef
 5. H1 specifies recession-onset root-modulus contrasts, endogenous-onset surrogates and registration before this data analysis; this distinction is not a claim of established novelty.
 
 This is also included in prereg/H1.md. Exact detailed sample transcription and exhaustive contribution searches are not claimed.
+
+## D-016 - 2026-09-25 - QNA retrieval identity and attachment preparation
+
+Metadata review confirms that ABMI is listed separately under PN2 and QNA. Align the protocol's retrieval location with its already adopted latest-QNA-before-registration rule: use the QNA archive index, not the earlier PN2 link. The ABMI concept, sample, transformations, statistics and random streams are unchanged. ONS archive labels describe the date superseded; they are not release dates. Verify the actual selected vintage against official publication metadata after the public registration timestamp is known. Do not infer a version number, substitute a mutable latest file or claim that an advertised route proves a particular future selection is available. The original stop-and-amend rule remains in force.
+
+The submission candidate identifies Kostadin Stoyanov and records its unregistered status at preparation. Adopted D-014 choices are described as adopted rather than proposed. Attachment hashes and the later registration receipt are external records, avoiding a self-referential checksum or alteration of the registered attachment. These are pre-registration source and administrative clarifications; no official simulation or UK observation informed them.

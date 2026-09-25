@@ -1,6 +1,6 @@
 # Preregistration readiness
 
-Status: **methodological draft complete; final submission checks remain**. Date: 2026-09-24. The standalone protocol is prereg/H1.md. The prior-data declaration is complete. G0 is verified for the current public repositories and successful hosted checks; registration details and release-route metadata remain to be finalized. No OSF registration or confirmatory result is claimed.
+Status: **submission candidate and form responses prepared; public registration pending**. Date: 2026-09-25. The standalone protocol is prereg/H1.md; prereg/H1_OSF_responses.md maps it to the Secondary Data Preregistration template. The investigator is Kostadin Stoyanov. The prior-data declaration is complete. G0 is verified for the current public repositories and successful hosted checks. No OSF registration or confirmatory result is claimed.
 
 ## What is preserved
 
@@ -12,7 +12,7 @@ H1 remains the single primary question using the original pre-pandemic sample, 4
 |---|---|---|
 | Prior data exposure | Declaration dated 2026-09-24: no inspection/download of UK GDP data or UK recession analysis before this project; no raw UK series acquired during preparation | Retain the declaration and distinguish literature/incidental headline exposure from source-data access |
 | Prior registration | No earlier registration is known; absence has not been independently established | Retain the uncertainty; identify and disclose any earlier record if found |
-| Data release | Fixed QNA-before-registration selection rule and no-fill validation in H1 sections3/12; QMI coverage verified | Release-specific identity and file availability verified before acquisition; no raw values yet |
+| Data release | Fixed QNA-before-registration rule; QMI coverage and QNA archive link metadata reviewed; D-016 corrects the earlier PN2 location | After public registration fixes the selection: verify actual publication time, version-to-release association and selected-file availability before acquisition; raw-file hash at the first permitted download |
 | Null-generation convention | M1c.1 fixes and tests centering, initial pair, stable fitted null and failure rules; residual resampling retained | Preserve D-012, docs/M1C1_SURROGATE_CONTRACT.md and the fixed random-stream allocation in the registered protocol |
 | Onset indexing | Original eligibility/merging retained and tested in M1b | Carry docs/M1B_CONVENTIONS.md and its evidence into protocol |
 | Empty outcomes | M1c.1 explicitly tests observed no-episode, B'=0 and exact attempted-count handling | Carry rules into protocol; final stopping/precision rule frozen before data; primary comparison conditions on retained eligible outcomes |
@@ -42,4 +42,6 @@ OSF's announced project transition leaves registrations available and supports d
 
 ## Next deliverable
 
-The draft, fixtures, report, prior-data declaration and source/coverage inventory are complete. Finalize the registration details, retain uncertainty about earlier registration, verify release-route metadata before submission. G1 requires the actual public registration and an identical protocol attachment; this checklist does not satisfy that gate.
+The protocol, form responses, prior-data declaration and source-route review are prepared. The route review establishes an advertised QNA version archive, not proof of availability for the ultimately selected vintage. In particular, dates superseded must not be used as release dates. Apply the protocol's stop-and-amend rule if the eligible vintage cannot be identified and obtained.
+
+Submission still requires an authenticated OSF contributor account, final live-form reconciliation and the public registration workflow. Retain the uncertainty about earlier registration and disclose any earlier dataset-based dissemination identified before submission. G1 requires the actual public registration, verified timestamp, byte-identical attachments and supporting tag; this checklist does not satisfy that gate. G2 remains pending until the registered acceptance experiments are completed.

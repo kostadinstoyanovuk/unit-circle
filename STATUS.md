@@ -10,7 +10,8 @@ Updated 25 September 2026. **M1 Foundations and Registration Preparation is comp
 | Rolling calculations and episodes | audit/M1B_REPORT.md | Complete |
 | Surrogate mechanics | audit/M1C1_REPORT.md | Complete |
 | Secondary methods and integrated workflow | audit/M1C2_REPORT.md; 204 research tests | Complete |
-| H1 methodological protocol | prereg/H1.md | Complete draft; unregistered |
+| H1 methodological protocol | prereg/H1.md | Submission candidate prepared; unregistered |
+| H1 registration responses | prereg/H1_OSF_responses.md; audit/PREREGISTRATION_READINESS.md | Prepared; live submission pending |
 | Historical exposure declaration | prereg/H1.md, section 1 | Recorded |
 | Python package foundation | unitcircle repository; installed-package checks | Complete development setup |
 | Lean foundation | schur-cohn repository; pinned build evidence | Complete setup; programme theorems remain |
@@ -29,4 +30,6 @@ Updated 25 September 2026. **M1 Foundations and Registration Preparation is comp
 | G6 | Pending | Formal blueprint and coordination requirements |
 | G7 | Pending | Programme theorem build and axiom audit |
 
-Official size and power experiments and all raw UK data acquisition remain ahead. Submission details and the release-specific source route must be verified before registration and acquisition respectively.
+M2 registration preparation now includes a submission candidate, structured OSF responses and a metadata-only QNA route review. D-016 corrects the earlier PN2 link to the specified QNA family and distinguishes archive supersession dates from publication dates. The actual selected vintage and file availability remain unverified until the registration timestamp fixes the selection.
+
+Official size and power experiments and all raw UK data acquisition remain ahead. An authenticated OSF account and live submission reconciliation are required before registration. G1-G7 remain pending; M2 is not complete.

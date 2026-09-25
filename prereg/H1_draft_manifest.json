@@ -1,9 +1,9 @@
 {
-  "artifact": "H1 protocol draft",
-  "status": "unregistered; submission details pending",
+  "artifact": "H1 protocol submission candidate",
+  "status": "unregistered; account and live submission pending",
   "prepared_date": "2026-09-24",
   "protocol": "prereg/H1.md",
-  "protocol_sha256": "421edad7d346e8cb03ef2e02432b20ce4491b713bf208bdc6c5fdd86c1c3854c",
+  "protocol_sha256": "be447b725317c3b857eb1888dbcedd127d057cd5e0e586a0b2de87e24b182ba4",
   "research_verification": "audit/m1c2_verification.json",
   "research_tests_passed": 204,
   "official_size_power_runs": 0,
@@ -16,8 +16,8 @@
   "osf_registration": null,
   "prereg_H1_tag": null,
   "remaining_before_submission": [
-    "Final registration submission details",
-    "Metadata-only verification of release-specific acquisition route"
+    "Authenticated OSF contributor account",
+    "Live-form reconciliation and final attachment verification"
   ],
   "source_sha256": {
     "docs/M1C2_SECONDARY_CONTRACT.md": "d9dc530a2c9c33cb08ae7337addd1fd9f57bc99701df1dafbe63ec71f6bd30cd",
@@ -25,7 +25,11 @@
     "audit/m1c2_verification.json": "ac2a3f0919261857adf16bdac9bbe82c60a89f1fdf407a7f0194562a25f4d8fa",
     "audit/GITHUB_PUBLICATION.json": "b8c8e74c074db076b5aa27e3f58d20d443ba27636d0b9b84a27f89c512582ba5"
   },
-  "updated_at_utc": "2026-09-24T23:10:18.952809+00:00",
+  "updated_at_utc": "2026-09-25T04:19:34.114252+00:00",
   "M1": "complete",
-  "G0": "passed"
+  "G0": "passed",
+  "investigator": "Kostadin Stoyanov",
+  "submission_responses": "prereg/H1_OSF_responses.md",
+  "submission_responses_sha256": "ee1c1ee7d52667269f3645b0cd930b93bbde287bfc126b8a53e197ea87955bee",
+  "source_route_status": "QNA archive links inspected; selected vintage, release association and file availability remain unverified."
 }
