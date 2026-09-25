@@ -10,7 +10,7 @@ Prepared 25 September 2026 for the **Secondary Data Preregistration** template. 
 
 **Contributor:** Kostadin Stoyanov
 
-**License selection:** No license. This submission does not introduce an additional reuse licence. Source materials retain their existing terms.
+**License selection:** Creative Commons Attribution 4.0 International (CC BY 4.0), https://creativecommons.org/licenses/by/4.0/ . The licence applies to this registration and its attached research snapshot, including the methodological source files reproduced as evidence. This is not a software-package release or a repository-wide licensing decision for separate releases. Referenced third-party material and dependencies retain their existing terms.
 
 **Subject selections:** Economics; Statistics and Probability, where available in the live subject taxonomy.
 
@@ -58,7 +58,7 @@ Use the linked ONS QMI; no observations are attached at registration.
 
 ### Codebook
 
-The relevant metadata identifies ABMI as seasonally adjusted GDP in chained volume measures, in GBP millions. The registered protocol defines the quarterly index, growth transformation and all derived variables. The exact file structure and sample completeness will be verified at the permitted acquisition stage, without interpolation or splicing.
+The relevant metadata identifies ABMI as seasonally adjusted GDP in chained volume measures, in GBP millions. The registered protocol defines the quarterly index, growth transformation and all derived variables. The exact file structure and sample completeness will be verified at the permitted acquisition stage, without interpolation or splicing. See H1 sections 3-7 and H1_SOURCE_METADATA.md in the supporting materials.
 
 ### Codebook documentation
 
