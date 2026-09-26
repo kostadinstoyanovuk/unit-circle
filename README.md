@@ -8,7 +8,7 @@ The programme combines a preregistered empirical study of UK recessions, reprodu
 
 M1 Foundations and Registration Preparation is complete. The methods are implemented, the H1 protocol is drafted and all three repositories have passing hosted checks. The research suite contains 204 passing tests covering estimation, companion roots, rolling calculations, episode identification, surrogate comparisons and secondary analyses. A one-page paper proof establishes the real AR(2) stability triangle.
 
-The H1 protocol is **unregistered**. No raw UK research series has been acquired or analysed, and the official size and power experiments have not run. Software checks establish implementation behaviour; they do not establish an empirical finding, statistical calibration or a completed formal theorem. Current milestone and gate evidence is recorded in [STATUS.md](STATUS.md).
+The H1 registration was submitted on 25 September 2026 under **CC BY 4.0**. The [OSF record](https://osf.io/wcnbz/) remains **pending contributor approval**, as checked on 26 September; public availability and archived attachment identity have not yet been verified. G1 therefore remains pending. No raw UK research series has been acquired or analysed, and the official size and power experiments have not run. Software checks establish implementation behaviour; they do not establish an empirical finding, statistical calibration or a completed formal theorem. Current milestone and gate evidence is recorded in [STATUS.md](STATUS.md).
 
 ## Repositories
 
@@ -20,7 +20,7 @@ The H1 protocol is **unregistered**. No raw UK research series has been acquired
 
 ## Read the work
 
-- [H1 protocol draft](prereg/H1.md): research question, data rule, statistics, random streams, validation design and reporting.
+- [H1 protocol submitted to OSF](prereg/H1.md): research question, data rule, statistics, random streams, validation design and reporting. Its preparation-time status is preserved; the separate [registration record](audit/H1_REGISTRATION.json) tracks submission and verification.
 - [Stability triangle](proof/triangle.pdf): one-page mathematical proof; [source](proof/triangle.md).
 - [Methodological decisions](DECISIONS.md): adopted conventions and interpretation limits.
 - [Research roadmap](MILESTONES.md): milestones and completion criteria.

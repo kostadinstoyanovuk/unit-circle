@@ -1,0 +1,56 @@
+{
+  "record_type": "H1 submission and registration verification",
+  "checked_date_utc": "2026-09-26",
+  "registration_id": "wcnbz",
+  "registration_url": "https://osf.io/wcnbz/",
+  "registration_type": "Secondary Data Preregistration",
+  "status_observed": "Pending approval",
+  "registration_license": "CC-BY-4.0",
+  "license_scope": "Registration and attached research snapshot, including methodological source files reproduced as evidence; not a repository-wide licensing decision for separate software releases. Third-party material and dependencies retain their existing terms.",
+  "submission_date_display": "Sep 25, 2026, 4:32 PM",
+  "display_timezone": "Europe/London",
+  "submission_time_precision": "minute; browser display, not an API timestamp",
+  "public_registration_timestamp_utc": null,
+  "public_first_verified_at_utc": null,
+  "doi": null,
+  "anonymous_api_check": {
+    "url": "https://api.osf.io/v2/registrations/wcnbz/",
+    "checked_at_utc": "2026-09-26T19:11:17.4928677Z",
+    "status_code": 401,
+    "public_status_verified": false
+  },
+  "attachments_listed_in_registration": [
+    "H1.md",
+    "H1_protocol.pdf",
+    "H1_OSF_responses.md",
+    "H1_supporting_materials.zip",
+    "H1_submission_manifest.json"
+  ],
+  "expected_attachment_sha256": {
+    "H1.md": "be447b725317c3b857eb1888dbcedd127d057cd5e0e586a0b2de87e24b182ba4",
+    "H1_protocol.pdf": "631982396c0329a9fa8d17bd99f9c458ddca2a45927de9051ee0a3b2c7437d19",
+    "H1_OSF_responses.md": "3d1a8e85286a7ec602875818b123dc3cb881f0bdbb25f72c936927a04480c6d6",
+    "H1_supporting_materials.zip": "a69984b5a6ea9d9b5db3366d554c27b504b966ce3b6f0354177517d6e9b64501",
+    "H1_submission_manifest.json": "efaa38886d86b4ab8452696182ef802c208a5e9895c8c2112989a5f5551931b3"
+  },
+  "archived_attachment_bytes_verified": false,
+  "preparation_commit": "0dfc0258459d42092ec4e880ada917b011d9879f",
+  "preparation_hosted_check": {
+    "url": "https://github.com/kostadinstoyanovuk/unit-circle/actions/runs/36154858494",
+    "head_sha": "0dfc0258459d42092ec4e880ada917b011d9879f",
+    "status": "completed",
+    "conclusion": "success"
+  },
+  "prereg_H1_tag": null,
+  "G1": "pending",
+  "G2": "pending",
+  "official_size_power_runs": 0,
+  "raw_UK_data_acquired": false,
+  "preservation_note": "The submitted package and preparation-time draft manifest remain unchanged. This separate record tracks later events; listing an attachment does not verify its bytes.",
+  "remaining_G1_evidence": [
+    "Contributor approval and verified public immutable status",
+    "Documented public registration timestamp and its relation to submission time",
+    "Downloaded archived attachment hashes matching the expected bytes",
+    "Published supporting prereg-H1 tag for the exact committed protocol"
+  ]
+}
