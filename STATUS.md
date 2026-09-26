@@ -10,6 +10,7 @@ Updated 26 September 2026. **M1 Foundations and Registration Preparation is comp
 | Rolling calculations and episodes | audit/M1B_REPORT.md | Complete |
 | Surrogate mechanics | audit/M1C1_REPORT.md | Complete |
 | Secondary methods and integrated workflow | audit/M1C2_REPORT.md; 204 research tests | Complete |
+| Resumable validation execution | audit/M2_RUNNER_REPORT.md; audit/validation_runner_verification.json; 236 total research tests | Development recovery checks complete; official experiments unrun |
 | H1 methodological protocol | prereg/H1.md; audit/H1_REGISTRATION.json | Submitted; public registration verification pending |
 | H1 registration responses | prereg/H1_OSF_responses.md; audit/PREREGISTRATION_READINESS.md | Submitted with all five prepared attachments; archived bytes not yet verified |
 | Historical exposure declaration | prereg/H1.md, section 1 | Recorded |
@@ -34,7 +35,7 @@ M2 now includes the submitted protocol, reconciled OSF responses, five selected 
 
 D-016 corrects the earlier PN2 link to the specified QNA family and distinguishes archive supersession dates from publication dates. The actual selected vintage and file availability remain unverified. Verify the public registration timestamp before applying the frozen release-selection rule; do not substitute the submission time or a later verification time without resolving its meaning.
 
-Official size and power experiments and all raw UK data acquisition remain ahead. The [validation execution checklist](docs/M2_VALIDATION_EXECUTION.md) defines the next bounded checks. G1-G7 remain pending; M2 is not complete.
+Official size and power experiments and all raw UK data acquisition remain ahead. The [validation execution checklist](docs/M2_VALIDATION_EXECUTION.md) defines the next bounded checks. The [runner](docs/VALIDATION_RUNNER.md) now has tested interruption recovery, integrity checks, explicit failure accounting and backup restoration. Its 18-record development fixture reproduced uninterrupted execution exactly; this is not calibration evidence. G1-G7 remain pending; M2 is not complete.
 
 ## Programme completion measure
 

@@ -6,7 +6,7 @@ The programme combines a preregistered empirical study of UK recessions, reprodu
 
 ## Research status
 
-M1 Foundations and Registration Preparation is complete. The methods are implemented, the H1 protocol is drafted and all three repositories have passing hosted checks. The research suite contains 204 passing tests covering estimation, companion roots, rolling calculations, episode identification, surrogate comparisons and secondary analyses. A one-page paper proof establishes the real AR(2) stability triangle.
+M1 Foundations and Registration Preparation is complete. The methods are implemented, the H1 protocol is submitted and all three repositories have passing hosted checks. The research suite contains 236 passing tests covering estimation, companion roots, rolling calculations, episode identification, surrogate comparisons, secondary analyses and validation-run recovery. A one-page paper proof establishes the real AR(2) stability triangle. The [resumable validation runner](docs/VALIDATION_RUNNER.md) has passed development checks; official experiments remain gated.
 
 The H1 registration was submitted on 25 September 2026 under **CC BY 4.0**. The [OSF record](https://osf.io/wcnbz/) remains **pending contributor approval**, as checked on 26 September; public availability and archived attachment identity have not yet been verified. G1 therefore remains pending. No raw UK research series has been acquired or analysed, and the official size and power experiments have not run. Software checks establish implementation behaviour; they do not establish an empirical finding, statistical calibration or a completed formal theorem. Current milestone and gate evidence is recorded in [STATUS.md](STATUS.md).
 

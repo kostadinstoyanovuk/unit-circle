@@ -1,0 +1,155 @@
+{
+  "checked_at_utc": "2026-09-26T19:43:51.054379+00:00",
+  "passed": true,
+  "scope": "Development-only fixtures; no registered experiment or UK data acquisition.",
+  "plan": {
+    "schema_version": 1,
+    "mode": "development",
+    "master_seed": 20260926,
+    "surrogate_attempts": 8,
+    "cells": [
+      {
+        "name": "white_noise_n30",
+        "kind": "white_noise",
+        "n": 30,
+        "requested": 4,
+        "generation_stream": 400,
+        "cell_index": 0
+      },
+      {
+        "name": "white_noise_n1000",
+        "kind": "white_noise",
+        "n": 1000,
+        "requested": 4,
+        "generation_stream": 401,
+        "cell_index": 0
+      },
+      {
+        "name": "size",
+        "kind": "size",
+        "n": 259,
+        "kappa": 1.0,
+        "requested": 2,
+        "cell_index": 0,
+        "generation_stream": 200,
+        "surrogate_stream": 201
+      },
+      {
+        "name": "power_0",
+        "kind": "power",
+        "n": 259,
+        "kappa": 1.0,
+        "requested": 2,
+        "cell_index": 0,
+        "generation_stream": 300,
+        "surrogate_stream": 301
+      },
+      {
+        "name": "power_1",
+        "kind": "power",
+        "n": 259,
+        "kappa": 1.2,
+        "requested": 2,
+        "cell_index": 1,
+        "generation_stream": 300,
+        "surrogate_stream": 301
+      },
+      {
+        "name": "power_2",
+        "kind": "power",
+        "n": 259,
+        "kappa": 1.4,
+        "requested": 2,
+        "cell_index": 2,
+        "generation_stream": 300,
+        "surrogate_stream": 301
+      },
+      {
+        "name": "power_3",
+        "kind": "power",
+        "n": 259,
+        "kappa": 1.6,
+        "requested": 2,
+        "cell_index": 3,
+        "generation_stream": 300,
+        "surrogate_stream": 301
+      }
+    ]
+  },
+  "completed_records": 18,
+  "interrupted_after_records": 8,
+  "resumed_equals_uninterrupted": true,
+  "completed_resume_adds_zero_records": true,
+  "checkpoint_backup_records": 8,
+  "final_backup_records": 18,
+  "final_backup_sha256": "9f4f03cc2aeaf52861f28b32660c064b3a45639731eabd6e554c001d68a16a46",
+  "scientific_records_sha256": "57de7e61086ab97e66170f9b01548a716d5f8a23b1017b923183102356d08045",
+  "manifest_sha256": "8dbf9f58112b8938fd40d2d7566c19d3408050c6871200485e8e90ba992d49ec",
+  "source_sha256": {
+    "src/uc_core/__init__.py": "eb58d4da1cee47cc0ecdd77ff6aa2cbd40aa5ab245e5239cd53ee96b31616d20",
+    "src/uc_core/ar.py": "19ea466d4829de08a18a6d1efd1ba10aebcf55cc3e7efc556f87001ed352a936",
+    "src/uc_core/constants.py": "33c66c58573bab32bd58a451c8d6e060dbae67b609d70ea4a4bfa1da9879b8d8",
+    "src/uc_core/h1.py": "85f44681a7593d6d9e61536d104154bcb2e17b8c7526f7c21c15f759ac14b3e7",
+    "src/uc_core/recession.py": "e9dcde4abac3bcf98fd027d2dd7735da1de61b65b8ae69f005d4793849359834",
+    "src/uc_core/rolling.py": "e335a4dcf3d159294ac5e84a99b27f46a21b347c400cdfbcae236f7f3843d5ee",
+    "src/uc_core/secondary.py": "86f48150597325941bb949af0f52e128a1cd55cd708b44a90ae9689126207b56",
+    "src/uc_core/surrogate.py": "9447006ecc02483bcd657a85ea993361ea3c53a0034641d4b068466a7b8e2e00",
+    "src/uc_core/validation_design.py": "2d729c9017de57cdb3bb761a85a2e221b93186f1e9c8ee74cba7f436c4a8d8c0",
+    "src/uc_core/validation_runner.py": "99ac2e62733b6db34857e77f33c06cc3085f6a856f6280e02a77ab8e4537cbb0",
+    "src/uc_core/validation_store.py": "68552e171bfe92b406358b706ed37384c2fcb05d1c0453fb4abd297aefdfad4d",
+    "tools/run_validation.py": "d1e4956270f881c88d9ba9d4c39851102d8199d12eef55bb94795721e4ce1daa",
+    "tools/verify_validation_runner.py": "0a8543331c5ee8115399f68bdaf9c16c336688d51252aabcd3fe805e07b6e923",
+    "prereg/H1.md": "be447b725317c3b857eb1888dbcedd127d057cd5e0e586a0b2de87e24b182ba4",
+    "requirements.lock": "56a0682b57a92eb6f121b033dde577c75eafe91e0901604ad7aff449e1823298"
+  },
+  "python": "3.12.14",
+  "timing_seconds_by_cell": {
+    "white_noise_n30": {
+      "records": 4,
+      "total": 0.0017490999994151935,
+      "mean": 0.00043727499985379836,
+      "maximum": 0.0005991999996695085
+    },
+    "white_noise_n1000": {
+      "records": 4,
+      "total": 0.003528699999606033,
+      "mean": 0.0008821749999015083,
+      "maximum": 0.0009209999998347485
+    },
+    "size": {
+      "records": 2,
+      "total": 0.4818206999998438,
+      "mean": 0.2409103499999219,
+      "maximum": 0.24291009999978996
+    },
+    "power_0": {
+      "records": 2,
+      "total": 0.4812339000004613,
+      "mean": 0.24061695000023064,
+      "maximum": 0.24063040000010005
+    },
+    "power_1": {
+      "records": 2,
+      "total": 0.47630200000048717,
+      "mean": 0.23815100000024358,
+      "maximum": 0.23886990000028163
+    },
+    "power_2": {
+      "records": 2,
+      "total": 0.4876440000002731,
+      "mean": 0.24382200000013654,
+      "maximum": 0.2505313000001479
+    },
+    "power_3": {
+      "records": 2,
+      "total": 0.48417330000029324,
+      "mean": 0.24208665000014662,
+      "maximum": 0.2441519000003609
+    }
+  },
+  "database_bytes": 159744,
+  "official_experiments_run": false,
+  "raw_UK_data_acquired": false,
+  "acceptance_gates_passed": false,
+  "timing_limit": "Single-process small fixtures include per-series setup and eight attempted surrogates; extrapolation is provisional and machine-dependent."
+}

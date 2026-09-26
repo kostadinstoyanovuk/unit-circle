@@ -10,6 +10,8 @@ Download the five archived attachments and compare their SHA-256 hashes with `au
 
 ## 2. Resumable execution preparation
 
+Completed development checkpoint: see [runner documentation](VALIDATION_RUNNER.md) and [verification report](../audit/M2_RUNNER_REPORT.md). The requirements below remain applicable to subsequent official runs; completing the runner does not pass G1 or G2.
+
 Implement and review a runner that preserves one immutable record per requested cell and replicate. A restart must verify its saved identity and bytes, reuse the same frozen stream coordinates and account for every requested replicate exactly once. A failed replicate is a retained outcome; it is not retried with a different seed. Detect altered, duplicate, missing and incompatible records before summarising. Retain requested, attempted, failed and unfinished counts explicitly.
 
 Each record must retain input series, generator states, result/status, errors, code and environment identity, and output checksums. For size and power, also retain the full surrogate statistics and attempt statuses required by H1. Save a run manifest and append-only execution log. Write completed records atomically so interrupted writes cannot be counted as results. Save and verify checkpoints between bounded batches.
