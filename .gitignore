@@ -9,6 +9,9 @@ dist/
 tmp/
 data/raw/*
 !data/raw/.gitkeep
+!data/raw/README.md
+!data/raw/SN_y_tot_V2.0.csv
+!data/raw/yearssn.dat
 data/derived/*
 !data/derived/.gitkeep
 .env

@@ -8,11 +8,12 @@ Checked 27 September 2026. This record resolves the public-registration timestam
 |---|---|---|
 | Registration record created and frozen at submission | 2026-09-25T15:32:12.994Z | OSF API `date_registered` |
 | Pending approval observed; anonymous API returned HTTP 401 | 2026-09-26T19:11:17Z | Recorded verification observation |
+| Latest recorded pre-approval check; anonymous API returned HTTP 401 | 2026-09-27T04:32:45Z | PROGRAMME_REVIEW_2026-09-27.md |
 | Original registration response recorded as approved | 2026-09-27T04:49:01.989Z | OSF API schema response `date_modified`, `reviews_state: approved` |
 | Registration copy public on the Internet Archive | 2026-09-27T04:50:09Z | Internet Archive item `osf-registrations-wcnbz-v1`, `publicdate` |
 | First anonymous verification of the approved public record | 2026-09-27T20:58:15.037Z | OSF API, HTTP 200, `revision_state: approved` |
 
-The registration was submitted for immediate public visibility. The governing public-registration timestamp is therefore the registry's recorded approval, **2026-09-27T04:49:01Z**. The Internet Archive publication 68 seconds later and the first anonymous verification bound it independently. The activity log of the source project, which records approvals, requires authentication and is not part of this public evidence.
+The registration was submitted for immediate public visibility. The governing public-registration timestamp is therefore the registry's recorded approval, **2026-09-27T04:49:01Z**. It lies between the last recorded non-public check (04:32:45Z) and the Internet Archive publication 68 seconds later; the first anonymous verification bounds it independently. The activity log of the source project, which records approvals, requires authentication and is not part of this public evidence.
 
 The saved OSF and Internet Archive responses are in `registration-evidence/2026-09-27/` with their retrieval times and SHA-256 values. `tools/verify_registration_timestamp.py` re-checks those bytes, the registry states and the event order, and writes `h1_timestamp_verification.json`.
 
