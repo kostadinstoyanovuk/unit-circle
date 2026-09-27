@@ -23,3 +23,10 @@ runs/
 proof/*.aux
 proof/*.log
 proof/*.out
+paper1/*.aux
+paper1/*.log
+paper1/*.out
+paper1/generated/
+paper1/*.pdf
+paper1/build.out
+paper1/build.err

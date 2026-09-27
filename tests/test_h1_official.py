@@ -136,7 +136,10 @@ def test_rehearsal_runs_the_whole_pipeline_on_artificial_data(tmp_path):
     rolling = list(csv.DictReader((report / 'rolling.csv').open(encoding='utf-8')))
     assert len(rolling) == 259 and rolling[0]['quarter'] == '1955 Q2'
     assert all(row['data_kind'] == 'artificial_pipeline_rehearsal' for row in rolling)
-    assert {'persistence.svg', 'surrogates.png', 'comparisons.csv', 'episodes.csv'} <= set(manifest['file_sha256'])
+    assert {'persistence.svg', 'persistence.pdf', 'surrogates.png', 'surrogates.pdf', 'comparisons.csv',
+            'episodes.csv'} <= set(manifest['file_sha256'])
+    again = _tool('run_h1').rehearse(source, '30-06-2026', tmp_path / 'again', surrogates=6, resamples=40)
+    assert again['file_sha256'] == manifest['file_sha256'], 'the report, tables and figures must be byte-reproducible'
     assert manifest['interpretation']['D80'] is None
     freeze = _tool('freeze_h1')
     run = tmp_path / 'rehearsal'

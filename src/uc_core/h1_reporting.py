@@ -296,6 +296,15 @@ def _labelled_csv(path, rows, fields, data_kind):
         writer.writerows(dict(data_kind=data_kind, **{key: row.get(key) for key in fields}) for row in rows)
 
 
+def _figure_metadata(extension):
+    """Fixed metadata so that each figure file is byte-reproducible."""
+    if extension == 'svg':
+        return {'Creator': 'Unit Circle Programme', 'Date': None}
+    if extension == 'pdf':
+        return {'Creator': 'Unit Circle Programme', 'Producer': None, 'CreationDate': None, 'ModDate': None}
+    return {'Creator': 'Unit Circle Programme', 'Software': None}
+
+
 def _registered_figures(report, directory, labels, title):
     import matplotlib
     matplotlib.use('Agg')
@@ -315,9 +324,8 @@ def _registered_figures(report, directory, labels, title):
         ax.text(.5, .5, 'Indicator unavailable: fitting failure', ha='center', va='center', transform=ax.transAxes)
     ax.legend(loc='upper center', bbox_to_anchor=(0.5, -0.14), ncol=3, frameon=False, fontsize=8)
     ax.spines[['top', 'right']].set_visible(False)
-    for extension in ('png', 'svg'):
-        fig.savefig(directory / f'persistence.{extension}', dpi=200,
-                    metadata={'Creator': 'Unit Circle Programme', **({'Date': None} if extension == 'svg' else {'Software': None})})
+    for extension in ('png', 'svg', 'pdf'):
+        fig.savefig(directory / f'persistence.{extension}', dpi=200, metadata=_figure_metadata(extension))
     plt.close(fig)
     fig, ax = plt.subplots(figsize=(10, 4.5), layout='constrained')
     retained = [r['statistic'] for r in report['primary_surrogates'] if r['status'] == 'retained']
@@ -335,9 +343,8 @@ def _registered_figures(report, directory, labels, title):
     ax.text(.99, .96, f"p = {p:.4f}\nretained {row['retained']} of {row['attempted']}" if p is not None
             else f"Status: {row['status']}", ha='right', va='top', transform=ax.transAxes, fontsize=9)
     ax.spines[['top', 'right']].set_visible(False)
-    for extension in ('png', 'svg'):
-        fig.savefig(directory / f'surrogates.{extension}', dpi=200,
-                    metadata={'Creator': 'Unit Circle Programme', **({'Date': None} if extension == 'svg' else {'Software': None})})
+    for extension in ('png', 'svg', 'pdf'):
+        fig.savefig(directory / f'surrogates.{extension}', dpi=200, metadata=_figure_metadata(extension))
     plt.close(fig)
 
 

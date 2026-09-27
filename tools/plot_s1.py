@@ -44,6 +44,7 @@ def save(figure, name):
     OUT.mkdir(exist_ok=True)
     figure.savefig(OUT / f'{name}.svg', metadata={'Date': None})
     figure.savefig(OUT / f'{name}.png', dpi=200, metadata={'Software': None})
+    figure.savefig(OUT / f'{name}.pdf', metadata={'CreationDate': None, 'ModDate': None, 'Producer': None, 'Creator': None})
     plt.close(figure)
 
 
@@ -120,8 +121,8 @@ def triangle(rows):
         plt.Line2D([], [], color=COLOURS['V1'], marker='o', linestyle='', label='Version 1'),
         plt.Line2D([], [], color=COLOURS['V2'], marker='o', linestyle='', label='Version 2'),
         plt.Line2D([], [], color=MUTED, marker='o', linestyle='', label='1749-1924'),
-        plt.Line2D([], [], color=MUTED, marker='s', linestyle='', label='1925 to last year'),
-        plt.Line2D([], [], color=MUTED, marker='o', linestyle='', markerfacecolor=SURFACE, label='hollow: Yule-Walker'),
+        plt.Line2D([], [], color=MUTED, marker='s', linestyle='', label='1925 to series end (2014, 2025)'),
+        plt.Line2D([], [], color=MUTED, marker='o', linestyle='', markerfacecolor=SURFACE, label='hollow: Yule-Walker, filled: least squares'),
     ]
     zoom.legend(handles=handles, loc='upper right', frameon=False, fontsize=7.5)
     save(figure, 's1_triangle')

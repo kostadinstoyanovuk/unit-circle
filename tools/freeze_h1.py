@@ -66,7 +66,7 @@ def main():
     shutil.copy2(run / 'run-log.json', target / 'run-log.json')
     shutil.copy2(run / 'analysis.json', target / 'analysis.json')
     for name in FIGURES:
-        for extension in ('svg', 'png'):
+        for extension in ('svg', 'png', 'pdf'):
             shutil.copy2(run / 'report' / f'{name}.{extension}', root / 'figures' / f'h1_{name}.{extension}')
     result = summary(run, log, manifest)
     (root / 'audit/H1_RESULT.json').write_text(json.dumps(result, indent=2) + '\n', encoding='utf-8', newline='\n')

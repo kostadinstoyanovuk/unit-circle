@@ -33,6 +33,15 @@ python tools/freeze_h1.py
 
 The command verifies the run against its own hashes and copies the report, tables, run log, complete analysis and figures into `audit/h1/` and `figures/`, with a summary in `audit/H1_RESULT.json`. After review, commit and push, then create and push the annotated `h1-frozen` tag. The result is final whatever it says (plan H1.4).
 
+## 5. S2 and the core note
+
+```text
+python tools/build_s2.py
+make note
+```
+
+`tools/build_s2.py` fits the three registered filters to the same levels (D-021). `make note` then writes every H1, S2, release and G2 value into the core note from `audit/H1_RESULT.json`, `audit/s2_verification.json`, `data/raw/ABMI_acquisition.json` and `audit/G2_REVIEW.json`; nothing is typed by hand. The note is complete when the build reports no pending values.
+
 ## Rehearsal
 
 `python tools/run_h1.py --rehearsal-input <artificial ONS-format file> --output-directory runs/<new>` runs the same pipeline on artificial data with shortened counts and labels every output as artificial. `tests/test_h1_official.py` builds such a file and checks the identity and sample stop rules, the release rule, the gates, the one-time acquisition record and the whole pipeline.
