@@ -12,6 +12,8 @@ data/raw/*
 !data/raw/README.md
 !data/raw/SN_y_tot_V2.0.csv
 !data/raw/yearssn.dat
+!data/raw/ABMI_QNA.csv
+!data/raw/ABMI_acquisition.json
 data/derived/*
 !data/derived/.gitkeep
 .env

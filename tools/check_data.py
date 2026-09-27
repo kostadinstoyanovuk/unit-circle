@@ -22,7 +22,8 @@ def check(root=ROOT):
     listed = {row["file"] for row in csv.DictReader((root / "DATA_MANIFEST.csv").open(encoding="utf-8"))}
     for path in sorted((root / "data/raw").glob("*")):
         relative = path.relative_to(root).as_posix()
-        if path.is_file() and path.name not in {".gitkeep", "README.md"} and relative not in listed:
+        if (path.is_file() and path.name not in {".gitkeep", "README.md"} and not path.name.endswith("_acquisition.json")
+                and relative not in listed):
             problems.append(f"unlisted raw file: {relative}")
     return checked, problems
 

@@ -282,3 +282,99 @@ def write_development_report(directory, growth, results, *, fixture_metadata):
                     file_sha256={p.name: digest(p.read_bytes()) for p in sorted(directory.iterdir())})
     (directory/'manifest.json').write_bytes(canonical(manifest)+b'\n')
     return manifest
+
+
+# Registered (and rehearsal) export with quarter labels and the official D80.
+
+REGISTERED_KINDS = ('uk_abmi_registered', 'artificial_pipeline_rehearsal')
+
+
+def _labelled_csv(path, rows, fields, data_kind):
+    with path.open('x', encoding='utf-8', newline='') as output:
+        writer = csv.DictWriter(output, fieldnames=['data_kind', *fields], lineterminator='\n')
+        writer.writeheader()
+        writer.writerows(dict(data_kind=data_kind, **{key: row.get(key) for key in fields}) for row in rows)
+
+
+def _registered_figures(report, directory, labels, title):
+    import matplotlib
+    matplotlib.use('Agg')
+    import matplotlib.pyplot as plt
+    plt.rcParams['svg.hashsalt'] = 'h1-registered-report'
+    ticks = [i for i, label in enumerate(labels) if label.endswith('Q1') and int(label[:4]) % 10 == 0]
+    fig, ax = plt.subplots(figsize=(10, 4.5), layout='constrained')
+    modulus = [np.nan if r['modulus'] is None else r['modulus'] for r in report['rolling']]
+    ax.plot(range(len(modulus)), modulus, color='#2a78d6', linewidth=1.6, label='Rolling AR(2) modulus M(t), W = 40')
+    for i, episode in enumerate(report['episodes']):
+        ax.axvspan(episode['onset'] - .5, episode['end'] + .5, color='#52514e', alpha=.15,
+                   label='Recession episode (two or more negative quarters, merged)' if i == 0 else None)
+    ax.axhline(1, color='#52514e', linewidth=.8, linestyle=':', label='Unit modulus')
+    ax.set_xticks(ticks, [labels[i][:4] for i in ticks])
+    ax.set(xlabel='Quarter', ylabel='Largest root modulus M(t)', title=title)
+    if report['rolling_error']:
+        ax.text(.5, .5, 'Indicator unavailable: fitting failure', ha='center', va='center', transform=ax.transAxes)
+    ax.legend(loc='upper center', bbox_to_anchor=(0.5, -0.14), ncol=3, frameon=False, fontsize=8)
+    ax.spines[['top', 'right']].set_visible(False)
+    for extension in ('png', 'svg'):
+        fig.savefig(directory / f'persistence.{extension}', dpi=200,
+                    metadata={'Creator': 'Unit Circle Programme', **({'Date': None} if extension == 'svg' else {'Software': None})})
+    plt.close(fig)
+    fig, ax = plt.subplots(figsize=(10, 4.5), layout='constrained')
+    retained = [r['statistic'] for r in report['primary_surrogates'] if r['status'] == 'retained']
+    row = report['comparisons'][0]
+    if retained:
+        ax.hist(retained, bins=40, color='#a7bac8', edgecolor='#fcfcfb', label='Retained surrogate statistics S_b')
+    else:
+        ax.text(.5, .5, 'No retained surrogate distribution', ha='center', va='center', transform=ax.transAxes)
+    if row['value'] is not None:
+        ax.axvline(row['value'], color='#eb6834', linewidth=1.8, label=f"Observed S = {row['value']:.4f}")
+    ax.set(xlabel='Mean pre-onset change S (modulus units)', ylabel='Count', title=title)
+    if retained or row['value'] is not None:
+        ax.legend(loc='upper left', fontsize=8)
+    p = row['p_value']
+    ax.text(.99, .96, f"p = {p:.4f}\nretained {row['retained']} of {row['attempted']}" if p is not None
+            else f"Status: {row['status']}", ha='right', va='top', transform=ax.transAxes, fontsize=9)
+    ax.spines[['top', 'right']].set_visible(False)
+    for extension in ('png', 'svg'):
+        fig.savefig(directory / f'surrogates.{extension}', dpi=200,
+                    metadata={'Creator': 'Unit Circle Programme', **({'Date': None} if extension == 'svg' else {'Software': None})})
+    plt.close(fig)
+
+
+def write_registered_report(directory, growth, labels, results, *, D80, metadata, data_kind='uk_abmi_registered'):
+    """Export the registered analysis (or a labelled artificial rehearsal) with quarter labels and D80."""
+    if data_kind not in REGISTERED_KINDS:
+        raise ValueError('Unknown registered export kind')
+    labels = tuple(labels)
+    values = _real_vector(growth, minimum=1)
+    if len(labels) != len(values):
+        raise ValueError('One quarter label is required per growth observation')
+    directory = Path(directory)
+    report = assemble_report(values, results)
+    report['interpretation'] = primary_interpretation(report['comparisons'][0], serial(results)['episode_interval'], D80=D80)
+    for row in report['rolling']:
+        row['quarter'] = labels[row['position']]
+    for row in report['episodes'] + report['qualifying_runs']:
+        row['onset_quarter'], row['end_quarter'] = labels[row['onset']], labels[row['end']]
+    directory.mkdir(parents=True, exist_ok=False)
+    for name in ('report', 'analysis'):
+        payload = report if name == 'report' else serial(results)
+        (directory / f'{name}.json').write_bytes(canonical(dict(data_kind=data_kind, result=payload)) + b'\n')
+    _labelled_csv(directory / 'comparisons.csv', report['comparisons'], list(report['comparisons'][0]), data_kind)
+    _labelled_csv(directory / 'episodes.csv', report['episodes'],
+                  ['episode', 'onset', 'onset_quarter', 'end', 'end_quarter', 'qualifying_runs',
+                   'structurally_eligible', 'statistic_available', 'change'], data_kind)
+    _labelled_csv(directory / 'qualifying-runs.csv', report['qualifying_runs'],
+                  ['episode', 'onset', 'onset_quarter', 'end', 'end_quarter'], data_kind)
+    _labelled_csv(directory / 'rolling.csv', report['rolling'],
+                  ['position', 'quarter', 'growth', 'intercept', 'phi1', 'phi2', 'modulus', 'status'], data_kind)
+    _labelled_csv(directory / 'primary-surrogates.csv', report['primary_surrogates'],
+                  ['number', 'status', 'statistic', 'eligible_episodes', 'error'], data_kind)
+    title = ('UK real GDP growth, 1955Q2-2019Q4 (ONS ABMI)' if data_kind == 'uk_abmi_registered'
+             else 'Artificial pipeline rehearsal · no UK observations')
+    _registered_figures(report, directory, labels, title)
+    manifest = dict(data_kind=data_kind, metadata=metadata, input_sha256=report['input_sha256'],
+                    interpretation=report['interpretation'],
+                    file_sha256={p.name: digest(p.read_bytes()) for p in sorted(directory.iterdir())})
+    (directory / 'manifest.json').write_bytes(canonical(manifest) + b'\n')
+    return manifest
