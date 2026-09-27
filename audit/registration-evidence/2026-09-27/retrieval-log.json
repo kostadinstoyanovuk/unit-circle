@@ -1,0 +1,59 @@
+{
+  "record_type": "Registry and calendar evidence retrieval log",
+  "retrieved_by": "anonymous HTTPS requests and browser extraction",
+  "retrievals": [
+    {
+      "file": "osf-registration.json",
+      "url": "https://api.osf.io/v2/registrations/wcnbz/",
+      "retrieved_utc": "2026-09-27T21:31:21.7586934Z",
+      "http_status": 200,
+      "bytes": 29542,
+      "sha256": "d67d682219359a1b6594c376171d063c9ad6bdd28a8843ff65732fa063c0d9e8"
+    },
+    {
+      "file": "osf-schema-responses.json",
+      "url": "https://api.osf.io/v2/registrations/wcnbz/schema_responses/",
+      "retrieved_utc": "2026-09-27T21:31:22.3827112Z",
+      "http_status": 200,
+      "bytes": 12433,
+      "sha256": "393805cabb79d9aa672707585918d25b7c8f02fe16769917ca551ffcb484f446"
+    },
+    {
+      "file": "osf-schema-response-actions.json",
+      "url": "https://api.osf.io/v2/schema_responses/6ab693fe49c1926946d7fa51/actions/",
+      "retrieved_utc": "2026-09-27T21:31:22.6576098Z",
+      "http_status": 200,
+      "bytes": 128,
+      "sha256": "337a5845bf62ccbe2bee6d47834c9d6317bc033ab935af60bc66d75c688ef71a"
+    },
+    {
+      "file": "osf-registration-logs.json",
+      "url": "https://api.osf.io/v2/registrations/wcnbz/logs/?page[size]=50",
+      "retrieved_utc": "2026-09-27T21:31:22.8369640Z",
+      "http_status": 200,
+      "bytes": 6134,
+      "sha256": "f8b8d52c4a4f64594ef342182a7981dada0572f398578400b355ba45606f07d6"
+    },
+    {
+      "file": "ia-metadata.json",
+      "url": "https://archive.org/metadata/osf-registrations-wcnbz-v1",
+      "retrieved_utc": "2026-09-27T21:31:23.2535169Z",
+      "http_status": 200,
+      "bytes": 3210,
+      "sha256": "146068d9759161cb4e52a4ac136d5cd76ee71110d860183e04ea5ff88824b495"
+    },
+    {
+      "file": null,
+      "url": "https://api.osf.io/v2/nodes/92sjv/logs/?page[size]=50",
+      "retrieved_utc": "2026-09-27T21:31:23.0969130Z",
+      "http_status": 401,
+      "note": "Source-project activity log requires authentication; not available to anonymous verification"
+    },
+    {
+      "file": "ons-calendar-observations.json",
+      "url": "https://www.ons.gov.uk/releasecalendar",
+      "retrieved_utc": "2026-09-27T21:31:43.607Z",
+      "note": "Extracted calendar metadata; rendered-page hashes are recorded inside the file. Scripted requests returned HTTP 403."
+    }
+  ]
+}

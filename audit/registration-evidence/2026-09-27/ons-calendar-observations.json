@@ -1,0 +1,68 @@
+{
+  "record_type": "ONS release-calendar metadata observations for H1 section 3 timestamp invariance",
+  "method": "Official ONS release calendar pages loaded in a browser; titles, release dates, release status and result counts were extracted programmatically. Direct scripted requests returned HTTP 403, so page SHA-256 values are of the rendered HTML text. No bulletin, dataset, time series or GDP value was opened or inspected.",
+  "observations": [
+    {
+      "url": "https://www.ons.gov.uk/releasecalendar?release-type=type-published&after-day=25&after-month=9&after-year=2026&before-day=27&before-month=9&before-year=2026",
+      "retrieved_utc": "2026-09-27T21:31:43.607Z",
+      "rendered_html_utf8_sha256": "5c0d9db0fa8249a2b2ecf95dc35908d6df80adc3773d6f78c99056f7f736b5c8",
+      "filter": "Published releases, 25 September 2026 to 27 September 2026 inclusive",
+      "result_count": 5,
+      "further_pages": false,
+      "releases": [
+        {
+          "title": "Mortality by ethnic group following death certification reform, England and Wales: 2025",
+          "release_date_uk": "25 September 2026 9:30am",
+          "status": "Published",
+          "path": "/releases/mortalitybyethnicityfollowingdeathcertificationreformenglandandwales2025"
+        },
+        {
+          "title": "Mortality by pregnancy status following Death Certification Reform, England and Wales: 2025",
+          "release_date_uk": "25 September 2026 9:30am",
+          "status": "Published",
+          "path": "/releases/mortalitybypregnancystatusfollowingdeathcertificationreformenglandandwales2025"
+        },
+        {
+          "title": "Death certification reform, England and Wales: 2025",
+          "release_date_uk": "25 September 2026 9:30am",
+          "status": "Published",
+          "path": "/releases/deathcertificationreformenglandandwales2025"
+        },
+        {
+          "title": "Deaths registered in England and Wales: 2025",
+          "release_date_uk": "25 September 2026 9:30am",
+          "status": "Published",
+          "path": "/releases/deathsregisteredinenglandandwales2025"
+        },
+        {
+          "title": "Labour demand volumes by Standard Occupation Classification (SOC 2020), UK: January 2017 to August 2026",
+          "release_date_uk": "25 September 2026 9:30am",
+          "status": "Published",
+          "path": "/releases/labourdemandvolumesbystandardoccupationclassificationsoc2020ukjanuary2017toaugust2026"
+        }
+      ],
+      "qna_publications_in_range": 0
+    },
+    {
+      "url": "https://www.ons.gov.uk/releasecalendar?release-type=type-upcoming&query=GDP%20quarterly%20national%20accounts",
+      "retrieved_utc": "2026-09-27T21:32:01.920Z",
+      "rendered_html_utf8_sha256": "ea2f0b0052e4a18c5c2e3866f213d70ed6cb6c8ca01ff15f9a76d7c3e2d52c55",
+      "filter": "Upcoming releases matching 'GDP quarterly national accounts'; only entries titled 'quarterly national accounts' retained",
+      "releases": [
+        {
+          "title": "GDP quarterly national accounts, UK: April to June 2026",
+          "release_date_uk": "30 September 2026 7:00am",
+          "status": "Confirmed",
+          "path": "/releases/gdpquarterlynationalaccountsukapriltojune2026"
+        },
+        {
+          "title": "GDP quarterly national accounts, UK: April to June 2026 time series",
+          "release_date_uk": "30 September 2026 7:00am",
+          "status": "Confirmed",
+          "path": "/releases/gdpquarterlynationalaccountsukapriltojune2026timeseries"
+        }
+      ]
+    }
+  ],
+  "timezone_note": "ONS release times are UK local time; British Summer Time (UTC+01:00) applies on these dates. 25 September 2026 9:30am = 08:30Z; 30 September 2026 7:00am = 06:00Z."
+}

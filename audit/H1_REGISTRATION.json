@@ -11,7 +11,7 @@
   "submission_date_display": "Sep 25, 2026, 4:32 PM",
   "display_timezone": "Europe/London",
   "submission_time_precision": "minute; browser display, not an API timestamp",
-  "public_registration_timestamp_utc": null,
+  "public_registration_timestamp_utc": "2026-09-27T04:49:01.989076+00:00",
   "public_first_verified_at_utc": "2026-09-27T20:58:15.037124+00:00",
   "doi": "10.17605/OSF.IO/WCNBZ",
   "anonymous_api_check": {
@@ -42,20 +42,17 @@
     "status": "completed",
     "conclusion": "success"
   },
-  "prereg_H1_tag": null,
-  "G1": "pending",
+  "prereg_H1_tag": "prereg-H1",
+  "G1": "passed",
   "G2": "pending",
   "official_size_power_runs": 0,
   "raw_UK_data_acquired": false,
-  "preservation_note": "The submitted package remains unchanged. Anonymous public approval and all five archived attachment bytes are verified. G1 remains pending timestamp resolution and the supporting tag.",
-  "remaining_G1_evidence": [
-    "Documented public registration timestamp and its relation to submission time",
-    "Published supporting prereg-H1 tag for the exact committed protocol"
-  ],
+  "preservation_note": "The submitted package remains unchanged. Public approval, all five archived attachment bytes, the registration timestamp and the published supporting tag are verified.",
+  "remaining_G1_evidence": [],
   "public_immutable_verified": true,
   "api_date_registered": "2026-09-25T15:32:12.994300",
-  "api_date_registered_note": "Registry timestamp corresponds to the submission date; it does not establish the later public-approval time.",
-  "public_timestamp_resolution": "Pending documented distinction between submission and public approval; do not substitute first observation.",
+  "api_date_registered_note": "Registry record timestamp at submission; the record was frozen then and became public on approval.",
+  "public_timestamp_resolution": "Resolved on 2026-09-27: OSF recorded approval at 2026-09-27T04:49:01Z, bounded by submission and the first anonymous verification. No ONS QNA publication was released within that interval, so the H1 section 3 release rule selects the same publication for every admissible timestamp. See audit/h1_timestamp_verification.json and D-017.",
   "archived_attachment_sha256": {
     "H1_supporting_materials.zip": "a69984b5a6ea9d9b5db3366d554c27b504b966ce3b6f0354177517d6e9b64501",
     "H1.md": "be447b725317c3b857eb1888dbcedd127d057cd5e0e586a0b2de87e24b182ba4",
@@ -63,5 +60,17 @@
     "H1_protocol.pdf": "631982396c0329a9fa8d17bd99f9c458ddca2a45927de9051ee0a3b2c7437d19",
     "H1_submission_manifest.json": "efaa38886d86b4ab8452696182ef802c208a5e9895c8c2112989a5f5551931b3"
   },
-  "archived_attachment_checked_at_utc": "2026-09-27T21:00:28.622149+00:00"
+  "archived_attachment_checked_at_utc": "2026-09-27T21:00:28.622149+00:00",
+  "public_registration_timestamp_basis": "Recorded approval of the registration submitted for immediate public visibility; independently bounded above by the Internet Archive public date and the first anonymous verification",
+  "public_registration_admissible_interval_utc": [
+    "2026-09-25T15:32:12.994300+00:00",
+    "2026-09-27T20:58:15.037124+00:00"
+  ],
+  "internet_archive_public_utc": "2026-09-27T04:50:09+00:00",
+  "timestamp_verification_record": "audit/h1_timestamp_verification.json",
+  "prereg_H1_tag_object": "04e1925b0eebd72608856bc507b37334c5e9a34f",
+  "prereg_H1_tag_commit": "0dfc0258459d42092ec4e880ada917b011d9879f",
+  "prereg_H1_tag_published_utc": "2026-09-27T21:35:54Z",
+  "prereg_H1_tag_scope": "Annotated tag on the earliest public commit whose prereg/H1.md and prereg/H1_OSF_responses.md equal the archived attachments; every repository file in H1_supporting_materials.zip also matches that commit.",
+  "G1_passed_date_utc": "2026-09-27"
 }

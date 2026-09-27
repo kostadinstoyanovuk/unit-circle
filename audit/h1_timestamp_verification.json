@@ -1,0 +1,29 @@
+{
+  "record_type": "H1 public-registration timestamp and release-rule invariance",
+  "registration_id": "wcnbz",
+  "doi": "10.17605/OSF.IO/WCNBZ",
+  "registry_record_timestamp_utc": "2026-09-25T15:32:12.994300+00:00",
+  "registry_record_timestamp_meaning": "OSF date_registered: registration record and attached files frozen at submission; pending approval, not yet public",
+  "approval_state_recorded_utc": "2026-09-27T04:49:01.989076+00:00",
+  "approval_state_source": "OSF original registration response: reviews_state approved, date_modified",
+  "internet_archive_public_utc": "2026-09-27T04:50:09+00:00",
+  "first_anonymous_public_verification_utc": "2026-09-27T20:58:15.037124+00:00",
+  "public_registration_timestamp_utc": "2026-09-27T04:49:01.989076+00:00",
+  "public_registration_timestamp_basis": "Recorded approval of the registration submitted for immediate public visibility; independently bounded above by the Internet Archive public date and the first anonymous verification",
+  "admissible_interval_utc": [
+    "2026-09-25T15:32:12.994300+00:00",
+    "2026-09-27T20:58:15.037124+00:00"
+  ],
+  "qna_publications_released_in_interval": [],
+  "next_confirmed_qna_publication_utc": "2026-09-30T06:00:00+00:00",
+  "release_rule_invariant_over_interval": true,
+  "release_rule_consequence": "Every admissible timestamp selects the same latest completed QNA publication; its identity, release-specific file and availability are resolved only after G2 under the registered stop-and-amend rule",
+  "evidence_sha256": {
+    "ia-metadata.json": "146068d9759161cb4e52a4ac136d5cd76ee71110d860183e04ea5ff88824b495",
+    "osf-registration-logs.json": "f8b8d52c4a4f64594ef342182a7981dada0572f398578400b355ba45606f07d6",
+    "osf-registration.json": "d67d682219359a1b6594c376171d063c9ad6bdd28a8843ff65732fa063c0d9e8",
+    "osf-schema-response-actions.json": "337a5845bf62ccbe2bee6d47834c9d6317bc033ab935af60bc66d75c688ef71a",
+    "osf-schema-responses.json": "393805cabb79d9aa672707585918d25b7c8f02fe16769917ca551ffcb484f446"
+  },
+  "uk_observations_accessed": false
+}

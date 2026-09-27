@@ -4,6 +4,8 @@ Prepared 26 September 2026. This checklist implements the submitted H1 protocol;
 
 ## 1. Registration receipt: G1
 
+Completed 27 September 2026: see [the registration record](../audit/H1_REGISTRATION.json) and [timestamp record](../audit/H1_REGISTRATION_TIMESTAMP.md). The requirements below are retained as the audit criteria that were applied.
+
 Verify anonymous access to the immutable OSF registration and its public status. Record its identifier, actual registry timestamps, verification time and DOI if assigned. Distinguish submission time from public availability. Resolve which documented public timestamp governs H1 section 3 before selecting a QNA vintage; do not silently substitute a convenient timestamp.
 
 Download the five archived attachments and compare their SHA-256 hashes with `audit/H1_REGISTRATION.json`. A file listing, matching name or size does not establish byte identity. Keep receipt evidence separate from the submitted documents. Publish the annotated `prereg-H1` tag for the exact committed protocol only once these requirements are satisfied. A pending, private or embargoed registration keeps G1 open.

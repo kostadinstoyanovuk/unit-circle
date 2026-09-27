@@ -1,6 +1,6 @@
 # Programme status
 
-Updated 27 September 2026. **M1 Foundations and Registration Preparation is complete; M2 is in progress.** The mathematical and computational methods, protocol, exposure declaration and public infrastructure meet the M1 checklist. All three repositories have successful hosted checks, satisfying G0. H1 was submitted to OSF on 25 September under CC BY 4.0 and is now approved and public, with all five archived attachments verified byte-for-byte. No empirical H1 result or completed programme formal theorem is claimed.
+Updated 27 September 2026. **M1 Foundations and Registration Preparation is complete; M2 is in progress.** The mathematical and computational methods, protocol, exposure declaration and public infrastructure meet the M1 checklist. All three repositories have successful hosted checks, satisfying G0. H1 was submitted to OSF on 25 September under CC BY 4.0, approved by the registry at 04:49 UTC on 27 September and verified as public, with all five archived attachments byte-identical to the submission. The supporting annotated `prereg-H1` tag is published, so G1 has passed. No empirical H1 result or completed programme formal theorem is claimed.
 
 | Output | Evidence | Status |
 |---|---|---|
@@ -12,8 +12,9 @@ Updated 27 September 2026. **M1 Foundations and Registration Preparation is comp
 | Secondary methods and integrated workflow | audit/M1C2_REPORT.md; 204 research tests | Complete |
 | Resumable validation execution | audit/M2_RUNNER_REPORT.md; audit/validation_runner_verification.json; 236 total research tests | Development recovery checks complete; official experiments unrun |
 | Reporting preparation | audit/M2_REPORTING_REPORT.md; audit/h1_reporting_verification.json; 273 total research tests | Artificial-data tables and figures verified; empirical report remains outstanding |
-| H1 methodological protocol | prereg/H1.md; audit/H1_REGISTRATION.json | Approved and public; archived attachments verified; timestamp/tag checks pending |
+| H1 methodological protocol | prereg/H1.md; audit/H1_REGISTRATION.json; tag `prereg-H1` | Registered: [OSF wcnbz](https://doi.org/10.17605/OSF.IO/WCNBZ), approved and public |
 | H1 registration responses | prereg/H1_OSF_responses.md; audit/PREREGISTRATION_READINESS.md | All five archived attachments match the submitted bytes |
+| Registration timestamp | audit/H1_REGISTRATION_TIMESTAMP.md; audit/h1_timestamp_verification.json; 278 total research tests | Approval recorded 2026-09-27T04:49:01Z; QNA release rule invariant over the admissible interval |
 | Historical exposure declaration | prereg/H1.md, section 1 | Recorded |
 | Python package foundation | unitcircle repository; installed-package checks | Complete development setup |
 | Lean foundation | schur-cohn repository; pinned build evidence | Complete setup; programme theorems remain |
@@ -24,22 +25,22 @@ Updated 27 September 2026. **M1 Foundations and Registration Preparation is comp
 | Gate | Status | Required evidence |
 |---|---|---|
 | G0 | Passed | audit/GITHUB_PUBLICATION.json: verified public commits and successful hosted checks |
-| G1 | Pending | OSF wcnbz is approved and public; attachment bytes verified; public timestamp meaning and supporting tag remain |
-| G2 | Pending | Complete registered baseline and simulation checks |
+| G1 | Passed | OSF wcnbz approved and public (DOI 10.17605/OSF.IO/WCNBZ); five archived attachments byte-identical; registration timestamp in audit/h1_timestamp_verification.json; annotated `prereg-H1` tag on commit 0dfc025 published |
+| G2 | Pending | Complete registered baseline and simulation checks (AT-1-AT-4, AT-5, AT-15, AT-16) |
 | G3 | Pending | Frozen H1 analysis and core note |
 | G4 | Pending | Registered extension addenda |
 | G5 | Pending | Frozen Paper I analyses |
 | G6 | Pending | Formal blueprint and coordination requirements |
 | G7 | Pending | Programme theorem build and axiom audit |
 
-M2 now includes the submitted protocol, reconciled OSF responses, five selected attachments and a separate [submission evidence record](audit/H1_REGISTRATION.json). The submitted files are retained unchanged. OSF displays a registration date of 25 September 2026, 16:32 Europe/London, but that display is not evidence of the time the record becomes public. A later anonymous API check on 27 September verified approved public status, and all five downloaded attachments match the submitted hashes. DOI: [10.17605/OSF.IO/WCNBZ](https://doi.org/10.17605/OSF.IO/WCNBZ). The API registry date corresponds to submission, while the exact public-approval time remains unresolved. G1 remains pending that distinction and the supporting tag.
+The [submission evidence record](audit/H1_REGISTRATION.json) retains the five submitted files unchanged. OSF's registry record timestamp, 2026-09-25T15:32:12Z, marks submission: the record and its files were frozen then, pending approval. OSF recorded approval of the registration's original response at 2026-09-27T04:49:01Z; the Internet Archive copy became public at 04:50:09Z, and the first anonymous check at 20:58:15Z returned the approved public record. The [timestamp record](audit/H1_REGISTRATION_TIMESTAMP.md) documents these sources. No ONS quarterly national accounts publication was released between submission and the first anonymous check, so the H1 section 3 release rule selects the same publication for every admissible timestamp ([D-017](DECISIONS.md)). The publication's identity, release-specific ABMI file and availability are resolved only after G2, under the registered stop-and-amend rule.
 
-D-016 corrects the earlier PN2 link to the specified QNA family and distinguishes archive supersession dates from publication dates. The actual selected vintage and file availability remain unverified. Verify the public registration timestamp before applying the frozen release-selection rule; do not substitute the submission time or a later verification time without resolving its meaning.
+The annotated `prereg-H1` tag points to commit 0dfc0258459d42092ec4e880ada917b011d9879f, the earliest public commit whose protocol and form responses equal the archived attachments; every repository file in the archived supporting-materials archive also matches that commit. The OSF registration is the primary timestamp; the tag is supporting evidence published on 27 September.
 
-Official size and power experiments and all raw UK data acquisition remain ahead. The [validation execution checklist](docs/M2_VALIDATION_EXECUTION.md) defines the next bounded checks. The [runner](docs/VALIDATION_RUNNER.md) now has tested interruption recovery, integrity checks, explicit failure accounting and backup restoration. Its 18-record development fixture reproduced uninterrupted execution exactly; this is not calibration evidence. G1-G7 remain pending; M2 is not complete.
+The official size and power experiments and all UK data acquisition remain ahead. The [validation execution checklist](docs/M2_VALIDATION_EXECUTION.md) defines the registered experiments. The [runner](docs/VALIDATION_RUNNER.md) has tested interruption recovery, integrity checks, explicit failure accounting and backup restoration, and its fail-closed registration check now accepts the published receipt. Its 18-record development fixture reproduced uninterrupted execution exactly; this is not calibration evidence. G2-G7 remain pending; M2 is not complete.
 
-The [reporting preparation](docs/H1_REPORTING.md) preserves all seven comparisons, checks full-input identity and individual attempt accounting, and exports labelled artificial-data evidence. Three bounded fixtures reproduced the submitted methods' scientific outputs and random states exactly; the submitted package is unchanged. This establishes reporting behaviour, not a completed H1 study. The [programme review](audit/PROGRAMME_REVIEW_2026-09-27.md) confirms the remaining core-note obligations, timestamp and source dependencies, substantive calibration checks and later formal-coordination requirement.
+The [reporting preparation](docs/H1_REPORTING.md) preserves all seven comparisons, checks full-input identity and individual attempt accounting, and exports labelled artificial-data evidence. Three bounded fixtures reproduced the submitted methods' scientific outputs and random states exactly; the submitted package is unchanged. This establishes reporting behaviour, not a completed H1 study. The [programme review](audit/PROGRAMME_REVIEW_2026-09-27.md) records the remaining core-note obligations, source dependencies, substantive calibration checks and later formal-coordination requirement.
 
 ## Programme completion measure
 
-M0 and M1 are complete: **2 of 9 milestones (22.2%)**. Seven milestones are not complete (77.8%), including M2, which is active. This is an equal milestone count, not a time, cost or effort estimate. Partial M2 work is recorded above without treating the milestone as finished. The remaining programme includes registered validation and empirical work, extensions, theory and simulations, formal proofs, a reusable library, manuscripts and replication archives, and external review and maintenance.
+M0 and M1 are complete: **2 of 9 milestones (22.2%)**. Seven milestones are not complete (77.8%), including M2, which is active. This is an equal milestone count, not a time, cost or effort estimate. Partial M2 work, including G1, is recorded above without treating the milestone as finished. The remaining programme includes registered validation and empirical work, extensions, theory and simulations, formal proofs, a reusable library, manuscripts and replication archives, and external review and maintenance.
