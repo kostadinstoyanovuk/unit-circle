@@ -111,8 +111,8 @@ def record_acquisition(root, content: bytes, release: dict, calendar: list[dict]
     return record
 
 
-def load_registered_growth(root) -> tuple[dict, tuple[str, ...], 'abmi.np.ndarray']:
-    """Verify the frozen raw file and return the 259 registered growth observations with labels."""
+def load_registered_levels(root):
+    """Verify the frozen raw file and return its record with the 260 registered levels and labels."""
     root = Path(root)
     path = root / ACQUISITION_RECORD
     if not path.is_file():
@@ -125,5 +125,11 @@ def load_registered_growth(root) -> tuple[dict, tuple[str, ...], 'abmi.np.ndarra
     parsed = abmi.parse_time_series_csv(content)
     abmi.check_identity(parsed, release_date=record['header_identity']['release_date_record'])
     labels, levels = abmi.registered_sample(parsed)
+    return record, labels, levels
+
+
+def load_registered_growth(root):
+    """Verify the frozen raw file and return the 259 registered growth observations with labels."""
+    record, labels, levels = load_registered_levels(root)
     growth_labels, values = abmi.growth(labels, levels)
     return record, growth_labels, values

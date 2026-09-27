@@ -85,3 +85,12 @@ Fixed before these checks were run. They complete the original C1 foundations "d
 ## D-020 - 2026-09-27 - Package name
 
 Plan section 16 requires checking the package name before package work starts. On 2026-09-27 at 22:58 UTC the PyPI JSON API returned HTTP 404 for both `unitcircle` and `unit-circle`, so no project holds either name. Keep `unitcircle`. A name is only reserved by publishing, so the check is repeated before the first release (C5.7).
+
+## D-021 - 2026-09-28 - S2 conventions (the Samuelson reading)
+
+Fixed before any UK observation was acquired; the code is tested on artificial series only. S2 is a check, not a result, and is not part of the registered H1 analysis.
+
+1. Input: the 260 registered ABMI levels, 1955Q1-2019Q4, from the acquired file (plan S2.1 says 1955-2019), transformed to 100 ln Y. The coefficients do not depend on the factor 100.
+2. Filters, each on the full sample: a linear trend fitted by least squares on (1, t); the two-sided Hodrick-Prescott filter with lambda = 1600 (statsmodels `hpfilter`); Hamilton's regression filter with h = 8 and p = 4, whose cycle is the least-squares residual of y[t+8] on (1, y[t], y[t-1], y[t-2], y[t-3]), giving 249 values.
+3. Each cycle is fitted by the programme's intercept-inclusive least-squares AR(2). Report phi1, phi2, modulus, period in quarters, c = phi1 + phi2, v = -phi2 / (phi1 + phi2), and whether c(1 + v)^2 < 4v. When c <= 0 the multiplier-accelerator reading does not apply and v is not reported.
+4. One table, three rows, labelled "a check, not a result". No test, no preferred filter and no structural interpretation; the sensitivity to the filter is the point (plan S2.1).
