@@ -13,6 +13,7 @@ check-data:
 # S1 Yule centenary (D-018): fits, bootstrap bands, AT-13, then figures from the saved fits.
 s1: check-data
 	$(PYTHON) tools/build_s1.py
+	$(PYTHON) tools/s1_table.py
 
 s1-figures: s1
 	$(PYTHON) tools/plot_s1.py

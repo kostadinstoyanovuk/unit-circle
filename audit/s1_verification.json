@@ -1,0 +1,487 @@
+{
+  "record_type": "S1 Yule centenary fits, bootstrap bands and AT-13",
+  "decision": "D-018",
+  "inputs": {
+    "data/raw/yearssn.dat": "cf7ecc7311300280216b6eb80f7dddfd1f0a0279a37593e4be93d7e064d0aaf6",
+    "data/raw/SN_y_tot_V2.0.csv": "0ccb2104b03f2f0c4ad151c97f8721139414cae288a039cdeb37ee36c9e35b6d"
+  },
+  "raw_files_checked": 2,
+  "versions": {
+    "V1": {
+      "first": 1700,
+      "last": 2014
+    },
+    "V2": {
+      "first": 1700,
+      "last": 2025,
+      "provisional_rows": 0
+    }
+  },
+  "statsmodels_vs_silso_v1": {
+    "overlap_years": [
+      1700,
+      2008
+    ],
+    "years_compared": 309,
+    "years_differing": 51,
+    "years_differing_1749_1924": 39,
+    "max_absolute_difference": 0.4000000000000057,
+    "differing_years": [
+      1817,
+      1849,
+      1850,
+      1851,
+      1854,
+      1857,
+      1858,
+      1859,
+      1860,
+      1862,
+      1865,
+      1866,
+      1869,
+      1870,
+      1871,
+      1872,
+      1873,
+      1874,
+      1880,
+      1882,
+      1885,
+      1886,
+      1888,
+      1889,
+      1891,
+      1893,
+      1895,
+      1896,
+      1900,
+      1902,
+      1904,
+      1905,
+      1906,
+      1907,
+      1910,
+      1916,
+      1917,
+      1918,
+      1919,
+      1925,
+      1927,
+      1930,
+      1931,
+      1933,
+      1942,
+      1944,
+      1962,
+      1981,
+      1983,
+      1984,
+      1985
+    ]
+  },
+  "fits": [
+    {
+      "version": "V1",
+      "sample": "1749-1924",
+      "start": 1749,
+      "end": 1924,
+      "n": 176,
+      "method": "ols",
+      "phi1": 1.3362845603364755,
+      "phi2": -0.650308543261957,
+      "intercept": 13.942880581119695,
+      "modulus": 0.8064171025356276,
+      "period": 10.572134835102355,
+      "half_life": 3.221630190313062,
+      "complex_pair": true,
+      "stable": true
+    },
+    {
+      "version": "V1",
+      "sample": "1749-1924",
+      "start": 1749,
+      "end": 1924,
+      "n": 176,
+      "method": "yw",
+      "phi1": 1.3265874372988886,
+      "phi2": -0.6423322913214888,
+      "intercept": 14.137117037891446,
+      "modulus": 0.801456356467081,
+      "period": 10.542980550380127,
+      "half_life": 3.131810368906839,
+      "complex_pair": true,
+      "stable": true
+    },
+    {
+      "version": "V1",
+      "sample": "1925-2014",
+      "start": 1925,
+      "end": 2014,
+      "n": 90,
+      "method": "ols",
+      "phi1": 1.407950419646744,
+      "phi2": -0.7457282757401656,
+      "intercept": 22.46817330750742,
+      "modulus": 0.8635556008388606,
+      "period": 10.17169792868053,
+      "half_life": 4.725026495608609,
+      "complex_pair": true,
+      "stable": true
+    },
+    {
+      "version": "V1",
+      "sample": "1925-2014",
+      "start": 1925,
+      "end": 2014,
+      "n": 90,
+      "method": "yw",
+      "phi1": 1.3948936826505591,
+      "phi2": -0.7345468691448493,
+      "intercept": 22.55938725452131,
+      "modulus": 0.857057097949051,
+      "period": 10.131103277353791,
+      "half_life": 4.49363933701108,
+      "complex_pair": true,
+      "stable": true
+    },
+    {
+      "version": "V2",
+      "sample": "1749-1924",
+      "start": 1749,
+      "end": 1924,
+      "n": 176,
+      "method": "ols",
+      "phi1": 1.3446579050780971,
+      "phi2": -0.6548860389901109,
+      "intercept": 23.283442152006657,
+      "modulus": 0.8092502944022393,
+      "period": 10.6450578812926,
+      "half_life": 3.275015035728936,
+      "complex_pair": true,
+      "stable": true
+    },
+    {
+      "version": "V2",
+      "sample": "1749-1924",
+      "start": 1749,
+      "end": 1924,
+      "n": 176,
+      "method": "yw",
+      "phi1": 1.3348583173984918,
+      "phi2": -0.6468007987132971,
+      "intercept": 23.601107312158046,
+      "modulus": 0.8042392670799512,
+      "period": 10.615497317804104,
+      "half_life": 3.181639979781138,
+      "complex_pair": true,
+      "stable": true
+    },
+    {
+      "version": "V2",
+      "sample": "1925-2025",
+      "start": 1925,
+      "end": 2025,
+      "n": 101,
+      "method": "ols",
+      "phi1": 1.4160735584826856,
+      "phi2": -0.7524146354853618,
+      "intercept": 30.89249089981128,
+      "modulus": 0.8674183739611249,
+      "period": 10.201737666646371,
+      "half_life": 4.8732921694616405,
+      "complex_pair": true,
+      "stable": true
+    },
+    {
+      "version": "V2",
+      "sample": "1925-2025",
+      "start": 1925,
+      "end": 2025,
+      "n": 101,
+      "method": "yw",
+      "phi1": 1.4073856337075394,
+      "phi2": -0.7433843641227261,
+      "intercept": 31.341362763510062,
+      "modulus": 0.8621974043818075,
+      "period": 10.199001541204458,
+      "half_life": 4.674865979969892,
+      "complex_pair": true,
+      "stable": true
+    }
+  ],
+  "bootstrap": {
+    "B": 4000,
+    "master_seed": 1927,
+    "stream": 1001,
+    "band": "95% percentile, NumPy linear interpolation",
+    "summaries": [
+      {
+        "k": 0,
+        "stream": [
+          1927,
+          1001,
+          0
+        ],
+        "version": "V1",
+        "sample": "1749-1924",
+        "method": "ols",
+        "B": 4000,
+        "failed": 0,
+        "valid": 4000,
+        "complex": 4000,
+        "real": 0,
+        "modulus_band": [
+          0.7205428985817258,
+          0.8647588286936186
+        ],
+        "period_band": [
+          9.316300991457936,
+          12.327638613564714
+        ]
+      },
+      {
+        "k": 1,
+        "stream": [
+          1927,
+          1001,
+          1
+        ],
+        "version": "V1",
+        "sample": "1749-1924",
+        "method": "yw",
+        "B": 4000,
+        "failed": 0,
+        "valid": 4000,
+        "complex": 4000,
+        "real": 0,
+        "modulus_band": [
+          0.7074794929355638,
+          0.8540459190422283
+        ],
+        "period_band": [
+          9.198074343901235,
+          12.27374758353021
+        ]
+      },
+      {
+        "k": 2,
+        "stream": [
+          1927,
+          1001,
+          2
+        ],
+        "version": "V1",
+        "sample": "1925-2014",
+        "method": "ols",
+        "B": 4000,
+        "failed": 0,
+        "valid": 4000,
+        "complex": 4000,
+        "real": 0,
+        "modulus_band": [
+          0.7544786083488064,
+          0.925018527176416
+        ],
+        "period_band": [
+          8.773609068610744,
+          11.929395501798933
+        ]
+      },
+      {
+        "k": 3,
+        "stream": [
+          1927,
+          1001,
+          3
+        ],
+        "version": "V1",
+        "sample": "1925-2014",
+        "method": "yw",
+        "B": 4000,
+        "failed": 0,
+        "valid": 4000,
+        "complex": 4000,
+        "real": 0,
+        "modulus_band": [
+          0.7097829579451874,
+          0.9050953897560403
+        ],
+        "period_band": [
+          8.611161362744388,
+          11.8459153410006
+        ]
+      },
+      {
+        "k": 4,
+        "stream": [
+          1927,
+          1001,
+          4
+        ],
+        "version": "V2",
+        "sample": "1749-1924",
+        "method": "ols",
+        "B": 4000,
+        "failed": 0,
+        "valid": 4000,
+        "complex": 4000,
+        "real": 0,
+        "modulus_band": [
+          0.7271364365213449,
+          0.8694093298904664
+        ],
+        "period_band": [
+          9.364722193187463,
+          12.386342460794173
+        ]
+      },
+      {
+        "k": 5,
+        "stream": [
+          1927,
+          1001,
+          5
+        ],
+        "version": "V2",
+        "sample": "1749-1924",
+        "method": "yw",
+        "B": 4000,
+        "failed": 0,
+        "valid": 4000,
+        "complex": 4000,
+        "real": 0,
+        "modulus_band": [
+          0.7067460084175954,
+          0.8555711124424066
+        ],
+        "period_band": [
+          9.282849550897994,
+          12.41350418836526
+        ]
+      },
+      {
+        "k": 6,
+        "stream": [
+          1927,
+          1001,
+          6
+        ],
+        "version": "V2",
+        "sample": "1925-2025",
+        "method": "ols",
+        "B": 4000,
+        "failed": 0,
+        "valid": 4000,
+        "complex": 4000,
+        "real": 0,
+        "modulus_band": [
+          0.7704253917771522,
+          0.9252880785982736
+        ],
+        "period_band": [
+          8.953109410686697,
+          11.730755968463539
+        ]
+      },
+      {
+        "k": 7,
+        "stream": [
+          1927,
+          1001,
+          7
+        ],
+        "version": "V2",
+        "sample": "1925-2025",
+        "method": "yw",
+        "B": 4000,
+        "failed": 0,
+        "valid": 4000,
+        "complex": 3999,
+        "real": 1,
+        "modulus_band": [
+          0.730354665073182,
+          0.9093428324476457
+        ],
+        "period_band": [
+          8.82012489910958,
+          11.739045214900415
+        ]
+      }
+    ]
+  },
+  "version_differences": [
+    {
+      "sample": "1749-1924",
+      "method": "ols",
+      "phi1_V2_minus_V1": 0.008373344741621658,
+      "phi2_V2_minus_V1": -0.004577495728153913,
+      "modulus_V2_minus_V1": 0.002833191866611684,
+      "period_V2_minus_V1": 0.07292304619024392,
+      "half_life_V2_minus_V1": 0.05338484541587407
+    },
+    {
+      "sample": "1749-1924",
+      "method": "yw",
+      "phi1_V2_minus_V1": 0.008270880099603195,
+      "phi2_V2_minus_V1": -0.004468507391808263,
+      "modulus_V2_minus_V1": 0.002782910612870171,
+      "period_V2_minus_V1": 0.07251676742397706,
+      "half_life_V2_minus_V1": 0.049829610874299046
+    }
+  ],
+  "rescaling_check": {
+    "description": "V1/0.6 refitted by least squares, 1749-1924",
+    "max_coefficient_difference": 2.220446049250313e-16,
+    "identical_within_1e_10": true,
+    "median_ratio_V2_to_V1": 1.6666666666666667
+  },
+  "AT13": {
+    "fit": {
+      "phi1": 1.3359496152045296,
+      "phi2": -0.649853468582151,
+      "intercept": 13.940558343237196,
+      "modulus": 0.8061348947801175,
+      "period": 10.57475037500636
+    },
+    "bootstrap": {
+      "B": 4000,
+      "failed": 0,
+      "valid": 4000,
+      "complex": 4000,
+      "real": 0,
+      "modulus_band": [
+        0.7237419357123946,
+        0.8651442634935188
+      ],
+      "period_band": [
+        9.290935893243748,
+        12.237746889638311
+      ]
+    },
+    "long_series": {
+      "length": 200000,
+      "phi1": 1.333776001602372,
+      "phi2": -0.6487828135169039,
+      "z": [
+        -1.2789387311327236,
+        0.6299657994727044
+      ]
+    },
+    "checks": {
+      "period_lower_rounds_to_9.3": true,
+      "period_upper_in_12.2_to_12.3": true,
+      "modulus_lower_rounds_to_0.72": true,
+      "modulus_upper_rounds_to_0.87": true,
+      "every_replicate_complex": true,
+      "long_series_within_3_se": true
+    },
+    "passed": true
+  },
+  "environment": {
+    "python": "3.12.14",
+    "numpy": "2.5.3",
+    "statsmodels": "0.15.0"
+  },
+  "scope": "Descriptive replication on sunspot data. No difference test between versions; no UK observation."
+}
