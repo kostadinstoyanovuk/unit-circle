@@ -3,8 +3,12 @@
 Observation  y_t = z_t' a_t + e_t,  e_t ~ N(0, H)
 Transition   a_{t+1} = T a_t + w_t,  w_t ~ N(0, Q)
 
-The filter uses the Joseph-form covariance update. The log-likelihood is the
-prediction-error decomposition over observations from index `burn` onwards.
+Version 2 (27 September 2026) propagates a square-root factor S of the state
+covariance (P = S S') with orthogonal array updates. Version 1 used the Joseph
+form P = (I - K z') P (I - K z')' + H K K'; with the diffuse prior P0 = 1e8 I its
+rounding error reached 5.5e-6 in AT-11, above the 1e-6 target (D-019,
+audit/FOUNDATIONS_REPORT.md). The log-likelihood is the prediction-error
+decomposition over observations from index `burn` onwards.
 """
 from __future__ import annotations
 
@@ -25,6 +29,15 @@ class FilterResult:
     loglik: float
 
 
+def _factor(matrix) -> np.ndarray:
+    """A square-root factor of a symmetric positive semidefinite matrix."""
+    matrix = np.atleast_2d(np.asarray(matrix, dtype=float))
+    values, vectors = np.linalg.eigh((matrix + matrix.T) / 2)
+    if values.min(initial=0.0) < -1e-12 * max(1.0, abs(values).max(initial=0.0)):
+        raise ValueError('Covariance must be positive semidefinite')
+    return vectors * np.sqrt(np.clip(values, 0, None))
+
+
 def kalman_filter(y, Z, T, Q, H, a1, P1, *, burn: int = 0) -> FilterResult:
     y = np.asarray(y, dtype=float)
     Z = np.asarray(Z, dtype=float)
@@ -33,28 +46,40 @@ def kalman_filter(y, Z, T, Q, H, a1, P1, *, burn: int = 0) -> FilterResult:
     n, m = Z.shape
     if y.shape != (n,) or not np.isfinite(y).all() or not np.isfinite(Z).all():
         raise ValueError('Observations and loadings must be finite with matching length')
-    T, Q = np.atleast_2d(np.asarray(T, dtype=float)), np.atleast_2d(np.asarray(Q, dtype=float))
-    a, P = np.asarray(a1, dtype=float).reshape(m), np.atleast_2d(np.asarray(P1, dtype=float))
     H = float(H)
-    identity = np.eye(m)
+    if not H > 0:
+        raise ValueError('Observation variance must be positive')
+    T = np.atleast_2d(np.asarray(T, dtype=float))
+    root_Q = _factor(Q)
+    a = np.asarray(a1, dtype=float).reshape(m)
+    S = _factor(P1)
     states = np.empty((n, m))
     errors, variances = np.empty(n), np.empty(n)
     loglik = 0.0
     for t in range(n):
         z = Z[t]
         v = y[t] - z @ a
-        F = z @ P @ z + H
+        # Measurement update: lower-triangularise [[sqrt(H), z'S], [0, S]] by an orthogonal transformation.
+        pre = np.zeros((m + 1, m + 1))
+        pre[0, 0] = math.sqrt(H)
+        pre[0, 1:] = z @ S
+        pre[1:, 1:] = S
+        post = np.linalg.qr(pre.T, mode='r').T
+        if post[0, 0] < 0:
+            post[:, 0] = -post[:, 0]
+        root_F = post[0, 0]
+        F = root_F * root_F
         if not F > 0:
             raise FloatingPointError('Non-positive prediction variance')
-        K = P @ z / F
-        a = a + K * v
-        A = identity - np.outer(K, z)
-        P = A @ P @ A.T + H * np.outer(K, K)
+        a = a + post[1:, 0] * (v / root_F)
+        S = post[1:, 1:]
         states[t], errors[t], variances[t] = a, v, F
         if t >= burn:
             loglik -= 0.5 * (math.log(2 * math.pi) + math.log(F) + v * v / F)
+        # Time update: P <- T P T' + Q through a factor of [T S, sqrt(Q)].
         a = T @ a
-        P = T @ P @ T.T + Q
+        stacked = np.hstack((T @ S, root_Q))
+        S = np.linalg.qr(stacked.T, mode='r').T[:, :m] if stacked.shape[1] >= m else stacked
     return FilterResult(states, errors, variances, loglik)
 
 
