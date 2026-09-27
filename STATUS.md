@@ -1,6 +1,6 @@
 # Programme status
 
-Updated 27 September 2026. **M1 Foundations and Registration Preparation is complete; M2 is in progress.** The mathematical and computational methods, protocol, exposure declaration and public infrastructure meet the M1 checklist. All three repositories have successful hosted checks, satisfying G0. H1 was submitted to OSF on 25 September under CC BY 4.0 and remains pending contributor approval. No empirical H1 result or completed programme formal theorem is claimed.
+Updated 27 September 2026. **M1 Foundations and Registration Preparation is complete; M2 is in progress.** The mathematical and computational methods, protocol, exposure declaration and public infrastructure meet the M1 checklist. All three repositories have successful hosted checks, satisfying G0. H1 was submitted to OSF on 25 September under CC BY 4.0 and is now approved and public, with all five archived attachments verified byte-for-byte. No empirical H1 result or completed programme formal theorem is claimed.
 
 | Output | Evidence | Status |
 |---|---|---|
@@ -12,8 +12,8 @@ Updated 27 September 2026. **M1 Foundations and Registration Preparation is comp
 | Secondary methods and integrated workflow | audit/M1C2_REPORT.md; 204 research tests | Complete |
 | Resumable validation execution | audit/M2_RUNNER_REPORT.md; audit/validation_runner_verification.json; 236 total research tests | Development recovery checks complete; official experiments unrun |
 | Reporting preparation | audit/M2_REPORTING_REPORT.md; audit/h1_reporting_verification.json; 273 total research tests | Artificial-data tables and figures verified; empirical report remains outstanding |
-| H1 methodological protocol | prereg/H1.md; audit/H1_REGISTRATION.json | Submitted; public registration verification pending |
-| H1 registration responses | prereg/H1_OSF_responses.md; audit/PREREGISTRATION_READINESS.md | Submitted with all five prepared attachments; archived bytes not yet verified |
+| H1 methodological protocol | prereg/H1.md; audit/H1_REGISTRATION.json | Approved and public; archived attachments verified; timestamp/tag checks pending |
+| H1 registration responses | prereg/H1_OSF_responses.md; audit/PREREGISTRATION_READINESS.md | All five archived attachments match the submitted bytes |
 | Historical exposure declaration | prereg/H1.md, section 1 | Recorded |
 | Python package foundation | unitcircle repository; installed-package checks | Complete development setup |
 | Lean foundation | schur-cohn repository; pinned build evidence | Complete setup; programme theorems remain |
@@ -24,7 +24,7 @@ Updated 27 September 2026. **M1 Foundations and Registration Preparation is comp
 | Gate | Status | Required evidence |
 |---|---|---|
 | G0 | Passed | audit/GITHUB_PUBLICATION.json: verified public commits and successful hosted checks |
-| G1 | Pending | OSF wcnbz is awaiting contributor approval; public immutable status, attached bytes and supporting tag remain to be verified |
+| G1 | Pending | OSF wcnbz is approved and public; attachment bytes verified; public timestamp meaning and supporting tag remain |
 | G2 | Pending | Complete registered baseline and simulation checks |
 | G3 | Pending | Frozen H1 analysis and core note |
 | G4 | Pending | Registered extension addenda |
@@ -32,7 +32,7 @@ Updated 27 September 2026. **M1 Foundations and Registration Preparation is comp
 | G6 | Pending | Formal blueprint and coordination requirements |
 | G7 | Pending | Programme theorem build and axiom audit |
 
-M2 now includes the submitted protocol, reconciled OSF responses, five selected attachments and a separate [submission evidence record](audit/H1_REGISTRATION.json). The submitted files are retained unchanged. OSF displays a registration date of 25 September 2026, 16:32 Europe/London, but that display is not evidence of the time the record becomes public. No DOI was displayed at the latest check; unauthenticated API access returned HTTP 401. Neither the pending record nor its date display satisfies G1.
+M2 now includes the submitted protocol, reconciled OSF responses, five selected attachments and a separate [submission evidence record](audit/H1_REGISTRATION.json). The submitted files are retained unchanged. OSF displays a registration date of 25 September 2026, 16:32 Europe/London, but that display is not evidence of the time the record becomes public. A later anonymous API check on 27 September verified approved public status, and all five downloaded attachments match the submitted hashes. DOI: [10.17605/OSF.IO/WCNBZ](https://doi.org/10.17605/OSF.IO/WCNBZ). The API registry date corresponds to submission, while the exact public-approval time remains unresolved. G1 remains pending that distinction and the supporting tag.
 
 D-016 corrects the earlier PN2 link to the specified QNA family and distinguishes archive supersession dates from publication dates. The actual selected vintage and file availability remain unverified. Verify the public registration timestamp before applying the frozen release-selection rule; do not substitute the submission time or a later verification time without resolving its meaning.
 

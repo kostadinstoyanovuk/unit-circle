@@ -4,7 +4,7 @@
   "registration_id": "wcnbz",
   "registration_url": "https://osf.io/wcnbz/",
   "registration_type": "Secondary Data Preregistration",
-  "status_observed": "Pending approval",
+  "status_observed": "Approved and public",
   "signed_in_status_checked_date_utc": "2026-09-27",
   "registration_license": "CC-BY-4.0",
   "license_scope": "Registration and attached research snapshot, including methodological source files reproduced as evidence; not a repository-wide licensing decision for separate software releases. Third-party material and dependencies retain their existing terms.",
@@ -12,13 +12,13 @@
   "display_timezone": "Europe/London",
   "submission_time_precision": "minute; browser display, not an API timestamp",
   "public_registration_timestamp_utc": null,
-  "public_first_verified_at_utc": null,
-  "doi": null,
+  "public_first_verified_at_utc": "2026-09-27T20:58:15.037124+00:00",
+  "doi": "10.17605/OSF.IO/WCNBZ",
   "anonymous_api_check": {
     "url": "https://api.osf.io/v2/registrations/wcnbz/",
-    "checked_at_utc": "2026-09-27T04:32:45.4692644Z",
-    "status_code": 401,
-    "public_status_verified": false
+    "checked_at_utc": "2026-09-27T20:58:15.037124+00:00",
+    "status_code": 200,
+    "public_status_verified": true
   },
   "attachments_listed_in_registration": [
     "H1.md",
@@ -34,7 +34,7 @@
     "H1_supporting_materials.zip": "a69984b5a6ea9d9b5db3366d554c27b504b966ce3b6f0354177517d6e9b64501",
     "H1_submission_manifest.json": "efaa38886d86b4ab8452696182ef802c208a5e9895c8c2112989a5f5551931b3"
   },
-  "archived_attachment_bytes_verified": false,
+  "archived_attachment_bytes_verified": true,
   "preparation_commit": "0dfc0258459d42092ec4e880ada917b011d9879f",
   "preparation_hosted_check": {
     "url": "https://github.com/kostadinstoyanovuk/unit-circle/actions/runs/36154858494",
@@ -47,11 +47,21 @@
   "G2": "pending",
   "official_size_power_runs": 0,
   "raw_UK_data_acquired": false,
-  "preservation_note": "The submitted package and preparation-time draft manifest remain unchanged. This separate record tracks later events; listing an attachment does not verify its bytes.",
+  "preservation_note": "The submitted package remains unchanged. Anonymous public approval and all five archived attachment bytes are verified. G1 remains pending timestamp resolution and the supporting tag.",
   "remaining_G1_evidence": [
-    "Contributor approval and verified public immutable status",
     "Documented public registration timestamp and its relation to submission time",
-    "Downloaded archived attachment hashes matching the expected bytes",
     "Published supporting prereg-H1 tag for the exact committed protocol"
-  ]
+  ],
+  "public_immutable_verified": true,
+  "api_date_registered": "2026-09-25T15:32:12.994300",
+  "api_date_registered_note": "Registry timestamp corresponds to the submission date; it does not establish the later public-approval time.",
+  "public_timestamp_resolution": "Pending documented distinction between submission and public approval; do not substitute first observation.",
+  "archived_attachment_sha256": {
+    "H1_supporting_materials.zip": "a69984b5a6ea9d9b5db3366d554c27b504b966ce3b6f0354177517d6e9b64501",
+    "H1.md": "be447b725317c3b857eb1888dbcedd127d057cd5e0e586a0b2de87e24b182ba4",
+    "H1_OSF_responses.md": "3d1a8e85286a7ec602875818b123dc3cb881f0bdbb25f72c936927a04480c6d6",
+    "H1_protocol.pdf": "631982396c0329a9fa8d17bd99f9c458ddca2a45927de9051ee0a3b2c7437d19",
+    "H1_submission_manifest.json": "efaa38886d86b4ab8452696182ef802c208a5e9895c8c2112989a5f5551931b3"
+  },
+  "archived_attachment_checked_at_utc": "2026-09-27T21:00:28.622149+00:00"
 }
