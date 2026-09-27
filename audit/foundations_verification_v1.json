@@ -1,0 +1,164 @@
+{
+  "record_type": "Foundations checks AT-8, AT-11, AT-12 and local-level model",
+  "decision": "D-019",
+  "AT8": {
+    "by_degree": [
+      {
+        "degree": 1,
+        "drawn": 20000,
+        "compared": 20000,
+        "skipped": 0,
+        "stable": 10041,
+        "mismatches": 0
+      },
+      {
+        "degree": 2,
+        "drawn": 20000,
+        "compared": 20000,
+        "skipped": 0,
+        "stable": 4182,
+        "mismatches": 0
+      },
+      {
+        "degree": 3,
+        "drawn": 20000,
+        "compared": 20000,
+        "skipped": 0,
+        "stable": 1714,
+        "mismatches": 0
+      },
+      {
+        "degree": 4,
+        "drawn": 20000,
+        "compared": 20000,
+        "skipped": 0,
+        "stable": 602,
+        "mismatches": 0
+      },
+      {
+        "degree": 5,
+        "drawn": 20000,
+        "compared": 20000,
+        "skipped": 0,
+        "stable": 222,
+        "mismatches": 0
+      },
+      {
+        "degree": 6,
+        "drawn": 20000,
+        "compared": 20000,
+        "skipped": 0,
+        "stable": 88,
+        "mismatches": 0
+      },
+      {
+        "degree": 7,
+        "drawn": 20000,
+        "compared": 20000,
+        "skipped": 0,
+        "stable": 37,
+        "mismatches": 0
+      },
+      {
+        "degree": 8,
+        "drawn": 20000,
+        "compared": 19999,
+        "skipped": 1,
+        "stable": 11,
+        "mismatches": 0
+      }
+    ],
+    "total": {
+      "drawn": 160000,
+      "compared": 159999,
+      "skipped": 1,
+      "stable": 16897,
+      "mismatches": 0
+    },
+    "passed": true
+  },
+  "AT11": {
+    "test": {
+      "final_state": [
+        13.940563840462813,
+        1.3359494340874218,
+        -0.6498536671350779
+      ],
+      "least_squares": [
+        13.940558343237196,
+        1.3359496152045296,
+        -0.649853468582151
+      ],
+      "max_abs_difference": 5.4972256169349976e-06,
+      "observation_variance": 1.0,
+      "prior_variance": 100000000.0,
+      "passed": false
+    },
+    "sensitivity_residual_variance": {
+      "final_state": [
+        13.940557845502122,
+        1.3359496188316926,
+        -0.6498534687742586
+      ],
+      "least_squares": [
+        13.940558343237196,
+        1.3359496152045296,
+        -0.649853468582151
+      ],
+      "max_abs_difference": 4.977350744894693e-07,
+      "observation_variance": 242.11177366490847,
+      "prior_variance": 100000000.0,
+      "passed": true
+    }
+  },
+  "local_level": {
+    "series": "statsmodels Nile volume, 1871-1970",
+    "estimate": {
+      "irregular": 15098.609270932291,
+      "level": 1469.1528667419473,
+      "loglik": -632.5456236205592,
+      "converged": true,
+      "iterations": 9
+    },
+    "durbin_koopman": {
+      "irregular": 15099.0,
+      "level": 1469.1
+    },
+    "relative_difference": {
+      "irregular": -2.5877810961527636e-05,
+      "level": 3.5985802155913404e-05
+    },
+    "statsmodels_unobserved_components": {
+      "irregular": 15078.01098217475,
+      "level": 1478.8113585572619
+    },
+    "passed": true
+  },
+  "AT12": {
+    "diagonal": {
+      "draws": 100000,
+      "max_abs_error": 0.0,
+      "passed": true
+    },
+    "ar2": {
+      "draws": 100000,
+      "skipped": 0,
+      "max_abs_error": 4.884981308350689e-15,
+      "passed": true
+    },
+    "passed": true
+  },
+  "passed": {
+    "AT8": true,
+    "AT11": false,
+    "local_level": true,
+    "AT12": true
+  },
+  "environment": {
+    "python": "3.12.14",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1",
+    "statsmodels": "0.15.0"
+  },
+  "scope": "Numerical foundations checks on synthetic, sunspot and Nile data; no UK observation."
+}

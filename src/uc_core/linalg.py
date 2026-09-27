@@ -36,7 +36,7 @@ def spectral_radius(matrix) -> float:
 def at12(draws: int = 100_000, seed: int = 1927, stream: int = 2012) -> dict:
     diagonal_rng = np.random.Generator(np.random.PCG64(np.random.SeedSequence([seed, stream, 0])))
     ab = diagonal_rng.uniform(-2, 2, size=(draws, 2))
-    diagonal_error = max(abs(spectral_radius(np.diag(row)) - np.max(np.abs(row))) for row in ab)
+    diagonal_error = float(max(abs(spectral_radius(np.diag(row)) - np.max(np.abs(row))) for row in ab))
     ar_rng = np.random.Generator(np.random.PCG64(np.random.SeedSequence([seed, stream, 1])))
     phi = np.column_stack((ar_rng.uniform(-3, 3, draws), ar_rng.uniform(-2, 2, draws)))
     ar_error, skipped = 0.0, 0
@@ -44,7 +44,7 @@ def at12(draws: int = 100_000, seed: int = 1927, stream: int = 2012) -> dict:
         if abs(phi1 * phi1 + 4 * phi2) < 1e-8:
             skipped += 1
             continue
-        ar_error = max(ar_error, abs(spectral_radius(companion([phi1, phi2])) - root_summary([phi1, phi2]).modulus))
+        ar_error = max(ar_error, float(abs(spectral_radius(companion([phi1, phi2])) - root_summary([phi1, phi2]).modulus)))
     return dict(diagonal=dict(draws=draws, max_abs_error=float(diagonal_error), passed=diagonal_error <= 1e-12),
                 ar2=dict(draws=draws, skipped=skipped, max_abs_error=float(ar_error), passed=ar_error <= 1e-9),
                 passed=diagonal_error <= 1e-12 and ar_error <= 1e-9)
