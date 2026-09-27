@@ -14,6 +14,7 @@ check-data:
 s1: check-data
 	$(PYTHON) tools/build_s1.py
 	$(PYTHON) tools/s1_table.py
+	$(PYTHON) tools/build_yule1927.py
 
 s1-figures: s1
 	$(PYTHON) tools/plot_s1.py

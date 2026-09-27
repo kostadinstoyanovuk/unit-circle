@@ -1,0 +1,153 @@
+{
+  "record_type": "S1.1 transcription of Yule (1927) and reproduction of his arithmetic",
+  "source": {
+    "citation": "Yule, G. U. (1927) Phil. Trans. R. Soc. A 226, 267-298, doi:10.1098/rsta.1927.0007",
+    "pdf_sha256": "766518d7d4eaa7ab450df444a1299d8c9a7e1a29861c6bf64d8352478cc2993c",
+    "pages": 32
+  },
+  "transcription_sha256": {
+    "yule1927.csv": "d3ff34b718fcb71f7313307984d5d05a406bcce158ad4eb9c6743ca91f957170",
+    "yule1927_tableA.csv": "d87ac40657153d8adf4e214a31fd456e21ae5038cbd36b7f292fcafe8c9fce46"
+  },
+  "table_a": {
+    "first_year": 1749,
+    "last_year": 1924,
+    "values": 176,
+    "mean": 44.76477272727273,
+    "sd_population": 34.67109760361296
+  },
+  "reproduction": {
+    "method": "deviations from the mean rounded to the nearest unit; Pearson serial correlations; phi1 = r1(1-r2)/(1-r1^2), phi2 = (r2-r1^2)/(1-r1^2)",
+    "r1": 0.8111797793009707,
+    "r2": 0.43399835444642926,
+    "coefficient_lag1": 1.3425323156226885,
+    "coefficient_lag2": -0.6550367130448043,
+    "period": 10.599689682289625,
+    "printed": {
+      "r1": 0.81118,
+      "r2": 0.433998,
+      "coefficient_lag1": 1.34254,
+      "coefficient_lag2": -0.65504,
+      "period": 10.6
+    }
+  },
+  "eq31_period_from_printed_coefficients": 10.599775027520803,
+  "disturbances": {
+    "coefficients": "1.343, -0.655, 13.854 (p. 282)",
+    "count": 174,
+    "sd_population": 15.409182169560324,
+    "mean": -0.002491379310341696,
+    "printed_sd": 15.41
+  },
+  "checks": {
+    "table4_r1_reproduced_to_6dp": true,
+    "table4_r2_reproduced_to_6dp": true,
+    "eq31_coefficients_within_1e-5": true,
+    "eq31_period_from_printed_coefficients_to_3dp": true,
+    "sd_disturbances_to_2dp": true,
+    "sd_series_within_0.02": true
+  },
+  "passed": true,
+  "programme_fits_on_table_a": {
+    "ols": {
+      "phi1": 1.3363349532165683,
+      "phi2": -0.6503710281613517,
+      "intercept": 13.940560708967105,
+      "modulus": 0.8064558439005521,
+      "period": 10.571862952231603,
+      "half_life": 3.2223496850958413
+    },
+    "yw": {
+      "phi1": 1.3266266475692527,
+      "phi2": -0.6423850732993336,
+      "intercept": 14.134854164528495,
+      "modulus": 0.8014892845817301,
+      "period": 10.542679874921827,
+      "half_life": 3.132391834666578
+    }
+  },
+  "table_a_vs_silso_v1": {
+    "years_differing": 49,
+    "max_absolute_difference": 1.7,
+    "differing_years": [
+      1817,
+      1818,
+      1820,
+      1827,
+      1828,
+      1830,
+      1839,
+      1840,
+      1841,
+      1848,
+      1849,
+      1851,
+      1852,
+      1854,
+      1858,
+      1859,
+      1860,
+      1862,
+      1865,
+      1866,
+      1868,
+      1869,
+      1871,
+      1872,
+      1873,
+      1874,
+      1875,
+      1877,
+      1880,
+      1882,
+      1885,
+      1886,
+      1888,
+      1889,
+      1891,
+      1893,
+      1895,
+      1896,
+      1900,
+      1902,
+      1904,
+      1905,
+      1906,
+      1907,
+      1910,
+      1916,
+      1917,
+      1918,
+      1919
+    ]
+  },
+  "table_a_vs_statsmodels": {
+    "years_differing": 22,
+    "max_absolute_difference": 1.7,
+    "differing_years": [
+      1818,
+      1820,
+      1827,
+      1828,
+      1830,
+      1839,
+      1840,
+      1841,
+      1848,
+      1849,
+      1850,
+      1852,
+      1857,
+      1860,
+      1868,
+      1869,
+      1870,
+      1872,
+      1873,
+      1875,
+      1877,
+      1893
+    ]
+  },
+  "scope": "Transcription check and descriptive comparison on sunspot data; no UK observation."
+}

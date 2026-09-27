@@ -204,3 +204,33 @@ def at13(values) -> dict:
                 long_series=dict(length=LONG_SERIES_LENGTH, phi1=long_fit.coefficients[0],
                                  phi2=long_fit.coefficients[1], z=z),
                 checks=checks, passed=all(checks.values()))
+
+
+# S1.1: Yule's own sample (Table A) and his serial-correlation arithmetic.
+
+def read_table_a(path) -> YearlySeries:
+    """Wolfer's numbers for 1749-1924 as printed in Yule (1927), Table A (data/transcribed)."""
+    import csv
+    with Path(path).open(encoding='utf-8', newline='') as source:
+        rows = list(csv.DictReader(source))
+    return _checked('Yule1927', [int(row['year']) for row in rows],
+                    [float(row['wolfer_number']) for row in rows], None)
+
+
+def yule_serial_regression(values) -> dict:
+    """Yule's procedure (pp. 275, 281, 287): deviations from the mean rounded to the nearest unit,
+    Pearson serial correlations r1 and r2, then phi1 = r1(1-r2)/(1-r1^2) and phi2 = (r2-r1^2)/(1-r1^2),
+    the partial regressions; Yule prints u_x = phi1 u_{x-1} - |phi2| u_{x-2}. No deviation in this sample is an exact half."""
+    x = np.asarray(values, dtype=float)
+    deviations = np.round(x - x.mean())
+    r1 = float(np.corrcoef(deviations[1:], deviations[:-1])[0, 1])
+    r2 = float(np.corrcoef(deviations[2:], deviations[:-2])[0, 1])
+    phi1 = r1 * (1 - r2) / (1 - r1 * r1)
+    phi2 = (r2 - r1 * r1) / (1 - r1 * r1)
+    return dict(r1=r1, r2=r2, coefficient_lag1=phi1, coefficient_lag2=phi2)
+
+
+def yule_disturbances(values, lag1=1.343, lag2=-0.655, constant=13.854) -> np.ndarray:
+    """Disturbances of equation (31) with the coefficients cut to three decimals (p. 282)."""
+    x = np.asarray(values, dtype=float)
+    return x[2:] - lag1 * x[1:-1] - lag2 * x[:-2] - constant
