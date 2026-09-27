@@ -1,10 +1,11 @@
 {
   "record_type": "H1 submission and registration verification",
-  "checked_date_utc": "2026-09-26",
+  "checked_date_utc": "2026-09-27",
   "registration_id": "wcnbz",
   "registration_url": "https://osf.io/wcnbz/",
   "registration_type": "Secondary Data Preregistration",
   "status_observed": "Pending approval",
+  "signed_in_status_checked_date_utc": "2026-09-27",
   "registration_license": "CC-BY-4.0",
   "license_scope": "Registration and attached research snapshot, including methodological source files reproduced as evidence; not a repository-wide licensing decision for separate software releases. Third-party material and dependencies retain their existing terms.",
   "submission_date_display": "Sep 25, 2026, 4:32 PM",
@@ -15,7 +16,7 @@
   "doi": null,
   "anonymous_api_check": {
     "url": "https://api.osf.io/v2/registrations/wcnbz/",
-    "checked_at_utc": "2026-09-26T19:11:17.4928677Z",
+    "checked_at_utc": "2026-09-27T04:32:45.4692644Z",
     "status_code": 401,
     "public_status_verified": false
   },

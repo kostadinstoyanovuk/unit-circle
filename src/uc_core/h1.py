@@ -3,6 +3,7 @@ from __future__ import annotations
 
 from copy import deepcopy
 from dataclasses import dataclass, replace
+import hashlib
 import math
 import numpy as np
 
@@ -198,6 +199,8 @@ def analyze_h1(values, *, B=SURROGATE_ATTEMPTS, interval_B=EPISODE_RESAMPLES):
     """In-memory protocol assembly. Registration/data gates belong to the runner."""
     B = s._integer(B, "B")
     interval_B = s._integer(interval_B, "interval_B")
+    input_values, _ = _observations_and_index(values)
+    input_sha256 = hashlib.sha256(input_values.astype('<f8').tobytes()).hexdigest()
     joint = primary_with_comparators(values, B=B, rng=analysis_rng("primary"))
     def sensitivity(name, **kwargs):
         try:
@@ -211,6 +214,7 @@ def analyze_h1(values, *, B=SURROGATE_ATTEMPTS, interval_B=EPISODE_RESAMPLES):
                     "requested":B, "attempted":0,
                     "error": f"{type(error).__name__}: {error}"}
     return {
+        "input_sha256": input_sha256,
         "joint": joint,
         "window32": sensitivity("window32", window=32),
         "window48": sensitivity("window48", window=48),

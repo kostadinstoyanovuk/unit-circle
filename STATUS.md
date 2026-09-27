@@ -1,6 +1,6 @@
 # Programme status
 
-Updated 26 September 2026. **M1 Foundations and Registration Preparation is complete; M2 is in progress.** The mathematical and computational methods, protocol, exposure declaration and public infrastructure meet the M1 checklist. All three repositories have successful hosted checks, satisfying G0. H1 was submitted to OSF on 25 September under CC BY 4.0 and remains pending contributor approval. No empirical H1 result or completed programme formal theorem is claimed.
+Updated 27 September 2026. **M1 Foundations and Registration Preparation is complete; M2 is in progress.** The mathematical and computational methods, protocol, exposure declaration and public infrastructure meet the M1 checklist. All three repositories have successful hosted checks, satisfying G0. H1 was submitted to OSF on 25 September under CC BY 4.0 and remains pending contributor approval. No empirical H1 result or completed programme formal theorem is claimed.
 
 | Output | Evidence | Status |
 |---|---|---|
@@ -11,6 +11,7 @@ Updated 26 September 2026. **M1 Foundations and Registration Preparation is comp
 | Surrogate mechanics | audit/M1C1_REPORT.md | Complete |
 | Secondary methods and integrated workflow | audit/M1C2_REPORT.md; 204 research tests | Complete |
 | Resumable validation execution | audit/M2_RUNNER_REPORT.md; audit/validation_runner_verification.json; 236 total research tests | Development recovery checks complete; official experiments unrun |
+| Reporting preparation | audit/M2_REPORTING_REPORT.md; audit/h1_reporting_verification.json; 273 total research tests | Artificial-data tables and figures verified; empirical report remains outstanding |
 | H1 methodological protocol | prereg/H1.md; audit/H1_REGISTRATION.json | Submitted; public registration verification pending |
 | H1 registration responses | prereg/H1_OSF_responses.md; audit/PREREGISTRATION_READINESS.md | Submitted with all five prepared attachments; archived bytes not yet verified |
 | Historical exposure declaration | prereg/H1.md, section 1 | Recorded |
@@ -36,6 +37,8 @@ M2 now includes the submitted protocol, reconciled OSF responses, five selected 
 D-016 corrects the earlier PN2 link to the specified QNA family and distinguishes archive supersession dates from publication dates. The actual selected vintage and file availability remain unverified. Verify the public registration timestamp before applying the frozen release-selection rule; do not substitute the submission time or a later verification time without resolving its meaning.
 
 Official size and power experiments and all raw UK data acquisition remain ahead. The [validation execution checklist](docs/M2_VALIDATION_EXECUTION.md) defines the next bounded checks. The [runner](docs/VALIDATION_RUNNER.md) now has tested interruption recovery, integrity checks, explicit failure accounting and backup restoration. Its 18-record development fixture reproduced uninterrupted execution exactly; this is not calibration evidence. G1-G7 remain pending; M2 is not complete.
+
+The [reporting preparation](docs/H1_REPORTING.md) preserves all seven comparisons, checks full-input identity and individual attempt accounting, and exports labelled artificial-data evidence. Three bounded fixtures reproduced the submitted methods' scientific outputs and random states exactly; the submitted package is unchanged. This establishes reporting behaviour, not a completed H1 study. The [programme review](audit/PROGRAMME_REVIEW_2026-09-27.md) confirms the remaining core-note obligations, timestamp and source dependencies, substantive calibration checks and later formal-coordination requirement.
 
 ## Programme completion measure
 

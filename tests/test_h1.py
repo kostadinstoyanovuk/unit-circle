@@ -131,7 +131,7 @@ def test_registered_stream_coordinates_are_reproducible_and_distinct():
 
 def test_full_in_memory_assembly_has_every_prespecified_output(growth):
     result = h1.analyze_h1(growth, B=2, interval_B=20)
-    assert set(result) == {"joint", "window32", "window48", "fixed", "wild", "episode_interval"}
+    assert set(result) == {"input_sha256", "joint", "window32", "window48", "fixed", "wild", "episode_interval"}
     assert result["episode_interval"].episode_count == 2
     assert result["episode_interval"].attempted == 20
     for name in ["window32", "window48", "fixed", "wild"]:
