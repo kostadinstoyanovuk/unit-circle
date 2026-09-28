@@ -1,0 +1,25 @@
+{
+  "file": "data/raw/ABMI_QNA.csv",
+  "series_id": "ABMI",
+  "dataset_id": "QNA",
+  "release_title": "GDP quarterly national accounts, UK: January to March 2026",
+  "release_datetime_utc": "2026-06-30T06:00:00+00:00",
+  "release_url": "https://www.ons.gov.uk/releases/gdpquarterlynationalaccountsukjanuarytomarch2026",
+  "file_url": "https://www.ons.gov.uk/generator?format=csv&uri=/economy/grossdomesticproductgdp/timeseries/abmi/qna",
+  "retrieved_utc": "2026-09-28T22:20:50.761696+00:00",
+  "retrieval_method": "scripted HTTPS request",
+  "bytes": 6944,
+  "sha256": "b97f9b0f5d9c94aa711804a43752f83d3d2f0fcf7062f2eff8dbd6f236221262",
+  "licence": "Open Government Licence v3.0",
+  "registration_timestamp_utc": "2026-09-27T04:49:01.989076+00:00",
+  "header_identity": {
+    "title": "Gross Domestic Product: chained volume measures: Seasonally adjusted \u00a3m",
+    "cdid": "ABMI",
+    "dataset": "QNA",
+    "release_date_record": "30-06-2026",
+    "unit": "m",
+    "pre_unit": "\u00a3",
+    "quarterly_rows": 285,
+    "other_rows": 78
+  }
+}
