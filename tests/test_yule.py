@@ -1,4 +1,5 @@
 """S1 sunspot inputs, fits, bootstrap reproduction and AT-13 (sunspot data only)."""
+import csv
 import importlib.util
 import json
 from pathlib import Path
@@ -23,7 +24,9 @@ def _load_tool(name):
 
 def test_raw_files_match_manifest():
     checked, problems = _load_tool('check_data').check(ROOT)
-    assert checked == 2 and problems == []
+    with (ROOT / 'DATA_MANIFEST.csv').open(newline='', encoding='utf-8') as manifest:
+        listed = sum(1 for _ in csv.DictReader(manifest))
+    assert checked == listed >= 2 and problems == []
 
 
 def test_readers_cover_expected_years():
