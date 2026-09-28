@@ -1,0 +1,49 @@
+{
+    "record_type":  "OSF registration evidence for extension E1 (gate G4)",
+    "registration_id":  "mjg9w",
+    "registration_url":  "https://osf.io/mjg9w",
+    "doi":  "10.17605/OSF.IO/MJG9W",
+    "title":  "E1: Did UK recessions give warning over three centuries? A registered extension of OSF wcnbz using annual real GDP, 1700-2016",
+    "registration_type":  "OSF Registries, Secondary Data Preregistration (the template of H1, wcnbz)",
+    "registration_license":  "CC-By Attribution 4.0 International",
+    "linked_registration":  "wcnbz (H1), cited in the description; separate registration per DECISIONS.md D-023, G-6",
+    "api_date_registered_utc":  "2026-09-28T15:47:57.051933Z",
+    "approval":  "Approved by the owner from the OSF approval emails after submission; state approved, public, not embargoed, not withdrawn",
+    "public_first_verified_at_utc":  "2026-09-28T15:57:37Z",
+    "anonymous_api_check":  {
+                                "checked_at_utc":  "2026-09-28T15:58:12Z",
+                                "client":  "unauthenticated OSF API v2 requests",
+                                "public":  true,
+                                "pending_registration_approval":  false,
+                                "embargoed":  false,
+                                "withdrawn":  false,
+                                "archiving":  false,
+                                "revision_state":  "approved"
+                            },
+    "attachments_question":  "Codebook documentation (72-26), as in H1",
+    "expected_attachment_sha256":  {
+                                       "prereg/E1.md":  "d0d7b0859593b301a0af8bd9b5d48f92bcd3aef27082d9d7b6c4cf2d4e26e4fd",
+                                       "prereg/E_SOURCE_METADATA.md":  "44625af43da8aa8d709a172655a749f1c75972b2c4db9d0356dee906a3e4dc08"
+                                   },
+    "archived_attachments":  [
+                                 {
+                                     "file_name":  "E1.md",
+                                     "osf_file_id":  "6aba8c408ad5dad4cdde988f",
+                                     "bytes":  25116,
+                                     "osf_sha256":  "d0d7b0859593b301a0af8bd9b5d48f92bcd3aef27082d9d7b6c4cf2d4e26e4fd",
+                                     "downloaded_sha256":  "d0d7b0859593b301a0af8bd9b5d48f92bcd3aef27082d9d7b6c4cf2d4e26e4fd"
+                                 },
+                                 {
+                                     "file_name":  "E_SOURCE_METADATA.md",
+                                     "osf_file_id":  "6aba8c3f8ad5dad4cdde988e",
+                                     "bytes":  10647,
+                                     "osf_sha256":  "44625af43da8aa8d709a172655a749f1c75972b2c4db9d0356dee906a3e4dc08",
+                                     "downloaded_sha256":  "44625af43da8aa8d709a172655a749f1c75972b2c4db9d0356dee906a3e4dc08"
+                                 }
+                             ],
+    "archived_attachment_bytes_verified":  true,
+    "source_commit":  "5a26bfc8b4af3486cb17e758102f7efc59301379",
+    "prereg_tag":  "prereg-E1",
+    "prereg_tag_commit":  "5a26bfc8b4af3486cb17e758102f7efc59301379",
+    "data_status":  "No Bank of England millennium dataset file had been downloaded and no ONS ABMI observation had been acquired at registration or at verification."
+}

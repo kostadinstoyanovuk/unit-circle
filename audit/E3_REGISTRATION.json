@@ -1,0 +1,49 @@
+{
+    "record_type":  "OSF registration evidence for extension E3 (gate G4)",
+    "registration_id":  "rhzsm",
+    "registration_url":  "https://osf.io/rhzsm",
+    "doi":  "10.17605/OSF.IO/RHZSM",
+    "title":  "E3: Did UK recessions give warning when the AR(2) parameters are allowed to drift? A registered extension of OSF wcnbz with a time-varying AR(2), 1955-2019",
+    "registration_type":  "OSF Registries, Secondary Data Preregistration (the template of H1, wcnbz)",
+    "registration_license":  "CC-By Attribution 4.0 International",
+    "linked_registration":  "wcnbz (H1), cited in the description; separate registration per DECISIONS.md D-023, G-6",
+    "api_date_registered_utc":  "2026-09-28T15:49:20.337320Z",
+    "approval":  "Approved by the owner from the OSF approval emails after submission; state approved, public, not embargoed, not withdrawn",
+    "public_first_verified_at_utc":  "2026-09-28T15:57:37Z",
+    "anonymous_api_check":  {
+                                "checked_at_utc":  "2026-09-28T15:58:12Z",
+                                "client":  "unauthenticated OSF API v2 requests",
+                                "public":  true,
+                                "pending_registration_approval":  false,
+                                "embargoed":  false,
+                                "withdrawn":  false,
+                                "archiving":  false,
+                                "revision_state":  "approved"
+                            },
+    "attachments_question":  "Codebook documentation (72-26), as in H1",
+    "expected_attachment_sha256":  {
+                                       "prereg/E3.md":  "9b891fe691b21a9098f3a0fe811c3d0eae3e615dd6d59f7dc290e908a51a22ae",
+                                       "prereg/E_SOURCE_METADATA.md":  "44625af43da8aa8d709a172655a749f1c75972b2c4db9d0356dee906a3e4dc08"
+                                   },
+    "archived_attachments":  [
+                                 {
+                                     "file_name":  "E3.md",
+                                     "osf_file_id":  "6aba8c8b8ad5dad4cdde9899",
+                                     "bytes":  17463,
+                                     "osf_sha256":  "9b891fe691b21a9098f3a0fe811c3d0eae3e615dd6d59f7dc290e908a51a22ae",
+                                     "downloaded_sha256":  "9b891fe691b21a9098f3a0fe811c3d0eae3e615dd6d59f7dc290e908a51a22ae"
+                                 },
+                                 {
+                                     "file_name":  "E_SOURCE_METADATA.md",
+                                     "osf_file_id":  "6aba8c8b8ad5dad4cdde989a",
+                                     "bytes":  10647,
+                                     "osf_sha256":  "44625af43da8aa8d709a172655a749f1c75972b2c4db9d0356dee906a3e4dc08",
+                                     "downloaded_sha256":  "44625af43da8aa8d709a172655a749f1c75972b2c4db9d0356dee906a3e4dc08"
+                                 }
+                             ],
+    "archived_attachment_bytes_verified":  true,
+    "source_commit":  "5a26bfc8b4af3486cb17e758102f7efc59301379",
+    "prereg_tag":  "prereg-E3",
+    "prereg_tag_commit":  "5a26bfc8b4af3486cb17e758102f7efc59301379",
+    "data_status":  "No ONS ABMI observation had been acquired at registration or at verification; E3 uses the file H1 acquires under its own registered rule."
+}
