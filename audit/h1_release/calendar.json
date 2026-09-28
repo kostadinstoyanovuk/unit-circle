@@ -1,0 +1,82 @@
+[
+  {
+    "title": "GDP quarterly national accounts, UK: April to June 2025",
+    "release_datetime": "2025-09-30T06:00:00+00:00",
+    "release_date_uk": "30 September 2025 7:00am",
+    "status": "Published",
+    "url": "https://www.ons.gov.uk/releases/gdpquarterlynationalaccountsukapriltojune2025",
+    "listing": "https://www.ons.gov.uk/releasecalendar?release-type=type-published&keywords=quarterly%20national%20accounts&after-day=1&after-month=1&after-year=2025&before-day=27&before-month=9&before-year=2026&limit=100&sort=date-newest"
+  },
+  {
+    "title": "GDP quarterly national accounts, UK: April to June 2025 time series",
+    "release_datetime": "2025-09-30T06:00:00+00:00",
+    "release_date_uk": "30 September 2025 7:00am",
+    "status": "Published",
+    "url": "https://www.ons.gov.uk/releases/gdpquarterlynationalaccountsukapriltojune2025timeseries",
+    "listing": "https://www.ons.gov.uk/releasecalendar?release-type=type-published&keywords=quarterly%20national%20accounts&after-day=1&after-month=1&after-year=2025&before-day=27&before-month=9&before-year=2026&limit=100&sort=date-newest"
+  },
+  {
+    "title": "GDP quarterly national accounts, UK: July to September 2025",
+    "release_datetime": "2025-12-22T07:00:00+00:00",
+    "release_date_uk": "22 December 2025 7:00am",
+    "status": "Published",
+    "url": "https://www.ons.gov.uk/releases/gdpquarterlynationalaccountsukjulytoseptember2025",
+    "listing": "https://www.ons.gov.uk/releasecalendar?release-type=type-published&keywords=quarterly%20national%20accounts&after-day=1&after-month=1&after-year=2025&before-day=27&before-month=9&before-year=2026&limit=100&sort=date-newest"
+  },
+  {
+    "title": "GDP quarterly national accounts, UK: July to September 2025 time series",
+    "release_datetime": "2025-12-22T07:00:00+00:00",
+    "release_date_uk": "22 December 2025 7:00am",
+    "status": "Published",
+    "url": "https://www.ons.gov.uk/releases/gdpquarterlynationalaccountsukjulytoseptember2025timeseries",
+    "listing": "https://www.ons.gov.uk/releasecalendar?release-type=type-published&keywords=quarterly%20national%20accounts&after-day=1&after-month=1&after-year=2025&before-day=27&before-month=9&before-year=2026&limit=100&sort=date-newest"
+  },
+  {
+    "title": "GDP quarterly national accounts, UK: October to December 2025",
+    "release_datetime": "2026-03-31T06:00:00+00:00",
+    "release_date_uk": "31 March 2026 7:00am",
+    "status": "Published",
+    "url": "https://www.ons.gov.uk/releases/gdpquarterlynationalaccountsukoctobertodecember2025",
+    "listing": "https://www.ons.gov.uk/releasecalendar?release-type=type-published&keywords=quarterly%20national%20accounts&after-day=1&after-month=1&after-year=2025&before-day=27&before-month=9&before-year=2026&limit=100&sort=date-newest"
+  },
+  {
+    "title": "GDP quarterly national accounts, UK: October to December 2025 time series",
+    "release_datetime": "2026-03-31T06:00:00+00:00",
+    "release_date_uk": "31 March 2026 7:00am",
+    "status": "Published",
+    "url": "https://www.ons.gov.uk/releases/gdpquarterlynationalaccountsukoctobertodecember2025timeseries",
+    "listing": "https://www.ons.gov.uk/releasecalendar?release-type=type-published&keywords=quarterly%20national%20accounts&after-day=1&after-month=1&after-year=2025&before-day=27&before-month=9&before-year=2026&limit=100&sort=date-newest"
+  },
+  {
+    "title": "GDP quarterly national accounts, UK: January to March 2026",
+    "release_datetime": "2026-06-30T06:00:00+00:00",
+    "release_date_uk": "30 June 2026 7:00am",
+    "status": "Published",
+    "url": "https://www.ons.gov.uk/releases/gdpquarterlynationalaccountsukjanuarytomarch2026",
+    "listing": "https://www.ons.gov.uk/releasecalendar?release-type=type-published&keywords=quarterly%20national%20accounts&after-day=1&after-month=1&after-year=2025&before-day=27&before-month=9&before-year=2026&limit=100&sort=date-newest"
+  },
+  {
+    "title": "GDP quarterly national accounts, UK: January to March 2026 timeseries",
+    "release_datetime": "2026-06-30T06:00:00+00:00",
+    "release_date_uk": "30 June 2026 7:00am",
+    "status": "Published",
+    "url": "https://www.ons.gov.uk/releases/gdpquarterlynationalaccountsukjanuarytomarch2026timeseries",
+    "listing": "https://www.ons.gov.uk/releasecalendar?release-type=type-published&keywords=quarterly%20national%20accounts&after-day=1&after-month=1&after-year=2025&before-day=27&before-month=9&before-year=2026&limit=100&sort=date-newest"
+  },
+  {
+    "title": "GDP quarterly national accounts, UK: April to June 2026",
+    "release_datetime": "2026-09-30T06:00:00+00:00",
+    "release_date_uk": "30 September 2026 7:00am",
+    "status": "Confirmed (upcoming)",
+    "url": "https://www.ons.gov.uk/releases/gdpquarterlynationalaccountsukapriltojune2026",
+    "listing": "https://www.ons.gov.uk/releasecalendar?release-type=type-upcoming&keywords=quarterly%20national%20accounts&limit=50"
+  },
+  {
+    "title": "GDP quarterly national accounts, UK: April to June 2026 time series",
+    "release_datetime": "2026-09-30T06:00:00+00:00",
+    "release_date_uk": "30 September 2026 7:00am",
+    "status": "Confirmed (upcoming)",
+    "url": "https://www.ons.gov.uk/releases/gdpquarterlynationalaccountsukapriltojune2026timeseries",
+    "listing": "https://www.ons.gov.uk/releasecalendar?release-type=type-upcoming&keywords=quarterly%20national%20accounts&limit=50"
+  }
+]
