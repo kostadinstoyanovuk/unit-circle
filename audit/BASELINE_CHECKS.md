@@ -86,4 +86,6 @@ The first test run found an obsolete `old_names` argument in the test's AutoReg 
 
 AT-9, AT-10 and AT-17 are **partial: algebra only**. AT-5, AT-7, AT-8, AT-11 through AT-16, and AT-18 through AT-21 are **not run**. The prescribed Monte Carlo sample sizes, spectral grid, bootstrap checks, general-degree polynomial checks, Kalman/VAR checks and empirical pipeline checks remain separate work. None of G0-G7 is passed by this audit.
 
+Update, 28 September 2026: AT-9 and AT-17 have passed, and AT-18 has passed for n >= 250 ([C3.T acceptance record](C3T_ACCEPTANCE.md); DECISIONS.md D-029). AT-8, AT-11 and AT-12 are recorded in [FOUNDATIONS_REPORT.md](FOUNDATIONS_REPORT.md) and AT-13 in [S1_TABLE.md](S1_TABLE.md). AT-5, AT-15 and AT-16 are the registered validation experiments, which are running.
+
 Recorded environment: Python 3.12.14; NumPy 2.5.3; SciPy 1.18.1; pandas 3.0.6; statsmodels 0.15.0; SymPy 1.14.0; pytest 9.1.1. The repository's environment lock is the installation record; this JSON is the runtime record.
