@@ -2,3 +2,6 @@
 *.pdf binary
 *.png binary
 data/raw/** -text
+# Frozen H1 outputs are stored byte for byte, so they match the hashes recorded by the run.
+audit/h1/** -text
+figures/h1_* -text

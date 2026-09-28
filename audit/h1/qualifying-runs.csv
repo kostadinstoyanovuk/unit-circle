@@ -1,0 +1,10 @@
+data_kind,episode,onset,onset_quarter,end,end_quarter
+uk_abmi_registered,0,4,1956 Q2,5,1956 Q3
+uk_abmi_registered,0,8,1957 Q2,9,1957 Q3
+uk_abmi_registered,1,25,1961 Q3,26,1961 Q4
+uk_abmi_registered,2,73,1973 Q3,75,1974 Q1
+uk_abmi_registered,2,80,1975 Q2,81,1975 Q3
+uk_abmi_registered,3,99,1980 Q1,103,1981 Q1
+uk_abmi_registered,4,141,1990 Q3,145,1991 Q3
+uk_abmi_registered,4,147,1992 Q1,148,1992 Q2
+uk_abmi_registered,5,212,2008 Q2,216,2009 Q2
