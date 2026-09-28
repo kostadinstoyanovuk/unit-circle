@@ -38,6 +38,10 @@ TARGETS = {'white_noise_n30': (.625, .635), 'white_noise_n1000': (.514, .526), '
 STATISTIC_TOLERANCE = 1e-8
 INPUT_TOLERANCE = 1e-9
 NEAR_TIE = 1e-9
+# The frozen store and the replay name the attempt outcomes differently ('no_eligible_episode' in
+# uc_core, 'no_episode' here). Outcomes are compared, not labels; any other stored label, such as
+# 'failed', has no replay counterpart and is still reported as a mismatch.
+STORED_ATTEMPT_STATUS = {'retained': 'retained', 'no_eligible_episode': 'no_episode'}
 
 
 def sha256(data):
@@ -214,8 +218,9 @@ class Review:
             self.problem(f'{label}: {len(stored_attempts)} stored attempts against {len(ours["attempts"])} replayed')
             return
         for stored, mine in zip(stored_attempts, ours['attempts']):
-            if stored['status'] != mine['status'] or (mine['statistic'] is not None and
-                                                      stored['eligible_onsets'] != mine['eligible_onsets']):
+            status = STORED_ATTEMPT_STATUS.get(stored['status'], stored['status'])
+            if status != mine['status'] or (mine['statistic'] is not None and
+                                            stored['eligible_onsets'] != mine['eligible_onsets']):
                 self.stats['surrogate_status_mismatches'] += 1
                 self.problem(f"{label} draw {mine['number']}: status or onsets differ")
                 continue

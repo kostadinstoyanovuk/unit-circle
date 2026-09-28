@@ -129,6 +129,28 @@ def test_replay_notices_a_consistently_rewritten_record(development_store, tmp_p
     assert replayed['statistics']['surrogate_statistic_max_difference'] > 1e-4
 
 
+def test_attempt_outcomes_are_compared_not_their_labels(development_store):
+    """uc_core stores 'no_eligible_episode' where the replay says 'no_episode'; a real difference still counts."""
+    database, summary = development_store
+    work = review_g2.Review(database, json.loads(summary.read_bytes()))
+    stored = dict(S=.5, observed=dict(eligible_onsets=[60]), p_value=.5,
+                  comparison=dict(null_model=None, exceedances=0, attempts=[
+                      dict(number=0, status='no_eligible_episode', statistic=None, eligible_onsets=[]),
+                      dict(number=1, status='retained', statistic=.1, eligible_onsets=[60])]))
+    ours = dict(S=.5, eligible_onsets=[60], stable=True, null=None, p_value=.5, exceedances=0, attempts=[
+        dict(number=0, status='no_episode', statistic=None, eligible_onsets=[]),
+        dict(number=1, status='retained', statistic=.1, eligible_onsets=[60])])
+    work.compare('fixture', stored, ours)
+    assert work.problems == [] and work.stats['surrogate_status_mismatches'] == 0
+    ours['attempts'][0].update(status='retained', statistic=.2, eligible_onsets=[60])
+    work.compare('fixture', stored, ours)
+    assert work.stats['surrogate_status_mismatches'] == 1
+    stored['comparison']['attempts'][0]['status'] = 'failed'
+    ours['attempts'][0].update(status='no_episode', statistic=None, eligible_onsets=[])
+    work.compare('fixture', stored, ours)
+    assert work.stats['surrogate_status_mismatches'] == 2
+
+
 def test_replay_notices_a_changed_summary(development_store, tmp_path):
     database, summary = development_store
     frozen = json.loads(summary.read_bytes())
