@@ -1,0 +1,270 @@
+{
+  "record_type": "G2 review",
+  "G2": "passed",
+  "AT1_AT4_passed": true,
+  "AT5_passed": true,
+  "AT15_passed": true,
+  "AT16_passed": true,
+  "D80": null,
+  "AT5": {
+    "n30_rate": 0.63186,
+    "n30_wilson": [
+      0.6288657187752208,
+      0.6348441509187287
+    ],
+    "n1000_rate": 0.52135,
+    "n1000_wilson": [
+      0.5173516500910368,
+      0.52534561624579
+    ],
+    "targets": {
+      "n30": [
+        0.625,
+        0.635
+      ],
+      "n1000": [
+        0.514,
+        0.526
+      ]
+    }
+  },
+  "AT15": {
+    "rate": 0.035,
+    "rejected": 7,
+    "wilson": [
+      0.017055542008567192,
+      0.07047061152229073
+    ],
+    "target": [
+      0.02,
+      0.09
+    ]
+  },
+  "AT16": {
+    "cells": [
+      {
+        "accounting_bounds": [
+          0.035,
+          0.035
+        ],
+        "invalid_or_unfinished": 0,
+        "kappa": 1.0,
+        "mean_S": -0.006798879225755155,
+        "mean_S_se": 0.004426595358521851,
+        "rate": 0.035,
+        "rate_se": 0.012995191418367026,
+        "rate_wilson": [
+          0.017055542008567192,
+          0.07047061152229073
+        ],
+        "rejected": 7,
+        "valid": 200,
+        "valid_only_rate": 0.035
+      },
+      {
+        "accounting_bounds": [
+          0.1,
+          0.1
+        ],
+        "invalid_or_unfinished": 0,
+        "kappa": 1.2,
+        "mean_S": 0.01001307667056059,
+        "mean_S_se": 0.004756927480947451,
+        "rate": 0.1,
+        "rate_se": 0.021213203435596427,
+        "rate_wilson": [
+          0.06567044866909588,
+          0.1494058124327174
+        ],
+        "rejected": 20,
+        "valid": 200,
+        "valid_only_rate": 0.1
+      },
+      {
+        "accounting_bounds": [
+          0.19,
+          0.19
+        ],
+        "invalid_or_unfinished": 0,
+        "kappa": 1.4,
+        "mean_S": 0.037141965963231514,
+        "mean_S_se": 0.004808871571957629,
+        "rate": 0.19,
+        "rate_se": 0.027739863013360393,
+        "rate_wilson": [
+          0.14167171527790676,
+          0.25001238707599854
+        ],
+        "rejected": 38,
+        "valid": 200,
+        "valid_only_rate": 0.19
+      },
+      {
+        "accounting_bounds": [
+          0.235,
+          0.235
+        ],
+        "invalid_or_unfinished": 0,
+        "kappa": 1.6,
+        "mean_S": 0.055068601891549065,
+        "mean_S_se": 0.005192856543449233,
+        "rate": 0.235,
+        "rate_se": 0.029981244136960027,
+        "rate_wilson": [
+          0.18157433415232588,
+          0.29841368882762537
+        ],
+        "rejected": 47,
+        "valid": 200,
+        "valid_only_rate": 0.235
+      }
+    ],
+    "adjacent_comparisons": [
+      {
+        "decrease_flag": false,
+        "difference": 0.065,
+        "left_kappa": 1.0,
+        "right_kappa": 1.2,
+        "standard_error": 0.02487719839531775
+      },
+      {
+        "decrease_flag": false,
+        "difference": 0.09,
+        "left_kappa": 1.2,
+        "right_kappa": 1.4,
+        "standard_error": 0.03492134018046845
+      },
+      {
+        "decrease_flag": false,
+        "difference": 0.044999999999999984,
+        "left_kappa": 1.4,
+        "right_kappa": 1.6,
+        "standard_error": 0.040845746412570307
+      }
+    ],
+    "decrease_flags": [
+      false,
+      false,
+      false
+    ],
+    "crossing": null,
+    "kappa80": null
+  },
+  "baseline": {
+    "AT-1": true,
+    "AT-2": true,
+    "AT-3": true,
+    "AT-4": true
+  },
+  "provenance": {
+    "database": "registered.sqlite",
+    "database_sha256": "39cc6e018ea28f71bf2a2e28cd0376c5b09dee132d2affbc1e6e14029b8b5fba",
+    "summary_sha256": "7d2630041e2dd6d06fa27fc09915522b7506e1d92446b52f609c24fdc53dd522",
+    "manifest_sha256": "3eb8cc1330bf721349f546869ede239d8c70b6998321d814a5de3bcd55d7cbc6",
+    "manifest_is_registered": true,
+    "identity": {
+      "commit": "da548d9290ab22d86b304dcfcfe8a15af489c8ce",
+      "dirty": false,
+      "machine": "AMD64",
+      "numpy_runtime": "{'Compilers': {'c': {'name': 'msvc', 'linker': 'link', 'version': '19.44.35228', 'commands': 'cl'}, 'cython': {'name': 'cython', 'linker': 'cython', 'version': '3.3.0', 'commands': 'cython'}, 'c++': {'name': 'msvc', 'linker': 'link', 'version': '19.44.35228', 'commands': 'cl'}}, 'Machine Information': {'host': {'cpu': 'x86_64', 'family': 'x86_64', 'endian': 'little', 'system': 'windows'}, 'build': {'cpu': 'x86_64', 'family': 'x86_64', 'endian': 'little', 'system': 'windows'}}, 'Build Dependencies': {'blas': {'name': 'scipy-openblas', 'found': True, 'version': '0.3.34.106.0', 'detection method': 'pkgconfig', 'include directory': 'C:/Users/runneradmin/AppData/Local/Temp/cibw-run-kywcz0lc/cp312-win_amd64/build/venv/Lib/site-packages/scipy_openblas64/include', 'lib directory': 'C:/Users/runneradmin/AppData/Local/Temp/cibw-run-kywcz0lc/cp312-win_amd64/build/venv/Lib/site-packages/scipy_openblas64/lib', 'openblas configuration': 'OpenBLAS 0.3.34.106.0  USE64BITINT DYNAMIC_ARCH NO_AFFINITY Haswell MAX_THREADS=24', 'pc file directory': 'D:/a/numpy-release/numpy-release/.openblas'}, 'lapack': {'name': 'scipy-openblas', 'found': True, 'version': '0.3.34.106.0', 'detection method': 'pkgconfig', 'include directory': 'C:/Users/runneradmin/AppData/Local/Temp/cibw-run-kywcz0lc/cp312-win_amd64/build/venv/Lib/site-packages/scipy_openblas64/include', 'lib directory': 'C:/Users/runneradmin/AppData/Local/Temp/cibw-run-kywcz0lc/cp312-win_amd64/build/venv/Lib/site-packages/scipy_openblas64/lib', 'openblas configuration': 'OpenBLAS 0.3.34.106.0  USE64BITINT DYNAMIC_ARCH NO_AFFINITY Haswell MAX_THREADS=24', 'pc file directory': 'D:/a/numpy-release/numpy-release/.openblas'}}, 'Python Information': {'path': 'C:\\\\Users\\\\runneradmin\\\\AppData\\\\Local\\\\Temp\\\\build-env-_rb7jx5h\\\\Scripts\\\\python.exe', 'version': '3.12'}, 'SIMD Extensions': {'baseline': ['X86_V2'], 'found': ['X86_V3']}}",
+      "packages": {
+        "Pygments": "2.21.0",
+        "colorama": "0.4.6",
+        "contourpy": "1.4.0",
+        "cycler": "0.12.1",
+        "fonttools": "4.66.0",
+        "formulaic": "1.2.2",
+        "hypothesis": "6.168.1",
+        "iniconfig": "2.3.0",
+        "interface_meta": "2.0.1",
+        "kiwisolver": "1.5.1",
+        "matplotlib": "3.11.2",
+        "mpmath": "1.3.0",
+        "narwhals": "2.26.0",
+        "numpy": "2.5.3",
+        "packaging": "26.3",
+        "pandas": "3.0.6",
+        "patsy": "1.0.3",
+        "pillow": "12.3.0",
+        "pluggy": "1.6.0",
+        "pyparsing": "3.3.3",
+        "pypdf": "6.19.0",
+        "pytest": "9.1.1",
+        "python-dateutil": "2.9.0.post0",
+        "scipy": "1.18.1",
+        "six": "1.17.0",
+        "sortedcontainers": "2.4.0",
+        "statsmodels": "0.15.0",
+        "sympy": "1.14.0",
+        "typing_extensions": "4.16.0",
+        "tzdata": "2026.4",
+        "wrapt": "2.4.1"
+      },
+      "platform": "Windows-10-10.0.19045-SP0",
+      "python": "3.12.14",
+      "source_sha256": {
+        "prereg/H1.md": "be447b725317c3b857eb1888dbcedd127d057cd5e0e586a0b2de87e24b182ba4",
+        "requirements.lock": "56a0682b57a92eb6f121b033dde577c75eafe91e0901604ad7aff449e1823298",
+        "src/uc_core/__init__.py": "eb58d4da1cee47cc0ecdd77ff6aa2cbd40aa5ab245e5239cd53ee96b31616d20",
+        "src/uc_core/ar.py": "19ea466d4829de08a18a6d1efd1ba10aebcf55cc3e7efc556f87001ed352a936",
+        "src/uc_core/constants.py": "33c66c58573bab32bd58a451c8d6e060dbae67b609d70ea4a4bfa1da9879b8d8",
+        "src/uc_core/h1.py": "21f90fd64c20dc3c8afe812f2811a06b00c44efed881c80ef0d576eaf689bdf8",
+        "src/uc_core/h1_reporting.py": "bbf03720c9afab0e550f530aff94d267358462466e025f5f08a19ac2aefb1a04",
+        "src/uc_core/recession.py": "e9dcde4abac3bcf98fd027d2dd7735da1de61b65b8ae69f005d4793849359834",
+        "src/uc_core/rolling.py": "e335a4dcf3d159294ac5e84a99b27f46a21b347c400cdfbcae236f7f3843d5ee",
+        "src/uc_core/secondary.py": "86f48150597325941bb949af0f52e128a1cd55cd708b44a90ae9689126207b56",
+        "src/uc_core/surrogate.py": "9447006ecc02483bcd657a85ea993361ea3c53a0034641d4b068466a7b8e2e00",
+        "src/uc_core/validation_design.py": "2d729c9017de57cdb3bb761a85a2e221b93186f1e9c8ee74cba7f436c4a8d8c0",
+        "src/uc_core/validation_runner.py": "99ac2e62733b6db34857e77f33c06cc3085f6a856f6280e02a77ab8e4537cbb0",
+        "src/uc_core/validation_store.py": "68552e171bfe92b406358b706ed37384c2fcb05d1c0453fb4abd297aefdfad4d",
+        "tools/run_validation.py": "d1e4956270f881c88d9ba9d4c39851102d8199d12eef55bb94795721e4ce1daa",
+        "tools/verify_validation_runner.py": "0a8543331c5ee8115399f68bdaf9c16c336688d51252aabcd3fe805e07b6e923"
+      }
+    },
+    "registration_receipt_sha256": "5645a0f9082865abe2c77334bd8970e9ee12a8c1d7b485ffeb3681e0a685adee"
+  },
+  "independent_replay": {
+    "module": "src/uc_verify/replay.py",
+    "complete": true,
+    "agrees": true,
+    "integrity": {
+      "sqlite_integrity": true,
+      "manifest_checksum": true,
+      "manifest_matches_summary": true,
+      "journal_consistent": true,
+      "complete_coverage": {
+        "white_noise_n30": true,
+        "white_noise_n1000": true,
+        "size": true,
+        "power_0": true,
+        "power_1": true,
+        "power_2": true,
+        "power_3": true
+      }
+    },
+    "statistics": {
+      "records_checked": 161000,
+      "white_noise_refit_max_coefficient_difference": 9.992007221626409e-16,
+      "white_noise_classification_mismatches": 0,
+      "white_noise_near_zero_discriminants": 0,
+      "simulation_input_max_difference": 3.552713678800501e-15,
+      "observed_S_max_difference": 8.187894806610529e-16,
+      "surrogate_statistic_max_difference": 3.6387559632089506e-14,
+      "surrogate_status_mismatches": 0,
+      "surrogate_near_ties": 1,
+      "p_value_mismatches": 0,
+      "rng_state_mismatches": 0,
+      "null_coefficient_max_difference": 2.4424906541753444e-15
+    },
+    "problems": [],
+    "summary_differences": [],
+    "replayed_decisions": {
+      "AT5_passed": true,
+      "AT15_passed": true,
+      "AT16_passed": true
+    },
+    "replayed_D80": null,
+    "replayed_kappa80": null
+  },
+  "scope": "AT-5, AT-15 and AT-16 assess this registered synthetic design only; passing does not establish universal calibration. D80 is a Monte Carlo point diagnostic, not a confidence bound."
+}

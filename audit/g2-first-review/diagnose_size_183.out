@@ -1,0 +1,12 @@
+record status ok | S 0.0328614363967552 | p 0.221 | K 220 | retained 999 | no_episode 1
+stored status counts {'retained': 999, 'no_eligible_episode': 1}
+stored draw 256 {"number": 256, "status": "no_eligible_episode", "statistic": null, "eligible_onsets": []}
+replay status counts {'retained': 999, 'no_episode': 1}
+replay draw 256 {"number": 256, "status": "no_episode", "statistic": null, "eligible_onsets": []}
+replay p 0.221 | K 220 | retained 999
+draws differing after vocabulary mapping []
+max |path difference| 2.220446049250313e-15
+sign differences at positions [] []
+five values closest to zero (position, frozen, replay) [(211, -0.046623958900195994, -0.046623958900195106), (230, 0.06581441221297579, 0.06581441221297624), (54, 0.10211837634190468, 0.1021183763419049), (139, 0.11262176565766202, 0.11262176565766291), (147, -0.1252427855788376, -0.12524278557883672)]
+frozen onsets [2]
+replay onsets [2]
