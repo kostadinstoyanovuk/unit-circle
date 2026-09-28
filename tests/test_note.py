@@ -58,6 +58,7 @@ def test_recorded_results_replace_every_placeholder(monkeypatch):
                  oscillates=True)])})
     macros = build_note.numbers()
     assert not [name for name, value in macros.items() if 'pending' in value]
+    assert macros['HoneBranchB'] == r'The retained Branch~B diagnostic is unavailable, because $D_{80}$ is undefined.'
     assert macros['HoneS'] == '0.0123' and macros['HoneM'] == '7' and macros['GtwoStatus'] == 'passed'
     assert macros['ATfiveThirtyPercent'] == r'63\%' and macros['Deighty'].startswith('undefined')
     assert 'ab' * 8 in macros['ReleaseIdentity']

@@ -60,8 +60,11 @@ def source_time():
 
 def branch_b(interpretation):
     condition = interpretation.get('branch_B_condition')
-    if interpretation.get('conclusion') != 'inconclusive' or condition is None:
+    if interpretation.get('conclusion') != 'inconclusive':
         return ''
+    if condition is None:  # protocol section 10: report the condition as unavailable
+        missing = r'$D_{80}$ is undefined' if interpretation.get('D80') is None else 'the episode interval is undefined'
+        return rf'The retained Branch~B diagnostic is unavailable, because {missing}.'
     if condition:
         return (r'The upper end of the episode interval lies below $D_{80}$; this retained diagnostic is conditional '
                 r'and numerical, and it does not establish absence.')

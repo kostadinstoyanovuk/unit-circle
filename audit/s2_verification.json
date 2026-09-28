@@ -1,0 +1,55 @@
+{
+  "record_type": "S2 three-filter Samuelson check",
+  "label": "a check, not a result",
+  "decision": "D-021",
+  "raw_sha256": "b97f9b0f5d9c94aa711804a43752f83d3d2f0fcf7062f2eff8dbd6f236221262",
+  "sample": [
+    "1955 Q1",
+    "2019 Q4"
+  ],
+  "rows": [
+    {
+      "filter": "linear trend",
+      "cycle_observations": 260,
+      "phi1": 1.069122782090173,
+      "phi2": -0.09047015155431114,
+      "modulus": 0.976472840593236,
+      "complex_roots": false,
+      "period_quarters": null,
+      "c": 0.9786526305358618,
+      "v": 0.09244357878522654,
+      "oscillates": false,
+      "note": null
+    },
+    {
+      "filter": "Hodrick-Prescott (lambda = 1600)",
+      "cycle_observations": 260,
+      "phi1": 0.873308449923237,
+      "phi2": -0.06265925656625486,
+      "modulus": 0.7944358002426506,
+      "complex_roots": false,
+      "period_quarters": null,
+      "c": 0.8106491933569822,
+      "v": 0.07729515686899828,
+      "oscillates": false,
+      "note": null
+    },
+    {
+      "filter": "Hamilton regression (h = 8, p = 4)",
+      "cycle_observations": 249,
+      "phi1": 0.9706943530425763,
+      "phi2": -0.09439314280783037,
+      "modulus": 0.8610714623338452,
+      "complex_roots": false,
+      "period_quarters": null,
+      "c": 0.8763012102347459,
+      "v": 0.10771769079554744,
+      "oscillates": false,
+      "note": null
+    }
+  ],
+  "environment": {
+    "statsmodels": "0.15.0",
+    "numpy": "2.5.3"
+  }
+}
