@@ -69,3 +69,11 @@ e3-x3: e3-prerequisites
 # Development-seed timing of the E1/E3 replicates (no registered seed, no registered size).
 e-runtime:
 	$(PYTHON) tools/measure_e_runtime.py
+
+# --- E1 and E3 execution tools: X.2 data, the X.3 record, the X.4 one-shot run and the X.5 freeze
+# (docs/E_EXECUTION.md; src/uc_ext_official). The tests use artificial workbooks and ONS-format files only.
+.PHONY: test-e-official
+test-e-official:
+	$(PYTHON) -m pytest -q tests/test_e_official_workbook.py tests/test_e_official_e1_source.py \
+		tests/test_e_official_gates_x3.py tests/test_e_official_x2_stages.py tests/test_e_official_x4.py \
+		tests/test_e_official_registered_path.py tests/test_e_official_records_cli.py
