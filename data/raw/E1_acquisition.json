@@ -1,0 +1,37 @@
+{
+  "record_type": "E1 source acquisition (prereg/E1.md section 4; Annex B, X.2)",
+  "file": "data/raw/a-millennium-of-macroeconomic-data-for-the-uk.xlsx",
+  "source": "Bank of England, A millennium of macroeconomic data for the UK",
+  "source_url": "https://www.bankofengland.co.uk/-/media/boe/files/statistics/research-datasets/a-millennium-of-macroeconomic-data-for-the-uk.xlsx",
+  "landing_url": "https://www.bankofengland.co.uk/statistics/research-datasets",
+  "retrieval_method": "scripted HTTPS request",
+  "retrieved_utc": "2026-09-29T19:36:41.721577+00:00",
+  "http": {
+    "status": 200,
+    "final_url": "https://www.bankofengland.co.uk/-/media/boe/files/statistics/research-datasets/a-millennium-of-macroeconomic-data-for-the-uk.xlsx",
+    "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+    "content_length": "27533690",
+    "last_modified": "Thu, 26 Sep 2024 15:46:22 GMT",
+    "etag": null
+  },
+  "bytes": 27533690,
+  "sha256": "4c23dd392a498691eac92659aec283fb43f28118bd80511dc87fc595974195eb",
+  "licence": "Bank of England terms of use (https://www.bankofengland.co.uk/legal, read 2026-09-29): 'Unless otherwise stated, the copyright and any other rights in the contents of the Resources, including but not limited to images, text and data, are owned by the Governor and Company of the Bank of England.' The Resources may be downloaded, displayed or printed 'for personal use or internal use within an individual organisation for non-commercial purposes'; 'The Bank typically grants permission for non-commercial re-use of the Resources, particularly in an academic or education context.' The dataset page (https://www.bankofengland.co.uk/statistics/research-datasets) states no licence of its own. Used here for research analysis; the workbook is not redistributed in this repository.",
+  "licence_url": "https://www.bankofengland.co.uk/legal",
+  "read_only": true,
+  "repository_copy": "Not distributed in this repository (git-ignored, D-041); the SHA-256 identifies it",
+  "release_rule": "the file served at the registered URL at the first download after verified public registration; qualifies only if its own contents identify version 3.1",
+  "registration": {
+    "tag": "prereg-E1",
+    "tag_object": "bac7d28339ae1624e2c83ccb3bfcf6bfa61bb6b6",
+    "tag_commit": "5a26bfc8b4af3486cb17e758102f7efc59301379",
+    "protocol_sha256": "d0d7b0859593b301a0af8bd9b5d48f92bcd3aef27082d9d7b6c4cf2d4e26e4fd",
+    "registration_file_sha256": "030841c5dd31efd622c7550bd3733a87e4d64c4c186fa008868cfd9d4e93301f",
+    "registration_id": "mjg9w",
+    "doi": "10.17605/OSF.IO/MJG9W",
+    "registration_url": "https://osf.io/mjg9w",
+    "public_first_verified_at_utc": "2026-09-28T15:57:37+00:00"
+  },
+  "x3_record_sha256": "22fb7df4e310e127d7f249221f5522ba1e83caf23e547dd1bb1aad50b59bbc7c",
+  "x3_code_sha256": "c42cbbf35734eb4f8c12aff22384371aa4fad107ae283f6d2f5f6f93c12feef7"
+}
