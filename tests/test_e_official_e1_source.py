@@ -130,6 +130,25 @@ def test_selection_stops(options, stage, message):
     assert stop.value.stage == stage and "sheets" in stop.value.details
 
 
+def test_a_named_sheet_settles_more_than_one_headline_sheet():
+    wb = workbook(second_headline=True)
+    with pytest.raises(s.SourceStop, match="2 sheets"):
+        s.header_only(wb)
+    output = s.header_only(wb, headline_sheet=HEADLINE)
+    assert output["headline_sheet"] == HEADLINE and output["headline_named_by_amendment"] == HEADLINE
+    assert [c["sheet"] for c in output["headline_candidates"]] == [HEADLINE, "A2 Headline copy (artificial)"]
+    assert output["selection"]["column"] == "C"
+    assert "named by the amendment in audit/E1_AMENDMENT_1.json" in s.format_header_only(output, None, "0" * 64)
+    assert "named by the amendment" not in s.format_header_only(s.header_only(workbook()), None, "0" * 64)
+
+
+@pytest.mark.parametrize("name", ["A3. Other data (artificial)", "No such sheet"])
+def test_a_named_sheet_must_be_one_of_the_headline_sheets(name):
+    with pytest.raises(s.SourceStop, match="not one of the 2 sheets") as stop:
+        s.header_only(workbook(second_headline=True), headline_sheet=name)
+    assert stop.value.stage == "selection" and "sheets" in stop.value.details
+
+
 def test_layout_can_be_given_by_the_operator_and_is_recorded():
     output = s.header_only(workbook(), first_data_row=6, year_column="A")
     assert output["layout_source"] == "operator" and output["selection"]["column"] == "C"

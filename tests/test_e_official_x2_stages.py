@@ -110,6 +110,69 @@ def acquired(root, content=None):
     commit_all(root, "acquired")
 
 
+def amend(root, sheet, *, text="artificial amendment text\n", commit=True, **changes):
+    (root / s.AMENDMENT_TEXT).write_bytes(text.encode("utf-8"))
+    record = dict(record_type="E1 amendment 1 (artificial)", registration_id="mjg9w",
+                  amendment_url="https://example.invalid/amendment", attachment=s.AMENDMENT_TEXT,
+                  attachment_sha256=gates.sha256_bytes(text.encode("utf-8")), headline_sheet=sheet,
+                  public_first_verified_at_utc="2026-09-29T20:00:00+00:00")
+    record.update(changes)
+    (root / s.AMENDMENT_RECORD).write_bytes(records.pretty(record))
+    if commit:
+        commit_all(root, "artificial amendment")
+
+
+TWO_HEADLINES = "A1 Headline series (artificial)"
+
+
+def test_two_headline_sheets_stop_and_a_committed_amendment_settles_it(root):
+    acquired(root, artificial_workbook(second_headline=True))
+    with pytest.raises(s.SourceStop, match="2 sheets"):
+        s.select(root)
+    assert not (root / s.SELECTION_RECORD).exists()
+    amend(root, TWO_HEADLINES)
+    result = s.select(root)
+    selection = result["selection"]
+    assert selection["sheet"] == TWO_HEADLINES and selection["column"] == "C"
+    used = selection["options"]["amendment"]
+    assert used["headline_sheet"] == TWO_HEADLINES and used["text_sha256"] == gates.sha256_file(root / s.AMENDMENT_TEXT)
+    assert used["record_sha256"] == gates.sha256_file(root / s.AMENDMENT_RECORD)
+    assert "named by the amendment" in (root / s.HEADER_TEXT).read_text(encoding="utf-8")
+    attempts = [json.loads(line) for line in (root / s.ATTEMPTS_LOG).read_text(encoding="utf-8").splitlines()]
+    assert [a["status"] for a in attempts] == ["stopped", "selected"]
+    assert attempts[0]["options"]["amendment"] is None and attempts[1]["options"]["amendment"] == used
+
+
+def test_an_amendment_must_be_committed_and_agree_with_its_text(root):
+    acquired(root, artificial_workbook(second_headline=True))
+    amend(root, TWO_HEADLINES, commit=False)
+    with pytest.raises(gates.GateClosed, match="is not committed"):
+        s.select(root)
+    commit_all(root, "amendment")
+    (root / s.AMENDMENT_TEXT).write_bytes(b"edited afterwards\n")
+    with pytest.raises(gates.GateClosed, match="differs from the committed file"):
+        s.select(root)
+    commit_all(root, "text edited")
+    with pytest.raises(gates.GateClosed, match="SHA-256"):
+        s.select(root)
+    assert not (root / s.SELECTION_RECORD).exists() and not (root / s.ATTEMPTS_LOG).exists()
+
+
+@pytest.mark.parametrize("sheet, changes, error, message", [
+    ("A3. Other data (artificial)", {}, s.SourceStop, "not one of the 2 sheets"),
+    (TWO_HEADLINES, dict(registration_id="zzzzz"), gates.GateClosed, "does not belong to the E1 registration"),
+    (" ", {}, gates.GateClosed, "does not name a sheet"),
+    (TWO_HEADLINES, dict(amendment_url=""), gates.GateClosed, "has no amendment_url"),
+    (TWO_HEADLINES, dict(public_first_verified_at_utc="2026-09-29T20:00:00"), ValueError, "offset"),
+])
+def test_an_amendment_that_does_not_fit_is_refused(root, sheet, changes, error, message):
+    acquired(root, artificial_workbook(second_headline=True))
+    amend(root, sheet, **changes)
+    with pytest.raises(error, match=message):
+        s.select(root)
+    assert not (root / s.SELECTION_RECORD).exists()
+
+
 def test_full_x2_sequence(root):
     acquired(root)
     with pytest.raises(gates.GateClosed, match="No E1 selection record"):

@@ -26,7 +26,10 @@ Readings of section 4 made here (each is a named constant, recorded with the sel
   elsewhere (for example other datasets' versions in source notes) are recorded, not decisive. The
   operator may instead name the one statement that identifies the file (--version-location), which is
   recorded as such, when the title-level text also lists other versions.
-- The headline-series sheet is the one sheet whose name or title contains the word 'headline'.
+- The headline-series sheet is the one sheet whose name or title contains the word 'headline'. When more
+  than one sheet qualifies the selection stops, as section 4 requires. A committed amendment record
+  (audit/E1_AMENDMENT_1.json, with its text prereg/E1_amendment_1.md) may name one of those sheets; select
+  then uses only that sheet and records the amendment with the selection.
 - A real-GDP column is one with a header cell (own, or a merged heading over it) naming real GDP
   ('real' with 'GDP' or 'gross domestic product') without a transformation (per head, growth, deflator,
   per cent, change, contribution, share, ratio). With more than one, the tie-break keeps those whose
@@ -62,6 +65,8 @@ ATTEMPTS_LOG = f"{SOURCE_DIR}/selection-attempts.jsonl"
 TERRITORY_RECORD = f"{SOURCE_DIR}/territory.json"
 EXTRACTION_RECORD = f"{SOURCE_DIR}/extraction.json"
 EXTRACTION_STOP = f"{SOURCE_DIR}/extraction-stop.json"
+AMENDMENT_RECORD = "audit/E1_AMENDMENT_1.json"
+AMENDMENT_TEXT = "prereg/E1_amendment_1.md"
 FIRST_YEAR, LAST_YEAR = 1700, 2016
 NOT_STATED = "not stated in the workbook"
 # The manifest note that marks a row whose file is kept out of git (tools/check_data.py uses the same words).
@@ -198,8 +203,12 @@ def _column_headers(layout, merged):
             for column, cells in by_column.items()}
 
 
-def header_only(workbook: Workbook, *, first_data_row=None, year_column=None) -> dict:
-    """The header-only output and the selection rule's result. SourceStop carries the output so far."""
+def header_only(workbook: Workbook, *, first_data_row=None, year_column=None, headline_sheet=None) -> dict:
+    """The header-only output and the selection rule's result. SourceStop carries the output so far.
+
+    headline_sheet is the sheet a committed amendment names when more than one sheet identifies itself as the
+    headline series (prereg/E1.md section 4); it must be one of those sheets.
+    """
     layouts = [sheet_layout(workbook, sheet) for sheet in workbook.sheets]
     output = dict(sheets=[dict(index=l["index"], name=l["sheet"], state=l["state"], title=l["title"])
                           for l in layouts], readings=READINGS)
@@ -210,6 +219,13 @@ def header_only(workbook: Workbook, *, first_data_row=None, year_column=None) ->
         if by:
             matches.append((layout, by))
     output["headline_candidates"] = [dict(sheet=l["sheet"], matched_by=by) for l, by in matches]
+    if headline_sheet is not None:
+        named = [(l, by) for l, by in matches if l["sheet"] == headline_sheet]
+        if len(named) != 1:
+            raise SourceStop(f"The amendment names {headline_sheet!r}, which is not one of the {len(matches)} sheets "
+                             "identifying themselves as the headline series", stage="selection", details=output)
+        output["headline_named_by_amendment"] = headline_sheet
+        matches = named
     if len(matches) != 1:
         raise SourceStop(f"{len(matches)} sheets have a name or title identifying them as the headline series; "
                          "exactly one is required", stage="selection", details=output)
@@ -286,8 +302,9 @@ def format_header_only(output: dict, version: dict | None, raw_sha256: str) -> s
         title = sheet["title"]["text"] if sheet["title"] else ""
         lines.append(f"  {sheet['index'] + 1}. {sheet['name']!r} [{sheet['state']}] title: {title!r}")
     if "headline_sheet" in output:
+        named = f"; named by the amendment in {AMENDMENT_RECORD}" if output.get("headline_named_by_amendment") else ""
         lines += ["", f"Headline-series sheet: {output['headline_sheet']!r} (matched by "
-                      f"{', '.join(output['headline_matched_by'])})",
+                      f"{', '.join(output['headline_matched_by'])}{named})",
                   f"First data row: {output['first_data_row']}; year column: {output['year_column']} "
                   f"(located by {output['layout_source']})", "", "Text cells above the first data row:"]
         lines += [f"  {cell['ref']}: {cell['text']}" for cell in output["header_cells"]]
@@ -525,6 +542,37 @@ def _attempt(root, entry):
         output.write(records.canonical(entry).decode("ascii") + "\n")
 
 
+def load_amendment(root) -> dict | None:
+    """The amendment that names the headline-series sheet, or None when there is none.
+
+    prereg/E1.md section 4 requires an amendment when the sheet rule does not give exactly one sheet. Its
+    record (audit/E1_AMENDMENT_1.json) and its text (prereg/E1_amendment_1.md) must both be committed and
+    unchanged, and the record must give the registration, the text's path and SHA-256, the amendment's
+    address and the time it was first verified public. `select` uses the sheet it names.
+    """
+    root = Path(root)
+    if not (root / AMENDMENT_RECORD).exists():
+        return None
+    for relative in (AMENDMENT_RECORD, AMENDMENT_TEXT):
+        if not (root / relative).is_file():
+            raise gates.GateClosed(f"{relative} is missing; the amendment record needs its text")
+        gates.check_committed(root, relative)
+    record = records.read_json(root / AMENDMENT_RECORD)
+    registration = load_acquisition(root)["registration"]["registration_id"]
+    if record.get("registration_id") != registration:
+        raise gates.GateClosed(f"{AMENDMENT_RECORD} does not belong to the E1 registration ({registration})")
+    if record.get("attachment") != AMENDMENT_TEXT or record.get("attachment_sha256") != gates.sha256_file(root / AMENDMENT_TEXT):
+        raise gates.GateClosed(f"{AMENDMENT_TEXT} does not match the path and SHA-256 given in {AMENDMENT_RECORD}")
+    sheet = record.get("headline_sheet")
+    if not isinstance(sheet, str) or not sheet.strip():
+        raise gates.GateClosed(f"{AMENDMENT_RECORD} does not name a sheet")
+    for field in ("amendment_url", "public_first_verified_at_utc"):
+        if not record.get(field):
+            raise gates.GateClosed(f"{AMENDMENT_RECORD} has no {field}")
+    gates.utc(record["public_first_verified_at_utc"])
+    return dict(record, record_sha256=gates.sha256_file(root / AMENDMENT_RECORD))
+
+
 def select(root, *, version_location=None, first_data_row=None, year_column=None) -> dict:
     """Version check, header-only output and the selection rule; every attempt is logged."""
     root = Path(root)
@@ -532,13 +580,18 @@ def select(root, *, version_location=None, first_data_row=None, year_column=None
     if (root / SELECTION_RECORD).exists():
         raise records.RecordExists(f"{SELECTION_RECORD} already exists; the selection is made once")
     content = _raw(root, acquisition)
-    options = dict(version_location=version_location, first_data_row=first_data_row, year_column=year_column)
+    amendment = load_amendment(root)
+    options = dict(version_location=version_location, first_data_row=first_data_row, year_column=year_column,
+                   amendment=None if amendment is None else dict(
+                       record=AMENDMENT_RECORD, record_sha256=amendment["record_sha256"], text=AMENDMENT_TEXT,
+                       text_sha256=amendment["attachment_sha256"], headline_sheet=amendment["headline_sheet"]))
     entry = dict(time_utc=gates.now_utc(), raw_sha256=acquisition["sha256"], options=options)
     version = None
     try:
         workbook = Workbook(content)
         version = check_version(version_statements(workbook), version_location)
-        output = header_only(workbook, first_data_row=first_data_row, year_column=year_column)
+        output = header_only(workbook, first_data_row=first_data_row, year_column=year_column,
+                             headline_sheet=None if amendment is None else amendment["headline_sheet"])
     except SourceStop as stop:
         _attempt(root, dict(entry, status="stopped", stage=stop.stage, reason=str(stop), details=stop.details,
                             version=version))
@@ -647,5 +700,13 @@ def load_registered_growth(root) -> dict:
         raise SourceStop("The re-extracted levels differ from the extraction record", stage="identity")
     hashes = {relative: gates.sha256_file(root / relative)
               for relative in (ACQUISITION_RECORD, SELECTION_RECORD, TERRITORY_RECORD, EXTRACTION_RECORD)}
+    used = (selection.get("options") or {}).get("amendment")
+    if used:
+        amendment = load_amendment(root)
+        if (amendment is None or amendment["record_sha256"] != used["record_sha256"]
+                or amendment["attachment_sha256"] != used["text_sha256"]):
+            raise gates.GateClosed(f"The selection relied on {AMENDMENT_RECORD}, which is missing or differs from "
+                                   "the record the selection cites")
+        hashes.update({AMENDMENT_RECORD: amendment["record_sha256"], AMENDMENT_TEXT: amendment["attachment_sha256"]})
     return dict(acquisition=acquisition, selection=selection, territory=territory, extraction=extraction,
                 record_sha256=hashes, growth_years=growth_years, growth=growth, levels_count=len(levels))
