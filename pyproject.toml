@@ -2,3 +2,4 @@
 testpaths = ["tests"]
 pythonpath = [".", "src"]
 addopts = "-ra"
+markers = ["slow: development-size runs of the E1/E3 synthetic checks (seconds to minutes)"]

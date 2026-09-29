@@ -33,3 +33,39 @@ all: test s1-figures note
 
 # No target downloads data. Only tools/build_s2.py and the gated H1 tools read the registered UK file,
 # and they stop until G2 has passed and the file has been acquired (docs/H1_EXECUTION.md).
+
+# --- E1 and E3 pipelines (uc_ext; M4b, fixed by M13). Outputs go to runs/, which .gitignore ignores, so the
+# tree stays clean: registered runs refuse a dirty tree and a non-ignored --out (tools/run_e_checks.py, S3).
+.PHONY: test-e e1-x3 e3-prerequisites e3-x3 e-runtime
+E_OUT ?= runs/extensions
+
+# Synthetic-only tests of the E1/E3 pipelines (development seeds, small sizes, AT-11's sunspot fixture).
+test-e:
+	$(PYTHON) -m pytest -q tests/test_e_common.py tests/test_e1.py tests/test_e3.py tests/test_e_runner.py
+
+# E1 X.3 (Annex B step 3). Fails closed unless run from this root on a clean tree, under the lock and
+# Python 3.12.14, with prereg-E1 pushed and audit/E1_REGISTRATION.json public and approved. Resumable.
+e1-x3:
+	mkdir -p $(E_OUT)/E1
+	$(PYTHON) tools/run_e_checks.py e1 size --registered --root . --out $(E_OUT)/E1/x3_size.jsonl
+	$(PYTHON) tools/run_e_checks.py e1 power --registered --root . --out $(E_OUT)/E1/x3_power.jsonl
+	$(PYTHON) tools/run_e_checks.py e1 summarize --registered --root . --out $(E_OUT)/E1/x3_size.jsonl > $(E_OUT)/E1/x3_size_summary.json
+	$(PYTHON) tools/run_e_checks.py e1 summarize --registered --root . --out $(E_OUT)/E1/x3_power.jsonl > $(E_OUT)/E1/x3_power_summary.json
+
+# E3 section 11 prerequisites on stream 5320/1/0 and AT-11's fixture. The record is never overwritten; the
+# command exits non-zero unless every prerequisite passes, and E3 size and power refuse a record that did not.
+e3-prerequisites: $(E_OUT)/E3/x3_prerequisite.jsonl
+$(E_OUT)/E3/x3_prerequisite.jsonl:
+	mkdir -p $(E_OUT)/E3
+	$(PYTHON) tools/run_e_checks.py e3 prerequisite --registered --root . --out $@
+
+# E3 X.3, only after a passed prerequisite record made by the same commit. Resumable.
+e3-x3: e3-prerequisites
+	$(PYTHON) tools/run_e_checks.py e3 size --registered --root . --prerequisite $(E_OUT)/E3/x3_prerequisite.jsonl --out $(E_OUT)/E3/x3_size.jsonl
+	$(PYTHON) tools/run_e_checks.py e3 power --registered --root . --prerequisite $(E_OUT)/E3/x3_prerequisite.jsonl --out $(E_OUT)/E3/x3_power.jsonl
+	$(PYTHON) tools/run_e_checks.py e3 summarize --registered --root . --out $(E_OUT)/E3/x3_size.jsonl > $(E_OUT)/E3/x3_size_summary.json
+	$(PYTHON) tools/run_e_checks.py e3 summarize --registered --root . --out $(E_OUT)/E3/x3_power.jsonl > $(E_OUT)/E3/x3_power_summary.json
+
+# Development-seed timing of the E1/E3 replicates (no registered seed, no registered size).
+e-runtime:
+	$(PYTHON) tools/measure_e_runtime.py
