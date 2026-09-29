@@ -8,7 +8,9 @@ Closed until G4 for E1 verifies and audit/E1_X3.json records passed official syn
       Stores the first download after verified public registration read-only as
       data/raw/a-millennium-of-macroeconomic-data-for-the-uk.xlsx, with data/raw/E1_acquisition.json and a
       DATA_MANIFEST.csv row. A browser download must come from the registered file URL. Refuses a second
-      acquisition. Nothing is read beyond checking that the bytes are an xlsx package.
+      acquisition. Nothing is read beyond checking that the bytes are an xlsx package. The workbook is
+      kept out of git (D-041): its path must be git-ignored, and only the record and the manifest row
+      are committed.
   python tools/acquire_e1.py select [--version-location LOC] [--first-data-row N] [--year-column A]
       Text only: the version statement (version 3.1 or stop), the header-only output and the selection
       rule. Writes audit/e1_source/header-only.txt, header-only.json and selection.json once; every
@@ -80,7 +82,8 @@ def main(argv=None):
             record = e1_source.acquire(root, content, retrieved_utc=retrieved, method=method, response=response,
                                        licence=args.licence, licence_url=args.licence_url)
             print(json.dumps({k: record[k] for k in ("file", "retrieved_utc", "bytes", "sha256")}, indent=2))
-            print("Stored read-only. Commit and push the file and its records, then run: select")
+            print("Stored read-only and git-ignored. Commit and push data/raw/E1_acquisition.json and "
+                  "DATA_MANIFEST.csv (not the workbook), then run: select")
         elif args.stage == "select":
             result = e1_source.select(root, version_location=args.version_location,
                                       first_data_row=args.first_data_row, year_column=args.year_column)

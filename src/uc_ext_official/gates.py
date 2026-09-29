@@ -127,6 +127,15 @@ def check_committed(root, relative: str) -> None:
         raise GateClosed(f"{relative} differs from the committed file")
 
 
+def check_untracked(root, relative: str) -> None:
+    """The file is not tracked by git (the E1 workbook is kept out of the repository, D-041)."""
+    try:
+        git(Path(root), "ls-files", "--error-unmatch", relative)
+    except subprocess.CalledProcessError:
+        return
+    raise GateClosed(f"{relative} is tracked by git; the E1 workbook is kept out of the repository (D-041)")
+
+
 # ------------------------------------------------------------------------------------ X.3
 
 def validate_x3_record(record: dict, extension: str) -> dict:

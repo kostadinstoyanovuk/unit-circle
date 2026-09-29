@@ -29,7 +29,7 @@ else:
         raise RuntimeError("Set UC_RESEARCH_ROOT (research checkout) and UC_E_PIPELINES (E-pipelines delivery "
                            "with src/uc_ext and tools/run_e_checks.py)") from error
 TOOLS = ("record_e_x3.py", "acquire_e1.py", "note_e3_data.py", "run_e1.py", "run_e3.py", "freeze_e.py")
-GITIGNORE_ADDITIONS = ("!data/raw/a-millennium-of-macroeconomic-data-for-the-uk.xlsx", "!data/raw/E1_acquisition.json")
+GITIGNORE_ADDITIONS = ("!data/raw/E1_acquisition.json",)
 
 SEED = 20260929                       # development seed for artificial fixtures (not a registered seed)
 MAIN = "http://schemas.openxmlformats.org/spreadsheetml/2006/main"

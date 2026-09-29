@@ -1,10 +1,15 @@
-"""Recompute SHA-256 hashes of raw files against DATA_MANIFEST.csv (make check-data)."""
+"""Recompute SHA-256 hashes of raw files against DATA_MANIFEST.csv (make check-data).
+
+A row whose notes begin with NOT_DISTRIBUTED describes a file kept out of the repository (D-041): it is
+checked wherever a copy is present and is not reported missing where none is.
+"""
 import csv
 import hashlib
 from pathlib import Path
 import sys
 
 ROOT = Path(__file__).resolve().parents[1]
+NOT_DISTRIBUTED = "Not distributed in this repository"
 
 
 def check(root=ROOT):
@@ -13,7 +18,8 @@ def check(root=ROOT):
         for row in csv.DictReader(manifest):
             path = root / row["file"]
             if not path.is_file():
-                problems.append(f"missing: {row['file']}")
+                if not row["notes"].startswith(NOT_DISTRIBUTED):
+                    problems.append(f"missing: {row['file']}")
                 continue
             actual = hashlib.sha256(path.read_bytes()).hexdigest()
             if actual != row["sha256"]:

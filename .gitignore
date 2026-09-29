@@ -31,6 +31,5 @@ paper1/*.pdf
 paper1/build.out
 paper1/build.err
 
-# E1 X.2 (prereg/E1.md section 4): the workbook and its acquisition record are committed
-!data/raw/a-millennium-of-macroeconomic-data-for-the-uk.xlsx
+# E1 X.2 (prereg/E1.md section 4): the acquisition record is committed; the workbook is not (D-041)
 !data/raw/E1_acquisition.json

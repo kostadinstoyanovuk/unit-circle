@@ -6,6 +6,8 @@ acquire    Gates: G4 for E1 and the passed official synthetic checks (audit/E1_X
            at the registered URL at the first download after verified public registration is stored
            read-only with its source identity, retrieval time, size and SHA-256, and a DATA_MANIFEST row.
            Only an xlsx package is accepted as the download (an error or challenge page is not the file).
+           The workbook itself is kept out of git (D-041): its path is git-ignored and only its record and
+           the manifest row are committed; every later stage checks it against the committed record.
 select     Reads text only. (1) Version: the file's own contents must identify it as version 3.1.
            (2) Header-only output: the sheet names, each sheet's title, and the text cells above the
            first data row of the headline-series sheet with the notes attached to it. No numeric cell
@@ -62,6 +64,8 @@ EXTRACTION_RECORD = f"{SOURCE_DIR}/extraction.json"
 EXTRACTION_STOP = f"{SOURCE_DIR}/extraction-stop.json"
 FIRST_YEAR, LAST_YEAR = 1700, 2016
 NOT_STATED = "not stated in the workbook"
+# The manifest note that marks a row whose file is kept out of git (tools/check_data.py uses the same words).
+NOT_DISTRIBUTED = "Not distributed in this repository"
 
 VERSION = re.compile(r"(?<![A-Za-z0-9])(?:version|vers|ver|v)\.?[\s:]*(\d+(?:\.\d+)+)", re.IGNORECASE)
 HEADLINE = re.compile(r"\bheadline\b", re.IGNORECASE)
@@ -439,9 +443,16 @@ def stretches_for_flags(territory: dict) -> list[tuple]:
 # ------------------------------------------------------------------------ records and stages
 
 def _raw(root, acquisition=None):
+    """The workbook's bytes. The file is kept out of git (D-041): it must be present on this machine, must not be
+    tracked, and must equal the committed acquisition record."""
     root = Path(root)
     acquisition = acquisition or load_acquisition(root)
-    content = (root / acquisition["file"]).read_bytes()
+    path = root / acquisition["file"]
+    if not path.is_file():
+        raise gates.GateClosed(f"{acquisition['file']} is missing. The workbook is kept out of git (D-041): restore "
+                               f"the file with SHA-256 {acquisition['sha256']} from {acquisition['source_url']}")
+    gates.check_untracked(root, acquisition["file"])
+    content = path.read_bytes()
     if gates.sha256_bytes(content) != acquisition["sha256"] or len(content) != acquisition["bytes"]:
         raise SourceStop("The raw workbook's bytes differ from its acquisition record", stage="identity")
     return content
@@ -472,11 +483,12 @@ def acquire(root, content: bytes, *, retrieved_utc: str, method: str, response: 
     if raw.exists() or record_path.exists() or records.manifest_row(root, RAW_FILE) is not None:
         raise records.RecordExists("An E1 workbook, acquisition record or manifest row already exists; "
                                    "the workbook is acquired once")
-    ignored = [path for path in (RAW_FILE, ACQUISITION_RECORD)
-               if subprocess.run(["git", "check-ignore", "-q", path], cwd=root).returncode == 0]
-    if ignored:
-        raise gates.GateClosed(f"{', '.join(ignored)} would be ignored by git; add the .gitignore exceptions "
-                               "first so the workbook and its record can be committed")
+    if subprocess.run(["git", "check-ignore", "-q", ACQUISITION_RECORD], cwd=root).returncode == 0:
+        raise gates.GateClosed(f"{ACQUISITION_RECORD} would be ignored by git; add its .gitignore exception "
+                               "first so the record can be committed")
+    if subprocess.run(["git", "check-ignore", "-q", RAW_FILE], cwd=root).returncode != 0:
+        raise gates.GateClosed(f"{RAW_FILE} would not be ignored by git; the workbook is kept out of the "
+                               "repository (D-041), so its path must be git-ignored before it is written")
     retrieved = gates.utc(retrieved_utc)
     if not retrieved > gates.utc(gate["public_first_verified_at_utc"]):
         raise gates.GateClosed("The retrieval is not after the verified public registration of E1 "
@@ -492,15 +504,17 @@ def acquire(root, content: bytes, *, retrieved_utc: str, method: str, response: 
                   file=RAW_FILE, source=SOURCE_TITLE, source_url=FILE_URL, landing_url=LANDING_URL,
                   retrieval_method=method, retrieved_utc=retrieved.isoformat(), http=response,
                   bytes=len(content), sha256=gates.sha256_bytes(content), licence=licence, licence_url=licence_url,
-                  read_only=True, release_rule="the file served at the registered URL at the first download after "
+                  read_only=True, repository_copy=f"{NOT_DISTRIBUTED} (git-ignored, D-041); the SHA-256 identifies it",
+                  release_rule="the file served at the registered URL at the first download after "
                   "verified public registration; qualifies only if its own contents identify version 3.1",
                   registration=gate, x3_record_sha256=x3["record_sha256"], x3_code_sha256=x3["code_sha256"])
     records.write_once(record_path, records.pretty(record))
     records.append_manifest_row(root, dict(
         file=RAW_FILE, source_url=FILE_URL, series_id=f"{SOURCE_TITLE} (workbook)",
         retrieved_utc=record["retrieved_utc"], sha256=record["sha256"], licence=licence,
-        notes=(f"Landing page {LANDING_URL}; {len(content)} bytes; record {ACQUISITION_RECORD}; E1 X.2: version "
-               f"statement, selection and territory pending ({SOURCE_DIR}/)")))
+        notes=(f"{NOT_DISTRIBUTED}: obtain it from the source URL and check the SHA-256; landing page "
+               f"{LANDING_URL}; {len(content)} bytes; record {ACQUISITION_RECORD}; E1 X.2: version statement, "
+               f"selection and territory pending ({SOURCE_DIR}/)")))
     return record
 
 
@@ -573,7 +587,8 @@ def record_territory(root, spec: dict) -> dict:
 def _manifest_notes(acquisition, selection, territory):
     statement = selection["version"]["statement"]
     stretches = "; ".join(f"{s['first_year']}-{s['last_year']} {s['territory']}" for s in territory["stretches"])
-    return (f"Version statement \"{statement['text']}\" ({statement['location']}); sheet '{selection['sheet']}', "
+    return (f"{NOT_DISTRIBUTED}: obtain it from the source URL and check the SHA-256. Version statement "
+            f"\"{statement['text']}\" ({statement['location']}); sheet '{selection['sheet']}', "
             f"column {selection['column']}, header \"{selection['header']}\"; units: "
             f"{selection['units'] or 'not stated in the header'}; territory: {stretches}; landing page "
             f"{LANDING_URL}; {acquisition['bytes']} bytes; records {ACQUISITION_RECORD} and {SOURCE_DIR}/")
@@ -585,7 +600,7 @@ def extract(root) -> dict:
     gates.check_registration(root, "e1")
     x3 = gates.check_x3(root, "e1")
     acquisition = load_acquisition(root)
-    for relative in (ACQUISITION_RECORD, RAW_FILE, SELECTION_RECORD, TERRITORY_RECORD):
+    for relative in (ACQUISITION_RECORD, SELECTION_RECORD, TERRITORY_RECORD):
         if not (root / relative).is_file():
             raise gates.GateClosed(f"{relative} is missing; acquire, select and record the territory first")
         gates.check_committed(root, relative)
@@ -619,7 +634,7 @@ def load_registered_growth(root) -> dict:
     levels identical to the extraction record. Returns records, record hashes, years and growth."""
     root = Path(root)
     acquisition = load_acquisition(root)
-    for relative in (ACQUISITION_RECORD, RAW_FILE, SELECTION_RECORD, TERRITORY_RECORD, EXTRACTION_RECORD):
+    for relative in (ACQUISITION_RECORD, SELECTION_RECORD, TERRITORY_RECORD, EXTRACTION_RECORD):
         if not (root / relative).is_file():
             raise gates.GateClosed(f"{relative} is missing; E1 X.2 is not complete")
         gates.check_committed(root, relative)

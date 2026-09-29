@@ -42,11 +42,15 @@ def manifest_rows(root):
     return list(csv.DictReader((root / "DATA_MANIFEST.csv").open(encoding="utf-8")))
 
 
-def check_data(root):
+def check_data_module(root):
     spec = importlib.util.spec_from_file_location("check_data_test", root / "tools/check_data.py")
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
-    return module.check(root)
+    return module
+
+
+def check_data(root):
+    return check_data_module(root).check(root)
 
 
 # ------------------------------------------------------------------------------- acquire
@@ -76,7 +80,7 @@ def test_acquire_refusals_before_anything_is_written(root):
         acquire(root, licence="")
     kept = [line for line in (root / ".gitignore").read_text(encoding="utf-8").splitlines() if line not in GITIGNORE_ADDITIONS]
     (root / ".gitignore").write_text("\n".join(kept) + "\n")
-    commit_all(root, "exceptions removed")
+    commit_all(root, "the exception for the acquisition record removed")
     with pytest.raises(gates.GateClosed, match="ignored by git"):
         acquire(root)
     assert not (root / s.RAW_FILE).exists() and len(manifest_rows(root)) == 1
@@ -329,3 +333,70 @@ def test_command_line_version_stop_lists_the_statements(root, tmp_path, capsys):
     with pytest.raises(SystemExit, match=r"Stopped \(version\)"):
         tool.main(["--root", str(root), "select"])
     assert "Cover (artificial)!A2: Version 3.0 (artificial)" in capsys.readouterr().err
+
+
+# ------------------------------------------------------- the workbook is kept out of git (D-041)
+
+def test_the_workbook_is_ignored_while_its_record_and_manifest_row_are_committed(root):
+    passed_x3(root)
+    record = acquire(root)
+    assert record["repository_copy"].startswith(s.NOT_DISTRIBUTED)
+    commit_all(root, "acquired")
+    tracked = git(root, "ls-files").splitlines()
+    assert s.ACQUISITION_RECORD in tracked and s.RAW_FILE not in tracked and (root / s.RAW_FILE).is_file()
+    assert manifest_rows(root)[-1]["notes"].startswith(s.NOT_DISTRIBUTED)
+    s.select(root)
+    s.record_territory(root, TERRITORY)
+    commit_all(root, "records")
+    s.extract(root)
+    assert manifest_rows(root)[-1]["notes"].startswith(s.NOT_DISTRIBUTED)      # still marked once completed
+    commit_all(root, "extraction")
+    assert s.RAW_FILE not in git(root, "ls-files").splitlines()
+    assert len(s.load_registered_growth(root)["growth"]) == 316
+
+
+def test_acquire_refuses_a_workbook_path_that_git_would_track(root):
+    passed_x3(root)
+    with (root / ".gitignore").open("a", encoding="utf-8") as output:
+        output.write(f"!{s.RAW_FILE}\n")
+    commit_all(root, "an exception for the workbook")
+    with pytest.raises(gates.GateClosed, match="would not be ignored by git"):
+        acquire(root)
+    assert not (root / s.RAW_FILE).exists() and len(manifest_rows(root)) == 1
+
+
+def test_a_tracked_workbook_stops_every_stage_that_reads_it(root):
+    acquired(root)
+    git(root, "add", "-f", s.RAW_FILE)
+    commit_all(root, "the workbook committed against D-041")
+    with pytest.raises(gates.GateClosed, match="tracked by git"):
+        s.select(root)
+    assert not (root / s.SELECTION_RECORD).exists() and not (root / s.ATTEMPTS_LOG).exists()
+
+
+def test_a_missing_workbook_is_reported_with_its_hash(root):
+    acquired(root)
+    expected = json.loads((root / s.ACQUISITION_RECORD).read_text(encoding="utf-8"))["sha256"]
+    raw = root / s.RAW_FILE
+    os.chmod(raw, stat.S_IWUSR | stat.S_IRUSR)
+    raw.unlink()
+    with pytest.raises(gates.GateClosed, match="is missing") as stop:
+        s.select(root)
+    assert expected in str(stop.value) and not (root / s.ATTEMPTS_LOG).exists()
+
+
+def test_a_manifest_row_of_a_file_kept_out_of_git_may_be_absent_but_never_wrong(root):
+    assert check_data_module(root).NOT_DISTRIBUTED == s.NOT_DISTRIBUTED
+    passed_x3(root)
+    acquire(root)
+    raw = root / s.RAW_FILE
+    assert check_data(root) == (2, [])
+    os.chmod(raw, stat.S_IWUSR | stat.S_IRUSR)
+    raw.write_bytes(raw.read_bytes() + b"\0")
+    assert check_data(root) == (2, [f"hash differs: {s.RAW_FILE}"])
+    raw.unlink()
+    assert check_data(root) == (1, [])                       # marked and absent: not reported
+    manifest = root / "DATA_MANIFEST.csv"
+    manifest.write_text(manifest.read_text(encoding="utf-8").replace(s.NOT_DISTRIBUTED, "Kept elsewhere"),
+                        encoding="utf-8")
+    assert check_data(root) == (1, [f"missing: {s.RAW_FILE}"])

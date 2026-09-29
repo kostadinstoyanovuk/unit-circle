@@ -23,10 +23,13 @@ def _load_tool(name):
 
 
 def test_raw_files_match_manifest():
-    checked, problems = _load_tool('check_data').check(ROOT)
+    tool = _load_tool('check_data')
+    checked, problems = tool.check(ROOT)
     with (ROOT / 'DATA_MANIFEST.csv').open(newline='', encoding='utf-8') as manifest:
-        listed = sum(1 for _ in csv.DictReader(manifest))
-    assert checked == listed >= 2 and problems == []
+        rows = list(csv.DictReader(manifest))
+    kept_out = sum(1 for row in rows if row['notes'].startswith(tool.NOT_DISTRIBUTED)
+                   and not (ROOT / row['file']).is_file())
+    assert checked + kept_out == len(rows) >= 2 and problems == []
 
 
 def test_readers_cover_expected_years():
