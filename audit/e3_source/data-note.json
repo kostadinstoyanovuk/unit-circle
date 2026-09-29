@@ -1,0 +1,22 @@
+{
+  "record_type": "E3 data note (prereg/E3.md section 4; Annex B, X.2): no download",
+  "file": "data/raw/ABMI_QNA.csv",
+  "sha256": "b97f9b0f5d9c94aa711804a43752f83d3d2f0fcf7062f2eff8dbd6f236221262",
+  "bytes": 6944,
+  "h1_acquisition_record": "data/raw/ABMI_acquisition.json",
+  "h1_acquisition_record_sha256": "aac5b34b6b14e0f3ecd7cdd593f3b64f2997b1065f7e6c2625373bade84bcb86",
+  "release_title": "GDP quarterly national accounts, UK: January to March 2026",
+  "hash_reverified_utc": "2026-09-29T19:13:47.513418+00:00",
+  "registration": {
+    "tag": "prereg-E3",
+    "tag_object": "8963e4ac871c0730ae271f28277c4c87216fb004",
+    "tag_commit": "5a26bfc8b4af3486cb17e758102f7efc59301379",
+    "protocol_sha256": "9b891fe691b21a9098f3a0fe811c3d0eae3e615dd6d59f7dc290e908a51a22ae",
+    "registration_file_sha256": "72450300a0b9a39ea40ceeb4da471e5c5ac8d3a7a6493096b925b89807b31007",
+    "registration_id": "rhzsm",
+    "doi": "10.17605/OSF.IO/RHZSM",
+    "registration_url": "https://osf.io/rhzsm",
+    "public_first_verified_at_utc": "2026-09-28T15:57:37+00:00"
+  },
+  "statement": "E3 uses the H1-registered ABMI file unchanged; no further data and no other vintage."
+}
