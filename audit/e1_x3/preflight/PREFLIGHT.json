@@ -1,0 +1,226 @@
+{
+ "created_utc": "2026-09-29T03:35:07+00:00",
+ "commit": "6ea02456244efa7c58ac8cb1be682a2b206597c5",
+ "clean_before": true,
+ "python": "3.12.14",
+ "platform": "Windows-10-10.0.19045-SP0",
+ "executable": "C:\\Users\\user\\Desktop\\Unit Circle Programme\\unit-circle\\.venv\\Scripts\\python.exe",
+ "checks": [
+  {
+   "check": "S4: environment_identity under the research lock",
+   "passed": true,
+   "python": "3.12.14",
+   "platform": "Windows-10-10.0.19045-SP0",
+   "commit": "6ea02456244efa7c58ac8cb1be682a2b206597c5",
+   "packages": {
+    "colorama": "0.4.6",
+    "contourpy": "1.4.0",
+    "cycler": "0.12.1",
+    "fonttools": "4.66.0",
+    "formulaic": "1.2.2",
+    "hypothesis": "6.168.1",
+    "iniconfig": "2.3.0",
+    "interface_meta": "2.0.1",
+    "kiwisolver": "1.5.1",
+    "matplotlib": "3.11.2",
+    "mpmath": "1.3.0",
+    "narwhals": "2.26.0",
+    "numpy": "2.5.3",
+    "packaging": "26.3",
+    "pandas": "3.0.6",
+    "patsy": "1.0.3",
+    "pillow": "12.3.0",
+    "pluggy": "1.6.0",
+    "Pygments": "2.21.0",
+    "pyparsing": "3.3.3",
+    "pypdf": "6.19.0",
+    "pytest": "9.1.1",
+    "python-dateutil": "2.9.0.post0",
+    "scipy": "1.18.1",
+    "six": "1.17.0",
+    "sortedcontainers": "2.4.0",
+    "statsmodels": "0.15.0",
+    "sympy": "1.14.0",
+    "typing_extensions": "4.16.0",
+    "tzdata": "2026.4",
+    "wrapt": "2.4.1"
+   },
+   "executable": "C:\\Users\\user\\Desktop\\Unit Circle Programme\\unit-circle\\.venv\\Scripts\\python.exe"
+  },
+  {
+   "name": "test_e",
+   "argv": [
+    "C:\\Users\\user\\Desktop\\Unit Circle Programme\\unit-circle\\.venv\\Scripts\\python.exe",
+    "-m",
+    "pytest",
+    "-q",
+    "-p",
+    "no:cacheprovider",
+    "tests/test_e_common.py",
+    "tests/test_e1.py",
+    "tests/test_e3.py",
+    "tests/test_e_runner.py"
+   ],
+   "exit": 0,
+   "started_utc": "2026-09-29T03:35:08+00:00",
+   "seconds": 148.1,
+   "last_line": "99 passed in 147.61s (0:02:27)",
+   "check": "N1/N3: the four E test files (includes the E1 section 7 unit test on constructed runs)",
+   "passed_tests": 99,
+   "passed": true
+  },
+  {
+   "name": "test_foundations",
+   "argv": [
+    "C:\\Users\\user\\Desktop\\Unit Circle Programme\\unit-circle\\.venv\\Scripts\\python.exe",
+    "-m",
+    "pytest",
+    "-q",
+    "-p",
+    "no:cacheprovider",
+    "tests/test_foundations.py"
+   ],
+   "exit": 0,
+   "started_utc": "2026-09-29T03:37:36+00:00",
+   "seconds": 3.1,
+   "last_line": "10 passed in 2.56s",
+   "check": "N2: F2 (plan p. 7; D-019)",
+   "passed_tests": 10,
+   "passed": true
+  },
+  {
+   "name": "test_audit_baseline",
+   "argv": [
+    "C:\\Users\\user\\Desktop\\Unit Circle Programme\\unit-circle\\.venv\\Scripts\\python.exe",
+    "-m",
+    "pytest",
+    "-q",
+    "-p",
+    "no:cacheprovider",
+    "tests/test_audit_baseline.py"
+   ],
+   "exit": 0,
+   "started_utc": "2026-09-29T03:37:39+00:00",
+   "seconds": 2.9,
+   "last_line": "12 passed in 2.31s",
+   "check": "N3: audit baseline",
+   "passed_tests": 12,
+   "passed": true
+  },
+  {
+   "check": "N3: AT-1 to AT-4 through uc_core.ar",
+   "passed": true,
+   "tests": [
+    {
+     "test": "AT-1 least squares 1749-1924: phi (1.336, -0.650), M 0.806, period 10.57 y, half-life 3.2 y",
+     "passed": true,
+     "phi": [
+      1.3359496152045296,
+      -0.649853468582151
+     ],
+     "M": 0.8061348947801175,
+     "period": 10.57475037500636,
+     "half_life": 3.2163977390624474
+    },
+    {
+     "test": "AT-2 Yule-Walker 1749-1924: (1.326, -0.642), M 0.801, period 10.55 y",
+     "passed": true,
+     "phi": [
+      1.3262603368466923,
+      -0.6418867557612992
+     ],
+     "M": 0.8011783545261936,
+     "period": 10.545598578959948,
+     "half_life": 3.1269088745730755
+    },
+    {
+     "test": "AT-3 least squares 1925-2008: (1.414, -0.762), M 0.873, period 10.02 y",
+     "passed": true,
+     "phi": [
+      1.4138646330959013,
+      -0.7623731048322342
+     ],
+     "M": 0.8731397968436866,
+     "period": 10.017016338275777,
+     "half_life": 5.109459041031064
+    },
+    {
+     "test": "AT-4 least squares on x/0.6 + 5: identical phi to 1e-6",
+     "passed": true,
+     "max_difference": 4.440892098500626e-16
+    },
+    {
+     "test": "E1's indicator path uc_core.rolling.max_modulus equals fit_ols on one full window",
+     "passed": true,
+     "rolling_M": 0.8061348947801175,
+     "ar_M": 0.8061348947801175
+    }
+   ]
+  },
+  {
+   "name": "gate_e1",
+   "argv": [
+    "C:\\Users\\user\\Desktop\\Unit Circle Programme\\unit-circle\\.venv\\Scripts\\python.exe",
+    "tools/run_e_checks.py",
+    "e1",
+    "summarize",
+    "--registered",
+    "--root",
+    ".",
+    "--out",
+    "runs/extensions/E1/absent.jsonl"
+   ],
+   "exit": 1,
+   "started_utc": "2026-09-29T03:37:42+00:00",
+   "seconds": 2.1,
+   "last_line": "",
+   "check": "N1: registered e1 gate on this machine (stops at the missing runs/extensions/E1/absent.jsonl)",
+   "passed": true,
+   "stderr_last": [
+    "FileNotFoundError: [Errno 2] No such file or directory: 'runs\\\\extensions\\\\E1\\\\absent.jsonl'"
+   ]
+  },
+  {
+   "name": "gate_e3",
+   "argv": [
+    "C:\\Users\\user\\Desktop\\Unit Circle Programme\\unit-circle\\.venv\\Scripts\\python.exe",
+    "tools/run_e_checks.py",
+    "e3",
+    "summarize",
+    "--registered",
+    "--root",
+    ".",
+    "--out",
+    "runs/extensions/E3/absent.jsonl"
+   ],
+   "exit": 1,
+   "started_utc": "2026-09-29T03:37:45+00:00",
+   "seconds": 2.0,
+   "last_line": "",
+   "check": "N1: registered e3 gate on this machine (stops at the missing runs/extensions/E3/absent.jsonl)",
+   "passed": true,
+   "stderr_last": [
+    "FileNotFoundError: [Errno 2] No such file or directory: 'runs\\\\extensions\\\\E3\\\\absent.jsonl'"
+   ]
+  },
+  {
+   "check": "N1: git check-ignore through verify_output_location on this platform",
+   "passed": true,
+   "accepted": [
+    "runs/extensions/E1/x3_size_part.jsonl",
+    "runs/extensions/E1/x3_power_part.jsonl",
+    "runs/extensions/E3/x3_size_part.jsonl",
+    "runs/extensions/E3/x3_power_part.jsonl",
+    "runs/extensions/E3/x3_prerequisite.jsonl"
+   ],
+   "negative_control_refused": true
+  }
+ ],
+ "f1": {
+  "check": "F1 status as the repository records it (plan p. 7)",
+  "recorded": "| F1 Time series | Estimators pass AT-1-AT-4 | Passed ([M1A_REPORT.md](M1A_REPORT.md)); hand derivations of the AR(2) autocorrelation and spectral density are not recorded in this repository |"
+ },
+ "clean_after": true,
+ "finished_utc": "2026-09-29T03:37:47+00:00",
+ "passed": true
+}

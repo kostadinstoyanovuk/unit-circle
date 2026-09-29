@@ -1,0 +1,7 @@
+$ C:\Users\user\Desktop\Unit Circle Programme\unit-circle\.venv\Scripts\python.exe -m pytest -q -p no:cacheprovider tests/test_audit_baseline.py
+--- exit 0
+--- stdout
+............                                                             [100%]
+12 passed in 2.31s
+
+--- stderr

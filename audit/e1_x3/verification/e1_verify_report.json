@@ -1,0 +1,547 @@
+{
+ "tool": "verify_e_x3.py",
+ "version": "1.1 (29 September 2026)",
+ "extension": "e1",
+ "directory": "C:\\Users\\user\\Desktop\\Unit Circle Programme\\Programme Records\\E-official-checks\\unit-circle\\runs\\extensions\\E1",
+ "development": false,
+ "python": "3.12.14",
+ "numpy": "2.5.3",
+ "platform": "Windows-10-10.0.19045-SP0",
+ "elapsed_seconds": 14.79421329498291,
+ "files": [
+  {
+   "file": "x3_power_c0_r000-100.jsonl",
+   "kind": "power",
+   "bytes": 32355303,
+   "lines": 102,
+   "manifest": true,
+   "sessions": 1,
+   "replicates": 100,
+   "problems": 0,
+   "truncated": false,
+   "sha256": "f910445df9ec1b6b01eeb9090b21524fa543b336cba659cdeb0c370c69baf1db"
+  },
+  {
+   "file": "x3_power_c0_r100-200.jsonl",
+   "kind": "power",
+   "bytes": 32356555,
+   "lines": 102,
+   "manifest": true,
+   "sessions": 1,
+   "replicates": 100,
+   "problems": 0,
+   "truncated": false,
+   "sha256": "8353ac710883bb2d402462262f6378ca6ce622000b2b36997825203be3bd20d4"
+  },
+  {
+   "file": "x3_power_c1_r000-100.jsonl",
+   "kind": "power",
+   "bytes": 32356948,
+   "lines": 102,
+   "manifest": true,
+   "sessions": 1,
+   "replicates": 100,
+   "problems": 0,
+   "truncated": false,
+   "sha256": "4efb59ca84b63d989f1d12637d7ea02e25f48da269c0e5972a69c4140489ec75"
+  },
+  {
+   "file": "x3_power_c1_r100-200.jsonl",
+   "kind": "power",
+   "bytes": 32355977,
+   "lines": 102,
+   "manifest": true,
+   "sessions": 1,
+   "replicates": 100,
+   "problems": 0,
+   "truncated": false,
+   "sha256": "781713ab97dd2973ca73c8b2303f80e425dafb5d27a1611f92fd06bd8fda605d"
+  },
+  {
+   "file": "x3_power_c2_r000-100.jsonl",
+   "kind": "power",
+   "bytes": 32356891,
+   "lines": 102,
+   "manifest": true,
+   "sessions": 1,
+   "replicates": 100,
+   "problems": 0,
+   "truncated": false,
+   "sha256": "cccc74d22ca1beb23ad0a66e6e4e69232c5e551143bf0e8f7c76318e6dded9de"
+  },
+  {
+   "file": "x3_power_c2_r100-200.jsonl",
+   "kind": "power",
+   "bytes": 32356365,
+   "lines": 102,
+   "manifest": true,
+   "sessions": 1,
+   "replicates": 100,
+   "problems": 0,
+   "truncated": false,
+   "sha256": "0fce98441ae87935a138ca34848608c8d16078f9af962f935acf6d90814ec3bb"
+  },
+  {
+   "file": "x3_power_c3_r000-100.jsonl",
+   "kind": "power",
+   "bytes": 32356194,
+   "lines": 102,
+   "manifest": true,
+   "sessions": 1,
+   "replicates": 100,
+   "problems": 0,
+   "truncated": false,
+   "sha256": "b1f4ac9b738b707ae9e187d4c001bfe31fa9217d3ec8ff6083f8bee474b17172"
+  },
+  {
+   "file": "x3_power_c3_r100-200.jsonl",
+   "kind": "power",
+   "bytes": 32357014,
+   "lines": 102,
+   "manifest": true,
+   "sessions": 1,
+   "replicates": 100,
+   "problems": 0,
+   "truncated": false,
+   "sha256": "7ab06f5def7ac36fbedc7265097162b561fc75cdd89655583f83d660131bf408"
+  },
+  {
+   "file": "x3_size_r000-025.jsonl",
+   "kind": "size",
+   "bytes": 23660178,
+   "lines": 27,
+   "manifest": true,
+   "sessions": 1,
+   "replicates": 25,
+   "problems": 0,
+   "truncated": false,
+   "sha256": "56b8c5fb7e942ab71324cae5024f7a2ad78df2ebeba0b6ed3d415d7a9064ed7f"
+  },
+  {
+   "file": "x3_size_r025-050.jsonl",
+   "kind": "size",
+   "bytes": 23709363,
+   "lines": 27,
+   "manifest": true,
+   "sessions": 1,
+   "replicates": 25,
+   "problems": 0,
+   "truncated": false,
+   "sha256": "f48000b2166526c9eb6aa662350045b728f34c5390f4a5d5c4b54e756e2f5b0c"
+  },
+  {
+   "file": "x3_size_r050-075.jsonl",
+   "kind": "size",
+   "bytes": 23985673,
+   "lines": 27,
+   "manifest": true,
+   "sessions": 1,
+   "replicates": 25,
+   "problems": 0,
+   "truncated": false,
+   "sha256": "273a8c95c8527cb0fdaef2613e65cd6b2ea6712cae066c0aff966ba07925678b"
+  },
+  {
+   "file": "x3_size_r075-100.jsonl",
+   "kind": "size",
+   "bytes": 23733576,
+   "lines": 27,
+   "manifest": true,
+   "sessions": 1,
+   "replicates": 25,
+   "problems": 0,
+   "truncated": false,
+   "sha256": "df5cd4224225f7db6e112f8086ef3b7fef07c9da35911343bc9f545c90b60a4e"
+  },
+  {
+   "file": "x3_size_r100-125.jsonl",
+   "kind": "size",
+   "bytes": 24284312,
+   "lines": 27,
+   "manifest": true,
+   "sessions": 1,
+   "replicates": 25,
+   "problems": 0,
+   "truncated": false,
+   "sha256": "efc2ab51e80c15c595e44d4e9239a0a66ea64f99f9b1e4e1e4371eb37b427ae2"
+  },
+  {
+   "file": "x3_size_r125-150.jsonl",
+   "kind": "size",
+   "bytes": 23281164,
+   "lines": 27,
+   "manifest": true,
+   "sessions": 1,
+   "replicates": 25,
+   "problems": 0,
+   "truncated": false,
+   "sha256": "f2b2b6b7a9cc3ee49b2e61326ff3f55280e613886440ef46e9cd898c2ea9eac8"
+  },
+  {
+   "file": "x3_size_r150-175.jsonl",
+   "kind": "size",
+   "bytes": 23841262,
+   "lines": 27,
+   "manifest": true,
+   "sessions": 1,
+   "replicates": 25,
+   "problems": 0,
+   "truncated": false,
+   "sha256": "2a6a87cb3255ca57a2553db30c2d83e943d73aacb2b1cfcff452b26ff37c88c0"
+  },
+  {
+   "file": "x3_size_r175-200.jsonl",
+   "kind": "size",
+   "bytes": 24002272,
+   "lines": 27,
+   "manifest": true,
+   "sessions": 1,
+   "replicates": 25,
+   "problems": 0,
+   "truncated": false,
+   "sha256": "8df2ed42c66ffb2ebd4ca50589b0528e2a1ce274e7e025e1581c1666da12841f"
+  }
+ ],
+ "coverage": {
+  "expected": 1000,
+  "present": 1000,
+  "missing": 0,
+  "duplicates": 0,
+  "extra": 0
+ },
+ "statuses": {
+  "power/ok": 800,
+  "size/ok": 200
+ },
+ "registered_design": true,
+ "per_record": {
+  "p_recomputed": 1000,
+  "s_recomputed": 1000,
+  "max_s_difference": 7.216449660063518e-15,
+  "max_null_difference": 2.4424906541753444e-15,
+  "max_loglik_difference": 0.0,
+  "records_with_problems": 0,
+  "b_prime_min": 1000,
+  "b_prime_below_B": 0
+ },
+ "size": {
+  "kappa": null,
+  "requested": 200,
+  "attempted": 200,
+  "valid": 200,
+  "rejected": 13,
+  "unfinished": 0,
+  "failures": {},
+  "accounting_bounds": [
+   0.065,
+   0.065
+  ],
+  "valid_only_rate": 0.065,
+  "complete": true,
+  "rate": 0.065,
+  "rate_exact": "13/200",
+  "rate_se": 0.017432010784760317,
+  "rate_wilson": [
+   0.03837635464915299,
+   0.10801907929906895
+  ],
+  "mean_S": -0.004732558430557667,
+  "mean_S_se": 0.0012902827499601242
+ },
+ "size_strict": {
+  "kappa": null,
+  "requested": 200,
+  "attempted": 200,
+  "valid": 200,
+  "rejected": 13,
+  "unfinished": 0,
+  "failures": {},
+  "accounting_bounds": [
+   0.065,
+   0.065
+  ],
+  "valid_only_rate": 0.065,
+  "complete": true,
+  "rate": 0.065,
+  "rate_exact": "13/200",
+  "rate_se": 0.017432010784760317,
+  "rate_wilson": [
+   0.03837635464915299,
+   0.10801907929906895
+  ],
+  "mean_S": -0.004732558430557667,
+  "mean_S_se": 0.0012902827499601242
+ },
+ "power_cells": [
+  {
+   "kappa": 1.0,
+   "requested": 200,
+   "attempted": 200,
+   "valid": 200,
+   "rejected": 9,
+   "unfinished": 0,
+   "failures": {},
+   "accounting_bounds": [
+    0.045,
+    0.045
+   ],
+   "valid_only_rate": 0.045,
+   "complete": true,
+   "rate": 0.045,
+   "rate_exact": "9/200",
+   "rate_se": 0.014658615214269049,
+   "rate_wilson": [
+    0.023852543001492997,
+    0.0832967040018196
+   ],
+   "mean_S": -0.000755062157582379,
+   "mean_S_se": 0.00282981697660107
+  },
+  {
+   "kappa": 1.2,
+   "requested": 200,
+   "attempted": 200,
+   "valid": 200,
+   "rejected": 14,
+   "unfinished": 0,
+   "failures": {},
+   "accounting_bounds": [
+    0.07,
+    0.07
+   ],
+   "valid_only_rate": 0.07,
+   "complete": true,
+   "rate": 0.07,
+   "rate_exact": "14/200",
+   "rate_se": 0.01804161855266872,
+   "rate_wilson": [
+    0.042152171828342806,
+    0.11405480885610647
+   ],
+   "mean_S": 0.0034773486368025273,
+   "mean_S_se": 0.0032655231275917473
+  },
+  {
+   "kappa": 1.4,
+   "requested": 200,
+   "attempted": 200,
+   "valid": 200,
+   "rejected": 16,
+   "unfinished": 0,
+   "failures": {},
+   "accounting_bounds": [
+    0.08,
+    0.08
+   ],
+   "valid_only_rate": 0.08,
+   "complete": true,
+   "rate": 0.08,
+   "rate_exact": "16/200",
+   "rate_se": 0.01918332609325088,
+   "rate_wilson": [
+    0.049840585889759974,
+    0.12598948826714396
+   ],
+   "mean_S": 0.008169080806620354,
+   "mean_S_se": 0.0027292755330491796
+  },
+  {
+   "kappa": 1.6,
+   "requested": 200,
+   "attempted": 200,
+   "valid": 200,
+   "rejected": 23,
+   "unfinished": 0,
+   "failures": {},
+   "accounting_bounds": [
+    0.115,
+    0.115
+   ],
+   "valid_only_rate": 0.115,
+   "complete": true,
+   "rate": 0.115,
+   "rate_exact": "23/200",
+   "rate_se": 0.022558257911461158,
+   "rate_wilson": [
+    0.07786373232561955,
+    0.16664716898487572
+   ],
+   "mean_S": 0.017022724819695946,
+   "mean_S_se": 0.0031628159315707297
+  }
+ ],
+ "power": {
+  "adjacent": [
+   {
+    "left_kappa": 1.0,
+    "right_kappa": 1.2,
+    "difference": 0.02500000000000001,
+    "standard_error": 0.023245967392216658,
+    "threshold": 0.04556209608874465,
+    "decrease_flag": false,
+    "decrease_flag_float": false,
+    "margin": -0.07056209608874466
+   },
+   {
+    "left_kappa": 1.2,
+    "right_kappa": 1.4,
+    "difference": 0.009999999999999995,
+    "standard_error": 0.02633438816452739,
+    "threshold": 0.051615400802473684,
+    "decrease_flag": false,
+    "decrease_flag_float": false,
+    "margin": -0.06161540080247368
+   },
+   {
+    "left_kappa": 1.4,
+    "right_kappa": 1.6,
+    "difference": 0.035,
+    "standard_error": 0.029612075239672075,
+    "threshold": 0.058039667469757264,
+    "decrease_flag": false,
+    "decrease_flag_float": false,
+    "margin": -0.09303966746975727
+   }
+  ],
+  "flags_exact": [
+   false,
+   false,
+   false
+  ],
+  "flags_float": [
+   false,
+   false,
+   false
+  ],
+  "D80": null,
+  "kappa80": null,
+  "crossing": null,
+  "d80_status": "undefined: no kappa <= 1.6 reaches 0.80",
+  "all_valid": true
+ },
+ "clauses": [
+  {
+   "clause": "SIZE, rate in band",
+   "source": "prereg/E1.md, section 11, Size (AT-15 adapted), line 211",
+   "text": "Pass: an empirical rejection rate (raw p \u2264 0.05) between **0.02 and 0.09 inclusive**, with all 200 replicates valid. Failure accounting and uncertainty reporting follow H1 \u00a79.",
+   "passed": true,
+   "numbers": "R/N = 13/200 = 0.065; band [0.02, 0.09] inclusive, i.e. 4 <= R <= 18"
+  },
+  {
+   "clause": "SIZE, all replicates valid",
+   "source": "prereg/E1.md, section 11, Size (AT-15 adapted), line 211",
+   "text": "Pass: an empirical rejection rate (raw p \u2264 0.05) between **0.02 and 0.09 inclusive**, with all 200 replicates valid. Failure accounting and uncertainty reporting follow H1 \u00a79.",
+   "passed": true,
+   "numbers": "valid 200 of 200 requested (records present 200)"
+  },
+  {
+   "clause": "POWER, every cell complete and valid (H1 section 9 as incorporated)",
+   "source": "prereg/H1.md, section 9, Cell reporting",
+   "text": "A cell is complete and valid only when all 200 provide finite S and valid p.",
+   "passed": true,
+   "numbers": "valid per cell [200, 200, 200, 200] of 200"
+  },
+  {
+   "clause": "POWER, no flagged decrease (H1 section 9, AT-16 as incorporated)",
+   "source": "prereg/H1.md, section 9, Cell reporting",
+   "text": "If any cell is invalid/incomplete or a decrease exceeds this threshold, AT-16 does not pass and G2 remains pending.",
+   "passed": true,
+   "numbers": "adjacent differences [0.025, 0.01, 0.035]; 1.96 s.e. [0.0456, 0.0516, 0.058]; flags [False, False, False]"
+  }
+ ],
+ "prerequisite": null,
+ "hashes": {
+  "listed": 18,
+  "matched": 18,
+  "mismatched": [],
+  "missing": [],
+  "unlisted": [],
+  "txt_consistent": true,
+  "total_bytes_listed": 449403073,
+  "present": true,
+  "created_utc": "2026-09-29T04:58:35+00:00"
+ },
+ "fits": null,
+ "runner_size": {
+  "file": "x3_size_summary.json",
+  "present": true,
+  "compared": 32,
+  "differences": [],
+  "max_float_difference": 0.0,
+  "runner_manifest": {
+   "created_utc": "2026-09-29T04:58:20+00:00",
+   "mode": "registered",
+   "commit": "6ea02456244efa7c58ac8cb1be682a2b206597c5",
+   "python": "3.12.14"
+  }
+ },
+ "runner_power": {
+  "file": "x3_power_summary.json",
+  "present": true,
+  "compared": 92,
+  "differences": [],
+  "max_float_difference": 0.0,
+  "runner_manifest": {
+   "created_utc": "2026-09-29T04:58:26+00:00",
+   "mode": "registered",
+   "commit": "6ea02456244efa7c58ac8cb1be682a2b206597c5",
+   "python": "3.12.14"
+  }
+ },
+ "stage": {
+  "headline": {
+   "file": "E1_summaries.json",
+   "compared": 9,
+   "differences": []
+  },
+  "log": {
+   "parts": 16,
+   "attempts": 16,
+   "all_final_exits_zero": true,
+   "other": {
+    "e1_summarize_size": 0,
+    "e1_summarize_power": 0,
+    "hashed": {
+     "files": 18,
+     "total_bytes": 449403073
+    }
+   },
+   "resumed": []
+  },
+  "stage_parts": {
+   "finished_utc": "2026-09-29T04:58:18+00:00",
+   "parts": 16
+  },
+  "stage_hashes": {
+   "finished_utc": "2026-09-29T04:58:35+00:00",
+   "files": 18,
+   "total_bytes": 449403073
+  }
+ },
+ "quotes": {
+  "prereg/E1.md: size": true,
+  "prereg/E1.md: power": true,
+  "prereg/E1.md: d80": true,
+  "prereg/E1.md: incorporation": true,
+  "prereg/E3.md: size": true,
+  "prereg/E3.md: power": true,
+  "prereg/E3.md: d80": true,
+  "prereg/E3.md: incorporation": true,
+  "prereg/E3.md: prereq_f2": true,
+  "prereg/E3.md: prereq_r0": true,
+  "prereg/E3.md: prereq_agreement": true,
+  "prereg/E3.md: agreement_rule": true,
+  "prereg/H1.md: valid_cell": true,
+  "prereg/H1.md: flag": true,
+  "prereg/H1.md: at16": true,
+  "prereg/H1.md: size_valid": true
+ },
+ "verdict": {
+  "size": "PASS",
+  "power": "PASS",
+  "D80": null,
+  "agree_with_runner": true
+ },
+ "problems": [],
+ "exit_status": 0
+}

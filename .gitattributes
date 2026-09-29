@@ -5,3 +5,6 @@ data/raw/** -text
 # Frozen H1 outputs are stored byte for byte, so they match the hashes recorded by the run.
 audit/h1/** -text
 figures/h1_* -text
+# Official X.3 outputs are stored byte for byte, so they match the hashes recorded by the runs.
+audit/e1_x3/** -text
+audit/e3_x3/** -text

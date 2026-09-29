@@ -1,0 +1,22 @@
+$ C:\Users\user\Desktop\Unit Circle Programme\unit-circle\.venv\Scripts\python.exe tools/run_e_checks.py e3 summarize --registered --root . --out runs/extensions/E3/absent.jsonl
+--- exit 1
+--- stdout
+
+--- stderr
+Traceback (most recent call last):
+  File "C:\Users\user\Desktop\Unit Circle Programme\Programme Records\E-official-checks\unit-circle\tools\run_e_checks.py", line 509, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "C:\Users\user\Desktop\Unit Circle Programme\Programme Records\E-official-checks\unit-circle\tools\run_e_checks.py", line 418, in main
+    saved, found, _ = read_output(path)
+                      ^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\Unit Circle Programme\Programme Records\E-official-checks\unit-circle\tools\run_e_checks.py", line 258, in read_output
+    lines = [json.loads(line) for line in Path(path).read_text().splitlines() if line.strip()]
+                                          ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py", line 1027, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py", line 1013, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'runs\\extensions\\E3\\absent.jsonl'

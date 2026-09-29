@@ -1,0 +1,8 @@
+$ C:\Users\user\Desktop\Unit Circle Programme\unit-circle\.venv\Scripts\python.exe -m pytest -q -p no:cacheprovider tests/test_e_common.py tests/test_e1.py tests/test_e3.py tests/test_e_runner.py
+--- exit 0
+--- stdout
+........................................................................ [ 72%]
+...........................                                              [100%]
+99 passed in 147.61s (0:02:27)
+
+--- stderr
