@@ -1,0 +1,81 @@
+{
+ "record_type": "prerequisite",
+ "mode": "registered",
+ "master_seed": 1927,
+ "registered": true,
+ "code_sha256": "c42cbbf35734eb4f8c12aff22384371aa4fad107ae283f6d2f5f6f93c12feef7",
+ "input_sha256": "3b4799ebae16b22455db23beae9762e47daf54877aead2fb3552c312bad60cff",
+ "r0": {
+  "final_state": [
+   1.597654243130591,
+   0.26424231973031065,
+   0.08742229349100514
+  ],
+  "least_squares": [
+   1.5976542432344862,
+   0.26424231972231976,
+   0.08742229348213304
+  ],
+  "max_abs_difference": 1.0389533677823692e-10,
+  "observation_variance": 1.0,
+  "prior_variance": 100000000.0,
+  "passed": true
+ },
+ "agreement": {
+  "points": 256,
+  "max_state_difference": 2.5899726807665502e-11,
+  "max_loglik_difference": 1.2846612662542611e-11,
+  "mismatched_failures": 0,
+  "passed": true
+ },
+ "at11": {
+  "fixture": {
+   "source": "statsmodels.datasets.sunspots (bundled with the locked statsmodels), 1749-1924",
+   "n": 176,
+   "year_value_sha256": "b6f242da36c8894a60c24f03b3601a5dca2ab46c6de1f05e28779f34eb3e2c95",
+   "values_sha256": "9129c82f87e59fe07dd3e5bf5aff46ea20c3ec6bf6582d9c9b65298dfcdc52ad"
+  },
+  "reference_at11": {
+   "final_state": [
+    13.940558340950412,
+    1.335949615218857,
+    -0.6498534685628887
+   ],
+   "least_squares": [
+    13.940558343237196,
+    1.3359496152045296,
+    -0.649853468582151
+   ],
+   "max_abs_difference": 2.2867840954177154e-09,
+   "observation_variance": 1.0,
+   "prior_variance": 100000000.0,
+   "passed": true
+  },
+  "batched_at11": {
+   "final_state": [
+    13.940558340950407,
+    1.335949615218857,
+    -0.6498534685628885
+   ],
+   "least_squares": [
+    13.940558343237196,
+    1.3359496152045296,
+    -0.649853468582151
+   ],
+   "max_abs_difference": 2.2867894244882336e-09,
+   "filter_failed": false,
+   "tolerance": 1e-06,
+   "passed": true
+  },
+  "agreement": {
+   "points": 256,
+   "max_state_difference": 5.907327960130715e-10,
+   "max_loglik_difference": 3.3219293982256204e-10,
+   "mismatched_failures": 0,
+   "passed": true
+  },
+  "error": null,
+  "passed": true
+ },
+ "passed": true
+}

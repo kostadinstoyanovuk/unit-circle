@@ -1,0 +1,83 @@
+verify_e_x3.py 1.1 (29 September 2026) - independent check of the E3 X.3 outputs
+directory: C:\Users\user\Desktop\Unit Circle Programme\Programme Records\E-official-checks\unit-circle\runs\extensions\E3
+started (UTC): 2026-09-29T18:38:29+00:00; Python 3.12.14; NumPy 2.5.3; Windows-10-10.0.19045-SP0
+mode: registered design (200 series per cell, 1,000 attempts, seed 1927 as recorded)
+
+[1] INTEGRITY OF THE PART FILES
+  x3_power_c0_r000-100.jsonl      27639298 bytes   102 lines  100 records 1 session(s) OK
+  x3_power_c0_r100-200.jsonl      27638714 bytes   102 lines  100 records 1 session(s) OK
+  x3_power_c1_r000-100.jsonl      27650548 bytes   102 lines  100 records 1 session(s) OK
+  x3_power_c1_r100-200.jsonl      27648012 bytes   102 lines  100 records 1 session(s) OK
+  x3_power_c2_r000-100.jsonl      27665644 bytes   102 lines  100 records 1 session(s) OK
+  x3_power_c2_r100-200.jsonl      27650209 bytes   102 lines  100 records 1 session(s) OK
+  x3_power_c3_r000-100.jsonl      27664495 bytes   102 lines  100 records 1 session(s) OK
+  x3_power_c3_r100-200.jsonl      27659175 bytes   102 lines  100 records 1 session(s) OK
+  x3_size_r000-025.jsonl           8331539 bytes    27 lines   25 records 1 session(s) OK
+  x3_size_r025-050.jsonl           8361557 bytes    27 lines   25 records 1 session(s) OK
+  x3_size_r050-075.jsonl           8246940 bytes    27 lines   25 records 1 session(s) OK
+  x3_size_r075-100.jsonl           8246362 bytes    27 lines   25 records 1 session(s) OK
+  x3_size_r100-125.jsonl           8231338 bytes    27 lines   25 records 1 session(s) OK
+  x3_size_r125-150.jsonl           8206993 bytes    27 lines   25 records 1 session(s) OK
+  x3_size_r150-175.jsonl           8197468 bytes    27 lines   25 records 1 session(s) OK
+  x3_size_r175-200.jsonl           8290717 bytes    27 lines   25 records 1 session(s) OK
+  part files: 16 (8 size, 8 power); records 1000; coordinates expected 1000, present 1000, missing 0, duplicated 0, outside the design 0
+  status counts: {"power/ok": 800, "size/ok": 200}
+  per-record checks: p recomputed from the stored surrogate statistics for 1000 records; observed S recomputed from the stored input for 1000 records (max |difference| 1.48e-10); fitted null recomputed (max |difference| 2.66e-15); records with a problem: 0
+  retained draws B' per record: min 996, max 1000, records with B' < 1000: 7
+  E3: l(r) at the accepted estimate recomputed by this tool's square-root filter: max |difference| 2.27e-13
+  manifests: 16, one fingerprint (commit 6ea02456244efa7c58ac8cb1be682a2b206597c5, Python 3.12.14, code c42cbbf35734..., mode registered, seed 1927)
+
+[2] RECOMPUTED FROM THE RECORDS (denominator = 200 requested per cell; raw p <= 0.05 counted only for valid records)
+  size: rejections R = 11 of 200; valid 200; invalid or unfinished 0; rate 11/200; Wilson 95% [0.0310, 0.0958]; MC s.e. 0.0161206; accounting bounds [0.055, 0.055]
+        mean S 0.00035829966 (s.e. 0.00145273); failures by status {}
+  power kappa 1.0: R = 10 of 200; valid 200; rate 10/200; Wilson 95% [0.0274, 0.0896]; MC s.e. 0.015411; mean S 0.00089974673 (s.e. 0.00223881)
+  power kappa 1.2: R = 23 of 200; valid 200; rate 23/200; Wilson 95% [0.0779, 0.1666]; MC s.e. 0.0225583; mean S 0.0097382409 (s.e. 0.00210793)
+  power kappa 1.4: R = 29 of 200; valid 200; rate 29/200; Wilson 95% [0.1029, 0.2005]; MC s.e. 0.0248973; mean S 0.01665182 (s.e. 0.00231781)
+  power kappa 1.6: R = 68 of 200; valid 200; rate 68/200; Wilson 95% [0.2779, 0.4081]; MC s.e. 0.0334963; mean S 0.036162018 (s.e. 0.00265316)
+  kappa 1.0 -> 1.2: difference +0.0650; s.e. 0.02732; 1.96 s.e. 0.05355; decrease flag False
+  kappa 1.2 -> 1.4: difference +0.0300; s.e. 0.03360; 1.96 s.e. 0.06585; decrease flag False
+  kappa 1.4 -> 1.6: difference +0.1950; s.e. 0.04174; 1.96 s.e. 0.08180; decrease flag False
+  D80: undefined: no kappa <= 1.6 reaches 0.80
+
+[3] THE REGISTERED PASS RULE, CLAUSE BY CLAUSE
+  precondition - registered design recorded in every manifest and record (mode registered, seed 1927, 200 series, B = 1,000, kappa 1.0-1.6): yes
+  SIZE, rate in band: PASS
+    registered (prereg/E3.md, section 11, Size (AT-15 adapted), line 193): "Pass: rejection rate between **0.02 and 0.09** inclusive, with all 200 valid."
+    numbers: R/N = 11/200 = 0.055; band [0.02, 0.09] inclusive, i.e. 4 <= R <= 18
+  SIZE, all replicates valid: PASS
+    registered (prereg/E3.md, section 11, Size (AT-15 adapted), line 193): "Pass: rejection rate between **0.02 and 0.09** inclusive, with all 200 valid."
+    numbers: valid 200 of 200 requested (records present 200)
+  POWER, every cell complete and valid (H1 section 9 as incorporated): PASS
+    registered (prereg/H1.md, section 9, Cell reporting): "A cell is complete and valid only when all 200 provide finite S and valid p."
+    numbers: valid per cell [200, 200, 200, 200] of 200
+  POWER, no flagged decrease (H1 section 9, AT-16 as incorporated): PASS
+    registered (prereg/H1.md, section 9, Cell reporting): "If any cell is invalid/incomplete or a decrease exceeds this threshold, AT-16 does not pass and G2 remains pending."
+    numbers: adjacent differences [0.065, 0.03, 0.195]; 1.96 s.e. [0.0535, 0.0658, 0.0818]; flags [False, False, False]
+  POWER, reporting (prereg/E3.md, section 11, Reporting and D80, line 201): rates, Wilson intervals, adjacent differences with flags, mean S and s.e. are all computed above; they are reports, not pass conditions.
+  D80 (section 11, Reporting and D80, line 201): undefined: no kappa <= 1.6 reaches 0.80
+  E3 PREREQUISITE, r = 0 fixture: PASS
+    registered (prereg/E3.md, section 11, Prerequisites, line 179): "With r1 = r2 = 0 and the §6 prior, the final filtered state equals the full-sample OLS estimate to 1e−6 on one base synthetic series, generated from stream 5320, cell 1, replicate 0."
+    numbers: max |final filtered state - OLS| = 1.03895e-10 (recorded 1.03895e-10); tolerance 1e-6
+  E3 PREREQUISITE, section 6 agreement test (prerequisite series and AT-11 fixture): PASS
+    registered (prereg/E3.md, section 11, Prerequisites, line 180): "The §6 agreement test for any batched filter."
+    numbers: states 2.58997e-11 / 5.90733e-10, l(r) 1.28466e-11 / 3.32193e-10 (tolerances 1e-8, 1e-6); every X.3 fixture: see per-record checks
+  E3 PREREQUISITE, F2 and AT-11: PASS
+    registered (prereg/E3.md, section 11, Prerequisites, line 178): "F2 (plan p. 7) and AT-11 on the implementation used."
+    numbers: AT-11 reference 2.28678e-09, batched 2.28679e-09 (tolerance 1e-6); F2 stage marker True, log "10 passed in 2.49s"
+
+[4] OUTPUT HASHES
+  OUTPUT_SHA256.json lists 1019 files (created 2026-09-29T16:00:48+00:00); SHA-256 and size recomputed: 1019 match, 0 differ, 0 missing; files present but not listed: 0; OUTPUT_SHA256.txt consistent: True
+  retained-fits files: 1000 expected by the records, 1000 present, 1000 with the recorded SHA-256
+
+[5] COMPARISON WITH THE RUNNER'S SUMMARIES
+  x3_size_summary.json: 32 fields compared; 0 differ; max |float difference| 2.17e-19
+  x3_power_summary.json: 92 fields compared; 0 differ; max |float difference| 6.94e-18
+  stages/E3_summaries.json: 9 headline fields compared; 0 differ
+  run_log.jsonl: 16 E3 parts, 16 attempts, last attempt of every part exited 0: True; resumed parts: none
+  registered wording quoted here found verbatim in the clone's prereg files: 16 of 16
+
+[6] RESULT
+  problems found (integrity, hashes, disagreements with the runner): 0
+  registered rule on these numbers: SIZE PASS; POWER (AT-16 as incorporated) PASS; D80 undefined
+  runner's summaries and this recomputation agree: YES
+  finished in 29.8 s
