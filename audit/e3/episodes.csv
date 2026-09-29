@@ -1,0 +1,7 @@
+data_kind,episode,onset,onset_quarter,end,end_quarter,qualifying_runs,structurally_eligible,statistic_available,change
+uk_abmi_e3_registered,0,4,1956 Q2,9,1957 Q3,2,False,False,
+uk_abmi_e3_registered,1,25,1961 Q3,26,1961 Q4,1,False,False,
+uk_abmi_e3_registered,2,73,1973 Q3,81,1975 Q3,2,True,True,-0.1606014867500356
+uk_abmi_e3_registered,3,99,1980 Q1,103,1981 Q1,1,True,True,0.1519220855531026
+uk_abmi_e3_registered,4,141,1990 Q3,148,1992 Q2,2,True,True,0.0020229574075842915
+uk_abmi_e3_registered,5,212,2008 Q2,216,2009 Q2,1,True,True,-0.0011487466361469467

@@ -8,3 +8,8 @@ figures/h1_* -text
 # Official X.3 outputs are stored byte for byte, so they match the hashes recorded by the runs.
 audit/e1_x3/** -text
 audit/e3_x3/** -text
+# Frozen E1 and E3 outputs are stored byte for byte, so they match the hashes recorded by the runs.
+audit/e1/** -text
+audit/e3/** -text
+figures/e1_* -text
+figures/e3_* -text
