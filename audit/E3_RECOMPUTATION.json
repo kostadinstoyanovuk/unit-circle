@@ -1,0 +1,160 @@
+{
+  "record_type": "Labelled recomputation of the E3 registered analysis: a determinism check, not a registered result, never frozen and never a substitute for audit/E3_RESULT.json",
+  "registered_result": "audit/E3_RESULT.json and audit/e3/ (tag e3-frozen)",
+  "registered_run": {
+    "commit": "e0bf42b8d6540b88883a97061484480f8efd0622",
+    "kind": "registered primary run",
+    "started_utc": "2026-09-29T19:14:17.633690+00:00",
+    "finished_utc": "2026-09-29T19:29:14.421158+00:00",
+    "seconds": 896.7
+  },
+  "recomputation": {
+    "commit": "41d655a234925e8796a0194cec1fa7edbbc0a3fc",
+    "kind": "recomputation",
+    "started_utc": "2026-09-29T19:41:18.118426+00:00",
+    "finished_utc": "2026-09-29T19:56:24.189181+00:00",
+    "seconds": 906.0,
+    "output_directory": "runs/e3-recomputation-20260929 in a clean clone (runs/ is not committed)"
+  },
+  "same_inputs": {
+    "code_sha256": "c42cbbf35734eb4f8c12aff22384371aa4fad107ae283f6d2f5f6f93c12feef7",
+    "raw_sha256": "b97f9b0f5d9c94aa711804a43752f83d3d2f0fcf7062f2eff8dbd6f236221262",
+    "input_sha256": "e9536c69ec12dbc1d214ead404f600ace70457d467ddf0d768099dc983be2b8b",
+    "master_seed": 1927,
+    "data_note_sha256": "8263fb2cf9e669ecb41714428b9924de35ddd420acd7ffd8055e1f234cd8bf3d",
+    "x3_record_sha256": "a4e7c1615dc7e87ade65e71689bf720300de11534aeda941072f716ea2350d74"
+  },
+  "comparison": [
+    {
+      "output": "analysis.json",
+      "registered_file": "audit/e3/analysis.json",
+      "registered_sha256": "d646916e6485487dfaaf09d079ac2b61a0caeeef8f3b636dddf5aae6d6a9c6a0",
+      "recomputation_sha256": "d646916e6485487dfaaf09d079ac2b61a0caeeef8f3b636dddf5aae6d6a9c6a0",
+      "identical": true
+    },
+    {
+      "output": "surrogate-fits.json.gz",
+      "registered_file": "audit/e3/surrogate-fits.json.gz",
+      "registered_sha256": "565d5e7b6a4bd8096d33f9ea17817fa9c8864f8b482c6e119d1580b3f93fcd69",
+      "recomputation_sha256": "565d5e7b6a4bd8096d33f9ea17817fa9c8864f8b482c6e119d1580b3f93fcd69",
+      "identical": true
+    },
+    {
+      "output": "report/comparisons.csv",
+      "registered_file": "audit/e3/comparisons.csv",
+      "registered_sha256": "0aaedd867b1e7aa258a94e5964e273656dd176ee16b5bcf723d0931c699defbb",
+      "recomputation_sha256": "0aaedd867b1e7aa258a94e5964e273656dd176ee16b5bcf723d0931c699defbb",
+      "identical": true
+    },
+    {
+      "output": "report/episodes.csv",
+      "registered_file": "audit/e3/episodes.csv",
+      "registered_sha256": "0c0a3dc076095bc6f19ea0d979644727d5ffe67da28f2d6010b3b78c8c207c3e",
+      "recomputation_sha256": "0c0a3dc076095bc6f19ea0d979644727d5ffe67da28f2d6010b3b78c8c207c3e",
+      "identical": true
+    },
+    {
+      "output": "report/filtered.csv",
+      "registered_file": "audit/e3/filtered.csv",
+      "registered_sha256": "acc68b72679902a8d63634e7546637af591c7122d4add0a45a17bfd5e1a2a8e0",
+      "recomputation_sha256": "acc68b72679902a8d63634e7546637af591c7122d4add0a45a17bfd5e1a2a8e0",
+      "identical": true
+    },
+    {
+      "output": "report/likelihood-grid.csv",
+      "registered_file": "audit/e3/likelihood-grid.csv",
+      "registered_sha256": "5c23b4f0b4fda623c05fe04cc2a3accb776cf7f2167a9d56303130ad7d2e13c7",
+      "recomputation_sha256": "5c23b4f0b4fda623c05fe04cc2a3accb776cf7f2167a9d56303130ad7d2e13c7",
+      "identical": true
+    },
+    {
+      "output": "report/manifest.json",
+      "registered_file": "audit/e3/manifest.json",
+      "registered_sha256": "24d61dcfe25531f1d410a14f77b69330b95e7e9b4d8bb2e1efcb5a6f778ff141",
+      "recomputation_sha256": "b8115e5075330c233a86d0f2c23f8c0aded553fc1ed14db82829644012edc9ff",
+      "identical": false
+    },
+    {
+      "output": "report/persistence.pdf",
+      "registered_file": "figures/e3_persistence.pdf",
+      "registered_sha256": "8bd66e376f79c8541ea32eff4e938971ecb5575b27e2d5f2c2bc5af655e6b149",
+      "recomputation_sha256": "8bd66e376f79c8541ea32eff4e938971ecb5575b27e2d5f2c2bc5af655e6b149",
+      "identical": true
+    },
+    {
+      "output": "report/persistence.png",
+      "registered_file": "figures/e3_persistence.png",
+      "registered_sha256": "fdfb104fa5de8545b022d63ff037c44656bd8baf12e8b01b19a95dd046b7cb53",
+      "recomputation_sha256": "fdfb104fa5de8545b022d63ff037c44656bd8baf12e8b01b19a95dd046b7cb53",
+      "identical": true
+    },
+    {
+      "output": "report/persistence.svg",
+      "registered_file": "figures/e3_persistence.svg",
+      "registered_sha256": "671ef06b312723f42d662fb8a83c8f336f4cffc6a229dbb46f4a84e3f8603941",
+      "recomputation_sha256": "671ef06b312723f42d662fb8a83c8f336f4cffc6a229dbb46f4a84e3f8603941",
+      "identical": true
+    },
+    {
+      "output": "report/primary-surrogates.csv",
+      "registered_file": "audit/e3/primary-surrogates.csv",
+      "registered_sha256": "ecd19719e664a55b2624fdc1a3d6dba1dbdae47cbc33b51237b1f9b69218d0f2",
+      "recomputation_sha256": "ecd19719e664a55b2624fdc1a3d6dba1dbdae47cbc33b51237b1f9b69218d0f2",
+      "identical": true
+    },
+    {
+      "output": "report/qualifying-runs.csv",
+      "registered_file": "audit/e3/qualifying-runs.csv",
+      "registered_sha256": "8c4593a31c95d61c59aff7ea2584e5a56bfbcfa12ad181c3290da1c2a9e1807e",
+      "recomputation_sha256": "8c4593a31c95d61c59aff7ea2584e5a56bfbcfa12ad181c3290da1c2a9e1807e",
+      "identical": true
+    },
+    {
+      "output": "report/report.json",
+      "registered_file": "audit/e3/report.json",
+      "registered_sha256": "ceac5e460c04b61f2122d453d55a5c03a1e855b120c8f8875bd8a15b77b8e726",
+      "recomputation_sha256": "ceac5e460c04b61f2122d453d55a5c03a1e855b120c8f8875bd8a15b77b8e726",
+      "identical": true
+    },
+    {
+      "output": "report/surrogates.pdf",
+      "registered_file": "figures/e3_surrogates.pdf",
+      "registered_sha256": "59e0c5f59650fa1cdc36df8d6a216ae5ead4c0cb28ec1bbb5a01d8866eb1aac4",
+      "recomputation_sha256": "59e0c5f59650fa1cdc36df8d6a216ae5ead4c0cb28ec1bbb5a01d8866eb1aac4",
+      "identical": true
+    },
+    {
+      "output": "report/surrogates.png",
+      "registered_file": "figures/e3_surrogates.png",
+      "registered_sha256": "6bb6adb08f603a9995f59ddeaceedd081c61b5797d5d2528268164b05cdb5d51",
+      "recomputation_sha256": "6bb6adb08f603a9995f59ddeaceedd081c61b5797d5d2528268164b05cdb5d51",
+      "identical": true
+    },
+    {
+      "output": "report/surrogates.svg",
+      "registered_file": "figures/e3_surrogates.svg",
+      "registered_sha256": "a38920007d7f9407a12b1884dc9c2513b3374938ecafcf028dc4a783c5665b1a",
+      "recomputation_sha256": "a38920007d7f9407a12b1884dc9c2513b3374938ecafcf028dc4a783c5665b1a",
+      "identical": true
+    },
+    {
+      "output": "run-log.json",
+      "registered_file": "audit/e3/run-log.json",
+      "registered_sha256": "84b0851318c4b76fac76e2ee29c424da6d3a053c662c77f070f1451ecce8eec3",
+      "recomputation_sha256": "c1005cb0884e39114eb7b4da478283bf5cac71b78f87429420d20032e17941c2",
+      "identical": false
+    }
+  ],
+  "run_log_fields_that_differ": [
+    "commit",
+    "environment.commit",
+    "finished_utc",
+    "imported.ext_commit",
+    "kind",
+    "package_sources.uc_ext_official/e1_source.py",
+    "package_sources.uc_ext_official/gates.py",
+    "seconds",
+    "started_utc"
+  ],
+  "result": "Every analysis output, the retained surrogate fits and every table and figure are byte-identical to the registered run. Only the run log differs, in the fields listed (commit, kind, times and the hashes of execution-tool files outside the code identity that changed between the two commits), and the report manifest, which lists the run log's hash. The series were regenerated from the registered seed and every likelihood search was repeated."
+}
