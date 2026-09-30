@@ -1,16 +1,21 @@
-"""Record the E1 or E3 official synthetic checks (X.3) in audit/Ek_X3.json, once.
+"""Record the E1, E3 or E4 official synthetic checks (X.3) in audit/Ek_X3.json, once.
 
   python tools/record_e_x3.py e1 --size runs/extensions/E1/x3_size.jsonl --power runs/extensions/E1/x3_power.jsonl
   python tools/record_e_x3.py e3 --prerequisite runs/extensions/E3/x3_prerequisite.jsonl \
       --size runs/extensions/E3/x3_size.jsonl --power runs/extensions/E3/x3_power.jsonl
+  python tools/record_e_x3.py e4 --size runs/extensions/E4/x3_size_r000-025.jsonl ... \
+      --power runs/extensions/E4/x3_power_c0_r000-025.jsonl ... --evidence <log> ...
 
-Give --size or --power once per file when a check was split across processes. --evidence (repeatable)
-hashes supporting files into the record, such as the logs of the Annex B X.3 prerequisite tests (E1: F1,
-AT-1 to AT-4 through uc_core.ar, the section 7 unit test; E3: F2 with AT-11 and the local-level check).
-The outputs are summarised by tools/run_e_checks.py in registered mode (gate, lock, clean tree and every saved record
-re-verified); they must form one registered run of one code identity with seed 1927, 200 series per
-cell, B = 1000 and kappa 1.0-1.6. The record is written whether or not the checks passed, and is the
-evidence the X.2 and X.4 gates read. Commit it before acquisition (E1) or the one-shot run.
+Give --size or --power once per file when a check was split across processes (for E4, every part file
+that tools/plan_e4_x3.py lists). --evidence (repeatable) hashes supporting files into the record, such as
+the logs of the Annex B X.3 prerequisite tests (E1: F1, AT-1 to AT-4 through uc_core.ar, the section 7
+unit test; E3: F2 with AT-11 and the local-level check; E4: F1, AT-1 to AT-4 through uc_core.ar, the unit
+tests of sections 4, 5 and 7). The outputs are summarised by the extension's X.3 runner in registered mode
+(tools/run_e_checks.py for E1 and E3, tools/run_e4_checks.py for E4; gate, lock, clean tree and every
+saved record re-verified); they must form one registered run of one code identity with seed 1927, 200
+series per cell, B = 1000 and kappa 1.0-1.6 (for E4 also the stream plan of Annex A). The record is
+written whether or not the checks passed, and is the evidence the X.2 and X.4 gates read. Commit it
+before acquisition (E1), before any real-time level is read (E4, section 11) and before the one-shot run.
 """
 import argparse
 import json
@@ -27,7 +32,8 @@ def main(argv=None):
     parser.add_argument("extension", choices=gates.EXTENSIONS)
     parser.add_argument("--size", action="append", required=True, type=Path)
     parser.add_argument("--power", action="append", required=True, type=Path)
-    parser.add_argument("--prerequisite", type=Path, help="E3 only: the registered prerequisite record")
+    parser.add_argument("--prerequisite", type=Path, help="E3 only: the registered prerequisite record (E1 and "
+                                                           "E4 have none)")
     parser.add_argument("--evidence", action="append", type=Path, default=[],
                         help="supporting evidence to hash into the record, once per file (for example the logs of "
                              "the X.3 prerequisite tests); recorded, not evaluated")
