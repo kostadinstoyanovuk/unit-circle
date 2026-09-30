@@ -1,0 +1,171 @@
+{
+  "record_type": "Labelled recomputation of the E1 registered analysis: a determinism check, not a registered result, never frozen and never a substitute for audit/E1_RESULT.json",
+  "registered_result": "audit/E1_RESULT.json and audit/e1/ (tag e1-frozen)",
+  "registered_run": {
+    "commit": "827f58e06bea2d3ae588cf722d81a8977a898bb6",
+    "kind": "registered primary run",
+    "started_utc": "2026-09-30T17:46:48.106718+00:00",
+    "finished_utc": "2026-09-30T17:49:43.080155+00:00",
+    "seconds": 173.5
+  },
+  "recomputation": {
+    "commit": "24b86b48396aa8c10ea194d17a3a1e3a3ad05306",
+    "kind": "recomputation",
+    "started_utc": "2026-09-30T18:05:55.037118+00:00",
+    "finished_utc": "2026-09-30T18:08:52.562748+00:00",
+    "seconds": 176.2,
+    "output_directory": "runs/e1-recomputation-20260930 in the clean clone of the registered run (runs/ is not committed)"
+  },
+  "same_inputs": {
+    "code_sha256": "c42cbbf35734eb4f8c12aff22384371aa4fad107ae283f6d2f5f6f93c12feef7",
+    "raw_sha256": "4c23dd392a498691eac92659aec283fb43f28118bd80511dc87fc595974195eb",
+    "input_sha256": "62bed9880eb3f3029b1e4210f1da8dd45cfbf6197961b1c4dca08b3310965dae",
+    "master_seed": 1927,
+    "B": 1000,
+    "interval_B": 10000,
+    "sheet": "A1. Headline series",
+    "column": "B",
+    "first_year": 1701,
+    "last_year": 2016,
+    "x3_record_sha256": "22fb7df4e310e127d7f249221f5522ba1e83caf23e547dd1bb1aad50b59bbc7c",
+    "x2_records": "identical: audit/E1_AMENDMENT_1.json, audit/E1_AMENDMENT_2.json, audit/e1_source/extraction.json, audit/e1_source/selection.json, audit/e1_source/territory.json, data/raw/E1_acquisition.json, prereg/E1_amendment_1.md, prereg/E1_amendment_2.md"
+  },
+  "comparison": [
+    {
+      "output": "analysis.json",
+      "registered_file": "audit/e1/analysis.json",
+      "registered_sha256": "a78d36bc3741ee5f8a911057495a057bb2e2f8338ffb09adc2217283e37098d6",
+      "recomputation_sha256": "a78d36bc3741ee5f8a911057495a057bb2e2f8338ffb09adc2217283e37098d6",
+      "identical": true
+    },
+    {
+      "output": "report/comparisons.csv",
+      "registered_file": "audit/e1/comparisons.csv",
+      "registered_sha256": "e8c1a39e161bfb763d15de88a57fc203fbea18ccf816c65bc63d518feee6c170",
+      "recomputation_sha256": "e8c1a39e161bfb763d15de88a57fc203fbea18ccf816c65bc63d518feee6c170",
+      "identical": true
+    },
+    {
+      "output": "report/episodes.csv",
+      "registered_file": "audit/e1/episodes.csv",
+      "registered_sha256": "20ba07b87f760cfa31f3218d16ad5df844bbbd6d9a6361fed769c09ff3d84799",
+      "recomputation_sha256": "20ba07b87f760cfa31f3218d16ad5df844bbbd6d9a6361fed769c09ff3d84799",
+      "identical": true
+    },
+    {
+      "output": "report/exogenous.csv",
+      "registered_file": "audit/e1/exogenous.csv",
+      "registered_sha256": "aab7d9ce06bd6c86b4b9d74c8b7fe59964600a8a5da3c23b5466cf1761323930",
+      "recomputation_sha256": "aab7d9ce06bd6c86b4b9d74c8b7fe59964600a8a5da3c23b5466cf1761323930",
+      "identical": true
+    },
+    {
+      "output": "report/manifest.json",
+      "registered_file": "audit/e1/manifest.json",
+      "registered_sha256": "5c6dfe6960a616a2d4e220b8d17f6ae9452d6398aed83c1f08fed699df30cc7b",
+      "recomputation_sha256": "5734e41e9b44bd4a34ca4419620a886ca92dff6ba6b3762664a46e7d0cab3c8c",
+      "identical": false
+    },
+    {
+      "output": "report/persistence.pdf",
+      "registered_file": "figures/e1_persistence.pdf",
+      "registered_sha256": "21f784f0f92a7f4ce96fbeee1593636354ef12f260b725048b5680808c234ac3",
+      "recomputation_sha256": "21f784f0f92a7f4ce96fbeee1593636354ef12f260b725048b5680808c234ac3",
+      "identical": true
+    },
+    {
+      "output": "report/persistence.png",
+      "registered_file": "figures/e1_persistence.png",
+      "registered_sha256": "505b7e5b1f2d272e25d5adff006a95fe22b48a3e1558fc1f4dfd7e6a285bd499",
+      "recomputation_sha256": "505b7e5b1f2d272e25d5adff006a95fe22b48a3e1558fc1f4dfd7e6a285bd499",
+      "identical": true
+    },
+    {
+      "output": "report/persistence.svg",
+      "registered_file": "figures/e1_persistence.svg",
+      "registered_sha256": "652c7d609ade3951f04377ddf95e966552aa6b6632fad3cbf7f56cdc7dccad74",
+      "recomputation_sha256": "652c7d609ade3951f04377ddf95e966552aa6b6632fad3cbf7f56cdc7dccad74",
+      "identical": true
+    },
+    {
+      "output": "report/primary-surrogates.csv",
+      "registered_file": "audit/e1/primary-surrogates.csv",
+      "registered_sha256": "5a373b6440cb941cecd94fbca9c48990d7e232b708bb332f23f41dcb8cde3f1b",
+      "recomputation_sha256": "5a373b6440cb941cecd94fbca9c48990d7e232b708bb332f23f41dcb8cde3f1b",
+      "identical": true
+    },
+    {
+      "output": "report/qualifying-runs.csv",
+      "registered_file": "audit/e1/qualifying-runs.csv",
+      "registered_sha256": "eb2b9851d28b73857ff4fc3b9c4fcfa29325bd3984e4634cb6a6967ab028bbfa",
+      "recomputation_sha256": "eb2b9851d28b73857ff4fc3b9c4fcfa29325bd3984e4634cb6a6967ab028bbfa",
+      "identical": true
+    },
+    {
+      "output": "report/report.json",
+      "registered_file": "audit/e1/report.json",
+      "registered_sha256": "7f22e7c223761292f072ace86e77cbb63fd56e9acf90ac8e1b4bf5c8368cc711",
+      "recomputation_sha256": "7f22e7c223761292f072ace86e77cbb63fd56e9acf90ac8e1b4bf5c8368cc711",
+      "identical": true
+    },
+    {
+      "output": "report/rolling.csv",
+      "registered_file": "audit/e1/rolling.csv",
+      "registered_sha256": "d55e3e1bcd12692986df17e6643fa51c377cc2931cd0a5bfa4a024adf2096c31",
+      "recomputation_sha256": "d55e3e1bcd12692986df17e6643fa51c377cc2931cd0a5bfa4a024adf2096c31",
+      "identical": true
+    },
+    {
+      "output": "report/surrogates.pdf",
+      "registered_file": "figures/e1_surrogates.pdf",
+      "registered_sha256": "3ccec0a1597de18b669c24d19b27851188e85ac99f0dbc7f2716c7daf209ebac",
+      "recomputation_sha256": "3ccec0a1597de18b669c24d19b27851188e85ac99f0dbc7f2716c7daf209ebac",
+      "identical": true
+    },
+    {
+      "output": "report/surrogates.png",
+      "registered_file": "figures/e1_surrogates.png",
+      "registered_sha256": "f85c7f3bb64f337c5f45c72710cca4279b6d4bef3167bae305f0980454831fa9",
+      "recomputation_sha256": "f85c7f3bb64f337c5f45c72710cca4279b6d4bef3167bae305f0980454831fa9",
+      "identical": true
+    },
+    {
+      "output": "report/surrogates.svg",
+      "registered_file": "figures/e1_surrogates.svg",
+      "registered_sha256": "b20c991d8b57fd02892572f100b2a6fcc0b8148eb2f049ff8245d7b2a0901e13",
+      "recomputation_sha256": "b20c991d8b57fd02892572f100b2a6fcc0b8148eb2f049ff8245d7b2a0901e13",
+      "identical": true
+    },
+    {
+      "output": "report/territory-flags.csv",
+      "registered_file": "audit/e1/territory-flags.csv",
+      "registered_sha256": "c3578bfd36259e73a94e02ef8f468880060771cf2c46ccda17f075da7be30987",
+      "recomputation_sha256": "c3578bfd36259e73a94e02ef8f468880060771cf2c46ccda17f075da7be30987",
+      "identical": true
+    },
+    {
+      "output": "run-log.json",
+      "registered_file": "audit/e1/run-log.json",
+      "registered_sha256": "348fe4ccdbbfaf7d92605edf44b771a06a9bbb79b6ed51803c8a9059c2c0df8c",
+      "recomputation_sha256": "e3dc845a8ed1d76f684ed99a5a08af23e013e06addb37c7f800679d38c2bafca",
+      "identical": false
+    },
+    {
+      "output": "RUN_COMPLETE.json",
+      "registered_file": "audit/e1/RUN_COMPLETE.json",
+      "registered_sha256": "f4263cd4f634c6b5be3c613b49b67cced80718f2c2f6b25a60e1496ce2e2653e",
+      "recomputation_sha256": "0d68c92149797a929dfa303043736c00eef1d4cf38a84c103d7fed0039b98e85",
+      "identical": false
+    }
+  ],
+  "run_log_fields_that_differ": [
+    "commit",
+    "environment.commit",
+    "finished_utc",
+    "imported.ext_commit",
+    "kind",
+    "seconds",
+    "started_utc"
+  ],
+  "result": "Every analysis output and every table and figure are byte-identical to the registered run. Only the run log differs, in the fields listed (commit, kind and times), with the report manifest, which lists the run log's hash, and the completion record, which lists both hashes. The levels were re-extracted from the workbook, the surrogate series were regenerated from the registered seed and every rolling fit was repeated."
+}
