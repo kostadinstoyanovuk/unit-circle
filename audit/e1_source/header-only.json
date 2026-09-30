@@ -1,0 +1,3170 @@
+{
+  "sheets": [
+    {
+      "index": 0,
+      "name": "Disclaimer",
+      "state": "visible",
+      "title": null
+    },
+    {
+      "index": 1,
+      "name": "Corrections to V3.1",
+      "state": "visible",
+      "title": {
+        "ref": "A2",
+        "row": 2,
+        "column": 1,
+        "text": "Back to front page"
+      }
+    },
+    {
+      "index": 2,
+      "name": "Front page",
+      "state": "visible",
+      "title": {
+        "ref": "B30",
+        "row": 30,
+        "column": 2,
+        "text": "CONTENTS"
+      }
+    },
+    {
+      "index": 3,
+      "name": "A1. Headline series",
+      "state": "visible",
+      "title": {
+        "ref": "B1",
+        "row": 1,
+        "column": 2,
+        "text": "A1. Headline Annual Series 1086-2016"
+      }
+    },
+    {
+      "index": 4,
+      "name": "BEG Table of contents",
+      "state": "visible",
+      "title": {
+        "ref": "A1",
+        "row": 1,
+        "column": 1,
+        "text": "Back to front page"
+      }
+    },
+    {
+      "index": 5,
+      "name": "A2. Pop of Eng & GB 1086-1870",
+      "state": "visible",
+      "title": {
+        "ref": "A1",
+        "row": 1,
+        "column": 1,
+        "text": "Back to front page"
+      }
+    },
+    {
+      "index": 6,
+      "name": "A3. Eng. Agriculture 1270-1870",
+      "state": "visible",
+      "title": {
+        "ref": "A1",
+        "row": 1,
+        "column": 1,
+        "text": "Back to front page"
+      }
+    },
+    {
+      "index": 7,
+      "name": "A4. Ind Production 1270-1870",
+      "state": "visible",
+      "title": {
+        "ref": "B1",
+        "row": 1,
+        "column": 2,
+        "text": "A4. English and GB Industrial Production 1270-1870 "
+      }
+    },
+    {
+      "index": 8,
+      "name": "A5. Service Sector 1270-1870",
+      "state": "visible",
+      "title": {
+        "ref": "B1",
+        "row": 1,
+        "column": 2,
+        "text": "A5. English and GB Service Sector Production 1270-1870 "
+      }
+    },
+    {
+      "index": 9,
+      "name": "A6. English GDP(O) 1270-1700",
+      "state": "visible",
+      "title": {
+        "ref": "B1",
+        "row": 1,
+        "column": 2,
+        "text": "A6. English GDP(O) 1086-1700"
+      }
+    },
+    {
+      "index": 10,
+      "name": "A7. GB GDP(O) 1700-1870",
+      "state": "visible",
+      "title": {
+        "ref": "B1",
+        "row": 1,
+        "column": 2,
+        "text": "A7. Great Britain GDP(O) 1270-1700"
+      }
+    },
+    {
+      "index": 11,
+      "name": "Notes on GDP estimates",
+      "state": "visible",
+      "title": {
+        "ref": "A1",
+        "row": 1,
+        "column": 1,
+        "text": "Back to front page"
+      }
+    },
+    {
+      "index": 12,
+      "name": "A8. UK Real GDP(A)",
+      "state": "visible",
+      "title": {
+        "ref": "A1",
+        "row": 1,
+        "column": 1,
+        "text": "Back to front page"
+      }
+    },
+    {
+      "index": 13,
+      "name": "A9. Nominal GDP (A)",
+      "state": "visible",
+      "title": {
+        "ref": "A1",
+        "row": 1,
+        "column": 1,
+        "text": "Back to front page"
+      }
+    },
+    {
+      "index": 14,
+      "name": "A10. GNP and National Saving",
+      "state": "visible",
+      "title": {
+        "ref": "A1",
+        "row": 1,
+        "column": 1,
+        "text": "Back to front page"
+      }
+    },
+    {
+      "index": 15,
+      "name": "A11. GDP(E) components - values",
+      "state": "visible",
+      "title": {
+        "ref": "B1",
+        "row": 1,
+        "column": 2,
+        "text": "A11. GDP(E) components - Current price measures"
+      }
+    },
+    {
+      "index": 16,
+      "name": "A12. GDP(E) components - vols",
+      "state": "visible",
+      "title": {
+        "ref": "B1",
+        "row": 1,
+        "column": 2,
+        "text": "A12. GDP(E ) components - chained volume measures"
+      }
+    },
+    {
+      "index": 17,
+      "name": "A13. GDP(E) contributions",
+      "state": "visible",
+      "title": {
+        "ref": "A1",
+        "row": 1,
+        "column": 1,
+        "text": "Back to front page"
+      }
+    },
+    {
+      "index": 18,
+      "name": "A14. Real GDP(O) components",
+      "state": "visible",
+      "title": {
+        "ref": "A1",
+        "row": 1,
+        "column": 1,
+        "text": "Back to front page"
+      }
+    },
+    {
+      "index": 19,
+      "name": "A15. Factor incomes by SIC ",
+      "state": "visible",
+      "title": {
+        "ref": "A1",
+        "row": 1,
+        "column": 1,
+        "text": "Back to front page"
+      }
+    },
+    {
+      "index": 20,
+      "name": "A16. Industry GVA shares by SIC",
+      "state": "visible",
+      "title": {
+        "ref": "A1",
+        "row": 1,
+        "column": 1,
+        "text": "Back to front page"
+      }
+    },
+    {
+      "index": 21,
+      "name": "A17. GDP(I) components",
+      "state": "visible",
+      "title": {
+        "ref": "A1",
+        "row": 1,
+        "column": 1,
+        "text": "Back to front page"
+      }
+    },
+    {
+      "index": 22,
+      "name": "A18. Population 1680+",
+      "state": "visible",
+      "title": {
+        "ref": "A1",
+        "row": 1,
+        "column": 1,
+        "text": "Back to front page"
+      }
+    },
+    {
+      "index": 23,
+      "name": "A19a. UK Migration flows",
+      "state": "visible",
+      "title": {
+        "ref": "A1",
+        "row": 1,
+        "column": 1,
+        "text": "Back to front page"
+      }
+    },
+    {
+      "index": 24,
+      "name": "A19b. GB and Irish Migration",
+      "state": "visible",
+      "title": {
+        "ref": "A1",
+        "row": 1,
+        "column": 1,
+        "text": "Back to front page"
+      }
+    },
+    {
+      "index": 25,
+      "name": "A19c. English Net Migration",
+      "state": "visible",
+      "title": {
+        "ref": "A1",
+        "row": 1,
+        "column": 1,
+        "text": "Back to front page"
+      }
+    },
+    {
+      "index": 26,
+      "name": "A20. Migration by citizenship",
+      "state": "visible",
+      "title": {
+        "ref": "A1",
+        "row": 1,
+        "column": 1,
+        "text": "Back to front page"
+      }
+    },
+    {
+      "index": 27,
+      "name": "A21. GDP per capita 1086+",
+      "state": "visible",
+      "title": {
+        "ref": "A1",
+        "row": 1,
+        "column": 1,
+        "text": "Back to front page"
+      }
+    },
+    {
+      "index": 28,
+      "name": "A22. Coin in circulation",
+      "state": "visible",
+      "title": {
+        "ref": "A1",
+        "row": 1,
+        "column": 1,
+        "text": "Back to front page"
+      }
+    },
+    {
+      "index": 29,
+      "name": "A23. Bank of England B'Sheet",
+      "state": "visible",
+      "title": {
+        "ref": "A1",
+        "row": 1,
+        "column": 1,
+        "text": "Back to front page"
+      }
+    },
+    {
+      "index": 30,
+      "name": "A24. Monetary aggregates",
+      "state": "visible",
+      "title": {
+        "ref": "A1",
+        "row": 1,
+        "column": 1,
+        "text": "Back to front page"
+      }
+    },
+    {
+      "index": 31,
+      "name": "A25. Credit aggregates",
+      "state": "visible",
+      "title": {
+        "ref": "A1",
+        "row": 1,
+        "column": 1,
+        "text": "Back to front page"
+      }
+    },
+    {
+      "index": 32,
+      "name": "A25a. Bills of Exchange",
+      "state": "visible",
+      "title": {
+        "ref": "A1",
+        "row": 1,
+        "column": 1,
+        "text": "Back to front page"
+      }
+    },
+    {
+      "index": 33,
+      "name": "A26. Central govt 1290-1689",
+      "state": "visible",
+      "title": {
+        "ref": "A1",
+        "row": 1,
+        "column": 1,
+        "text": "Back to front page"
+      }
+    },
+    {
+      "index": 34,
+      "name": "A27. Central govt borrowing ",
+      "state": "visible",
+      "title": {
+        "ref": "A1",
+        "row": 1,
+        "column": 1,
+        "text": "Back to front page"
+      }
+    },
+    {
+      "index": 35,
+      "name": "A28. Public Sector Borrowing",
+      "state": "visible",
+      "title": {
+        "ref": "A1",
+        "row": 1,
+        "column": 1,
+        "text": "Back to front page"
+      }
+    },
+    {
+      "index": 36,
+      "name": "A28a. Public Sector Spending",
+      "state": "visible",
+      "title": {
+        "ref": "A1",
+        "row": 1,
+        "column": 1,
+        "text": "Back to front page"
+      }
+    },
+    {
+      "index": 37,
+      "name": "A29. The National Debt",
+      "state": "visible",
+      "title": {
+        "ref": "A1",
+        "row": 1,
+        "column": 1,
+        "text": "Back to front page"
+      }
+    },
+    {
+      "index": 38,
+      "name": "A30a. Nat Debt mkt vals 1727",
+      "state": "visible",
+      "title": {
+        "ref": "A1",
+        "row": 1,
+        "column": 1,
+        "text": "Back to front page"
+      }
+    },
+    {
+      "index": 39,
+      "name": "A30b. Nat Debt mkt vals 1900-",
+      "state": "visible",
+      "title": {
+        "ref": "A1",
+        "row": 1,
+        "column": 1,
+        "text": "Back to front page"
+      }
+    },
+    {
+      "index": 40,
+      "name": "A30c. Term Annuities 1694-1836",
+      "state": "visible",
+      "title": {
+        "ref": "A1",
+        "row": 1,
+        "column": 1,
+        "text": "Back to front page"
+      }
+    },
+    {
+      "index": 41,
+      "name": "A31. Interest rates & asset ps ",
+      "state": "visible",
+      "title": {
+        "ref": "A1",
+        "row": 1,
+        "column": 1,
+        "text": "Back to front page"
+      }
+    },
+    {
+      "index": 42,
+      "name": "A32. Property prices & rent",
+      "state": "visible",
+      "title": {
+        "ref": "A1",
+        "row": 1,
+        "column": 1,
+        "text": "Back to front page"
+      }
+    },
+    {
+      "index": 43,
+      "name": "A33. Exchange rate data",
+      "state": "visible",
+      "title": {
+        "ref": "A1",
+        "row": 1,
+        "column": 1,
+        "text": "Back to front page"
+      }
+    },
+    {
+      "index": 44,
+      "name": "A34a. Export volumes 1280-1700",
+      "state": "visible",
+      "title": {
+        "ref": "B1",
+        "row": 1,
+        "column": 2,
+        "text": "A34a. English Export volumes 1280-1701"
+      }
+    },
+    {
+      "index": 45,
+      "name": "A34b. Import volumes 1560-1700",
+      "state": "visible",
+      "title": {
+        "ref": "B1",
+        "row": 1,
+        "column": 2,
+        "text": "A34b. English Import volumes 1560-1640"
+      }
+    },
+    {
+      "index": 46,
+      "name": "A34c. Off. trade values 1697-",
+      "state": "visible",
+      "title": {
+        "ref": "A1",
+        "row": 1,
+        "column": 1,
+        "text": "Back to front page"
+      }
+    },
+    {
+      "index": 47,
+      "name": "A35. Trade volumes and prices",
+      "state": "visible",
+      "title": {
+        "ref": "A1",
+        "row": 1,
+        "column": 1,
+        "text": "Back to front page"
+      }
+    },
+    {
+      "index": 48,
+      "name": "A36. Trade values and BOP",
+      "state": "visible",
+      "title": {
+        "ref": "A1",
+        "row": 1,
+        "column": 1,
+        "text": "Back to front page"
+      }
+    },
+    {
+      "index": 49,
+      "name": "A37a. Trade breakdown 1560-1640",
+      "state": "visible",
+      "title": {
+        "ref": "A1",
+        "row": 1,
+        "column": 1,
+        "text": "Back to front page"
+      }
+    },
+    {
+      "index": 50,
+      "name": "A37b. Trade breakdown 1663-1701",
+      "state": "visible",
+      "title": {
+        "ref": "A1",
+        "row": 1,
+        "column": 1,
+        "text": "Back to front page"
+      }
+    },
+    {
+      "index": 51,
+      "name": "A38. Trade breakdown 1699-1774",
+      "state": "visible",
+      "title": {
+        "ref": "A1",
+        "row": 1,
+        "column": 1,
+        "text": "Back to front page"
+      }
+    },
+    {
+      "index": 52,
+      "name": "A39. Trade - Goods trade 1784+",
+      "state": "visible",
+      "title": {
+        "ref": "A1",
+        "row": 1,
+        "column": 1,
+        "text": "Back to front page"
+      }
+    },
+    {
+      "index": 53,
+      "name": "A40. Trade by region 1710-1822",
+      "state": "visible",
+      "title": {
+        "ref": "A1",
+        "row": 1,
+        "column": 1,
+        "text": "Back to front page"
+      }
+    },
+    {
+      "index": 54,
+      "name": "A41. Trade by region 1784+",
+      "state": "visible",
+      "title": {
+        "ref": "A1",
+        "row": 1,
+        "column": 1,
+        "text": "Back to front page"
+      }
+    },
+    {
+      "index": 55,
+      "name": "A42. Regional Trade summary",
+      "state": "visible",
+      "title": {
+        "ref": "A1",
+        "row": 1,
+        "column": 1,
+        "text": "Back to front page"
+      }
+    },
+    {
+      "index": 56,
+      "name": "A43. Trade - by Trade Area",
+      "state": "visible",
+      "title": {
+        "ref": "A1",
+        "row": 1,
+        "column": 1,
+        "text": "Back to front page"
+      }
+    },
+    {
+      "index": 57,
+      "name": "A44. Trade by Country",
+      "state": "visible",
+      "title": {
+        "ref": "A1",
+        "row": 1,
+        "column": 1,
+        "text": "Back to front page"
+      }
+    },
+    {
+      "index": 58,
+      "name": "A45. UK Shares of world trade",
+      "state": "visible",
+      "title": {
+        "ref": "A1",
+        "row": 1,
+        "column": 1,
+        "text": "Back to front page"
+      }
+    },
+    {
+      "index": 59,
+      "name": "A46. Net external assets",
+      "state": "visible",
+      "title": {
+        "ref": "A1",
+        "row": 1,
+        "column": 1,
+        "text": "Back to front page"
+      }
+    },
+    {
+      "index": 60,
+      "name": "A47. Wages and prices",
+      "state": "visible",
+      "title": {
+        "ref": "A1",
+        "row": 1,
+        "column": 1,
+        "text": "Back to front page"
+      }
+    },
+    {
+      "index": 61,
+      "name": "A48. Real Earnings ",
+      "state": "visible",
+      "title": {
+        "ref": "A1",
+        "row": 1,
+        "column": 1,
+        "text": "Back to front page"
+      }
+    },
+    {
+      "index": 62,
+      "name": "A49. GB Employment in C18th",
+      "state": "visible",
+      "title": {
+        "ref": "A1",
+        "row": 1,
+        "column": 1,
+        "text": "Back to front page"
+      }
+    },
+    {
+      "index": 63,
+      "name": "A50. Employment & unemployment",
+      "state": "visible",
+      "title": {
+        "ref": "A1",
+        "row": 1,
+        "column": 1,
+        "text": "Back to front page"
+      }
+    },
+    {
+      "index": 64,
+      "name": "A51. Public Sector Employment",
+      "state": "visible",
+      "title": {
+        "ref": "A1",
+        "row": 1,
+        "column": 1,
+        "text": "Back to front page"
+      }
+    },
+    {
+      "index": 65,
+      "name": "A52a. Wages, Salaries and Comp",
+      "state": "visible",
+      "title": {
+        "ref": "A1",
+        "row": 1,
+        "column": 1,
+        "text": "Back to front page"
+      }
+    },
+    {
+      "index": 66,
+      "name": "A52b. Other labour statistics",
+      "state": "visible",
+      "title": {
+        "ref": "A1",
+        "row": 1,
+        "column": 1,
+        "text": "Back to front page"
+      }
+    },
+    {
+      "index": 67,
+      "name": "A53. Employment by industry",
+      "state": "visible",
+      "title": {
+        "ref": "A1",
+        "row": 1,
+        "column": 1,
+        "text": "Back to front page"
+      }
+    },
+    {
+      "index": 68,
+      "name": "A54. Hours worked",
+      "state": "visible",
+      "title": {
+        "ref": "A1",
+        "row": 1,
+        "column": 1,
+        "text": "Back to front page"
+      }
+    },
+    {
+      "index": 69,
+      "name": "A55. Capital Stock",
+      "state": "visible",
+      "title": {
+        "ref": "A1",
+        "row": 1,
+        "column": 1,
+        "text": "Back to front page"
+      }
+    },
+    {
+      "index": 70,
+      "name": "A56. Productivity",
+      "state": "visible",
+      "title": {
+        "ref": "A1",
+        "row": 1,
+        "column": 1,
+        "text": "Back to front page"
+      }
+    },
+    {
+      "index": 71,
+      "name": "A57. Household saving",
+      "state": "visible",
+      "title": {
+        "ref": "A1",
+        "row": 1,
+        "column": 1,
+        "text": "Back to front page"
+      }
+    },
+    {
+      "index": 72,
+      "name": "A58. BoE FoF 1952+",
+      "state": "visible",
+      "title": {
+        "ref": "A1",
+        "row": 1,
+        "column": 1,
+        "text": "Back to front page"
+      }
+    },
+    {
+      "index": 73,
+      "name": "A59. FoF pre-ESA95",
+      "state": "visible",
+      "title": {
+        "ref": "A1",
+        "row": 1,
+        "column": 1,
+        "text": "Back to front page"
+      }
+    },
+    {
+      "index": 74,
+      "name": "A60. FoF pre-ESA95 by inst",
+      "state": "visible",
+      "title": {
+        "ref": "A1",
+        "row": 1,
+        "column": 1,
+        "text": "Back to front page"
+      }
+    },
+    {
+      "index": 75,
+      "name": "A61. Financial accounts ESA10",
+      "state": "visible",
+      "title": {
+        "ref": "A1",
+        "row": 1,
+        "column": 1,
+        "text": "Back to front page"
+      }
+    },
+    {
+      "index": 76,
+      "name": "A62. Financial claims 1900-48",
+      "state": "visible",
+      "title": {
+        "ref": "B1",
+        "row": 1,
+        "column": 2,
+        "text": "A62. Total financial claims in the UK 1900-1948"
+      }
+    },
+    {
+      "index": 77,
+      "name": "A63. Solomou and Weale",
+      "state": "visible",
+      "title": {
+        "ref": "B1",
+        "row": 1,
+        "column": 2,
+        "text": "A63.  Personal Sector Wealth 1920-1956"
+      }
+    },
+    {
+      "index": 78,
+      "name": "A64a. Sector balance sheets 57+",
+      "state": "visible",
+      "title": {
+        "ref": "A1",
+        "row": 1,
+        "column": 1,
+        "text": "Back to front page"
+      }
+    },
+    {
+      "index": 79,
+      "name": "A64b. Sector Balance Sheets",
+      "state": "visible",
+      "title": {
+        "ref": "A1",
+        "row": 1,
+        "column": 1,
+        "text": "Back to front page"
+      }
+    },
+    {
+      "index": 80,
+      "name": "A65. Personal Sector Wealth",
+      "state": "visible",
+      "title": {
+        "ref": "A1",
+        "row": 1,
+        "column": 1,
+        "text": "Back to front page"
+      }
+    },
+    {
+      "index": 81,
+      "name": "A66. Balance sheets ESA10",
+      "state": "visible",
+      "title": {
+        "ref": "A1",
+        "row": 1,
+        "column": 1,
+        "text": "Back to front page"
+      }
+    },
+    {
+      "index": 82,
+      "name": "Q1. Qrtly headline series",
+      "state": "visible",
+      "title": {
+        "ref": "A1",
+        "row": 1,
+        "column": 1,
+        "text": "Back to front page"
+      }
+    },
+    {
+      "index": 83,
+      "name": "Q2. Qtly GDP 1920+",
+      "state": "visible",
+      "title": {
+        "ref": "A1",
+        "row": 1,
+        "column": 1,
+        "text": "Back to front page"
+      }
+    },
+    {
+      "index": 84,
+      "name": "Q3. Qrtly money aggs 1870-2014 ",
+      "state": "visible",
+      "title": {
+        "ref": "A1",
+        "row": 1,
+        "column": 1,
+        "text": "Back to front page"
+      }
+    },
+    {
+      "index": 85,
+      "name": "Q4. Corp borr. rates 1977+",
+      "state": "visible",
+      "title": {
+        "ref": "A1",
+        "row": 1,
+        "column": 1,
+        "text": "Back to front page"
+      }
+    },
+    {
+      "index": 86,
+      "name": "Q5. Qrtly ERI indices 1920-38",
+      "state": "visible",
+      "title": {
+        "ref": "A1",
+        "row": 1,
+        "column": 1,
+        "text": "Back to front page"
+      }
+    },
+    {
+      "index": 87,
+      "name": "Q6. Qrtly labour market Qs",
+      "state": "visible",
+      "title": {
+        "ref": "A1",
+        "row": 1,
+        "column": 1,
+        "text": "Back to front page"
+      }
+    },
+    {
+      "index": 88,
+      "name": "Q7. Qrtly inflation expectation",
+      "state": "visible",
+      "title": {
+        "ref": "A1",
+        "row": 1,
+        "column": 1,
+        "text": "Back to front page"
+      }
+    },
+    {
+      "index": 89,
+      "name": "M1. Mthly headline series",
+      "state": "visible",
+      "title": {
+        "ref": "A1",
+        "row": 1,
+        "column": 1,
+        "text": "Back to front page"
+      }
+    },
+    {
+      "index": 90,
+      "name": "M2. Monthly activity 1846+",
+      "state": "visible",
+      "title": {
+        "ref": "A1",
+        "row": 1,
+        "column": 1,
+        "text": "Back to front page"
+      }
+    },
+    {
+      "index": 91,
+      "name": "M3. M'thly  GDP 1920-1938",
+      "state": "visible",
+      "title": {
+        "ref": "A1",
+        "row": 1,
+        "column": 1,
+        "text": "Back to front page"
+      }
+    },
+    {
+      "index": 92,
+      "name": "M4. Monthly IP 1920+",
+      "state": "visible",
+      "title": {
+        "ref": "A1",
+        "row": 1,
+        "column": 1,
+        "text": "Back to front page"
+      }
+    },
+    {
+      "index": 93,
+      "name": "M5. Administrative unemp 1881+",
+      "state": "visible",
+      "title": {
+        "ref": "A1",
+        "row": 1,
+        "column": 1,
+        "text": "Back to front page"
+      }
+    },
+    {
+      "index": 94,
+      "name": "M6. Mthly prices and wages",
+      "state": "visible",
+      "title": {
+        "ref": "A1",
+        "row": 1,
+        "column": 1,
+        "text": "Back to front page"
+      }
+    },
+    {
+      "index": 95,
+      "name": "M7. Mthly money aggs 1870-",
+      "state": "visible",
+      "title": {
+        "ref": "A1",
+        "row": 1,
+        "column": 1,
+        "text": "Back to front page"
+      }
+    },
+    {
+      "index": 96,
+      "name": "M8. Mthly credit aggs 1921+",
+      "state": "visible",
+      "title": {
+        "ref": "A1",
+        "row": 1,
+        "column": 1,
+        "text": "Back to front page"
+      }
+    },
+    {
+      "index": 97,
+      "name": "M9. Mthly short-term rates",
+      "state": "visible",
+      "title": {
+        "ref": "A1",
+        "row": 1,
+        "column": 1,
+        "text": "Back to front page"
+      }
+    },
+    {
+      "index": 98,
+      "name": "M10. Mthly long-term rates",
+      "state": "visible",
+      "title": {
+        "ref": "C1",
+        "row": 1,
+        "column": 3,
+        "text": "M10. Monthly long-term interest rates, 1753-2016"
+      }
+    },
+    {
+      "index": 99,
+      "name": "M11. Mthly corp bond yields",
+      "state": "visible",
+      "title": {
+        "ref": "A1",
+        "row": 1,
+        "column": 1,
+        "text": "Back to front page"
+      }
+    },
+    {
+      "index": 100,
+      "name": "M12. Mthly HH loan rates 1939+",
+      "state": "visible",
+      "title": {
+        "ref": "A1",
+        "row": 1,
+        "column": 1,
+        "text": "Back to front page"
+      }
+    },
+    {
+      "index": 101,
+      "name": "M13. Mthly share prices 1709+ ",
+      "state": "visible",
+      "title": {
+        "ref": "A1",
+        "row": 1,
+        "column": 1,
+        "text": "Back to front page"
+      }
+    },
+    {
+      "index": 102,
+      "name": "M14. Mthly Exchange rates 1963+",
+      "state": "visible",
+      "title": {
+        "ref": "A1",
+        "row": 1,
+        "column": 1,
+        "text": "Back to front page"
+      }
+    },
+    {
+      "index": 103,
+      "name": "M15. Mthly $-£ 1791-2015",
+      "state": "visible",
+      "title": {
+        "ref": "A1",
+        "row": 1,
+        "column": 1,
+        "text": "Back to front page"
+      }
+    },
+    {
+      "index": 104,
+      "name": "W1. Issue Department",
+      "state": "visible",
+      "title": {
+        "ref": "H1",
+        "row": 1,
+        "column": 8,
+        "text": "Issue Department Balance Sheet"
+      }
+    },
+    {
+      "index": 105,
+      "name": "W2. Banking Department",
+      "state": "visible",
+      "title": {
+        "ref": "H1",
+        "row": 1,
+        "column": 8,
+        "text": "Banking Department Balance Sheet"
+      }
+    },
+    {
+      "index": 106,
+      "name": "D1. Official Interest Rates",
+      "state": "visible",
+      "title": {
+        "ref": "C1",
+        "row": 1,
+        "column": 3,
+        "text": "D1. Bank of England/Official Interest Rates in the UK 1833-2017: "
+      }
+    },
+    {
+      "index": 107,
+      "name": "D2. Bilaterals",
+      "state": "visible",
+      "title": {
+        "ref": "A1",
+        "row": 1,
+        "column": 1,
+        "text": "Back to Front Page"
+      }
+    },
+    {
+      "index": 108,
+      "name": "D3. ERI vintages",
+      "state": "visible",
+      "title": {
+        "ref": "A1",
+        "row": 1,
+        "column": 1,
+        "text": "Back to Front Page"
+      }
+    }
+  ],
+  "readings": {
+    "version": "(?<![A-Za-z0-9])(?:version|vers|ver|v)\\.?[\\s:]*(\\d+(?:\\.\\d+)+)",
+    "headline": "\\bheadline\\b",
+    "real": "\\breal\\b",
+    "gdp": "\\bGDP\\b|gross\\s+domestic\\s+product",
+    "transformation": "per\\s+(?:head|capita|person|worker|hour|employee)|\\bgrowth\\b|\\bdeflator\\b|%|\\bper\\s*cent|\\bpercentage\\b|\\bchange\\b|\\bcontributions?\\b|\\bshares?\\b|\\bratios?\\b",
+    "uk_or_consistent": "\\bUK\\b|United\\s+Kingdom|geographically[\\s-]+consistent",
+    "units_label": "\\bunits?\\b",
+    "first_data_row": "the first row whose leftmost non-blank cell is numeric (by cell type)",
+    "year_column": "the column of that cell"
+  },
+  "headline_candidates": [
+    {
+      "sheet": "A1. Headline series",
+      "matched_by": [
+        "name",
+        "title"
+      ]
+    },
+    {
+      "sheet": "Q1. Qrtly headline series",
+      "matched_by": [
+        "name"
+      ]
+    },
+    {
+      "sheet": "M1. Mthly headline series",
+      "matched_by": [
+        "name"
+      ]
+    }
+  ],
+  "headline_named_by_amendment": "A1. Headline series",
+  "headline_sheet": "A1. Headline series",
+  "headline_matched_by": [
+    "name",
+    "title"
+  ],
+  "first_data_row": 8,
+  "year_column": "A",
+  "layout_source": "cell types",
+  "header_cells": [
+    {
+      "ref": "B1",
+      "row": 1,
+      "column": 2,
+      "text": "A1. Headline Annual Series 1086-2016"
+    },
+    {
+      "ref": "A2",
+      "row": 2,
+      "column": 1,
+      "text": "Back to front page"
+    },
+    {
+      "ref": "A3",
+      "row": 3,
+      "column": 1,
+      "text": "Section"
+    },
+    {
+      "ref": "B3",
+      "row": 3,
+      "column": 2,
+      "text": "National Accounts"
+    },
+    {
+      "ref": "Y3",
+      "row": 3,
+      "column": 25,
+      "text": "Labour, capital and productivity"
+    },
+    {
+      "ref": "AI3",
+      "row": 3,
+      "column": 35,
+      "text": "Wages and Prices"
+    },
+    {
+      "ref": "AS3",
+      "row": 3,
+      "column": 45,
+      "text": "Financial markets"
+    },
+    {
+      "ref": "BF3",
+      "row": 3,
+      "column": 58,
+      "text": "Money and Credit"
+    },
+    {
+      "ref": "BO3",
+      "row": 3,
+      "column": 67,
+      "text": "Fiscal"
+    },
+    {
+      "ref": "BZ3",
+      "row": 3,
+      "column": 78,
+      "text": "Trade"
+    },
+    {
+      "ref": "A4",
+      "row": 4,
+      "column": 1,
+      "text": "Description"
+    },
+    {
+      "ref": "B4",
+      "row": 4,
+      "column": 2,
+      "text": "Real UK GDP at market prices, geographically-consistent estimate based on post-1922 borders"
+    },
+    {
+      "ref": "D4",
+      "row": 4,
+      "column": 4,
+      "text": "Real UK GDP at factor cost, geographically-consistent estimate based on post-1922 borders"
+    },
+    {
+      "ref": "F4",
+      "row": 4,
+      "column": 6,
+      "text": "Index of real UK GDP at market prices cost - based on changing political boundaries, "
+    },
+    {
+      "ref": "H4",
+      "row": 4,
+      "column": 8,
+      "text": "Real GDP of England at market prices"
+    },
+    {
+      "ref": "J4",
+      "row": 4,
+      "column": 10,
+      "text": "Real GDP of England at factor cost "
+    },
+    {
+      "ref": "L4",
+      "row": 4,
+      "column": 12,
+      "text": "Composite estimate of English and (geographically-consistent) UK real GDP at factor cost"
+    },
+    {
+      "ref": "N4",
+      "row": 4,
+      "column": 14,
+      "text": "HP-filter of log of real composite estimate of English and UK real GDP at factor cost"
+    },
+    {
+      "ref": "O4",
+      "row": 4,
+      "column": 15,
+      "text": "Real UK gross disposable national income at market prices, constant border estimate"
+    },
+    {
+      "ref": "P4",
+      "row": 4,
+      "column": 16,
+      "text": "Real consumption"
+    },
+    {
+      "ref": "Q4",
+      "row": 4,
+      "column": 17,
+      "text": "Real investment"
+    },
+    {
+      "ref": "R4",
+      "row": 4,
+      "column": 18,
+      "text": "Stockbuilding contribution"
+    },
+    {
+      "ref": "S4",
+      "row": 4,
+      "column": 19,
+      "text": "Real government consumption of goods and services"
+    },
+    {
+      "ref": "T4",
+      "row": 4,
+      "column": 20,
+      "text": "Export volumes"
+    },
+    {
+      "ref": "U4",
+      "row": 4,
+      "column": 21,
+      "text": "Import volumes"
+    },
+    {
+      "ref": "V4",
+      "row": 4,
+      "column": 22,
+      "text": "Nominal GDP of England at market prices"
+    },
+    {
+      "ref": "W4",
+      "row": 4,
+      "column": 23,
+      "text": "Nominal UK GDP at market prices"
+    },
+    {
+      "ref": "X4",
+      "row": 4,
+      "column": 24,
+      "text": "Nominal UK GDP at market prices"
+    },
+    {
+      "ref": "Y4",
+      "row": 4,
+      "column": 25,
+      "text": "Population (GB+NI)"
+    },
+    {
+      "ref": "Z4",
+      "row": 4,
+      "column": 26,
+      "text": "Population (England)"
+    },
+    {
+      "ref": "AA4",
+      "row": 4,
+      "column": 27,
+      "text": "Employment"
+    },
+    {
+      "ref": "AB4",
+      "row": 4,
+      "column": 28,
+      "text": "Unemployment rate"
+    },
+    {
+      "ref": "AC4",
+      "row": 4,
+      "column": 29,
+      "text": "Average weekly hours worked"
+    },
+    {
+      "ref": "AD4",
+      "row": 4,
+      "column": 30,
+      "text": "Capital Services, whole economy"
+    },
+    {
+      "ref": "AE4",
+      "row": 4,
+      "column": 31,
+      "text": "TFP growth"
+    },
+    {
+      "ref": "AF4",
+      "row": 4,
+      "column": 32,
+      "text": "Labour productivity"
+    },
+    {
+      "ref": "AH4",
+      "row": 4,
+      "column": 34,
+      "text": "Labour share, whole economy excluding rents"
+    },
+    {
+      "ref": "AI4",
+      "row": 4,
+      "column": 35,
+      "text": "GDP deflator at market prices"
+    },
+    {
+      "ref": "AJ4",
+      "row": 4,
+      "column": 36,
+      "text": "Export prices"
+    },
+    {
+      "ref": "AK4",
+      "row": 4,
+      "column": 37,
+      "text": "Import prices"
+    },
+    {
+      "ref": "AL4",
+      "row": 4,
+      "column": 38,
+      "text": "Terms of Trade"
+    },
+    {
+      "ref": "AM4",
+      "row": 4,
+      "column": 39,
+      "text": "$ Oil prices"
+    },
+    {
+      "ref": "AN4",
+      "row": 4,
+      "column": 40,
+      "text": "Earnings per head"
+    },
+    {
+      "ref": "AO4",
+      "row": 4,
+      "column": 41,
+      "text": "Consumer price index"
+    },
+    {
+      "ref": "AP4",
+      "row": 4,
+      "column": 42,
+      "text": "Consumer price inflation"
+    },
+    {
+      "ref": "AQ4",
+      "row": 4,
+      "column": 43,
+      "text": "Real consumption wages"
+    },
+    {
+      "ref": "AR4",
+      "row": 4,
+      "column": 44,
+      "text": "Wholesale/producer price index"
+    },
+    {
+      "ref": "AS4",
+      "row": 4,
+      "column": 45,
+      "text": "Bank Rate"
+    },
+    {
+      "ref": "AU4",
+      "row": 4,
+      "column": 47,
+      "text": "10 year/medium-term government bond yields"
+    },
+    {
+      "ref": "AV4",
+      "row": 4,
+      "column": 48,
+      "text": "Consols / long-term government bond yields"
+    },
+    {
+      "ref": "AW4",
+      "row": 4,
+      "column": 49,
+      "text": "Mortgage rates"
+    },
+    {
+      "ref": "AX4",
+      "row": 4,
+      "column": 50,
+      "text": "Corporate borrowing rate from banks"
+    },
+    {
+      "ref": "AY4",
+      "row": 4,
+      "column": 51,
+      "text": "Corporate bond yields"
+    },
+    {
+      "ref": "AZ4",
+      "row": 4,
+      "column": 52,
+      "text": "Share prices"
+    },
+    {
+      "ref": "BA4",
+      "row": 4,
+      "column": 53,
+      "text": "$/£ exchange rate"
+    },
+    {
+      "ref": "BB4",
+      "row": 4,
+      "column": 54,
+      "text": "Real $/£ exchange rate"
+    },
+    {
+      "ref": "BC4",
+      "row": 4,
+      "column": 55,
+      "text": "Nominal ERI"
+    },
+    {
+      "ref": "BD4",
+      "row": 4,
+      "column": 56,
+      "text": "Real ERI"
+    },
+    {
+      "ref": "BE4",
+      "row": 4,
+      "column": 57,
+      "text": "House price index"
+    },
+    {
+      "ref": "BF4",
+      "row": 4,
+      "column": 58,
+      "text": "Credit "
+    },
+    {
+      "ref": "BG4",
+      "row": 4,
+      "column": 59,
+      "text": "Secured credit"
+    },
+    {
+      "ref": "BH4",
+      "row": 4,
+      "column": 60,
+      "text": "Bank of England Balance sheet"
+    },
+    {
+      "ref": "BJ4",
+      "row": 4,
+      "column": 62,
+      "text": "Coin in circulation outside the Bank of England"
+    },
+    {
+      "ref": "BK4",
+      "row": 4,
+      "column": 63,
+      "text": "Notes and coin in circulation"
+    },
+    {
+      "ref": "BL4",
+      "row": 4,
+      "column": 64,
+      "text": "Monetary base"
+    },
+    {
+      "ref": "BM4",
+      "row": 4,
+      "column": 65,
+      "text": "M1"
+    },
+    {
+      "ref": "BN4",
+      "row": 4,
+      "column": 66,
+      "text": "Broad Money "
+    },
+    {
+      "ref": "BO4",
+      "row": 4,
+      "column": 67,
+      "text": "Public sector Total Managed Expenditure"
+    },
+    {
+      "ref": "BQ4",
+      "row": 4,
+      "column": 69,
+      "text": "Public Sector Total Receipts"
+    },
+    {
+      "ref": "BS4",
+      "row": 4,
+      "column": 71,
+      "text": "Public Sector Net Lending(+)/Borrowing(-)"
+    },
+    {
+      "ref": "BU4",
+      "row": 4,
+      "column": 73,
+      "text": "UK Public sector debt"
+    },
+    {
+      "ref": "BX4",
+      "row": 4,
+      "column": 76,
+      "text": "Central Government Gross Debt"
+    },
+    {
+      "ref": "BY4",
+      "row": 4,
+      "column": 77,
+      "text": "Central Government Gross Debt"
+    },
+    {
+      "ref": "BZ4",
+      "row": 4,
+      "column": 78,
+      "text": "Trade deficit"
+    },
+    {
+      "ref": "CB4",
+      "row": 4,
+      "column": 80,
+      "text": "Current account "
+    },
+    {
+      "ref": "CD4",
+      "row": 4,
+      "column": 82,
+      "text": "Current account deficit including estimated non-monetary bullion flows prior to 1946"
+    },
+    {
+      "ref": "A5",
+      "row": 5,
+      "column": 1,
+      "text": "Worksheet"
+    },
+    {
+      "ref": "B5",
+      "row": 5,
+      "column": 2,
+      "text": "A8. Real GDP (A) 1700-2015"
+    },
+    {
+      "ref": "D5",
+      "row": 5,
+      "column": 4,
+      "text": "A8. Real GDP (A) 1700-2015"
+    },
+    {
+      "ref": "F5",
+      "row": 5,
+      "column": 6,
+      "text": "A8. Real GDP (A) 1700-2015"
+    },
+    {
+      "ref": "H5",
+      "row": 5,
+      "column": 8,
+      "text": "A21. GDP per capita"
+    },
+    {
+      "ref": "J5",
+      "row": 5,
+      "column": 10,
+      "text": "A21. GDP per capita"
+    },
+    {
+      "ref": "L5",
+      "row": 5,
+      "column": 12,
+      "text": "A21. GDP per capita 1086"
+    },
+    {
+      "ref": "O5",
+      "row": 5,
+      "column": 15,
+      "text": "A10. GDP, GNI and National Saving"
+    },
+    {
+      "ref": "P5",
+      "row": 5,
+      "column": 16,
+      "text": "A12. GDP(E) - volumes"
+    },
+    {
+      "ref": "Q5",
+      "row": 5,
+      "column": 17,
+      "text": "A12. GDP(E) - volumes"
+    },
+    {
+      "ref": "R5",
+      "row": 5,
+      "column": 18,
+      "text": "A12. GDP(E) - volumes"
+    },
+    {
+      "ref": "S5",
+      "row": 5,
+      "column": 19,
+      "text": "A12. GDP(E) - volumes"
+    },
+    {
+      "ref": "T5",
+      "row": 5,
+      "column": 20,
+      "text": "A35. Trade volumes "
+    },
+    {
+      "ref": "U5",
+      "row": 5,
+      "column": 21,
+      "text": "A35. Trade volumes "
+    },
+    {
+      "ref": "V5",
+      "row": 5,
+      "column": 22,
+      "text": "A21. GDP per capita"
+    },
+    {
+      "ref": "W5",
+      "row": 5,
+      "column": 23,
+      "text": "A9. Nominal GDP (A) 1700-2014"
+    },
+    {
+      "ref": "X5",
+      "row": 5,
+      "column": 24,
+      "text": "A9. Nominal GDP (A) 1700-2014"
+    },
+    {
+      "ref": "Y5",
+      "row": 5,
+      "column": 25,
+      "text": "A18. Population "
+    },
+    {
+      "ref": "Z5",
+      "row": 5,
+      "column": 26,
+      "text": "A21. GDP per capita"
+    },
+    {
+      "ref": "AA5",
+      "row": 5,
+      "column": 27,
+      "text": "A50. Employment"
+    },
+    {
+      "ref": "AB5",
+      "row": 5,
+      "column": 28,
+      "text": "A50. Employment"
+    },
+    {
+      "ref": "AC5",
+      "row": 5,
+      "column": 29,
+      "text": "A54. Hours worked"
+    },
+    {
+      "ref": "AD5",
+      "row": 5,
+      "column": 30,
+      "text": "A55. Capital stock 1851-2014"
+    },
+    {
+      "ref": "AE5",
+      "row": 5,
+      "column": 31,
+      "text": "A56. Productivity 1855-2014"
+    },
+    {
+      "ref": "AF5",
+      "row": 5,
+      "column": 32,
+      "text": "A56. Productivity 1855-2015"
+    },
+    {
+      "ref": "AG5",
+      "row": 5,
+      "column": 33,
+      "text": "A56. Productivity 1855-2015"
+    },
+    {
+      "ref": "AH5",
+      "row": 5,
+      "column": 34,
+      "text": "A56. Productivity 1855-2016"
+    },
+    {
+      "ref": "AI5",
+      "row": 5,
+      "column": 35,
+      "text": "A47. Wages and prices"
+    },
+    {
+      "ref": "AJ5",
+      "row": 5,
+      "column": 36,
+      "text": "A35. Trade volumes "
+    },
+    {
+      "ref": "AK5",
+      "row": 5,
+      "column": 37,
+      "text": "A35. Trade volumes "
+    },
+    {
+      "ref": "AL5",
+      "row": 5,
+      "column": 38,
+      "text": "A35. Trade volumes "
+    },
+    {
+      "ref": "AM5",
+      "row": 5,
+      "column": 39,
+      "text": "A35. Trade volumes "
+    },
+    {
+      "ref": "AN5",
+      "row": 5,
+      "column": 40,
+      "text": "A47. Wages and prices"
+    },
+    {
+      "ref": "AO5",
+      "row": 5,
+      "column": 41,
+      "text": "A47. Wages and prices"
+    },
+    {
+      "ref": "AP5",
+      "row": 5,
+      "column": 42,
+      "text": "A47. Wages and prices"
+    },
+    {
+      "ref": "AQ5",
+      "row": 5,
+      "column": 43,
+      "text": "A48. Real Earnings '!A1"
+    },
+    {
+      "ref": "AR5",
+      "row": 5,
+      "column": 44,
+      "text": "A47. Wages and prices"
+    },
+    {
+      "ref": "AS5",
+      "row": 5,
+      "column": 45,
+      "text": "A31. Interest rates  "
+    },
+    {
+      "ref": "AT5",
+      "row": 5,
+      "column": 46,
+      "text": "A31. Interest rates  "
+    },
+    {
+      "ref": "AU5",
+      "row": 5,
+      "column": 47,
+      "text": "A31. Interest rates  "
+    },
+    {
+      "ref": "AV5",
+      "row": 5,
+      "column": 48,
+      "text": "A31. Interest rates  "
+    },
+    {
+      "ref": "AW5",
+      "row": 5,
+      "column": 49,
+      "text": "A31. Interest rates  "
+    },
+    {
+      "ref": "AX5",
+      "row": 5,
+      "column": 50,
+      "text": "A31. Interest rates  "
+    },
+    {
+      "ref": "AY5",
+      "row": 5,
+      "column": 51,
+      "text": "A31. Interest rates  "
+    },
+    {
+      "ref": "AZ5",
+      "row": 5,
+      "column": 52,
+      "text": "A31. Interest rates  "
+    },
+    {
+      "ref": "BA5",
+      "row": 5,
+      "column": 53,
+      "text": "A33. Exchange rates"
+    },
+    {
+      "ref": "BB5",
+      "row": 5,
+      "column": 54,
+      "text": "A33. Exchange rates"
+    },
+    {
+      "ref": "BC5",
+      "row": 5,
+      "column": 55,
+      "text": "A33. Exchange rates"
+    },
+    {
+      "ref": "BD5",
+      "row": 5,
+      "column": 56,
+      "text": "A33. Exchange rates"
+    },
+    {
+      "ref": "BE5",
+      "row": 5,
+      "column": 57,
+      "text": "A32. Property prices"
+    },
+    {
+      "ref": "BF5",
+      "row": 5,
+      "column": 58,
+      "text": "A25. Credit aggregates"
+    },
+    {
+      "ref": "BG5",
+      "row": 5,
+      "column": 59,
+      "text": "A25. Credit aggregates"
+    },
+    {
+      "ref": "BH5",
+      "row": 5,
+      "column": 60,
+      "text": "A23. BoE Balance sheet "
+    },
+    {
+      "ref": "BJ5",
+      "row": 5,
+      "column": 62,
+      "text": "A24. Money"
+    },
+    {
+      "ref": "BK5",
+      "row": 5,
+      "column": 63,
+      "text": "A24. Money"
+    },
+    {
+      "ref": "BL5",
+      "row": 5,
+      "column": 64,
+      "text": "A24. Money"
+    },
+    {
+      "ref": "BM5",
+      "row": 5,
+      "column": 65,
+      "text": "A24. Money"
+    },
+    {
+      "ref": "BN5",
+      "row": 5,
+      "column": 66,
+      "text": "A24. Money"
+    },
+    {
+      "ref": "BO5",
+      "row": 5,
+      "column": 67,
+      "text": "A28. Public Sector Borrowing"
+    },
+    {
+      "ref": "BP5",
+      "row": 5,
+      "column": 68,
+      "text": "A28. Public Sector Borrowing"
+    },
+    {
+      "ref": "BQ5",
+      "row": 5,
+      "column": 69,
+      "text": "A28. Public Sector Borrowing"
+    },
+    {
+      "ref": "BR5",
+      "row": 5,
+      "column": 70,
+      "text": "A28. Public Sector Borrowing"
+    },
+    {
+      "ref": "BS5",
+      "row": 5,
+      "column": 71,
+      "text": "A28. Public Sector Borrowing"
+    },
+    {
+      "ref": "BT5",
+      "row": 5,
+      "column": 72,
+      "text": "A28. Public Sector Borrowing"
+    },
+    {
+      "ref": "BU5",
+      "row": 5,
+      "column": 73,
+      "text": "A29. National Debt "
+    },
+    {
+      "ref": "BV5",
+      "row": 5,
+      "column": 74,
+      "text": "A29. National Debt "
+    },
+    {
+      "ref": "BW5",
+      "row": 5,
+      "column": 75,
+      "text": "A29. National Debt "
+    },
+    {
+      "ref": "BX5",
+      "row": 5,
+      "column": 76,
+      "text": "A29. National Debt "
+    },
+    {
+      "ref": "BY5",
+      "row": 5,
+      "column": 77,
+      "text": "A30a. National Debt Market values "
+    },
+    {
+      "ref": "BZ5",
+      "row": 5,
+      "column": 78,
+      "text": "A36. Trade values "
+    },
+    {
+      "ref": "CA5",
+      "row": 5,
+      "column": 79,
+      "text": "A36. Trade values "
+    },
+    {
+      "ref": "CB5",
+      "row": 5,
+      "column": 80,
+      "text": "A36. Trade values "
+    },
+    {
+      "ref": "CC5",
+      "row": 5,
+      "column": 81,
+      "text": "A36. Trade values "
+    },
+    {
+      "ref": "CD5",
+      "row": 5,
+      "column": 82,
+      "text": "A36. Trade values "
+    },
+    {
+      "ref": "CE5",
+      "row": 5,
+      "column": 83,
+      "text": "A36. Trade values "
+    },
+    {
+      "ref": "A6",
+      "row": 6,
+      "column": 1,
+      "text": "Units"
+    },
+    {
+      "ref": "B6",
+      "row": 6,
+      "column": 2,
+      "text": "£mn, Chained Volume measure, 2013 prices"
+    },
+    {
+      "ref": "C6",
+      "row": 6,
+      "column": 3,
+      "text": "growth rate"
+    },
+    {
+      "ref": "D6",
+      "row": 6,
+      "column": 4,
+      "text": "£mn, Chained Volume measure, 2013 prices"
+    },
+    {
+      "ref": "E6",
+      "row": 6,
+      "column": 5,
+      "text": "growth rate"
+    },
+    {
+      "ref": "F6",
+      "row": 6,
+      "column": 6,
+      "text": "GB before 1801, GB+Ireland 1801-1920, GB + Northern Ireland after 1920.  Indexed to 100 in 1920"
+    },
+    {
+      "ref": "G6",
+      "row": 6,
+      "column": 7,
+      "text": "growth rate"
+    },
+    {
+      "ref": "H6",
+      "row": 6,
+      "column": 8,
+      "text": "£mn, Chained Volume measure, 2013 prices"
+    },
+    {
+      "ref": "I6",
+      "row": 6,
+      "column": 9,
+      "text": "growth rate"
+    },
+    {
+      "ref": "J6",
+      "row": 6,
+      "column": 10,
+      "text": "£mn, Chained Volume measure, 2013 prices"
+    },
+    {
+      "ref": "K6",
+      "row": 6,
+      "column": 11,
+      "text": "growth rate"
+    },
+    {
+      "ref": "L6",
+      "row": 6,
+      "column": 12,
+      "text": "2013=100"
+    },
+    {
+      "ref": "M6",
+      "row": 6,
+      "column": 13,
+      "text": "growth rate"
+    },
+    {
+      "ref": "N6",
+      "row": 6,
+      "column": 14,
+      "text": "approx. % difference from trend"
+    },
+    {
+      "ref": "O6",
+      "row": 6,
+      "column": 15,
+      "text": "£mn, Chained Volume measure, 2013 prices.  Nominal GDI divided by private and public consumption deflator"
+    },
+    {
+      "ref": "P6",
+      "row": 6,
+      "column": 16,
+      "text": "£mn, Chained Volume measure, 2013 prices"
+    },
+    {
+      "ref": "Q6",
+      "row": 6,
+      "column": 17,
+      "text": "£mn, Chained Volume measure, 2013 prices"
+    },
+    {
+      "ref": "R6",
+      "row": 6,
+      "column": 18,
+      "text": "pp contribution to GDP(E)"
+    },
+    {
+      "ref": "S6",
+      "row": 6,
+      "column": 19,
+      "text": "£mn, Chained Volume measure, 2013 prices"
+    },
+    {
+      "ref": "T6",
+      "row": 6,
+      "column": 20,
+      "text": "£mn, Chained Volume measure, 2013 prices. "
+    },
+    {
+      "ref": "U6",
+      "row": 6,
+      "column": 21,
+      "text": "£mn, Chained Volume measure, 2013 prices.  "
+    },
+    {
+      "ref": "V6",
+      "row": 6,
+      "column": 22,
+      "text": "£mn"
+    },
+    {
+      "ref": "W6",
+      "row": 6,
+      "column": 23,
+      "text": "£mn"
+    },
+    {
+      "ref": "X6",
+      "row": 6,
+      "column": 24,
+      "text": "£mn"
+    },
+    {
+      "ref": "Y6",
+      "row": 6,
+      "column": 25,
+      "text": "000s"
+    },
+    {
+      "ref": "Z6",
+      "row": 6,
+      "column": 26,
+      "text": "000s"
+    },
+    {
+      "ref": "AA6",
+      "row": 6,
+      "column": 27,
+      "text": "000s"
+    },
+    {
+      "ref": "AB6",
+      "row": 6,
+      "column": 28,
+      "text": "%"
+    },
+    {
+      "ref": "AC6",
+      "row": 6,
+      "column": 29,
+      "text": "hours"
+    },
+    {
+      "ref": "AD6",
+      "row": 6,
+      "column": 30,
+      "text": "£mn, 2013 prices"
+    },
+    {
+      "ref": "AE6",
+      "row": 6,
+      "column": 31,
+      "text": "%"
+    },
+    {
+      "ref": "AF6",
+      "row": 6,
+      "column": 32,
+      "text": "Real GDP per head, 2013 prices"
+    },
+    {
+      "ref": "AG6",
+      "row": 6,
+      "column": 33,
+      "text": "Real GDP per hour, 2013 prices"
+    },
+    {
+      "ref": "AH6",
+      "row": 6,
+      "column": 34,
+      "text": "share of GDP excluding rents"
+    },
+    {
+      "ref": "AI6",
+      "row": 6,
+      "column": 35,
+      "text": "2013=100"
+    },
+    {
+      "ref": "AJ6",
+      "row": 6,
+      "column": 36,
+      "text": "2013=100"
+    },
+    {
+      "ref": "AK6",
+      "row": 6,
+      "column": 37,
+      "text": "2013=100"
+    },
+    {
+      "ref": "AL6",
+      "row": 6,
+      "column": 38,
+      "text": "2013=100"
+    },
+    {
+      "ref": "AM6",
+      "row": 6,
+      "column": 39,
+      "text": "$ per barrel"
+    },
+    {
+      "ref": "AN6",
+      "row": 6,
+      "column": 40,
+      "text": "Average weekly earnings, £"
+    },
+    {
+      "ref": "AO6",
+      "row": 6,
+      "column": 41,
+      "text": "2015=100"
+    },
+    {
+      "ref": "AP6",
+      "row": 6,
+      "column": 42,
+      "text": "%"
+    },
+    {
+      "ref": "AQ6",
+      "row": 6,
+      "column": 43,
+      "text": "1900=100"
+    },
+    {
+      "ref": "AR6",
+      "row": 6,
+      "column": 44,
+      "text": "2010=100"
+    },
+    {
+      "ref": "AS6",
+      "row": 6,
+      "column": 45,
+      "text": "% end period"
+    },
+    {
+      "ref": "AT6",
+      "row": 6,
+      "column": 46,
+      "text": "%, calendar year average"
+    },
+    {
+      "ref": "AU6",
+      "row": 6,
+      "column": 47,
+      "text": "%, calendar year average"
+    },
+    {
+      "ref": "AV6",
+      "row": 6,
+      "column": 48,
+      "text": "%, calendar year average"
+    },
+    {
+      "ref": "AW6",
+      "row": 6,
+      "column": 49,
+      "text": "%, calendar year average"
+    },
+    {
+      "ref": "AX6",
+      "row": 6,
+      "column": 50,
+      "text": "%, calendar year average"
+    },
+    {
+      "ref": "AY6",
+      "row": 6,
+      "column": 51,
+      "text": "%, calendar year average"
+    },
+    {
+      "ref": "AZ6",
+      "row": 6,
+      "column": 52,
+      "text": "April 1962=100, Year end"
+    },
+    {
+      "ref": "BA6",
+      "row": 6,
+      "column": 53,
+      "text": "Calendar year average"
+    },
+    {
+      "ref": "BB6",
+      "row": 6,
+      "column": 54,
+      "text": "Calendar year average, 1913=100"
+    },
+    {
+      "ref": "BC6",
+      "row": 6,
+      "column": 55,
+      "text": "Calendar year average, 1913=100"
+    },
+    {
+      "ref": "BD6",
+      "row": 6,
+      "column": 56,
+      "text": "Calendar year average, 1913=100"
+    },
+    {
+      "ref": "BE6",
+      "row": 6,
+      "column": 57,
+      "text": "Calendar year average, Jan 2015 =100"
+    },
+    {
+      "ref": "BF6",
+      "row": 6,
+      "column": 58,
+      "text": "Year end, £mn"
+    },
+    {
+      "ref": "BG6",
+      "row": 6,
+      "column": 59,
+      "text": "Year end, £mn"
+    },
+    {
+      "ref": "BH6",
+      "row": 6,
+      "column": 60,
+      "text": "% of nominal GDP"
+    },
+    {
+      "ref": "BI6",
+      "row": 6,
+      "column": 61,
+      "text": "% of nominal GDP"
+    },
+    {
+      "ref": "BJ6",
+      "row": 6,
+      "column": 62,
+      "text": "Year end, £mn"
+    },
+    {
+      "ref": "BK6",
+      "row": 6,
+      "column": 63,
+      "text": "Year end, £mn"
+    },
+    {
+      "ref": "BL6",
+      "row": 6,
+      "column": 64,
+      "text": "Year end, £mn"
+    },
+    {
+      "ref": "BM6",
+      "row": 6,
+      "column": 65,
+      "text": "Year end, £mn"
+    },
+    {
+      "ref": "BN6",
+      "row": 6,
+      "column": 66,
+      "text": "Year end, £mn"
+    },
+    {
+      "ref": "BO6",
+      "row": 6,
+      "column": 67,
+      "text": "Calendar year total, £mn"
+    },
+    {
+      "ref": "BP6",
+      "row": 6,
+      "column": 68,
+      "text": "as a % of nominal GDP"
+    },
+    {
+      "ref": "BQ6",
+      "row": 6,
+      "column": 69,
+      "text": "Calendar year total, £mn"
+    },
+    {
+      "ref": "BR6",
+      "row": 6,
+      "column": 70,
+      "text": "as a % of nominal GDP"
+    },
+    {
+      "ref": "BS6",
+      "row": 6,
+      "column": 71,
+      "text": "Calendar year total, £mn"
+    },
+    {
+      "ref": "BT6",
+      "row": 6,
+      "column": 72,
+      "text": "as a % of nominal GDP"
+    },
+    {
+      "ref": "BU6",
+      "row": 6,
+      "column": 73,
+      "text": "Calendar Year end nominal par value outstanding, £mn"
+    },
+    {
+      "ref": "BV6",
+      "row": 6,
+      "column": 74,
+      "text": "as a % of nominal GDP: measure 1"
+    },
+    {
+      "ref": "BW6",
+      "row": 6,
+      "column": 75,
+      "text": "as a % of nominal GDP: measure 2"
+    },
+    {
+      "ref": "BX6",
+      "row": 6,
+      "column": 76,
+      "text": "Financial year end, nominal par value £mn"
+    },
+    {
+      "ref": "BY6",
+      "row": 6,
+      "column": 77,
+      "text": "Financial year end, market value £mn"
+    },
+    {
+      "ref": "BZ6",
+      "row": 6,
+      "column": 78,
+      "text": "£mn"
+    },
+    {
+      "ref": "CA6",
+      "row": 6,
+      "column": 79,
+      "text": "as a % of nominal GDP"
+    },
+    {
+      "ref": "CB6",
+      "row": 6,
+      "column": 80,
+      "text": "£mn"
+    },
+    {
+      "ref": "CC6",
+      "row": 6,
+      "column": 81,
+      "text": "as a % of nominal GDP"
+    },
+    {
+      "ref": "CD6",
+      "row": 6,
+      "column": 82,
+      "text": "£mn"
+    },
+    {
+      "ref": "CE6",
+      "row": 6,
+      "column": 83,
+      "text": "as a % of nominal GDP"
+    },
+    {
+      "ref": "A7",
+      "row": 7,
+      "column": 1,
+      "text": "Documentation"
+    },
+    {
+      "ref": "P7",
+      "row": 7,
+      "column": 16,
+      "text": "Composite measure"
+    },
+    {
+      "ref": "Q7",
+      "row": 7,
+      "column": 17,
+      "text": "Composite measure"
+    },
+    {
+      "ref": "R7",
+      "row": 7,
+      "column": 18,
+      "text": "Composite measure"
+    },
+    {
+      "ref": "S7",
+      "row": 7,
+      "column": 19,
+      "text": "Composite measure"
+    },
+    {
+      "ref": "T7",
+      "row": 7,
+      "column": 20,
+      "text": "Goods only prior to 1870.  GB only prior to 1816, England and Wales prior to 1772 and largely based on woollen exports prior to 1697"
+    },
+    {
+      "ref": "U7",
+      "row": 7,
+      "column": 21,
+      "text": "Goods only prior to 1870.  GB only prior to 1816, England and Wales prior to 1772, London prior to 1696."
+    },
+    {
+      "ref": "W7",
+      "row": 7,
+      "column": 23,
+      "text": "Constant border UK (GB+NI) definition "
+    },
+    {
+      "ref": "X7",
+      "row": 7,
+      "column": 24,
+      "text": "Based on political definition of UK at the time, GB before 1801, GB+I 1801-1920, GB+NI 1921-"
+    },
+    {
+      "ref": "Y7",
+      "row": 7,
+      "column": 25,
+      "text": "GB+NI population, using Broadberry et al (2015) GB estimates"
+    },
+    {
+      "ref": "Z7",
+      "row": 7,
+      "column": 26,
+      "text": "Population of England"
+    },
+    {
+      "ref": "AA7",
+      "row": 7,
+      "column": 27,
+      "text": "Break-adjusted measure"
+    },
+    {
+      "ref": "AB7",
+      "row": 7,
+      "column": 28,
+      "text": "LFS consistent measure, rough GB estimates prior to 1855"
+    },
+    {
+      "ref": "AX7",
+      "row": 7,
+      "column": 50,
+      "text": "NB Possible break in the mean of around +1% in 1977 reflecting a shift from the rate charged to blue chip companies to one covering the whole of the PNFC sector."
+    },
+    {
+      "ref": "BE7",
+      "row": 7,
+      "column": 57,
+      "text": "NB uses building costs as a rough proxy prior to 1895"
+    },
+    {
+      "ref": "BF7",
+      "row": 7,
+      "column": 58,
+      "text": "Break-adjusted stock of bank and building society lending, M4Lx"
+    },
+    {
+      "ref": "BG7",
+      "row": 7,
+      "column": 59,
+      "text": "Break-adjusted stock of bank and building society lending secured on dwellings, excluding impact of securitisations"
+    },
+    {
+      "ref": "BH7",
+      "row": 7,
+      "column": 60,
+      "text": "using unconsolidated balance sheet and GB+NI nominal GDP"
+    },
+    {
+      "ref": "BI7",
+      "row": 7,
+      "column": 61,
+      "text": "using consolidated balance sheet and GB+NI nominal GDP"
+    },
+    {
+      "ref": "BL7",
+      "row": 7,
+      "column": 64,
+      "text": "M0"
+    },
+    {
+      "ref": "BM7",
+      "row": 7,
+      "column": 65,
+      "text": "Spliced break-adjusted stock"
+    },
+    {
+      "ref": "BN7",
+      "row": 7,
+      "column": 66,
+      "text": "Spliced break-adjusted broad money measure based on M3/M4/M4x"
+    },
+    {
+      "ref": "BO7",
+      "row": 7,
+      "column": 67,
+      "text": "excluding the temporary effects of financial interventions."
+    },
+    {
+      "ref": "BP7",
+      "row": 7,
+      "column": 68,
+      "text": "using GB+NI nominal GDP"
+    },
+    {
+      "ref": "BQ7",
+      "row": 7,
+      "column": 69,
+      "text": "excluding the temporary effects of financial interventions."
+    },
+    {
+      "ref": "BR7",
+      "row": 7,
+      "column": 70,
+      "text": "using GB+NI nominal GDP"
+    },
+    {
+      "ref": "BS7",
+      "row": 7,
+      "column": 71,
+      "text": "excluding the temporary effects of financial interventions.  Central government only prior to 1900."
+    },
+    {
+      "ref": "BT7",
+      "row": 7,
+      "column": 72,
+      "text": "using GDP based on political boundaries"
+    },
+    {
+      "ref": "BU7",
+      "row": 7,
+      "column": 73,
+      "text": "excluding public sector banks.  Includes estimated capital value of terminable annuities "
+    },
+    {
+      "ref": "BV7",
+      "row": 7,
+      "column": 74,
+      "text": "using GB+Ireland GDP before 1920"
+    },
+    {
+      "ref": "BW7",
+      "row": 7,
+      "column": 75,
+      "text": "based on GB funded debt and GB GDP before 1817"
+    },
+    {
+      "ref": "BX7",
+      "row": 7,
+      "column": 76,
+      "text": "Includes estimated capital value of terminable annuities"
+    },
+    {
+      "ref": "BY7",
+      "row": 7,
+      "column": 77,
+      "text": "Includes estimated capital value of terminable annuities"
+    },
+    {
+      "ref": "CA7",
+      "row": 7,
+      "column": 79,
+      "text": "using conformable measure of nominal GDP"
+    },
+    {
+      "ref": "CB7",
+      "row": 7,
+      "column": 80,
+      "text": "GB only before 1816"
+    },
+    {
+      "ref": "CC7",
+      "row": 7,
+      "column": 81,
+      "text": "using conformable measure of nominal GDP"
+    },
+    {
+      "ref": "CE7",
+      "row": 7,
+      "column": 83,
+      "text": "using conformable measure of nominal GDP"
+    }
+  ],
+  "notes": [],
+  "merged_header_ranges": [],
+  "real_gdp_columns": [
+    {
+      "column": "B",
+      "header": [
+        {
+          "ref": "B1",
+          "text": "A1. Headline Annual Series 1086-2016",
+          "inherited": false
+        },
+        {
+          "ref": "B3",
+          "text": "National Accounts",
+          "inherited": false
+        },
+        {
+          "ref": "B4",
+          "text": "Real UK GDP at market prices, geographically-consistent estimate based on post-1922 borders",
+          "inherited": false
+        },
+        {
+          "ref": "B5",
+          "text": "A8. Real GDP (A) 1700-2015",
+          "inherited": false
+        },
+        {
+          "ref": "B6",
+          "text": "£mn, Chained Volume measure, 2013 prices",
+          "inherited": false
+        }
+      ],
+      "real_gdp_labels": [
+        "B4",
+        "B5"
+      ],
+      "uk_or_consistent": [
+        "Real UK GDP at market prices, geographically-consistent estimate based on post-1922 borders"
+      ]
+    },
+    {
+      "column": "D",
+      "header": [
+        {
+          "ref": "D4",
+          "text": "Real UK GDP at factor cost, geographically-consistent estimate based on post-1922 borders",
+          "inherited": false
+        },
+        {
+          "ref": "D5",
+          "text": "A8. Real GDP (A) 1700-2015",
+          "inherited": false
+        },
+        {
+          "ref": "D6",
+          "text": "£mn, Chained Volume measure, 2013 prices",
+          "inherited": false
+        }
+      ],
+      "real_gdp_labels": [
+        "D4",
+        "D5"
+      ],
+      "uk_or_consistent": [
+        "Real UK GDP at factor cost, geographically-consistent estimate based on post-1922 borders"
+      ]
+    },
+    {
+      "column": "F",
+      "header": [
+        {
+          "ref": "F4",
+          "text": "Index of real UK GDP at market prices cost - based on changing political boundaries, ",
+          "inherited": false
+        },
+        {
+          "ref": "F5",
+          "text": "A8. Real GDP (A) 1700-2015",
+          "inherited": false
+        },
+        {
+          "ref": "F6",
+          "text": "GB before 1801, GB+Ireland 1801-1920, GB + Northern Ireland after 1920.  Indexed to 100 in 1920",
+          "inherited": false
+        }
+      ],
+      "real_gdp_labels": [
+        "F4",
+        "F5"
+      ],
+      "uk_or_consistent": [
+        "Index of real UK GDP at market prices cost - based on changing political boundaries, "
+      ]
+    },
+    {
+      "column": "H",
+      "header": [
+        {
+          "ref": "H4",
+          "text": "Real GDP of England at market prices",
+          "inherited": false
+        },
+        {
+          "ref": "H5",
+          "text": "A21. GDP per capita",
+          "inherited": false
+        },
+        {
+          "ref": "H6",
+          "text": "£mn, Chained Volume measure, 2013 prices",
+          "inherited": false
+        }
+      ],
+      "real_gdp_labels": [
+        "H4"
+      ],
+      "uk_or_consistent": []
+    },
+    {
+      "column": "J",
+      "header": [
+        {
+          "ref": "J4",
+          "text": "Real GDP of England at factor cost ",
+          "inherited": false
+        },
+        {
+          "ref": "J5",
+          "text": "A21. GDP per capita",
+          "inherited": false
+        },
+        {
+          "ref": "J6",
+          "text": "£mn, Chained Volume measure, 2013 prices",
+          "inherited": false
+        }
+      ],
+      "real_gdp_labels": [
+        "J4"
+      ],
+      "uk_or_consistent": []
+    },
+    {
+      "column": "L",
+      "header": [
+        {
+          "ref": "L4",
+          "text": "Composite estimate of English and (geographically-consistent) UK real GDP at factor cost",
+          "inherited": false
+        },
+        {
+          "ref": "L5",
+          "text": "A21. GDP per capita 1086",
+          "inherited": false
+        },
+        {
+          "ref": "L6",
+          "text": "2013=100",
+          "inherited": false
+        }
+      ],
+      "real_gdp_labels": [
+        "L4"
+      ],
+      "uk_or_consistent": [
+        "Composite estimate of English and (geographically-consistent) UK real GDP at factor cost"
+      ]
+    },
+    {
+      "column": "N",
+      "header": [
+        {
+          "ref": "N4",
+          "text": "HP-filter of log of real composite estimate of English and UK real GDP at factor cost",
+          "inherited": false
+        },
+        {
+          "ref": "N6",
+          "text": "approx. % difference from trend",
+          "inherited": false
+        }
+      ],
+      "real_gdp_labels": [
+        "N4"
+      ],
+      "uk_or_consistent": [
+        "HP-filter of log of real composite estimate of English and UK real GDP at factor cost"
+      ]
+    }
+  ],
+  "column_named_by_amendment": {
+    "sheet": "A1. Headline series",
+    "column": "B"
+  },
+  "selection": {
+    "sheet": "A1. Headline series",
+    "sheet_index": 3,
+    "column": "B",
+    "year_column": "A",
+    "first_data_row": 8,
+    "layout_source": "cell types",
+    "label": "Real UK GDP at market prices, geographically-consistent estimate based on post-1922 borders",
+    "header": "A1. Headline Annual Series 1086-2016 | National Accounts | Real UK GDP at market prices, geographically-consistent estimate based on post-1922 borders | A8. Real GDP (A) 1700-2015 | £mn, Chained Volume measure, 2013 prices",
+    "header_cells": [
+      {
+        "ref": "B1",
+        "text": "A1. Headline Annual Series 1086-2016",
+        "inherited": false
+      },
+      {
+        "ref": "B3",
+        "text": "National Accounts",
+        "inherited": false
+      },
+      {
+        "ref": "B4",
+        "text": "Real UK GDP at market prices, geographically-consistent estimate based on post-1922 borders",
+        "inherited": false
+      },
+      {
+        "ref": "B5",
+        "text": "A8. Real GDP (A) 1700-2015",
+        "inherited": false
+      },
+      {
+        "ref": "B6",
+        "text": "£mn, Chained Volume measure, 2013 prices",
+        "inherited": false
+      }
+    ],
+    "units": "£mn, Chained Volume measure, 2013 prices",
+    "rule_step": 3,
+    "rule": "the real-GDP column named by the amendment in audit/E1_AMENDMENT_2.json"
+  },
+  "version": {
+    "statement": {
+      "location": "sheet name: Corrections to V3.1",
+      "level": "title",
+      "text": "Corrections to V3.1",
+      "version": "3.1"
+    },
+    "designated_by_operator": false,
+    "other_versions": [
+      {
+        "location": "Front page!B180",
+        "level": "other",
+        "text": "Previous version 2.3 of the spreadsheet",
+        "version": "2.3"
+      },
+      {
+        "location": "A9. Nominal GDP (A)!AG2",
+        "level": "other",
+        "text": "Memo: Old composite measures from version 2.3 of three centuries dataset updated for 2016",
+        "version": "2.3"
+      },
+      {
+        "location": "A47. Wages and prices!F3",
+        "level": "other",
+        "text": "Consumer Price Index (CPI) - original method from version 1.0",
+        "version": "1.0"
+      }
+    ],
+    "title_level": [
+      {
+        "location": "sheet name: Corrections to V3.1",
+        "level": "title",
+        "text": "Corrections to V3.1",
+        "version": "3.1"
+      }
+    ],
+    "all_statements": [
+      {
+        "location": "sheet name: Corrections to V3.1",
+        "level": "title",
+        "text": "Corrections to V3.1",
+        "version": "3.1"
+      },
+      {
+        "location": "Front page!B179",
+        "level": "other",
+        "text": "What's new in version 3.1 ?",
+        "version": "3.1"
+      },
+      {
+        "location": "Front page!B180",
+        "level": "other",
+        "text": "Previous version 2.3 of the spreadsheet",
+        "version": "2.3"
+      },
+      {
+        "location": "A9. Nominal GDP (A)!AG2",
+        "level": "other",
+        "text": "Memo: Old composite measures from version 2.3 of three centuries dataset updated for 2016",
+        "version": "2.3"
+      },
+      {
+        "location": "A47. Wages and prices!F3",
+        "level": "other",
+        "text": "Consumer Price Index (CPI) - original method from version 1.0",
+        "version": "1.0"
+      }
+    ]
+  }
+}

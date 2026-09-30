@@ -1,0 +1,408 @@
+E1 header-only output (prereg/E1.md section 4). Text cells only: no numeric cell is read or printed.
+Workbook SHA-256: 4c23dd392a498691eac92659aec283fb43f28118bd80511dc87fc595974195eb
+
+Version statement (sheet name: Corrections to V3.1): Corrections to V3.1
+
+Sheets (109):
+  1. 'Disclaimer' [visible] title: ''
+  2. 'Corrections to V3.1' [visible] title: 'Back to front page'
+  3. 'Front page' [visible] title: 'CONTENTS'
+  4. 'A1. Headline series' [visible] title: 'A1. Headline Annual Series 1086-2016'
+  5. 'BEG Table of contents' [visible] title: 'Back to front page'
+  6. 'A2. Pop of Eng & GB 1086-1870' [visible] title: 'Back to front page'
+  7. 'A3. Eng. Agriculture 1270-1870' [visible] title: 'Back to front page'
+  8. 'A4. Ind Production 1270-1870' [visible] title: 'A4. English and GB Industrial Production 1270-1870 '
+  9. 'A5. Service Sector 1270-1870' [visible] title: 'A5. English and GB Service Sector Production 1270-1870 '
+  10. 'A6. English GDP(O) 1270-1700' [visible] title: 'A6. English GDP(O) 1086-1700'
+  11. 'A7. GB GDP(O) 1700-1870' [visible] title: 'A7. Great Britain GDP(O) 1270-1700'
+  12. 'Notes on GDP estimates' [visible] title: 'Back to front page'
+  13. 'A8. UK Real GDP(A)' [visible] title: 'Back to front page'
+  14. 'A9. Nominal GDP (A)' [visible] title: 'Back to front page'
+  15. 'A10. GNP and National Saving' [visible] title: 'Back to front page'
+  16. 'A11. GDP(E) components - values' [visible] title: 'A11. GDP(E) components - Current price measures'
+  17. 'A12. GDP(E) components - vols' [visible] title: 'A12. GDP(E ) components - chained volume measures'
+  18. 'A13. GDP(E) contributions' [visible] title: 'Back to front page'
+  19. 'A14. Real GDP(O) components' [visible] title: 'Back to front page'
+  20. 'A15. Factor incomes by SIC ' [visible] title: 'Back to front page'
+  21. 'A16. Industry GVA shares by SIC' [visible] title: 'Back to front page'
+  22. 'A17. GDP(I) components' [visible] title: 'Back to front page'
+  23. 'A18. Population 1680+' [visible] title: 'Back to front page'
+  24. 'A19a. UK Migration flows' [visible] title: 'Back to front page'
+  25. 'A19b. GB and Irish Migration' [visible] title: 'Back to front page'
+  26. 'A19c. English Net Migration' [visible] title: 'Back to front page'
+  27. 'A20. Migration by citizenship' [visible] title: 'Back to front page'
+  28. 'A21. GDP per capita 1086+' [visible] title: 'Back to front page'
+  29. 'A22. Coin in circulation' [visible] title: 'Back to front page'
+  30. "A23. Bank of England B'Sheet" [visible] title: 'Back to front page'
+  31. 'A24. Monetary aggregates' [visible] title: 'Back to front page'
+  32. 'A25. Credit aggregates' [visible] title: 'Back to front page'
+  33. 'A25a. Bills of Exchange' [visible] title: 'Back to front page'
+  34. 'A26. Central govt 1290-1689' [visible] title: 'Back to front page'
+  35. 'A27. Central govt borrowing ' [visible] title: 'Back to front page'
+  36. 'A28. Public Sector Borrowing' [visible] title: 'Back to front page'
+  37. 'A28a. Public Sector Spending' [visible] title: 'Back to front page'
+  38. 'A29. The National Debt' [visible] title: 'Back to front page'
+  39. 'A30a. Nat Debt mkt vals 1727' [visible] title: 'Back to front page'
+  40. 'A30b. Nat Debt mkt vals 1900-' [visible] title: 'Back to front page'
+  41. 'A30c. Term Annuities 1694-1836' [visible] title: 'Back to front page'
+  42. 'A31. Interest rates & asset ps ' [visible] title: 'Back to front page'
+  43. 'A32. Property prices & rent' [visible] title: 'Back to front page'
+  44. 'A33. Exchange rate data' [visible] title: 'Back to front page'
+  45. 'A34a. Export volumes 1280-1700' [visible] title: 'A34a. English Export volumes 1280-1701'
+  46. 'A34b. Import volumes 1560-1700' [visible] title: 'A34b. English Import volumes 1560-1640'
+  47. 'A34c. Off. trade values 1697-' [visible] title: 'Back to front page'
+  48. 'A35. Trade volumes and prices' [visible] title: 'Back to front page'
+  49. 'A36. Trade values and BOP' [visible] title: 'Back to front page'
+  50. 'A37a. Trade breakdown 1560-1640' [visible] title: 'Back to front page'
+  51. 'A37b. Trade breakdown 1663-1701' [visible] title: 'Back to front page'
+  52. 'A38. Trade breakdown 1699-1774' [visible] title: 'Back to front page'
+  53. 'A39. Trade - Goods trade 1784+' [visible] title: 'Back to front page'
+  54. 'A40. Trade by region 1710-1822' [visible] title: 'Back to front page'
+  55. 'A41. Trade by region 1784+' [visible] title: 'Back to front page'
+  56. 'A42. Regional Trade summary' [visible] title: 'Back to front page'
+  57. 'A43. Trade - by Trade Area' [visible] title: 'Back to front page'
+  58. 'A44. Trade by Country' [visible] title: 'Back to front page'
+  59. 'A45. UK Shares of world trade' [visible] title: 'Back to front page'
+  60. 'A46. Net external assets' [visible] title: 'Back to front page'
+  61. 'A47. Wages and prices' [visible] title: 'Back to front page'
+  62. 'A48. Real Earnings ' [visible] title: 'Back to front page'
+  63. 'A49. GB Employment in C18th' [visible] title: 'Back to front page'
+  64. 'A50. Employment & unemployment' [visible] title: 'Back to front page'
+  65. 'A51. Public Sector Employment' [visible] title: 'Back to front page'
+  66. 'A52a. Wages, Salaries and Comp' [visible] title: 'Back to front page'
+  67. 'A52b. Other labour statistics' [visible] title: 'Back to front page'
+  68. 'A53. Employment by industry' [visible] title: 'Back to front page'
+  69. 'A54. Hours worked' [visible] title: 'Back to front page'
+  70. 'A55. Capital Stock' [visible] title: 'Back to front page'
+  71. 'A56. Productivity' [visible] title: 'Back to front page'
+  72. 'A57. Household saving' [visible] title: 'Back to front page'
+  73. 'A58. BoE FoF 1952+' [visible] title: 'Back to front page'
+  74. 'A59. FoF pre-ESA95' [visible] title: 'Back to front page'
+  75. 'A60. FoF pre-ESA95 by inst' [visible] title: 'Back to front page'
+  76. 'A61. Financial accounts ESA10' [visible] title: 'Back to front page'
+  77. 'A62. Financial claims 1900-48' [visible] title: 'A62. Total financial claims in the UK 1900-1948'
+  78. 'A63. Solomou and Weale' [visible] title: 'A63.  Personal Sector Wealth 1920-1956'
+  79. 'A64a. Sector balance sheets 57+' [visible] title: 'Back to front page'
+  80. 'A64b. Sector Balance Sheets' [visible] title: 'Back to front page'
+  81. 'A65. Personal Sector Wealth' [visible] title: 'Back to front page'
+  82. 'A66. Balance sheets ESA10' [visible] title: 'Back to front page'
+  83. 'Q1. Qrtly headline series' [visible] title: 'Back to front page'
+  84. 'Q2. Qtly GDP 1920+' [visible] title: 'Back to front page'
+  85. 'Q3. Qrtly money aggs 1870-2014 ' [visible] title: 'Back to front page'
+  86. 'Q4. Corp borr. rates 1977+' [visible] title: 'Back to front page'
+  87. 'Q5. Qrtly ERI indices 1920-38' [visible] title: 'Back to front page'
+  88. 'Q6. Qrtly labour market Qs' [visible] title: 'Back to front page'
+  89. 'Q7. Qrtly inflation expectation' [visible] title: 'Back to front page'
+  90. 'M1. Mthly headline series' [visible] title: 'Back to front page'
+  91. 'M2. Monthly activity 1846+' [visible] title: 'Back to front page'
+  92. "M3. M'thly  GDP 1920-1938" [visible] title: 'Back to front page'
+  93. 'M4. Monthly IP 1920+' [visible] title: 'Back to front page'
+  94. 'M5. Administrative unemp 1881+' [visible] title: 'Back to front page'
+  95. 'M6. Mthly prices and wages' [visible] title: 'Back to front page'
+  96. 'M7. Mthly money aggs 1870-' [visible] title: 'Back to front page'
+  97. 'M8. Mthly credit aggs 1921+' [visible] title: 'Back to front page'
+  98. 'M9. Mthly short-term rates' [visible] title: 'Back to front page'
+  99. 'M10. Mthly long-term rates' [visible] title: 'M10. Monthly long-term interest rates, 1753-2016'
+  100. 'M11. Mthly corp bond yields' [visible] title: 'Back to front page'
+  101. 'M12. Mthly HH loan rates 1939+' [visible] title: 'Back to front page'
+  102. 'M13. Mthly share prices 1709+ ' [visible] title: 'Back to front page'
+  103. 'M14. Mthly Exchange rates 1963+' [visible] title: 'Back to front page'
+  104. 'M15. Mthly $-£ 1791-2015' [visible] title: 'Back to front page'
+  105. 'W1. Issue Department' [visible] title: 'Issue Department Balance Sheet'
+  106. 'W2. Banking Department' [visible] title: 'Banking Department Balance Sheet'
+  107. 'D1. Official Interest Rates' [visible] title: 'D1. Bank of England/Official Interest Rates in the UK 1833-2017: '
+  108. 'D2. Bilaterals' [visible] title: 'Back to Front Page'
+  109. 'D3. ERI vintages' [visible] title: 'Back to Front Page'
+
+Headline-series sheet: 'A1. Headline series' (matched by name, title; named by the amendment in audit/E1_AMENDMENT_1.json)
+First data row: 8; year column: A (located by cell types)
+
+Text cells above the first data row:
+  B1: A1. Headline Annual Series 1086-2016
+  A2: Back to front page
+  A3: Section
+  B3: National Accounts
+  Y3: Labour, capital and productivity
+  AI3: Wages and Prices
+  AS3: Financial markets
+  BF3: Money and Credit
+  BO3: Fiscal
+  BZ3: Trade
+  A4: Description
+  B4: Real UK GDP at market prices, geographically-consistent estimate based on post-1922 borders
+  D4: Real UK GDP at factor cost, geographically-consistent estimate based on post-1922 borders
+  F4: Index of real UK GDP at market prices cost - based on changing political boundaries, 
+  H4: Real GDP of England at market prices
+  J4: Real GDP of England at factor cost 
+  L4: Composite estimate of English and (geographically-consistent) UK real GDP at factor cost
+  N4: HP-filter of log of real composite estimate of English and UK real GDP at factor cost
+  O4: Real UK gross disposable national income at market prices, constant border estimate
+  P4: Real consumption
+  Q4: Real investment
+  R4: Stockbuilding contribution
+  S4: Real government consumption of goods and services
+  T4: Export volumes
+  U4: Import volumes
+  V4: Nominal GDP of England at market prices
+  W4: Nominal UK GDP at market prices
+  X4: Nominal UK GDP at market prices
+  Y4: Population (GB+NI)
+  Z4: Population (England)
+  AA4: Employment
+  AB4: Unemployment rate
+  AC4: Average weekly hours worked
+  AD4: Capital Services, whole economy
+  AE4: TFP growth
+  AF4: Labour productivity
+  AH4: Labour share, whole economy excluding rents
+  AI4: GDP deflator at market prices
+  AJ4: Export prices
+  AK4: Import prices
+  AL4: Terms of Trade
+  AM4: $ Oil prices
+  AN4: Earnings per head
+  AO4: Consumer price index
+  AP4: Consumer price inflation
+  AQ4: Real consumption wages
+  AR4: Wholesale/producer price index
+  AS4: Bank Rate
+  AU4: 10 year/medium-term government bond yields
+  AV4: Consols / long-term government bond yields
+  AW4: Mortgage rates
+  AX4: Corporate borrowing rate from banks
+  AY4: Corporate bond yields
+  AZ4: Share prices
+  BA4: $/£ exchange rate
+  BB4: Real $/£ exchange rate
+  BC4: Nominal ERI
+  BD4: Real ERI
+  BE4: House price index
+  BF4: Credit 
+  BG4: Secured credit
+  BH4: Bank of England Balance sheet
+  BJ4: Coin in circulation outside the Bank of England
+  BK4: Notes and coin in circulation
+  BL4: Monetary base
+  BM4: M1
+  BN4: Broad Money 
+  BO4: Public sector Total Managed Expenditure
+  BQ4: Public Sector Total Receipts
+  BS4: Public Sector Net Lending(+)/Borrowing(-)
+  BU4: UK Public sector debt
+  BX4: Central Government Gross Debt
+  BY4: Central Government Gross Debt
+  BZ4: Trade deficit
+  CB4: Current account 
+  CD4: Current account deficit including estimated non-monetary bullion flows prior to 1946
+  A5: Worksheet
+  B5: A8. Real GDP (A) 1700-2015
+  D5: A8. Real GDP (A) 1700-2015
+  F5: A8. Real GDP (A) 1700-2015
+  H5: A21. GDP per capita
+  J5: A21. GDP per capita
+  L5: A21. GDP per capita 1086
+  O5: A10. GDP, GNI and National Saving
+  P5: A12. GDP(E) - volumes
+  Q5: A12. GDP(E) - volumes
+  R5: A12. GDP(E) - volumes
+  S5: A12. GDP(E) - volumes
+  T5: A35. Trade volumes 
+  U5: A35. Trade volumes 
+  V5: A21. GDP per capita
+  W5: A9. Nominal GDP (A) 1700-2014
+  X5: A9. Nominal GDP (A) 1700-2014
+  Y5: A18. Population 
+  Z5: A21. GDP per capita
+  AA5: A50. Employment
+  AB5: A50. Employment
+  AC5: A54. Hours worked
+  AD5: A55. Capital stock 1851-2014
+  AE5: A56. Productivity 1855-2014
+  AF5: A56. Productivity 1855-2015
+  AG5: A56. Productivity 1855-2015
+  AH5: A56. Productivity 1855-2016
+  AI5: A47. Wages and prices
+  AJ5: A35. Trade volumes 
+  AK5: A35. Trade volumes 
+  AL5: A35. Trade volumes 
+  AM5: A35. Trade volumes 
+  AN5: A47. Wages and prices
+  AO5: A47. Wages and prices
+  AP5: A47. Wages and prices
+  AQ5: A48. Real Earnings '!A1
+  AR5: A47. Wages and prices
+  AS5: A31. Interest rates  
+  AT5: A31. Interest rates  
+  AU5: A31. Interest rates  
+  AV5: A31. Interest rates  
+  AW5: A31. Interest rates  
+  AX5: A31. Interest rates  
+  AY5: A31. Interest rates  
+  AZ5: A31. Interest rates  
+  BA5: A33. Exchange rates
+  BB5: A33. Exchange rates
+  BC5: A33. Exchange rates
+  BD5: A33. Exchange rates
+  BE5: A32. Property prices
+  BF5: A25. Credit aggregates
+  BG5: A25. Credit aggregates
+  BH5: A23. BoE Balance sheet 
+  BJ5: A24. Money
+  BK5: A24. Money
+  BL5: A24. Money
+  BM5: A24. Money
+  BN5: A24. Money
+  BO5: A28. Public Sector Borrowing
+  BP5: A28. Public Sector Borrowing
+  BQ5: A28. Public Sector Borrowing
+  BR5: A28. Public Sector Borrowing
+  BS5: A28. Public Sector Borrowing
+  BT5: A28. Public Sector Borrowing
+  BU5: A29. National Debt 
+  BV5: A29. National Debt 
+  BW5: A29. National Debt 
+  BX5: A29. National Debt 
+  BY5: A30a. National Debt Market values 
+  BZ5: A36. Trade values 
+  CA5: A36. Trade values 
+  CB5: A36. Trade values 
+  CC5: A36. Trade values 
+  CD5: A36. Trade values 
+  CE5: A36. Trade values 
+  A6: Units
+  B6: £mn, Chained Volume measure, 2013 prices
+  C6: growth rate
+  D6: £mn, Chained Volume measure, 2013 prices
+  E6: growth rate
+  F6: GB before 1801, GB+Ireland 1801-1920, GB + Northern Ireland after 1920.  Indexed to 100 in 1920
+  G6: growth rate
+  H6: £mn, Chained Volume measure, 2013 prices
+  I6: growth rate
+  J6: £mn, Chained Volume measure, 2013 prices
+  K6: growth rate
+  L6: 2013=100
+  M6: growth rate
+  N6: approx. % difference from trend
+  O6: £mn, Chained Volume measure, 2013 prices.  Nominal GDI divided by private and public consumption deflator
+  P6: £mn, Chained Volume measure, 2013 prices
+  Q6: £mn, Chained Volume measure, 2013 prices
+  R6: pp contribution to GDP(E)
+  S6: £mn, Chained Volume measure, 2013 prices
+  T6: £mn, Chained Volume measure, 2013 prices. 
+  U6: £mn, Chained Volume measure, 2013 prices.  
+  V6: £mn
+  W6: £mn
+  X6: £mn
+  Y6: 000s
+  Z6: 000s
+  AA6: 000s
+  AB6: %
+  AC6: hours
+  AD6: £mn, 2013 prices
+  AE6: %
+  AF6: Real GDP per head, 2013 prices
+  AG6: Real GDP per hour, 2013 prices
+  AH6: share of GDP excluding rents
+  AI6: 2013=100
+  AJ6: 2013=100
+  AK6: 2013=100
+  AL6: 2013=100
+  AM6: $ per barrel
+  AN6: Average weekly earnings, £
+  AO6: 2015=100
+  AP6: %
+  AQ6: 1900=100
+  AR6: 2010=100
+  AS6: % end period
+  AT6: %, calendar year average
+  AU6: %, calendar year average
+  AV6: %, calendar year average
+  AW6: %, calendar year average
+  AX6: %, calendar year average
+  AY6: %, calendar year average
+  AZ6: April 1962=100, Year end
+  BA6: Calendar year average
+  BB6: Calendar year average, 1913=100
+  BC6: Calendar year average, 1913=100
+  BD6: Calendar year average, 1913=100
+  BE6: Calendar year average, Jan 2015 =100
+  BF6: Year end, £mn
+  BG6: Year end, £mn
+  BH6: % of nominal GDP
+  BI6: % of nominal GDP
+  BJ6: Year end, £mn
+  BK6: Year end, £mn
+  BL6: Year end, £mn
+  BM6: Year end, £mn
+  BN6: Year end, £mn
+  BO6: Calendar year total, £mn
+  BP6: as a % of nominal GDP
+  BQ6: Calendar year total, £mn
+  BR6: as a % of nominal GDP
+  BS6: Calendar year total, £mn
+  BT6: as a % of nominal GDP
+  BU6: Calendar Year end nominal par value outstanding, £mn
+  BV6: as a % of nominal GDP: measure 1
+  BW6: as a % of nominal GDP: measure 2
+  BX6: Financial year end, nominal par value £mn
+  BY6: Financial year end, market value £mn
+  BZ6: £mn
+  CA6: as a % of nominal GDP
+  CB6: £mn
+  CC6: as a % of nominal GDP
+  CD6: £mn
+  CE6: as a % of nominal GDP
+  A7: Documentation
+  P7: Composite measure
+  Q7: Composite measure
+  R7: Composite measure
+  S7: Composite measure
+  T7: Goods only prior to 1870.  GB only prior to 1816, England and Wales prior to 1772 and largely based on woollen exports prior to 1697
+  U7: Goods only prior to 1870.  GB only prior to 1816, England and Wales prior to 1772, London prior to 1696.
+  W7: Constant border UK (GB+NI) definition 
+  X7: Based on political definition of UK at the time, GB before 1801, GB+I 1801-1920, GB+NI 1921-
+  Y7: GB+NI population, using Broadberry et al (2015) GB estimates
+  Z7: Population of England
+  AA7: Break-adjusted measure
+  AB7: LFS consistent measure, rough GB estimates prior to 1855
+  AX7: NB Possible break in the mean of around +1% in 1977 reflecting a shift from the rate charged to blue chip companies to one covering the whole of the PNFC sector.
+  BE7: NB uses building costs as a rough proxy prior to 1895
+  BF7: Break-adjusted stock of bank and building society lending, M4Lx
+  BG7: Break-adjusted stock of bank and building society lending secured on dwellings, excluding impact of securitisations
+  BH7: using unconsolidated balance sheet and GB+NI nominal GDP
+  BI7: using consolidated balance sheet and GB+NI nominal GDP
+  BL7: M0
+  BM7: Spliced break-adjusted stock
+  BN7: Spliced break-adjusted broad money measure based on M3/M4/M4x
+  BO7: excluding the temporary effects of financial interventions.
+  BP7: using GB+NI nominal GDP
+  BQ7: excluding the temporary effects of financial interventions.
+  BR7: using GB+NI nominal GDP
+  BS7: excluding the temporary effects of financial interventions.  Central government only prior to 1900.
+  BT7: using GDP based on political boundaries
+  BU7: excluding public sector banks.  Includes estimated capital value of terminable annuities 
+  BV7: using GB+Ireland GDP before 1920
+  BW7: based on GB funded debt and GB GDP before 1817
+  BX7: Includes estimated capital value of terminable annuities
+  BY7: Includes estimated capital value of terminable annuities
+  CA7: using conformable measure of nominal GDP
+  CB7: GB only before 1816
+  CC7: using conformable measure of nominal GDP
+  CE7: using conformable measure of nominal GDP
+
+Notes attached to the sheet:
+  none
+
+Columns labelled as real GDP:
+  B: A1. Headline Annual Series 1086-2016 | National Accounts | Real UK GDP at market prices, geographically-consistent estimate based on post-1922 borders | A8. Real GDP (A) 1700-2015 | £mn, Chained Volume measure, 2013 prices  [described as UK or geographically consistent]
+  D: Real UK GDP at factor cost, geographically-consistent estimate based on post-1922 borders | A8. Real GDP (A) 1700-2015 | £mn, Chained Volume measure, 2013 prices  [described as UK or geographically consistent]
+  F: Index of real UK GDP at market prices cost - based on changing political boundaries,  | A8. Real GDP (A) 1700-2015 | GB before 1801, GB+Ireland 1801-1920, GB + Northern Ireland after 1920.  Indexed to 100 in 1920  [described as UK or geographically consistent]
+  H: Real GDP of England at market prices | A21. GDP per capita | £mn, Chained Volume measure, 2013 prices
+  J: Real GDP of England at factor cost  | A21. GDP per capita | £mn, Chained Volume measure, 2013 prices
+  L: Composite estimate of English and (geographically-consistent) UK real GDP at factor cost | A21. GDP per capita 1086 | 2013=100  [described as UK or geographically consistent]
+  N: HP-filter of log of real composite estimate of English and UK real GDP at factor cost | approx. % difference from trend  [described as UK or geographically consistent]
+Column named by the amendment in audit/E1_AMENDMENT_2.json: B
+
+Selected: sheet 'A1. Headline series', column B (the real-GDP column named by the amendment in audit/E1_AMENDMENT_2.json)
+  header: A1. Headline Annual Series 1086-2016 | National Accounts | Real UK GDP at market prices, geographically-consistent estimate based on post-1922 borders | A8. Real GDP (A) 1700-2015 | £mn, Chained Volume measure, 2013 prices
+  units: £mn, Chained Volume measure, 2013 prices

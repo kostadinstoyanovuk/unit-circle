@@ -1,0 +1,104 @@
+{
+  "record_type": "E1 series selection by header only (prereg/E1.md section 4; D-023 E1-6)",
+  "raw_sha256": "4c23dd392a498691eac92659aec283fb43f28118bd80511dc87fc595974195eb",
+  "version": {
+    "statement": {
+      "location": "sheet name: Corrections to V3.1",
+      "level": "title",
+      "text": "Corrections to V3.1",
+      "version": "3.1"
+    },
+    "designated_by_operator": false,
+    "other_versions": [
+      {
+        "location": "Front page!B180",
+        "level": "other",
+        "text": "Previous version 2.3 of the spreadsheet",
+        "version": "2.3"
+      },
+      {
+        "location": "A9. Nominal GDP (A)!AG2",
+        "level": "other",
+        "text": "Memo: Old composite measures from version 2.3 of three centuries dataset updated for 2016",
+        "version": "2.3"
+      },
+      {
+        "location": "A47. Wages and prices!F3",
+        "level": "other",
+        "text": "Consumer Price Index (CPI) - original method from version 1.0",
+        "version": "1.0"
+      }
+    ]
+  },
+  "options": {
+    "version_location": null,
+    "first_data_row": null,
+    "year_column": null,
+    "amendment": {
+      "record": "audit/E1_AMENDMENT_1.json",
+      "record_sha256": "77db24f6f17b55c6f5a2793ca186000977ca52494e8df30980655a9cbab3dbcf",
+      "text": "prereg/E1_amendment_1.md",
+      "text_sha256": "530aa9e303b11da052cfb8d63d591d76be7ae6497d6321bd6c42641f760e6c3e",
+      "headline_sheet": "A1. Headline series"
+    },
+    "column_amendment": {
+      "record": "audit/E1_AMENDMENT_2.json",
+      "record_sha256": "d9b6e80c1a9be5bcf49e737ace7395c5107eb5a75bb48436ba5676a01daa873e",
+      "text": "prereg/E1_amendment_2.md",
+      "text_sha256": "e28146e0984c7d6f04baf5cd0bcc01424544115bb5b78cdfe9fa8b3e30bc6ee0",
+      "sheet": "A1. Headline series",
+      "column": "B",
+      "header": "A1. Headline Annual Series 1086-2016 | National Accounts | Real UK GDP at market prices, geographically-consistent estimate based on post-1922 borders | A8. Real GDP (A) 1700-2015 | £mn, Chained Volume measure, 2013 prices"
+    }
+  },
+  "readings": {
+    "version": "(?<![A-Za-z0-9])(?:version|vers|ver|v)\\.?[\\s:]*(\\d+(?:\\.\\d+)+)",
+    "headline": "\\bheadline\\b",
+    "real": "\\breal\\b",
+    "gdp": "\\bGDP\\b|gross\\s+domestic\\s+product",
+    "transformation": "per\\s+(?:head|capita|person|worker|hour|employee)|\\bgrowth\\b|\\bdeflator\\b|%|\\bper\\s*cent|\\bpercentage\\b|\\bchange\\b|\\bcontributions?\\b|\\bshares?\\b|\\bratios?\\b",
+    "uk_or_consistent": "\\bUK\\b|United\\s+Kingdom|geographically[\\s-]+consistent",
+    "units_label": "\\bunits?\\b",
+    "first_data_row": "the first row whose leftmost non-blank cell is numeric (by cell type)",
+    "year_column": "the column of that cell"
+  },
+  "sheet": "A1. Headline series",
+  "sheet_index": 3,
+  "column": "B",
+  "year_column": "A",
+  "first_data_row": 8,
+  "layout_source": "cell types",
+  "label": "Real UK GDP at market prices, geographically-consistent estimate based on post-1922 borders",
+  "header": "A1. Headline Annual Series 1086-2016 | National Accounts | Real UK GDP at market prices, geographically-consistent estimate based on post-1922 borders | A8. Real GDP (A) 1700-2015 | £mn, Chained Volume measure, 2013 prices",
+  "header_cells": [
+    {
+      "ref": "B1",
+      "text": "A1. Headline Annual Series 1086-2016",
+      "inherited": false
+    },
+    {
+      "ref": "B3",
+      "text": "National Accounts",
+      "inherited": false
+    },
+    {
+      "ref": "B4",
+      "text": "Real UK GDP at market prices, geographically-consistent estimate based on post-1922 borders",
+      "inherited": false
+    },
+    {
+      "ref": "B5",
+      "text": "A8. Real GDP (A) 1700-2015",
+      "inherited": false
+    },
+    {
+      "ref": "B6",
+      "text": "£mn, Chained Volume measure, 2013 prices",
+      "inherited": false
+    }
+  ],
+  "units": "£mn, Chained Volume measure, 2013 prices",
+  "rule_step": 3,
+  "rule": "the real-GDP column named by the amendment in audit/E1_AMENDMENT_2.json",
+  "selected_utc": "2026-09-30T17:44:09.430496+00:00"
+}
