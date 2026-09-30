@@ -33,7 +33,7 @@ def _output(root, output, extension, recomputation):
         raise gates.GateClosed("A recomputation needs its own output directory")
     if output.exists():
         raise gates.GateClosed(f"{output} exists; the registered analysis runs once into a new directory")
-    gates._closed(gates.load_runner(root).verify_output_location, Path(root), output)
+    gates._closed(gates.load_runner(root, extension).verify_output_location, Path(root), output)
     return output
 
 

@@ -27,7 +27,7 @@ class X3InputError(ValueError):
 
 def summarize(root, extension: str, files) -> dict:
     """The runner's registered `summarize` of one or more output files: {manifest, inputs, summary}."""
-    runner = gates.load_runner(root)
+    runner = gates.load_runner(root, extension)
     arguments = [extension, "summarize", "--registered", "--root", str(Path(root).resolve())]
     for path in files:
         arguments += ["--out", str(path)]
@@ -39,7 +39,7 @@ def summarize(root, extension: str, files) -> dict:
 
 def prerequisite_evidence(root, path) -> dict:
     """The E3 prerequisite file: its manifest fingerprint and its one prerequisite record."""
-    runner = gates.load_runner(root)
+    runner = gates.load_runner(root, "e3")
     manifest, _, others = gates._closed(runner.read_output, path)
     found = [line for line in others if line.get("record_type") == "prerequisite"]
     if len(found) != 1:
@@ -110,7 +110,7 @@ def build_record(extension: str, size: dict, power: dict, prerequisite: dict | N
             if any(fingerprint.get("prerequisite") != prerequisite["sha256"] for fingerprint in fingerprints):
                 problems.append("an E3 output does not name the supplied prerequisite file")
     elif prerequisite is not None:
-        problems.append("E1 has no separate prerequisite record")
+        problems.append(f"{name} has no separate prerequisite record")
     if problems:
         raise X3InputError("; ".join(problems))
     size_summary, power_summary = size["summary"], power["summary"]

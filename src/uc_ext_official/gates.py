@@ -1,13 +1,15 @@
-"""Gates for the registered E1 and E3 execution steps, fail closed (prereg/E1.md and prereg/E3.md, Annex B).
+"""Gates for the registered E1, E3 and E4 execution steps, fail closed (prereg/E1.md, E3.md and E4.md, Annex B).
 
-- Registration (G4): the X.3 runner's own check, `run_e_checks.verify_extension_gate`, reused unchanged:
+- Registration (G4): the X.3 runner's own check (`verify_extension_gate` of tools/run_e_checks.py for E1 and
+  E3, of tools/run_e4_checks.py for E4), reused unchanged:
   a clean research tree, the annotated tag prereg-Ek published identically on origin, prereg/Ek.md equal
   to the tagged file, and audit/Ek_REGISTRATION.json showing an approved public registration whose
   archived protocol has the tagged bytes.
 - Official synthetic checks (X.3): audit/Ek_X3.json, committed, recording that the registered size and
   power checks (and, for E3, the section 11 prerequisites) passed with the registered seed and sizes.
-- Frozen code (Annex B, X.3 -> X.4): the code identity the X.3 runner computes (every uc_ext and uc_core
-  source, the runner, and the environment identity of the lock) equals the one recorded in the X.3 record.
+- Frozen code (Annex B, X.3 -> X.4): the code identity the extension's X.3 runner computes (every uc_ext and
+  uc_core source, the runner, and the environment identity of the lock; for E4 also every uc_e4 source and its
+  own runner) equals the one recorded in the X.3 record.
 - Location: a registered run imports uc_core, uc_ext and this package from the research root it runs in.
 
 Every refusal raises GateClosed with the reason; nothing is written by this module.
@@ -27,8 +29,9 @@ REGISTERED_SEED = 1927
 REGISTERED_SERIES = 200
 REGISTERED_ATTEMPTS = 1000
 REGISTERED_KAPPAS = (1.0, 1.2, 1.4, 1.6)
-EXTENSIONS = ("e1", "e3")
-RUNNER = "tools/run_e_checks.py"
+EXTENSIONS = ("e1", "e3", "e4")
+RUNNER = "tools/run_e_checks.py"                 # E1 and E3
+RUNNERS = dict(e1=RUNNER, e3=RUNNER, e4="tools/run_e4_checks.py")
 HEX64 = re.compile(r"^[0-9a-f]{64}$")
 
 
@@ -40,6 +43,12 @@ def extension_name(extension: str) -> str:
     if extension not in EXTENSIONS:
         raise ValueError(f"Unknown extension {extension!r}; expected one of {EXTENSIONS}")
     return extension.upper()
+
+
+def runner_path(extension: str) -> str:
+    """The X.3 runner of an extension, relative to the research root."""
+    extension_name(extension)
+    return RUNNERS[extension]
 
 
 def x3_record_path(extension: str) -> str:
@@ -80,12 +89,14 @@ def git(root, *args) -> str:
 _RUNNERS = {}
 
 
-def load_runner(root):
-    """The research root's own X.3 runner (tools/run_e_checks.py), loaded once per path."""
-    path = (Path(root) / RUNNER).resolve()
+def load_runner(root, extension: str = "e1"):
+    """The research root's own X.3 runner for `extension` (tools/run_e_checks.py for E1 and E3,
+    tools/run_e4_checks.py for E4), loaded once per path."""
+    relative = runner_path(extension)
+    path = (Path(root) / relative).resolve()
     if path not in _RUNNERS:
         if not path.is_file():
-            raise GateClosed(f"{RUNNER} is missing under {root}: the E pipelines are not integrated here")
+            raise GateClosed(f"{relative} is missing under {root}: the E pipelines are not integrated here")
         spec = importlib.util.spec_from_file_location(f"run_e_checks_{len(_RUNNERS)}", path)
         module = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(module)
@@ -107,7 +118,7 @@ def check_registration(root, extension: str) -> dict:
     """G4 for one extension (run_e_checks.verify_extension_gate), with the gate record and the
     registration's first verified public time, which starts the E1 release rule."""
     root = Path(root)
-    runner = load_runner(root)
+    runner = load_runner(root, extension)
     _closed(runner.verify_extension_gate, root, extension)
     gate = _closed(runner.gate_record, root, extension)
     receipt = json.loads((root / registration_record_path(extension)).read_text(encoding="utf-8"))
@@ -178,14 +189,15 @@ def check_x3(root, extension: str) -> dict:
 
 # ------------------------------------------------------------------------------ frozen code
 
-def code_identity(root) -> dict:
-    """run_e_checks.run_identity in registered mode: lock, Python 3.12.14, clean tree, code hash."""
-    return _closed(load_runner(root).run_identity, Path(root), registered=True)
+def code_identity(root, extension: str = "e1") -> dict:
+    """The extension runner's run_identity in registered mode: lock, Python 3.12.14, clean tree, code hash."""
+    return _closed(load_runner(root, extension).run_identity, Path(root), registered=True)
 
 
-def check_code_frozen(root, x3: dict) -> dict:
-    """The code that runs X.4 is the code that ran X.3 (Annex B: not touched between them)."""
-    identity = code_identity(root)
+def check_code_frozen(root, x3: dict, extension: str | None = None) -> dict:
+    """The code that runs X.4 is the code that ran X.3 (Annex B: not touched between them). The extension is
+    the one given or, failing that, the one the X.3 record names."""
+    identity = code_identity(root, (extension or str(x3.get("extension") or "e1")).lower())
     if identity["code_sha256"] != x3["code_sha256"]:
         raise GateClosed("The analysis code differs from the code that ran the official synthetic checks "
                          f"(X.3 code {x3['code_sha256'][:12]}..., now {identity['code_sha256'][:12]}...); "
@@ -193,14 +205,18 @@ def check_code_frozen(root, x3: dict) -> dict:
     return identity
 
 
-def check_code_location(root) -> dict:
-    """uc_core, uc_ext and uc_ext_official are imported from the research root's src/."""
+def check_code_location(root, extension: str | None = None) -> dict:
+    """uc_core, uc_ext and uc_ext_official (and, for E4, uc_e4) are imported from the research root's src/."""
     import uc_core
     import uc_ext
     import uc_ext_official
+    packages = [uc_core, uc_ext, uc_ext_official]
+    if extension == "e4":
+        import uc_e4
+        packages.append(uc_e4)
     root = Path(root).resolve()
     where = {}
-    for package in (uc_core, uc_ext, uc_ext_official):
+    for package in packages:
         directory = Path(package.__file__).resolve().parent
         if directory != root / "src" / package.__name__:
             raise GateClosed(f"{package.__name__} was imported from {directory}, not from {root}/src; "

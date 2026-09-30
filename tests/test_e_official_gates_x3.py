@@ -156,7 +156,7 @@ def test_check_x3_needs_a_committed_unchanged_record(tmp_path):
 
 
 def test_code_freeze_compares_the_x3_identity(monkeypatch):
-    monkeypatch.setattr(gates, "code_identity", lambda root: dict(code_sha256=CODE, identity={}))
+    monkeypatch.setattr(gates, "code_identity", lambda root, extension="e1": dict(code_sha256=CODE, identity={}))
     assert gates.check_code_frozen("unused", dict(code_sha256=CODE))["code_sha256"] == CODE
     with pytest.raises(gates.GateClosed, match="Annex B"):
         gates.check_code_frozen("unused", dict(code_sha256="0" * 64))
