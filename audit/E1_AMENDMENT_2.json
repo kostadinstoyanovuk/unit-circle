@@ -1,0 +1,88 @@
+{
+    "record_type": "OSF registration update for extension E1: amendment 2 (prereg/E1.md section 4)",
+    "registration_id": "mjg9w",
+    "registration_url": "https://osf.io/mjg9w",
+    "doi": "10.17605/OSF.IO/MJG9W",
+    "amendment_url": "https://osf.io/mjg9w/overview",
+    "amendment_api_url": "https://api.osf.io/v2/schema_responses/6abd479842acf3804b38901c/",
+    "amends": {
+        "text": "prereg/E1.md section 4, \"Selecting the series without seeing values (X.2)\", the tie-break between real-GDP columns",
+        "registered_text_sha256": "d0d7b0859593b301a0af8bd9b5d48f92bcd3aef27082d9d7b6c4cf2d4e26e4fd",
+        "prereg_tag": "prereg-E1",
+        "prereg_tag_commit": "5a26bfc8b4af3486cb17e758102f7efc59301379",
+        "follows": "audit/E1_AMENDMENT_1.json"
+    },
+    "attachment": "prereg/E1_amendment_2.md",
+    "attachment_sha256": "e28146e0984c7d6f04baf5cd0bcc01424544115bb5b78cdfe9fa8b3e30bc6ee0",
+    "attachment_bytes": 3896,
+    "attachment_note": "The text file was not uploaded to OSF: the update form's file upload is disabled. The filed sentence in answer 72-16 cites this path and this SHA-256, and this committed file is the text it cites. The file is not among the archived OSF files.",
+    "real_gdp_column": {
+        "sheet": "A1. Headline series",
+        "column": "B",
+        "header": "A1. Headline Annual Series 1086-2016 | National Accounts | Real UK GDP at market prices, geographically-consistent estimate based on post-1922 borders | A8. Real GDP (A) 1700-2015 | £mn, Chained Volume measure, 2013 prices"
+    },
+    "column_description_row_4": "Real UK GDP at market prices, geographically-consistent estimate based on post-1922 borders",
+    "how_filed": "An update of the registration, not a new registration: the justification for the update and one changed answer, 72-16 (Data identifiers), to which one sentence was added after the 565 characters that the first update left. The owner submitted the update and approved it from the OSF email (DECISIONS.md D-047, D-048).",
+    "schema_response_id": "6abd479842acf3804b38901c",
+    "previous_response_id": "6abc9b8500596325f00ee115",
+    "original_schema_response_id": "6aba8c2fec1b2f3f1390f57e",
+    "update_draft_created_utc": "2026-09-30T17:32:08.892894Z",
+    "submitted_utc": "2026-09-30T17:35:32.829443Z",
+    "approved_utc": "2026-09-30T17:36:40.284627Z",
+    "approval_note": "The registry recorded the update as approved at approved_utc (date_modified of the schema response with reviews_state approved, as in audit/H1_REGISTRATION_TIMESTAMP.md).",
+    "public_first_verified_at_utc": "2026-09-30T17:37:06Z",
+    "anonymous_api_check": {
+        "checked_at_utc": "2026-09-30T17:37:06Z",
+        "client": "unauthenticated OSF API v2 requests",
+        "public": true,
+        "pending_registration_approval": false,
+        "embargoed": false,
+        "withdrawn": false,
+        "archiving": false,
+        "revision_state": "approved",
+        "update_state": "approved",
+        "update_is_original_response": false,
+        "schema_responses_listed": 3,
+        "updated_response_keys": [
+            "72-16"
+        ]
+    },
+    "filed_justification": "The registered rule does not identify exactly one real-GDP column on sheet A1: more than one satisfies the tie-break. This amendment names column B before any value is read, as the section 4 stop rule requires.",
+    "filed_justification_sha256": "e0c1864272bd5c840e483766bf50dcc965e823468a84c708389db66df88de899",
+    "answer_72_16": {
+        "previous_text_sha256": "0dbffaa29de73159791654a5f6d7ab730f761b2f4d1e1a4232eb59af27749cd5",
+        "previous_characters": 565,
+        "sentence_added": "Amendment 2: the real-GDP column of E1.md §4 is column B of the sheet \"A1. Headline series\" (row 4: \"Real UK GDP at market prices, geographically-consistent estimate based on post-1922 borders\"), named before any numeric cell was read; full text in prereg/E1_amendment_2.md (SHA-256 e28146e0984c7d6f04baf5cd0bcc01424544115bb5b78cdfe9fa8b3e30bc6ee0).",
+        "filed_text_sha256": "d92f0edfbe86d67dee672497e8a4b9e81cbc068804e72f025bc6d91740d3258b",
+        "filed_characters": 915,
+        "checked_at_utc": "2026-09-30T17:37:06Z",
+        "note": "The filed text is the text the first update left (the 300 registered characters, one space and the sentence of amendment 1), one space and the added sentence. The SHA-256 values are of the UTF-8 strings OSF returned anonymously."
+    },
+    "answers_compared": {
+        "compared_with": "the previous approved response 6abc9b8500596325f00ee115",
+        "compared_at_utc": "2026-09-30T17:37:06Z",
+        "answers": 27,
+        "differ": [
+            "72-16"
+        ],
+        "identical": 26
+    },
+    "registered_attachments_after_update": [
+        {
+            "file_name": "E1.md",
+            "osf_file_id": "6aba8c408ad5dad4cdde988f",
+            "bytes": 25116,
+            "downloaded_sha256": "d0d7b0859593b301a0af8bd9b5d48f92bcd3aef27082d9d7b6c4cf2d4e26e4fd",
+            "downloaded_at_utc": "2026-09-30T17:37:15Z"
+        },
+        {
+            "file_name": "E_SOURCE_METADATA.md",
+            "osf_file_id": "6aba8c3f8ad5dad4cdde988e",
+            "bytes": 10647,
+            "downloaded_sha256": "44625af43da8aa8d709a172655a749f1c75972b2c4db9d0356dee906a3e4dc08",
+            "downloaded_at_utc": "2026-09-30T17:37:14Z"
+        }
+    ],
+    "registered_attachments_unchanged": true,
+    "data_status": "No numeric cell of the Bank of England workbook had been read when the amendment was filed. The header-only selection stopped twice, at the sheet stage and at the column stage (audit/e1_source/selection-attempts.jsonl, commits 41d655a and 91b6a07; DECISIONS.md D-043, D-047)."
+}
