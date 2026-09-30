@@ -1,0 +1,1199 @@
+{
+  "record_type": "E1 registered primary result",
+  "registration": "https://doi.org/10.17605/OSF.IO/MJG9W",
+  "protocol": "prereg/E1.md",
+  "run_log": {
+    "B": 1000,
+    "D80": null,
+    "code_location": {
+      "uc_core": "C:\\Users\\user\\Desktop\\Unit Circle Programme\\Programme Records\\E-official-runs\\unit-circle\\src\\uc_core",
+      "uc_ext": "C:\\Users\\user\\Desktop\\Unit Circle Programme\\Programme Records\\E-official-runs\\unit-circle\\src\\uc_ext",
+      "uc_ext_official": "C:\\Users\\user\\Desktop\\Unit Circle Programme\\Programme Records\\E-official-runs\\unit-circle\\src\\uc_ext_official"
+    },
+    "code_sha256": "c42cbbf35734eb4f8c12aff22384371aa4fad107ae283f6d2f5f6f93c12feef7",
+    "column": "B",
+    "commit": "827f58e06bea2d3ae588cf722d81a8977a898bb6",
+    "environment": {
+      "commit": "827f58e06bea2d3ae588cf722d81a8977a898bb6",
+      "dirty": false,
+      "machine": "AMD64",
+      "numpy_runtime": "{'Compilers': {'c': {'name': 'msvc', 'linker': 'link', 'version': '19.44.35228', 'commands': 'cl'}, 'cython': {'name': 'cython', 'linker': 'cython', 'version': '3.3.0', 'commands': 'cython'}, 'c++': {'name': 'msvc', 'linker': 'link', 'version': '19.44.35228', 'commands': 'cl'}}, 'Machine Information': {'host': {'cpu': 'x86_64', 'family': 'x86_64', 'endian': 'little', 'system': 'windows'}, 'build': {'cpu': 'x86_64', 'family': 'x86_64', 'endian': 'little', 'system': 'windows'}}, 'Build Dependencies': {'blas': {'name': 'scipy-openblas', 'found': True, 'version': '0.3.34.106.0', 'detection method': 'pkgconfig', 'include directory': 'C:/Users/runneradmin/AppData/Local/Temp/cibw-run-kywcz0lc/cp312-win_amd64/build/venv/Lib/site-packages/scipy_openblas64/include', 'lib directory': 'C:/Users/runneradmin/AppData/Local/Temp/cibw-run-kywcz0lc/cp312-win_amd64/build/venv/Lib/site-packages/scipy_openblas64/lib', 'openblas configuration': 'OpenBLAS 0.3.34.106.0  USE64BITINT DYNAMIC_ARCH NO_AFFINITY Haswell MAX_THREADS=24', 'pc file directory': 'D:/a/numpy-release/numpy-release/.openblas'}, 'lapack': {'name': 'scipy-openblas', 'found': True, 'version': '0.3.34.106.0', 'detection method': 'pkgconfig', 'include directory': 'C:/Users/runneradmin/AppData/Local/Temp/cibw-run-kywcz0lc/cp312-win_amd64/build/venv/Lib/site-packages/scipy_openblas64/include', 'lib directory': 'C:/Users/runneradmin/AppData/Local/Temp/cibw-run-kywcz0lc/cp312-win_amd64/build/venv/Lib/site-packages/scipy_openblas64/lib', 'openblas configuration': 'OpenBLAS 0.3.34.106.0  USE64BITINT DYNAMIC_ARCH NO_AFFINITY Haswell MAX_THREADS=24', 'pc file directory': 'D:/a/numpy-release/numpy-release/.openblas'}}, 'Python Information': {'path': 'C:\\\\Users\\\\runneradmin\\\\AppData\\\\Local\\\\Temp\\\\build-env-_rb7jx5h\\\\Scripts\\\\python.exe', 'version': '3.12'}, 'SIMD Extensions': {'baseline': ['X86_V2'], 'found': ['X86_V3']}}",
+      "packages": {
+        "Pygments": "2.21.0",
+        "colorama": "0.4.6",
+        "contourpy": "1.4.0",
+        "cycler": "0.12.1",
+        "fonttools": "4.66.0",
+        "formulaic": "1.2.2",
+        "hypothesis": "6.168.1",
+        "iniconfig": "2.3.0",
+        "interface_meta": "2.0.1",
+        "kiwisolver": "1.5.1",
+        "matplotlib": "3.11.2",
+        "mpmath": "1.3.0",
+        "narwhals": "2.26.0",
+        "numpy": "2.5.3",
+        "packaging": "26.3",
+        "pandas": "3.0.6",
+        "patsy": "1.0.3",
+        "pillow": "12.3.0",
+        "pluggy": "1.6.0",
+        "pyparsing": "3.3.3",
+        "pypdf": "6.19.0",
+        "pytest": "9.1.1",
+        "python-dateutil": "2.9.0.post0",
+        "scipy": "1.18.1",
+        "six": "1.17.0",
+        "sortedcontainers": "2.4.0",
+        "statsmodels": "0.15.0",
+        "sympy": "1.14.0",
+        "typing_extensions": "4.16.0",
+        "tzdata": "2026.4",
+        "wrapt": "2.4.1"
+      },
+      "platform": "Windows-10-10.0.19045-SP0",
+      "python": "3.12.14",
+      "source_sha256": {
+        "prereg/H1.md": "be447b725317c3b857eb1888dbcedd127d057cd5e0e586a0b2de87e24b182ba4",
+        "requirements.lock": "56a0682b57a92eb6f121b033dde577c75eafe91e0901604ad7aff449e1823298",
+        "src/uc_core/__init__.py": "eb58d4da1cee47cc0ecdd77ff6aa2cbd40aa5ab245e5239cd53ee96b31616d20",
+        "src/uc_core/abmi.py": "462766c55cb184100617bc0f8162514d9bd87788f0fbc8ba9b697ebdc8e79e5f",
+        "src/uc_core/ar.py": "19ea466d4829de08a18a6d1efd1ba10aebcf55cc3e7efc556f87001ed352a936",
+        "src/uc_core/constants.py": "33c66c58573bab32bd58a451c8d6e060dbae67b609d70ea4a4bfa1da9879b8d8",
+        "src/uc_core/h1.py": "21f90fd64c20dc3c8afe812f2811a06b00c44efed881c80ef0d576eaf689bdf8",
+        "src/uc_core/h1_official.py": "ffb06000eb11ea30e55f4b00b6c41249cfa90f47ff06400209a356e171964998",
+        "src/uc_core/h1_reporting.py": "4337e31e442523fe4188d83d82afcd1a87a24b262472e2a3bff86cbd865b5328",
+        "src/uc_core/linalg.py": "b1c137d6452daa744eb7fb4b52b23d494b7a6edae35177b792fe8086e2a35d28",
+        "src/uc_core/recession.py": "e9dcde4abac3bcf98fd027d2dd7735da1de61b65b8ae69f005d4793849359834",
+        "src/uc_core/rolling.py": "e335a4dcf3d159294ac5e84a99b27f46a21b347c400cdfbcae236f7f3843d5ee",
+        "src/uc_core/samuelson.py": "c4f8b1864d4291a25b421bb967feceecfc04b966d5d64b1ecc015cc1e0c8e44d",
+        "src/uc_core/schur.py": "4ea468f4562cf601cd63ec50c4c02715d20e917f06aee842b09e40c76e1a1768",
+        "src/uc_core/secondary.py": "86f48150597325941bb949af0f52e128a1cd55cd708b44a90ae9689126207b56",
+        "src/uc_core/statespace.py": "3b5db3ebc2941da8208cc89a74577083e9de927500071e2b0786efc353a96ddd",
+        "src/uc_core/surrogate.py": "9447006ecc02483bcd657a85ea993361ea3c53a0034641d4b068466a7b8e2e00",
+        "src/uc_core/validation_design.py": "2d729c9017de57cdb3bb761a85a2e221b93186f1e9c8ee74cba7f436c4a8d8c0",
+        "src/uc_core/validation_runner.py": "99ac2e62733b6db34857e77f33c06cc3085f6a856f6280e02a77ab8e4537cbb0",
+        "src/uc_core/validation_store.py": "68552e171bfe92b406358b706ed37384c2fcb05d1c0453fb4abd297aefdfad4d",
+        "src/uc_core/yule.py": "5071e313d0ba21d78cbcd8e8cf6bf78d2ae47aa97b2b15806b4603d882fbc91a",
+        "tools/run_validation.py": "d1e4956270f881c88d9ba9d4c39851102d8199d12eef55bb94795721e4ce1daa",
+        "tools/verify_validation_runner.py": "0a8543331c5ee8115399f68bdaf9c16c336688d51252aabcd3fe805e07b6e923"
+      }
+    },
+    "extension": "E1",
+    "finished_utc": "2026-09-30T17:49:43.080155+00:00",
+    "first_year": 1701,
+    "growth_observations": 316,
+    "imported": {
+      "ext_commit": "827f58e06bea2d3ae588cf722d81a8977a898bb6",
+      "ext_dirty": false,
+      "sources": {
+        "tools/run_e_checks.py": "31c2a2f26ff03b214d1a19d96d60a6d9e6af1aebc161a53881c5701f97001b9d",
+        "uc_core/__init__.py": "eb58d4da1cee47cc0ecdd77ff6aa2cbd40aa5ab245e5239cd53ee96b31616d20",
+        "uc_core/abmi.py": "462766c55cb184100617bc0f8162514d9bd87788f0fbc8ba9b697ebdc8e79e5f",
+        "uc_core/ar.py": "19ea466d4829de08a18a6d1efd1ba10aebcf55cc3e7efc556f87001ed352a936",
+        "uc_core/constants.py": "33c66c58573bab32bd58a451c8d6e060dbae67b609d70ea4a4bfa1da9879b8d8",
+        "uc_core/h1.py": "21f90fd64c20dc3c8afe812f2811a06b00c44efed881c80ef0d576eaf689bdf8",
+        "uc_core/h1_official.py": "ffb06000eb11ea30e55f4b00b6c41249cfa90f47ff06400209a356e171964998",
+        "uc_core/h1_reporting.py": "4337e31e442523fe4188d83d82afcd1a87a24b262472e2a3bff86cbd865b5328",
+        "uc_core/linalg.py": "b1c137d6452daa744eb7fb4b52b23d494b7a6edae35177b792fe8086e2a35d28",
+        "uc_core/recession.py": "e9dcde4abac3bcf98fd027d2dd7735da1de61b65b8ae69f005d4793849359834",
+        "uc_core/rolling.py": "e335a4dcf3d159294ac5e84a99b27f46a21b347c400cdfbcae236f7f3843d5ee",
+        "uc_core/samuelson.py": "c4f8b1864d4291a25b421bb967feceecfc04b966d5d64b1ecc015cc1e0c8e44d",
+        "uc_core/schur.py": "4ea468f4562cf601cd63ec50c4c02715d20e917f06aee842b09e40c76e1a1768",
+        "uc_core/secondary.py": "86f48150597325941bb949af0f52e128a1cd55cd708b44a90ae9689126207b56",
+        "uc_core/statespace.py": "3b5db3ebc2941da8208cc89a74577083e9de927500071e2b0786efc353a96ddd",
+        "uc_core/surrogate.py": "9447006ecc02483bcd657a85ea993361ea3c53a0034641d4b068466a7b8e2e00",
+        "uc_core/validation_design.py": "2d729c9017de57cdb3bb761a85a2e221b93186f1e9c8ee74cba7f436c4a8d8c0",
+        "uc_core/validation_runner.py": "99ac2e62733b6db34857e77f33c06cc3085f6a856f6280e02a77ab8e4537cbb0",
+        "uc_core/validation_store.py": "68552e171bfe92b406358b706ed37384c2fcb05d1c0453fb4abd297aefdfad4d",
+        "uc_core/yule.py": "5071e313d0ba21d78cbcd8e8cf6bf78d2ae47aa97b2b15806b4603d882fbc91a",
+        "uc_ext/__init__.py": "6f587147d40fb09710f564fe6d84e46c2c344fca175261614b9a44cdf4abf452",
+        "uc_ext/common.py": "87e0606c09d0c44e1e05fd7f33e51acdbd7b82547b1f9d4404ed9c78c1b1b5a3",
+        "uc_ext/e1.py": "86ed1d1b45cb86b414edcd12dbcc97cf52b05841a0dfe47be7eb0d4af04df797",
+        "uc_ext/e3.py": "340ed782e19e07b0ab92df8d502d2cd9ae72cae5b1c2fabae1132c01903bb8dc"
+      }
+    },
+    "input_sha256": "62bed9880eb3f3029b1e4210f1da8dd45cfbf6197961b1c4dca08b3310965dae",
+    "interval_B": 10000,
+    "kind": "registered primary run",
+    "last_year": 2016,
+    "master_seed": 1927,
+    "package_sources": {
+      "uc_ext_official/__init__.py": "f4ce255743afd6fb5da819991b1e32e00f94126aec299bd7c028d0d9a891e807",
+      "uc_ext_official/e1_source.py": "67be1b6bda4f62b267a5359e93719840bd85df7e14a6eee4f89a5e768be0c8eb",
+      "uc_ext_official/e3_source.py": "7a9a567adff8b3059d13175f955c8b2c7d97624e3a6feb82265ea8f0cc5d11d1",
+      "uc_ext_official/gates.py": "c5d04a522e7efa4c2a72bd92c515d6e54ae0fc0dec91ce662c56901cfd4b165d",
+      "uc_ext_official/records.py": "e7b092a659cf72112583e4c72be0784302d2869afff67e1701e7aef13ca346b7",
+      "uc_ext_official/report_common.py": "b45fd47cc8724dba1d6cba5246fc855a5dbb3f74902c7cd53a69a130f98c8a61",
+      "uc_ext_official/report_e1.py": "58c3b3616d54f4735ebb7a412bb83ffed56b76786db11c84e2f784cc477755aa",
+      "uc_ext_official/report_e3.py": "ad1ba1e7b7360e1781ac48b1a74ccb1942e64116fbaff13412feb6380f2c46df",
+      "uc_ext_official/run.py": "5cd7728830adb1a79f4d0e8499802f985e860493b20ec6277396530b92c58f6c",
+      "uc_ext_official/workbook.py": "0bfcc8bbbf5676945f84e023ef421ea855776dbadc1c85708a06e9458497e799",
+      "uc_ext_official/x3.py": "6c6229399cb242079fcfb9a025961122e96be77e95a8a0dbabcb12acba3e9c38",
+      "uc_ext_official/x4.py": "68c718b4e61d71ac717a220a5fca087cdb0b7b0be827080f5f9e10041d9f14af"
+    },
+    "raw_file": "data/raw/a-millennium-of-macroeconomic-data-for-the-uk.xlsx",
+    "raw_sha256": "4c23dd392a498691eac92659aec283fb43f28118bd80511dc87fc595974195eb",
+    "registration": {
+      "doi": "10.17605/OSF.IO/MJG9W",
+      "protocol_sha256": "d0d7b0859593b301a0af8bd9b5d48f92bcd3aef27082d9d7b6c4cf2d4e26e4fd",
+      "public_first_verified_at_utc": "2026-09-28T15:57:37+00:00",
+      "registration_file_sha256": "030841c5dd31efd622c7550bd3733a87e4d64c4c186fa008868cfd9d4e93301f",
+      "registration_id": "mjg9w",
+      "registration_url": "https://osf.io/mjg9w",
+      "tag": "prereg-E1",
+      "tag_commit": "5a26bfc8b4af3486cb17e758102f7efc59301379",
+      "tag_object": "bac7d28339ae1624e2c83ccb3bfcf6bfa61bb6b6"
+    },
+    "seconds": 173.5,
+    "sheet": "A1. Headline series",
+    "started_utc": "2026-09-30T17:46:48.106718+00:00",
+    "x2_records": {
+      "audit/E1_AMENDMENT_1.json": "77db24f6f17b55c6f5a2793ca186000977ca52494e8df30980655a9cbab3dbcf",
+      "audit/E1_AMENDMENT_2.json": "d9b6e80c1a9be5bcf49e737ace7395c5107eb5a75bb48436ba5676a01daa873e",
+      "audit/e1_source/extraction.json": "9aae5a0e613ee52c474dfaa206095d374df55d73c30e740d1c5a19a476e53dab",
+      "audit/e1_source/selection.json": "375b80f90597a7ac849e877f8343a3f0cc550ba8664c7d128c8d8cd80a264601",
+      "audit/e1_source/territory.json": "8e80da7d4f907cc47e259b4ed1d6f464a0e7c8d4725d4947df810bed204e4cc1",
+      "data/raw/E1_acquisition.json": "f86b358785d936af4e80e7b49e03f8e5a6d006abaa47371066582caf5bd7031e",
+      "prereg/E1_amendment_1.md": "530aa9e303b11da052cfb8d63d591d76be7ae6497d6321bd6c42641f760e6c3e",
+      "prereg/E1_amendment_2.md": "e28146e0984c7d6f04baf5cd0bcc01424544115bb5b78cdfe9fa8b3e30bc6ee0"
+    },
+    "x3_record": "audit/E1_X3.json",
+    "x3_record_sha256": "22fb7df4e310e127d7f249221f5522ba1e83caf23e547dd1bb1aad50b59bbc7c"
+  },
+  "interpretation": {
+    "D80": null,
+    "adjusted_p": null,
+    "adjusted_p_status": "computed at family closure (DR-2); not available at freeze",
+    "basis": "Raw p = 0.1349 > 0.05 (raw, not family-adjusted). A Holm-adjusted p is never below its raw p, so the adjusted p at family closure also exceeds 0.05 and the registered outcome is inconclusive; the adjusted value itself is reported at closure.",
+    "branch_B": {
+      "condition": null,
+      "scope": "A labelled diagnostic, not a finding of absence or equivalence (H1 section 10).",
+      "status": "unavailable"
+    },
+    "conclusion": "inconclusive",
+    "decision_rule": "DR-E1: reject when the Holm-adjusted p <= 0.05 at family closure (section 10); no rejection is declared from the raw p alone",
+    "eligible_episodes": 32,
+    "episode_interval": [
+      -0.015032977141950812,
+      0.03752566952129409
+    ],
+    "extension": "E1",
+    "p_label": "raw, not family-adjusted",
+    "positive_changes": 15,
+    "raw_p": 0.13486513486513488,
+    "statements": {
+      "inconclusive": "The E1 comparison did not detect an unusually large pre-onset change under the registered surrogate model.",
+      "reject": "The observed mean pre-onset change in annual data was unusually large relative to the registered fitted constant-AR(2) surrogate procedure."
+    },
+    "statistic": 0.0100038378974602,
+    "statistic_sign": "positive",
+    "text": "The E1 comparison did not detect an unusually large pre-onset change under the registered surrogate model."
+  },
+  "primary": {
+    "S": 0.0100038378974602,
+    "raw_p": 0.13486513486513488,
+    "p_label": "raw, not family-adjusted",
+    "eligible_episodes": 32,
+    "positive_changes": 15,
+    "exceedances": 134,
+    "retained": 1000,
+    "attempted": 1000,
+    "no_eligible": 0,
+    "failed": 0,
+    "q": 0.134,
+    "q_wilson": [
+      0.11428107599412643,
+      0.15652011121729995
+    ],
+    "p_grid_spacing": 0.000999000999000999,
+    "status": "ok",
+    "error": null
+  },
+  "family": {
+    "rule": "DR-2 (H1 section 11): Holm at family-wise alpha 0.05 over E1-E4 at family closure; a registered extension never run or failed enters with Holm input 1",
+    "raw_p": 0.13486513486513488,
+    "holm_input": 0.13486513486513488,
+    "adjusted_p": null,
+    "adjusted_p_status": "pending family closure"
+  },
+  "episode_interval": {
+    "status": "ok",
+    "interval": [
+      -0.015032977141950812,
+      0.03752566952129409
+    ],
+    "episodes": 32,
+    "requested": 10000
+  },
+  "comparisons": [
+    {
+      "B_prime": 1000,
+      "analysis": "primary",
+      "attempted": 1000,
+      "error": null,
+      "exceedances": 134,
+      "failed": 0,
+      "k": 15,
+      "m": 32,
+      "no_eligible": 0,
+      "p_grid_spacing": 0.000999000999000999,
+      "p_label": "raw, not family-adjusted",
+      "p_value": 0.13486513486513488,
+      "q": 0.134,
+      "q_wilson": [
+        0.11428107599412643,
+        0.15652011121729995
+      ],
+      "requested": 1000,
+      "retained": 1000,
+      "status": "ok",
+      "value": 0.0100038378974602,
+      "window": 30
+    },
+    {
+      "B_prime": 1000,
+      "analysis": "window25",
+      "attempted": 1000,
+      "error": null,
+      "exceedances": 666,
+      "failed": 0,
+      "k": 13,
+      "m": 32,
+      "no_eligible": 0,
+      "p_grid_spacing": 0.000999000999000999,
+      "p_label": "raw, not family-adjusted",
+      "p_value": 0.6663336663336663,
+      "q": 0.666,
+      "q_wilson": [
+        0.6361818350568,
+        0.6945476811259959
+      ],
+      "requested": 1000,
+      "retained": 1000,
+      "status": "ok",
+      "value": -0.01053948863942792,
+      "window": 25
+    },
+    {
+      "B_prime": 1000,
+      "analysis": "window35",
+      "attempted": 1000,
+      "error": null,
+      "exceedances": 531,
+      "failed": 0,
+      "k": 13,
+      "m": 31,
+      "no_eligible": 0,
+      "p_grid_spacing": 0.000999000999000999,
+      "p_label": "raw, not family-adjusted",
+      "p_value": 0.5314685314685315,
+      "q": 0.531,
+      "q_wilson": [
+        0.5000102483912816,
+        0.5617524925826141
+      ],
+      "requested": 1000,
+      "retained": 1000,
+      "status": "ok",
+      "value": -0.00355002099903217,
+      "window": 35
+    },
+    {
+      "B_prime": 1000,
+      "analysis": "fixed",
+      "attempted": 1000,
+      "error": null,
+      "exceedances": 262,
+      "failed": 0,
+      "k": 15,
+      "m": 32,
+      "no_eligible": 0,
+      "p_grid_spacing": 0.000999000999000999,
+      "p_label": "raw, not family-adjusted",
+      "p_value": 0.2627372627372627,
+      "q": 0.262,
+      "q_wilson": [
+        0.23569393157936605,
+        0.2901276054597582
+      ],
+      "requested": 1000,
+      "retained": 1000,
+      "status": "ok",
+      "value": 0.0100038378974602,
+      "window": 30
+    },
+    {
+      "B_prime": 1000,
+      "analysis": "wild",
+      "attempted": 1000,
+      "error": null,
+      "exceedances": 161,
+      "failed": 0,
+      "k": 15,
+      "m": 32,
+      "no_eligible": 0,
+      "p_grid_spacing": 0.000999000999000999,
+      "p_label": "raw, not family-adjusted",
+      "p_value": 0.16183816183816183,
+      "q": 0.161,
+      "q_wilson": [
+        0.13952453255948705,
+        0.18507000969371934
+      ],
+      "requested": 1000,
+      "retained": 1000,
+      "status": "ok",
+      "value": 0.0100038378974602,
+      "window": 30
+    },
+    {
+      "B_prime": 1000,
+      "analysis": "trend",
+      "attempted": 1000,
+      "error": null,
+      "exceedances": 251,
+      "failed": 0,
+      "k": 14,
+      "m": 32,
+      "no_eligible": 0,
+      "p_grid_spacing": 0.000999000999000999,
+      "p_label": "raw, not family-adjusted",
+      "p_value": 0.2517482517482518,
+      "q": 0.251,
+      "q_wilson": [
+        0.22511381079019804,
+        0.27879191493560834
+      ],
+      "requested": 1000,
+      "retained": 1000,
+      "status": "ok",
+      "value": 0.02083333333333334,
+      "window": 30
+    },
+    {
+      "B_prime": 1000,
+      "analysis": "lag1",
+      "attempted": 1000,
+      "error": null,
+      "exceedances": 125,
+      "failed": 0,
+      "k": 19,
+      "m": 32,
+      "no_eligible": 0,
+      "p_grid_spacing": 0.000999000999000999,
+      "p_label": "raw, not family-adjusted",
+      "p_value": 0.1258741258741259,
+      "q": 0.125,
+      "q_wilson": [
+        0.10592623063520473,
+        0.14694383822896162
+      ],
+      "requested": 1000,
+      "retained": 1000,
+      "status": "ok",
+      "value": 0.015844602388693865,
+      "window": 30
+    }
+  ],
+  "episodes": [
+    {
+      "classification": "ineligible",
+      "delta": null,
+      "end": 5,
+      "end_year": 1706,
+      "episode": 0,
+      "onset": 1,
+      "onset_year": 1702,
+      "qualifying_runs": 2
+    },
+    {
+      "classification": "ineligible",
+      "delta": null,
+      "end": 14,
+      "end_year": 1715,
+      "episode": 1,
+      "onset": 8,
+      "onset_year": 1709,
+      "qualifying_runs": 3
+    },
+    {
+      "classification": "ineligible",
+      "delta": null,
+      "end": 30,
+      "end_year": 1731,
+      "episode": 2,
+      "onset": 18,
+      "onset_year": 1719,
+      "qualifying_runs": 6
+    },
+    {
+      "classification": "eligible",
+      "delta": -0.02835117025651901,
+      "end": 39,
+      "end_year": 1740,
+      "episode": 3,
+      "onset": 33,
+      "onset_year": 1734,
+      "qualifying_runs": 3
+    },
+    {
+      "classification": "eligible",
+      "delta": 0.20948621251168753,
+      "end": 43,
+      "end_year": 1744,
+      "episode": 4,
+      "onset": 42,
+      "onset_year": 1743,
+      "qualifying_runs": 1
+    },
+    {
+      "classification": "eligible",
+      "delta": -0.10872649354287728,
+      "end": 50,
+      "end_year": 1751,
+      "episode": 5,
+      "onset": 47,
+      "onset_year": 1748,
+      "qualifying_runs": 2
+    },
+    {
+      "classification": "eligible",
+      "delta": -0.00377079886134285,
+      "end": 55,
+      "end_year": 1756,
+      "episode": 6,
+      "onset": 53,
+      "onset_year": 1754,
+      "qualifying_runs": 2
+    },
+    {
+      "classification": "eligible",
+      "delta": -0.038149751423680045,
+      "end": 64,
+      "end_year": 1765,
+      "episode": 7,
+      "onset": 61,
+      "onset_year": 1762,
+      "qualifying_runs": 1
+    },
+    {
+      "classification": "eligible",
+      "delta": -0.029632905562118006,
+      "end": 73,
+      "end_year": 1774,
+      "episode": 8,
+      "onset": 69,
+      "onset_year": 1770,
+      "qualifying_runs": 3
+    },
+    {
+      "classification": "eligible",
+      "delta": 0.034321048428043954,
+      "end": 78,
+      "end_year": 1779,
+      "episode": 9,
+      "onset": 77,
+      "onset_year": 1778,
+      "qualifying_runs": 1
+    },
+    {
+      "classification": "eligible",
+      "delta": -0.09257417539308743,
+      "end": 87,
+      "end_year": 1788,
+      "episode": 10,
+      "onset": 81,
+      "onset_year": 1782,
+      "qualifying_runs": 3
+    },
+    {
+      "classification": "eligible",
+      "delta": 0.2798174925897471,
+      "end": 93,
+      "end_year": 1794,
+      "episode": 11,
+      "onset": 92,
+      "onset_year": 1793,
+      "qualifying_runs": 1
+    },
+    {
+      "classification": "eligible",
+      "delta": 0.23648733688035814,
+      "end": 96,
+      "end_year": 1797,
+      "episode": 12,
+      "onset": 96,
+      "onset_year": 1797,
+      "qualifying_runs": 1
+    },
+    {
+      "classification": "eligible",
+      "delta": 0.06369531682564522,
+      "end": 107,
+      "end_year": 1808,
+      "episode": 13,
+      "onset": 102,
+      "onset_year": 1803,
+      "qualifying_runs": 3
+    },
+    {
+      "classification": "eligible",
+      "delta": 0.0511505135893876,
+      "end": 118,
+      "end_year": 1819,
+      "episode": 14,
+      "onset": 110,
+      "onset_year": 1811,
+      "qualifying_runs": 4
+    },
+    {
+      "classification": "eligible",
+      "delta": -0.0809768593463367,
+      "end": 125,
+      "end_year": 1826,
+      "episode": 15,
+      "onset": 125,
+      "onset_year": 1826,
+      "qualifying_runs": 1
+    },
+    {
+      "classification": "eligible",
+      "delta": -0.003270865271365997,
+      "end": 136,
+      "end_year": 1837,
+      "episode": 16,
+      "onset": 136,
+      "onset_year": 1837,
+      "qualifying_runs": 1
+    },
+    {
+      "classification": "eligible",
+      "delta": -0.06285441996799224,
+      "end": 141,
+      "end_year": 1842,
+      "episode": 17,
+      "onset": 140,
+      "onset_year": 1841,
+      "qualifying_runs": 1
+    },
+    {
+      "classification": "eligible",
+      "delta": -0.0033624594746887726,
+      "end": 146,
+      "end_year": 1847,
+      "episode": 18,
+      "onset": 146,
+      "onset_year": 1847,
+      "qualifying_runs": 1
+    },
+    {
+      "classification": "eligible",
+      "delta": -0.0639337280576564,
+      "end": 149,
+      "end_year": 1850,
+      "episode": 19,
+      "onset": 149,
+      "onset_year": 1850,
+      "qualifying_runs": 1
+    },
+    {
+      "classification": "eligible",
+      "delta": -0.14082525245642274,
+      "end": 154,
+      "end_year": 1855,
+      "episode": 20,
+      "onset": 154,
+      "onset_year": 1855,
+      "qualifying_runs": 1
+    },
+    {
+      "classification": "eligible",
+      "delta": 0.09266122462173176,
+      "end": 157,
+      "end_year": 1858,
+      "episode": 21,
+      "onset": 157,
+      "onset_year": 1858,
+      "qualifying_runs": 1
+    },
+    {
+      "classification": "eligible",
+      "delta": -0.03425980147747759,
+      "end": 161,
+      "end_year": 1862,
+      "episode": 22,
+      "onset": 161,
+      "onset_year": 1862,
+      "qualifying_runs": 1
+    },
+    {
+      "classification": "eligible",
+      "delta": 0.04613885727967432,
+      "end": 178,
+      "end_year": 1879,
+      "episode": 23,
+      "onset": 177,
+      "onset_year": 1878,
+      "qualifying_runs": 1
+    },
+    {
+      "classification": "eligible",
+      "delta": -0.022696759037646952,
+      "end": 184,
+      "end_year": 1885,
+      "episode": 24,
+      "onset": 183,
+      "onset_year": 1884,
+      "qualifying_runs": 1
+    },
+    {
+      "classification": "eligible",
+      "delta": -0.007080929105116041,
+      "end": 192,
+      "end_year": 1893,
+      "episode": 25,
+      "onset": 191,
+      "onset_year": 1892,
+      "qualifying_runs": 1
+    },
+    {
+      "classification": "eligible",
+      "delta": 0.021732643780895344,
+      "end": 199,
+      "end_year": 1900,
+      "episode": 26,
+      "onset": 199,
+      "onset_year": 1900,
+      "qualifying_runs": 1
+    },
+    {
+      "classification": "eligible",
+      "delta": -0.05590302195859065,
+      "end": 202,
+      "end_year": 1903,
+      "episode": 27,
+      "onset": 202,
+      "onset_year": 1903,
+      "qualifying_runs": 1
+    },
+    {
+      "classification": "eligible",
+      "delta": 0.03238137804390945,
+      "end": 207,
+      "end_year": 1908,
+      "episode": 28,
+      "onset": 207,
+      "onset_year": 1908,
+      "qualifying_runs": 1
+    },
+    {
+      "classification": "exogenous",
+      "delta": -0.18517373348832325,
+      "end": 220,
+      "end_year": 1921,
+      "episode": 29,
+      "onset": 216,
+      "onset_year": 1917,
+      "qualifying_runs": 2
+    },
+    {
+      "classification": "eligible",
+      "delta": 0.02709334167475852,
+      "end": 225,
+      "end_year": 1926,
+      "episode": 30,
+      "onset": 225,
+      "onset_year": 1926,
+      "qualifying_runs": 1
+    },
+    {
+      "classification": "eligible",
+      "delta": 0.03225797213582704,
+      "end": 230,
+      "end_year": 1931,
+      "episode": 31,
+      "onset": 229,
+      "onset_year": 1930,
+      "qualifying_runs": 1
+    },
+    {
+      "classification": "exogenous",
+      "delta": -0.09636105250078308,
+      "end": 246,
+      "end_year": 1947,
+      "episode": 32,
+      "onset": 243,
+      "onset_year": 1944,
+      "qualifying_runs": 1
+    },
+    {
+      "classification": "eligible",
+      "delta": -0.04663287919374143,
+      "end": 274,
+      "end_year": 1975,
+      "episode": 33,
+      "onset": 273,
+      "onset_year": 1974,
+      "qualifying_runs": 1
+    },
+    {
+      "classification": "eligible",
+      "delta": 0.004142554453792968,
+      "end": 280,
+      "end_year": 1981,
+      "episode": 34,
+      "onset": 279,
+      "onset_year": 1980,
+      "qualifying_runs": 1
+    },
+    {
+      "classification": "eligible",
+      "delta": 0.007117913078936722,
+      "end": 290,
+      "end_year": 1991,
+      "episode": 35,
+      "onset": 290,
+      "onset_year": 1991,
+      "qualifying_runs": 1
+    },
+    {
+      "classification": "eligible",
+      "delta": 0.004641277210990835,
+      "end": 308,
+      "end_year": 2009,
+      "episode": 36,
+      "onset": 307,
+      "onset_year": 2008,
+      "qualifying_runs": 1
+    }
+  ],
+  "frozen_files": {
+    "audit/e1/run-log.json": "348fe4ccdbbfaf7d92605edf44b771a06a9bbb79b6ed51803c8a9059c2c0df8c",
+    "audit/e1/RUN_COMPLETE.json": "f4263cd4f634c6b5be3c613b49b67cced80718f2c2f6b25a60e1496ce2e2653e",
+    "audit/e1/analysis.json": "a78d36bc3741ee5f8a911057495a057bb2e2f8338ffb09adc2217283e37098d6",
+    "audit/e1/comparisons.csv": "e8c1a39e161bfb763d15de88a57fc203fbea18ccf816c65bc63d518feee6c170",
+    "audit/e1/episodes.csv": "20ba07b87f760cfa31f3218d16ad5df844bbbd6d9a6361fed769c09ff3d84799",
+    "audit/e1/exogenous.csv": "aab7d9ce06bd6c86b4b9d74c8b7fe59964600a8a5da3c23b5466cf1761323930",
+    "audit/e1/primary-surrogates.csv": "5a373b6440cb941cecd94fbca9c48990d7e232b708bb332f23f41dcb8cde3f1b",
+    "audit/e1/qualifying-runs.csv": "eb2b9851d28b73857ff4fc3b9c4fcfa29325bd3984e4634cb6a6967ab028bbfa",
+    "audit/e1/report.json": "7f22e7c223761292f072ace86e77cbb63fd56e9acf90ac8e1b4bf5c8368cc711",
+    "audit/e1/rolling.csv": "d55e3e1bcd12692986df17e6643fa51c377cc2931cd0a5bfa4a024adf2096c31",
+    "audit/e1/territory-flags.csv": "c3578bfd36259e73a94e02ef8f468880060771cf2c46ccda17f075da7be30987",
+    "audit/e1/manifest.json": "5c6dfe6960a616a2d4e220b8d17f6ae9452d6398aed83c1f08fed699df30cc7b",
+    "figures/e1_persistence.pdf": "21f784f0f92a7f4ce96fbeee1593636354ef12f260b725048b5680808c234ac3",
+    "figures/e1_persistence.png": "505b7e5b1f2d272e25d5adff006a95fe22b48a3e1558fc1f4dfd7e6a285bd499",
+    "figures/e1_persistence.svg": "652c7d609ade3951f04377ddf95e966552aa6b6632fad3cbf7f56cdc7dccad74",
+    "figures/e1_surrogates.pdf": "3ccec0a1597de18b669c24d19b27851188e85ac99f0dbc7f2716c7daf209ebac",
+    "figures/e1_surrogates.png": "f85c7f3bb64f337c5f45c72710cca4279b6d4bef3167bae305f0980454831fa9",
+    "figures/e1_surrogates.svg": "b20c991d8b57fd02892572f100b2a6fcc0b8148eb2f049ff8245d7b2a0901e13"
+  },
+  "exogenous_episodes": [
+    {
+      "classification": "exogenous",
+      "delta": -0.18517373348832325,
+      "end": 220,
+      "end_year": 1921,
+      "episode": 29,
+      "onset": 216,
+      "onset_year": 1917,
+      "qualifying_runs": 2
+    },
+    {
+      "classification": "exogenous",
+      "delta": -0.09636105250078308,
+      "end": 246,
+      "end_year": 1947,
+      "episode": 32,
+      "onset": 243,
+      "onset_year": 1944,
+      "qualifying_runs": 1
+    }
+  ],
+  "territory_flags": [
+    {
+      "crosses_boundary": false,
+      "level_years": [
+        1701,
+        1733
+      ],
+      "onset": 33,
+      "onset_year": 1734,
+      "territories": [
+        "UK, geographically consistent estimate based on post-1922 borders"
+      ]
+    },
+    {
+      "crosses_boundary": false,
+      "level_years": [
+        1710,
+        1742
+      ],
+      "onset": 42,
+      "onset_year": 1743,
+      "territories": [
+        "UK, geographically consistent estimate based on post-1922 borders"
+      ]
+    },
+    {
+      "crosses_boundary": false,
+      "level_years": [
+        1715,
+        1747
+      ],
+      "onset": 47,
+      "onset_year": 1748,
+      "territories": [
+        "UK, geographically consistent estimate based on post-1922 borders"
+      ]
+    },
+    {
+      "crosses_boundary": false,
+      "level_years": [
+        1721,
+        1753
+      ],
+      "onset": 53,
+      "onset_year": 1754,
+      "territories": [
+        "UK, geographically consistent estimate based on post-1922 borders"
+      ]
+    },
+    {
+      "crosses_boundary": false,
+      "level_years": [
+        1729,
+        1761
+      ],
+      "onset": 61,
+      "onset_year": 1762,
+      "territories": [
+        "UK, geographically consistent estimate based on post-1922 borders"
+      ]
+    },
+    {
+      "crosses_boundary": false,
+      "level_years": [
+        1737,
+        1769
+      ],
+      "onset": 69,
+      "onset_year": 1770,
+      "territories": [
+        "UK, geographically consistent estimate based on post-1922 borders"
+      ]
+    },
+    {
+      "crosses_boundary": false,
+      "level_years": [
+        1745,
+        1777
+      ],
+      "onset": 77,
+      "onset_year": 1778,
+      "territories": [
+        "UK, geographically consistent estimate based on post-1922 borders"
+      ]
+    },
+    {
+      "crosses_boundary": false,
+      "level_years": [
+        1749,
+        1781
+      ],
+      "onset": 81,
+      "onset_year": 1782,
+      "territories": [
+        "UK, geographically consistent estimate based on post-1922 borders"
+      ]
+    },
+    {
+      "crosses_boundary": false,
+      "level_years": [
+        1760,
+        1792
+      ],
+      "onset": 92,
+      "onset_year": 1793,
+      "territories": [
+        "UK, geographically consistent estimate based on post-1922 borders"
+      ]
+    },
+    {
+      "crosses_boundary": false,
+      "level_years": [
+        1764,
+        1796
+      ],
+      "onset": 96,
+      "onset_year": 1797,
+      "territories": [
+        "UK, geographically consistent estimate based on post-1922 borders"
+      ]
+    },
+    {
+      "crosses_boundary": false,
+      "level_years": [
+        1770,
+        1802
+      ],
+      "onset": 102,
+      "onset_year": 1803,
+      "territories": [
+        "UK, geographically consistent estimate based on post-1922 borders"
+      ]
+    },
+    {
+      "crosses_boundary": false,
+      "level_years": [
+        1778,
+        1810
+      ],
+      "onset": 110,
+      "onset_year": 1811,
+      "territories": [
+        "UK, geographically consistent estimate based on post-1922 borders"
+      ]
+    },
+    {
+      "crosses_boundary": false,
+      "level_years": [
+        1793,
+        1825
+      ],
+      "onset": 125,
+      "onset_year": 1826,
+      "territories": [
+        "UK, geographically consistent estimate based on post-1922 borders"
+      ]
+    },
+    {
+      "crosses_boundary": false,
+      "level_years": [
+        1804,
+        1836
+      ],
+      "onset": 136,
+      "onset_year": 1837,
+      "territories": [
+        "UK, geographically consistent estimate based on post-1922 borders"
+      ]
+    },
+    {
+      "crosses_boundary": false,
+      "level_years": [
+        1808,
+        1840
+      ],
+      "onset": 140,
+      "onset_year": 1841,
+      "territories": [
+        "UK, geographically consistent estimate based on post-1922 borders"
+      ]
+    },
+    {
+      "crosses_boundary": false,
+      "level_years": [
+        1814,
+        1846
+      ],
+      "onset": 146,
+      "onset_year": 1847,
+      "territories": [
+        "UK, geographically consistent estimate based on post-1922 borders"
+      ]
+    },
+    {
+      "crosses_boundary": false,
+      "level_years": [
+        1817,
+        1849
+      ],
+      "onset": 149,
+      "onset_year": 1850,
+      "territories": [
+        "UK, geographically consistent estimate based on post-1922 borders"
+      ]
+    },
+    {
+      "crosses_boundary": false,
+      "level_years": [
+        1822,
+        1854
+      ],
+      "onset": 154,
+      "onset_year": 1855,
+      "territories": [
+        "UK, geographically consistent estimate based on post-1922 borders"
+      ]
+    },
+    {
+      "crosses_boundary": false,
+      "level_years": [
+        1825,
+        1857
+      ],
+      "onset": 157,
+      "onset_year": 1858,
+      "territories": [
+        "UK, geographically consistent estimate based on post-1922 borders"
+      ]
+    },
+    {
+      "crosses_boundary": false,
+      "level_years": [
+        1829,
+        1861
+      ],
+      "onset": 161,
+      "onset_year": 1862,
+      "territories": [
+        "UK, geographically consistent estimate based on post-1922 borders"
+      ]
+    },
+    {
+      "crosses_boundary": false,
+      "level_years": [
+        1845,
+        1877
+      ],
+      "onset": 177,
+      "onset_year": 1878,
+      "territories": [
+        "UK, geographically consistent estimate based on post-1922 borders"
+      ]
+    },
+    {
+      "crosses_boundary": false,
+      "level_years": [
+        1851,
+        1883
+      ],
+      "onset": 183,
+      "onset_year": 1884,
+      "territories": [
+        "UK, geographically consistent estimate based on post-1922 borders"
+      ]
+    },
+    {
+      "crosses_boundary": false,
+      "level_years": [
+        1859,
+        1891
+      ],
+      "onset": 191,
+      "onset_year": 1892,
+      "territories": [
+        "UK, geographically consistent estimate based on post-1922 borders"
+      ]
+    },
+    {
+      "crosses_boundary": false,
+      "level_years": [
+        1867,
+        1899
+      ],
+      "onset": 199,
+      "onset_year": 1900,
+      "territories": [
+        "UK, geographically consistent estimate based on post-1922 borders"
+      ]
+    },
+    {
+      "crosses_boundary": false,
+      "level_years": [
+        1870,
+        1902
+      ],
+      "onset": 202,
+      "onset_year": 1903,
+      "territories": [
+        "UK, geographically consistent estimate based on post-1922 borders"
+      ]
+    },
+    {
+      "crosses_boundary": false,
+      "level_years": [
+        1875,
+        1907
+      ],
+      "onset": 207,
+      "onset_year": 1908,
+      "territories": [
+        "UK, geographically consistent estimate based on post-1922 borders"
+      ]
+    },
+    {
+      "crosses_boundary": false,
+      "level_years": [
+        1893,
+        1925
+      ],
+      "onset": 225,
+      "onset_year": 1926,
+      "territories": [
+        "UK, geographically consistent estimate based on post-1922 borders"
+      ]
+    },
+    {
+      "crosses_boundary": false,
+      "level_years": [
+        1897,
+        1929
+      ],
+      "onset": 229,
+      "onset_year": 1930,
+      "territories": [
+        "UK, geographically consistent estimate based on post-1922 borders"
+      ]
+    },
+    {
+      "crosses_boundary": false,
+      "level_years": [
+        1941,
+        1973
+      ],
+      "onset": 273,
+      "onset_year": 1974,
+      "territories": [
+        "UK, geographically consistent estimate based on post-1922 borders"
+      ]
+    },
+    {
+      "crosses_boundary": false,
+      "level_years": [
+        1947,
+        1979
+      ],
+      "onset": 279,
+      "onset_year": 1980,
+      "territories": [
+        "UK, geographically consistent estimate based on post-1922 borders"
+      ]
+    },
+    {
+      "crosses_boundary": false,
+      "level_years": [
+        1958,
+        1990
+      ],
+      "onset": 290,
+      "onset_year": 1991,
+      "territories": [
+        "UK, geographically consistent estimate based on post-1922 borders"
+      ]
+    },
+    {
+      "crosses_boundary": false,
+      "level_years": [
+        1975,
+        2007
+      ],
+      "onset": 307,
+      "onset_year": 2008,
+      "territories": [
+        "UK, geographically consistent estimate based on post-1922 borders"
+      ]
+    }
+  ]
+}
