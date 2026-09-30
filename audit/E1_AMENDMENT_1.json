@@ -1,0 +1,82 @@
+{
+    "record_type": "OSF registration update for extension E1: amendment 1 (prereg/E1.md section 4)",
+    "registration_id": "mjg9w",
+    "registration_url": "https://osf.io/mjg9w",
+    "doi": "10.17605/OSF.IO/MJG9W",
+    "amendment_url": "https://osf.io/mjg9w/overview",
+    "amendment_api_url": "https://api.osf.io/v2/schema_responses/6abc9b8500596325f00ee115/",
+    "amends": {
+        "text": "prereg/E1.md section 4, \"Selecting the series without seeing values (X.2)\"",
+        "registered_text_sha256": "d0d7b0859593b301a0af8bd9b5d48f92bcd3aef27082d9d7b6c4cf2d4e26e4fd",
+        "prereg_tag": "prereg-E1",
+        "prereg_tag_commit": "5a26bfc8b4af3486cb17e758102f7efc59301379"
+    },
+    "attachment": "prereg/E1_amendment_1.md",
+    "attachment_sha256": "530aa9e303b11da052cfb8d63d591d76be7ae6497d6321bd6c42641f760e6c3e",
+    "attachment_bytes": 2065,
+    "attachment_note": "The text file was not uploaded to OSF: the update form's file upload is disabled. The filed sentence in answer 72-16 cites this path and this SHA-256, and this committed file is the text it cites. The file is not among the archived OSF files.",
+    "headline_sheet": "A1. Headline series",
+    "how_filed": "An update of the registration, not a new registration: the justification for the update and one changed answer, 72-16 (Data identifiers), to which one sentence was added after its 300 registered characters. The owner chose this of three options (DECISIONS.md D-046), submitted the update and approved it from the OSF email.",
+    "schema_response_id": "6abc9b8500596325f00ee115",
+    "original_schema_response_id": "6aba8c2fec1b2f3f1390f57e",
+    "original_response_approved_utc": "2026-09-28T15:53:16.392258Z",
+    "update_draft_created_utc": "2026-09-30T05:17:57.908028Z",
+    "submitted_utc": "2026-09-30T06:48:11.932648Z",
+    "approved_utc": "2026-09-30T06:48:19.571204Z",
+    "approval_note": "The registry recorded the update as approved at approved_utc (date_modified of the schema response with reviews_state approved, as in audit/H1_REGISTRATION_TIMESTAMP.md).",
+    "public_first_verified_at_utc": "2026-09-30T06:49:46Z",
+    "anonymous_api_check": {
+        "checked_at_utc": "2026-09-30T06:49:58Z",
+        "client": "unauthenticated OSF API v2 requests",
+        "public": true,
+        "pending_registration_approval": false,
+        "embargoed": false,
+        "withdrawn": false,
+        "archiving": false,
+        "revision_state": "approved",
+        "update_state": "approved",
+        "update_is_original_response": false,
+        "schema_responses_listed": 2,
+        "updated_response_keys": [
+            "72-16"
+        ]
+    },
+    "filed_justification": "The registered rule does not identify exactly one headline-series sheet in the downloaded workbook; this amendment names the annual sheet before any value is read, as the section 4 stop rule requires.",
+    "filed_justification_sha256": "b16f3159a34041edcb64685363973e1d9cd381f933228a795e2959e5837fa778",
+    "answer_72_16": {
+        "registered_text_sha256": "0e3d9e841f1d3904b84694c1100194b74d74fe081af17327580be8bdb4bea146",
+        "registered_characters": 300,
+        "sentence_added": "Amendment 1: the headline-series sheet of E1.md §4 is the annual headline-series sheet, \"A1. Headline series\", named before any numeric cell was read; full text in prereg/E1_amendment_1.md (SHA-256 530aa9e303b11da052cfb8d63d591d76be7ae6497d6321bd6c42641f760e6c3e).",
+        "filed_text_sha256": "0dbffaa29de73159791654a5f6d7ab730f761b2f4d1e1a4232eb59af27749cd5",
+        "filed_characters": 565,
+        "checked_at_utc": "2026-09-30T06:54:35Z",
+        "note": "The filed text is the registered text, one space and the added sentence. The SHA-256 values are of the UTF-8 strings OSF returned anonymously."
+    },
+    "answers_compared": {
+        "compared_with": "the original response 6aba8c2fec1b2f3f1390f57e (approved 2026-09-28T15:53:16Z)",
+        "compared_at_utc": "2026-09-30T06:49:58Z",
+        "answers": 27,
+        "differ": [
+            "72-16"
+        ],
+        "identical": 26
+    },
+    "registered_attachments_after_update": [
+        {
+            "file_name": "E1.md",
+            "osf_file_id": "6aba8c408ad5dad4cdde988f",
+            "bytes": 25116,
+            "downloaded_sha256": "d0d7b0859593b301a0af8bd9b5d48f92bcd3aef27082d9d7b6c4cf2d4e26e4fd",
+            "downloaded_at_utc": "2026-09-30T06:52:32Z"
+        },
+        {
+            "file_name": "E_SOURCE_METADATA.md",
+            "osf_file_id": "6aba8c3f8ad5dad4cdde988e",
+            "bytes": 10647,
+            "downloaded_sha256": "44625af43da8aa8d709a172655a749f1c75972b2c4db9d0356dee906a3e4dc08",
+            "downloaded_at_utc": "2026-09-30T06:52:33Z"
+        }
+    ],
+    "registered_attachments_unchanged": true,
+    "data_status": "No numeric cell of the Bank of England workbook had been read when the amendment was filed. The workbook was acquired once on 29 September 2026 (data/raw/E1_acquisition.json) and the header-only selection stopped at the sheet stage (audit/e1_source/selection-attempts.jsonl, commit 41d655a; DECISIONS.md D-043)."
+}
