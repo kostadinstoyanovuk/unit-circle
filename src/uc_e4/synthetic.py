@@ -100,6 +100,20 @@ def power_replicate(cell, replicate, *, master_seed, streams: Streams, B=SURROGA
                               for j in range(len(ONSETS))})
 
 
+def x3_input(check, cell, replicate, *, master_seed, streams: Streams, kappas=KAPPAS, allow_registered=False):
+    """The generated series of one X.3 replicate, rebuilt from its seed coordinates alone.
+
+    It makes exactly the generation draws of size_replicate and power_replicate, so that a runner can
+    re-verify saved records before resuming or summarising (H1 section 8: "verifying already saved output").
+    """
+    check_run(master_seed, streams, allow_registered)
+    if check == "size" and cell == 0:
+        return h1_design_series(stream_rng(master_seed, streams.size_generation, 0, replicate), kappa=1.0)
+    if check == "power":
+        return h1_design_series(stream_rng(master_seed, streams.power_generation, cell, replicate), kappa=kappas[cell])
+    raise ValueError("Unknown X.3 check or cell")
+
+
 def run_size_check(*, master_seed, streams, n_series=SERIES_PER_CELL, B=SURROGATE_ATTEMPTS, replicates=None,
                    allow_registered=False, progress=None):
     check_run(master_seed, streams, allow_registered)
