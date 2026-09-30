@@ -149,6 +149,88 @@ def test_a_named_sheet_must_be_one_of_the_headline_sheets(name):
     assert stop.value.stage == "selection" and "sheets" in stop.value.details
 
 
+TWO_UK = dict(columns=[standard_columns()[1], ("Real GDP, United Kingdom (artificial)", None, None, lambda y, v: v)])
+NEITHER_UK = dict(columns=[standard_columns()[0], ("Real GDP of Scotland (artificial)", None, None, lambda y, v: v)])
+
+
+def real_gdp_headers(wb, **kwargs):
+    """The header text of each real-GDP column, as the header-only output lists it (also when the rule stops)."""
+    try:
+        output = s.header_only(wb, **kwargs)
+    except s.SourceStop as stop:
+        output = stop.details
+    return {c["column"]: " | ".join(cell["text"] for cell in c["header"]) for c in output["real_gdp_columns"]}
+
+
+def naming(wb, letter, **changes):
+    """What an amendment records for a column: the sheet, the letter and the header text the tool printed."""
+    return dict(dict(sheet=HEADLINE, column=letter, header=real_gdp_headers(wb)[letter]), **changes)
+
+
+@pytest.mark.parametrize("options", [TWO_UK, NEITHER_UK])
+@pytest.mark.parametrize("letter", ["B", "C"])
+def test_a_named_column_settles_a_tie_the_rule_leaves_open(options, letter):
+    wb = workbook(**options)
+    with pytest.raises(s.SourceStop, match="of them"):
+        s.header_only(wb)
+    named = naming(wb, letter)
+    output = s.header_only(wb, real_gdp_column=named)
+    selection = output["selection"]
+    assert (selection["sheet"], selection["column"], selection["rule_step"]) == (HEADLINE, letter, 3)
+    assert selection["header"] == named["header"]
+    assert "named by the amendment in audit/E1_AMENDMENT_2.json" in selection["rule"]
+    assert output["column_named_by_amendment"] == dict(sheet=HEADLINE, column=letter)
+    assert [c["column"] for c in output["real_gdp_columns"]] == ["B", "C"]
+    text = s.format_header_only(output, None, "0" * 64)
+    assert f"Column named by the amendment in audit/E1_AMENDMENT_2.json: {letter}" in text
+    assert "Column named by the amendment" not in s.format_header_only(s.header_only(workbook()), None, "0" * 64)
+
+
+@pytest.mark.parametrize("changes, message", [
+    (dict(sheet="A3. Other data (artificial)"), "not the headline-series sheet"),
+    (dict(sheet="No such sheet"), "not the headline-series sheet"),
+    (dict(column="D"), "not one of the 2 real-GDP columns"),
+    (dict(column="Z"), "not one of the 2 real-GDP columns"),
+    (dict(header="Real GDP, United Kingdom (artificial)"), "differs from the header text"),
+    (dict(header=""), "differs from the header text"),
+])
+def test_a_named_column_must_fit_the_workbook(changes, message):
+    wb = workbook(**TWO_UK)
+    with pytest.raises(s.SourceStop, match=message) as stop:
+        s.header_only(wb, real_gdp_column=naming(wb, "B", **changes))
+    assert stop.value.stage == "selection" and "real_gdp_columns" in stop.value.details
+
+
+def test_a_named_column_must_be_labelled_as_real_gdp():
+    wb = workbook()                                   # B England, C UK consistent, D per head, E nominal
+    per_head = dict(sheet=HEADLINE, column="D", header="Real GDP per head (artificial) | GBP, artificial prices")
+    with pytest.raises(s.SourceStop, match="not one of the 2 real-GDP columns"):
+        s.header_only(wb, real_gdp_column=per_head)
+
+
+def test_a_named_column_may_agree_with_the_rule_but_not_replace_the_column_it_gives():
+    wb = workbook()                                   # the rule gives column C (step 2)
+    output = s.header_only(wb, real_gdp_column=naming(wb, "C"))
+    assert output["selection"]["column"] == "C" and output["selection"]["rule_step"] == 2
+    assert output["column_named_by_amendment"]["column"] == "C"
+    with pytest.raises(s.SourceStop, match="already gives column C") as stop:
+        s.header_only(wb, real_gdp_column=naming(wb, "B"))
+    assert stop.value.stage == "selection"
+    single = workbook(columns=[standard_columns()[1], standard_columns()[3]])      # one real-GDP column: B (step 1)
+    assert s.header_only(single, real_gdp_column=naming(single, "B"))["selection"]["rule_step"] == 1
+
+
+def test_a_named_column_works_with_a_named_sheet():
+    wb = workbook(second_headline=True, **TWO_UK)
+    with pytest.raises(s.SourceStop, match="2 sheets"):
+        s.header_only(wb)
+    headers = real_gdp_headers(wb, headline_sheet=HEADLINE)
+    assert sorted(headers) == ["B", "C"]
+    named = dict(sheet=HEADLINE, column="C", header=headers["C"])
+    output = s.header_only(wb, headline_sheet=HEADLINE, real_gdp_column=named)
+    assert output["selection"]["column"] == "C" and output["headline_named_by_amendment"] == HEADLINE
+
+
 def test_layout_can_be_given_by_the_operator_and_is_recorded():
     output = s.header_only(workbook(), first_data_row=6, year_column="A")
     assert output["layout_source"] == "operator" and output["selection"]["column"] == "C"

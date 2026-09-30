@@ -19,6 +19,11 @@ Closed until G4 for E1 verifies and audit/E1_X3.json records passed official syn
       When more than one sheet identifies itself as the headline series the selection stops and section 4
       requires an amendment. Once audit/E1_AMENDMENT_1.json (with prereg/E1_amendment_1.md, both committed)
       names one of those sheets, select uses only that sheet and records the amendment.
+      Likewise, when the tie-break leaves no single real-GDP column the selection stops and section 4 requires
+      an amendment. Once audit/E1_AMENDMENT_2.json (with prereg/E1_amendment_2.md, both committed) names the
+      sheet, the column letter and the column's header text, select uses that column, after checking all three
+      against the workbook, and records the amendment. Where the rule already gives one column the amendment
+      must name that column.
   python tools/acquire_e1.py territory --record territory.json
       The territory of each stretch 1700-2016, each quoting the workbook text that states it (checked).
   python tools/acquire_e1.py extract

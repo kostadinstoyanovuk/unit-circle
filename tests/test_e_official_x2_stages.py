@@ -173,6 +173,149 @@ def test_an_amendment_that_does_not_fit_is_refused(root, sheet, changes, error, 
     assert not (root / s.SELECTION_RECORD).exists()
 
 
+# ------------------------------------------------ the real-GDP column named by an amendment (audit/E1_AMENDMENT_2.json)
+
+def two_uk_columns():
+    from e_official_artificial import standard_columns
+    return [standard_columns()[1], ("Real GDP, United Kingdom (artificial)", None, None, lambda y, v: v)]
+
+
+def amend_column(root, sheet, letter, header, *, text="artificial column amendment text\n", commit=True, **changes):
+    (root / s.COLUMN_AMENDMENT_TEXT).write_bytes(text.encode("utf-8"))
+    record = dict(record_type="E1 amendment 2 (artificial)", registration_id="mjg9w",
+                  amendment_url="https://example.invalid/amendment-2", attachment=s.COLUMN_AMENDMENT_TEXT,
+                  attachment_sha256=gates.sha256_bytes(text.encode("utf-8")),
+                  real_gdp_column=dict(sheet=sheet, column=letter, header=header),
+                  public_first_verified_at_utc="2026-09-30T20:00:00+00:00")
+    record.update(changes)
+    (root / s.COLUMN_AMENDMENT_RECORD).write_bytes(records.pretty(record))
+    if commit:
+        commit_all(root, "artificial column amendment")
+
+
+def logged_attempts(root):
+    return [json.loads(line) for line in (root / s.ATTEMPTS_LOG).read_text(encoding="utf-8").splitlines()]
+
+
+def two_uk_stop(root):
+    """Two headline sheets and two UK real-GDP columns. Amendment 1 names the sheet; the column stop is logged.
+    Returns the header text of each real-GDP column as the stopped attempt lists it (what amendment 2 records)."""
+    acquired(root, artificial_workbook(second_headline=True, columns=two_uk_columns()))
+    amend(root, TWO_HEADLINES)
+    with pytest.raises(s.SourceStop, match="2 of them"):
+        s.select(root)
+    assert not (root / s.SELECTION_RECORD).exists()
+    last = logged_attempts(root)[-1]
+    assert last["status"] == "stopped" and last["stage"] == "selection"
+    return {c["column"]: " | ".join(cell["text"] for cell in c["header"]) for c in last["details"]["real_gdp_columns"]}
+
+
+def territory_for_column_b():
+    spec = json.loads(json.dumps(TERRITORY))
+    for stretch in spec["stretches"]:
+        for item in stretch["evidence"]:
+            item["location"] = item["location"].replace("!C4", "!B4")
+    return spec
+
+
+def test_two_uk_columns_stop_and_a_committed_column_amendment_settles_it(root):
+    headers = two_uk_stop(root)
+    assert sorted(headers) == ["B", "C"]
+    amend_column(root, TWO_HEADLINES, "B", headers["B"])
+    selection = s.select(root)["selection"]
+    assert (selection["sheet"], selection["column"], selection["rule_step"]) == (TWO_HEADLINES, "B", 3)
+    used = selection["options"]["column_amendment"]
+    assert (used["sheet"], used["column"], used["header"]) == (TWO_HEADLINES, "B", headers["B"])
+    assert used["record_sha256"] == gates.sha256_file(root / s.COLUMN_AMENDMENT_RECORD)
+    assert used["text_sha256"] == gates.sha256_file(root / s.COLUMN_AMENDMENT_TEXT)
+    assert selection["options"]["amendment"]["headline_sheet"] == TWO_HEADLINES       # amendment 1 stays recorded
+    assert "Column named by the amendment in audit/E1_AMENDMENT_2.json: B" in (
+        (root / s.HEADER_TEXT).read_text(encoding="utf-8"))
+    attempts = logged_attempts(root)
+    assert [a["status"] for a in attempts] == ["stopped", "selected"]
+    assert attempts[0]["options"]["column_amendment"] is None and attempts[1]["options"]["column_amendment"] == used
+    s.record_territory(root, territory_for_column_b())
+    commit_all(root, "selection and territory")
+    assert s.extract(root)["column"] == "B"
+    commit_all(root, "extraction")
+    loaded = s.load_registered_growth(root)
+    assert len(loaded["growth"]) == 316
+    assert loaded["record_sha256"][s.COLUMN_AMENDMENT_RECORD] == used["record_sha256"]
+    assert loaded["record_sha256"][s.COLUMN_AMENDMENT_TEXT] == used["text_sha256"]
+    assert loaded["record_sha256"][s.AMENDMENT_RECORD] == selection["options"]["amendment"]["record_sha256"]
+    (root / s.COLUMN_AMENDMENT_TEXT).write_bytes(b"edited afterwards\n")
+    commit_all(root, "column amendment text edited")
+    with pytest.raises(gates.GateClosed, match="SHA-256"):
+        s.load_registered_growth(root)
+
+
+def test_a_column_amendment_changed_after_the_selection_stops_the_extraction(root):
+    headers = two_uk_stop(root)
+    amend_column(root, TWO_HEADLINES, "B", headers["B"])
+    s.select(root)
+    s.record_territory(root, territory_for_column_b())
+    commit_all(root, "selection and territory")
+    record = json.loads((root / s.COLUMN_AMENDMENT_RECORD).read_text(encoding="utf-8"))
+    record["amendment_url"] = "https://example.invalid/another-address"
+    (root / s.COLUMN_AMENDMENT_RECORD).write_bytes(records.pretty(record))
+    commit_all(root, "column amendment record altered")
+    with pytest.raises(gates.GateClosed, match="relied on audit/E1_AMENDMENT_2.json"):
+        s.extract(root)
+    assert not (root / s.EXTRACTION_RECORD).exists() and not (root / s.EXTRACTION_STOP).exists()
+    (root / s.COLUMN_AMENDMENT_RECORD).unlink()
+    commit_all(root, "column amendment record removed")
+    with pytest.raises(gates.GateClosed, match="relied on audit/E1_AMENDMENT_2.json"):
+        s.extract(root)
+
+
+@pytest.mark.parametrize("changes, error, message", [
+    (dict(registration_id="zzzzz"), gates.GateClosed, "does not belong to the E1 registration"),
+    (dict(amendment_url=""), gates.GateClosed, "has no amendment_url"),
+    (dict(public_first_verified_at_utc="2026-09-30T20:00:00"), ValueError, "offset"),
+    (dict(real_gdp_column=dict(sheet=" ", column="B", header="x")), gates.GateClosed, "does not name a sheet, a column"),
+    (dict(real_gdp_column=dict(sheet=TWO_HEADLINES, column="b", header="x")), gates.GateClosed, "not a column letter"),
+    (dict(real_gdp_column="B"), gates.GateClosed, "does not name a sheet, a column"),
+])
+def test_a_column_amendment_that_does_not_fit_is_refused(root, changes, error, message):
+    headers = two_uk_stop(root)
+    amend_column(root, TWO_HEADLINES, "B", headers["B"], **changes)
+    with pytest.raises(error, match=message):
+        s.select(root)
+    assert not (root / s.SELECTION_RECORD).exists() and len(logged_attempts(root)) == 1
+
+
+def test_a_column_amendment_must_be_committed_and_agree_with_its_text(root):
+    headers = two_uk_stop(root)
+    amend_column(root, TWO_HEADLINES, "B", headers["B"], commit=False)
+    with pytest.raises(gates.GateClosed, match="is not committed"):
+        s.select(root)
+    commit_all(root, "column amendment")
+    (root / s.COLUMN_AMENDMENT_TEXT).write_bytes(b"edited afterwards\n")
+    with pytest.raises(gates.GateClosed, match="differs from the committed file"):
+        s.select(root)
+    commit_all(root, "text edited")
+    with pytest.raises(gates.GateClosed, match="SHA-256"):
+        s.select(root)
+    assert not (root / s.SELECTION_RECORD).exists() and len(logged_attempts(root)) == 1
+
+
+@pytest.mark.parametrize("letter, header_of, sheet, message", [
+    ("B", "C", TWO_HEADLINES, "differs from the header text"),
+    ("C", "B", TWO_HEADLINES, "differs from the header text"),
+    ("D", "B", TWO_HEADLINES, "not one of the 2 real-GDP columns"),
+    ("B", "B", "A2 Headline copy (artificial)", "not the headline-series sheet"),
+])
+def test_a_named_column_the_workbook_does_not_bear_out_stops_and_is_logged(root, letter, header_of, sheet, message):
+    headers = two_uk_stop(root)
+    amend_column(root, sheet, letter, headers[header_of])
+    with pytest.raises(s.SourceStop, match=message) as stop:
+        s.select(root)
+    assert stop.value.stage == "selection" and not (root / s.SELECTION_RECORD).exists()
+    attempts = logged_attempts(root)
+    assert [a["status"] for a in attempts] == ["stopped", "stopped"]
+    assert attempts[1]["options"]["column_amendment"]["column"] == letter
+
+
 def test_full_x2_sequence(root):
     acquired(root)
     with pytest.raises(gates.GateClosed, match="No E1 selection record"):
