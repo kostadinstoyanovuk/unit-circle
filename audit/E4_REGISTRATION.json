@@ -1,0 +1,99 @@
+{
+    "record_type": "OSF registration evidence for extension E4 (gate G4)",
+    "registration_id": "dpxqf",
+    "registration_url": "https://osf.io/dpxqf",
+    "doi": "10.17605/OSF.IO/DPXQF",
+    "title": "E4: Did UK recessions give warning in GDP data as first released? A registered extension of OSF wcnbz using real-time vintages of UK GDP (ABMI)",
+    "registration_type": "OSF Registries, Secondary Data Preregistration (the template of H1, wcnbz)",
+    "registration_license": "CC-By Attribution 4.0 International",
+    "linked_registration": "wcnbz (H1), cited in the description; separate registration per DECISIONS.md D-023, G-6",
+    "api_date_registered_utc": "2026-09-30T06:26:04.203152Z",
+    "approval": "Submitted by the owner from the OSF draft (activity log project_created_from_draft_reg at 2026-09-30T06:26:03.953963Z). The registry recorded the original response as approved at 2026-09-30T06:27:00.909545Z (schema response 6abcab7d3262163c9db644d3, date_modified with reviews_state approved); state approved, public, not embargoed, not withdrawn",
+    "public_registration_timestamp_utc": "2026-09-30T06:27:00.909545Z",
+    "public_first_verified_at_utc": "2026-09-30T06:30:17Z",
+    "anonymous_api_check": {
+        "checked_at_utc": "2026-09-30T06:30:17Z",
+        "client": "unauthenticated OSF API v2 requests",
+        "public": true,
+        "pending_registration_approval": false,
+        "embargoed": false,
+        "withdrawn": false,
+        "archiving": false,
+        "revision_state": "approved"
+    },
+    "attachments_question": "Codebook documentation (72-26), as in H1",
+    "expected_attachment_sha256": {
+        "prereg/E4.md": "df7e2745b9f30dc9d9ed53526214f8d4f464f175f3180fcff3e1a92e4d03c7b9",
+        "prereg/E_SOURCE_METADATA.md": "44625af43da8aa8d709a172655a749f1c75972b2c4db9d0356dee906a3e4dc08"
+    },
+    "archived_attachments": [
+        {
+            "file_name": "E4.md",
+            "osf_file_id": "6abcab846f68128ffbd0e929",
+            "bytes": 35967,
+            "osf_sha256": "df7e2745b9f30dc9d9ed53526214f8d4f464f175f3180fcff3e1a92e4d03c7b9",
+            "downloaded_sha256": "df7e2745b9f30dc9d9ed53526214f8d4f464f175f3180fcff3e1a92e4d03c7b9",
+            "downloaded_at_utc": "2026-09-30T06:30:50Z"
+        },
+        {
+            "file_name": "E_SOURCE_METADATA.md",
+            "osf_file_id": "6abcab846f68128ffbd0e92a",
+            "bytes": 10647,
+            "osf_sha256": "44625af43da8aa8d709a172655a749f1c75972b2c4db9d0356dee906a3e4dc08",
+            "downloaded_sha256": "44625af43da8aa8d709a172655a749f1c75972b2c4db9d0356dee906a3e4dc08",
+            "downloaded_at_utc": "2026-09-30T06:30:52Z"
+        }
+    ],
+    "archived_attachment_bytes_verified": true,
+    "source_commit": "cc28f421768a55890497c9b2e3d6121c7e05f201",
+    "prereg_tag": "prereg-E4",
+    "prereg_tag_commit": "cc28f421768a55890497c9b2e3d6121c7e05f201",
+    "data_status": "No ONS real-time database or revision-triangle workbook had been acquired, opened or previewed at registration or at verification; the H1-registered ABMI file was acquired under H1 on 28 September 2026.",
+    "programme_state_at_registration": "STATUS.md at the registration commit records H1 frozen (28 September) and E3 frozen (29 September), both inconclusive; the E1 workbook acquired once on 29 September with its sheet selection stopped and waiting for an amendment, so no E1 statistic existed; E2 not registered. No extension had been run or frozen after 29 September 2026, so the conditional passage of answer 72-46 was deleted before submission.",
+    "registered_answers": {
+        "compared_with": "prereg/E4_OSF_responses.md at commit cc28f42 (SHA-256 7c3a18abd0aa71e334b96bbc6dc5e71654f2c1ed0b324f73aaa4eeac212b483d)",
+        "compared_on": "the anonymous registration response of 2026-09-30T06:30:17Z",
+        "identical": [
+            "72-2",
+            "72-7",
+            "72-14",
+            "72-16",
+            "72-18",
+            "72-20",
+            "72-24",
+            "72-29",
+            "72-37",
+            "72-39",
+            "72-41",
+            "72-44",
+            "72-46",
+            "72-51",
+            "72-57",
+            "72-61"
+        ],
+        "identical_after_html_escape_of_lt_and_gt": [
+            "72-4",
+            "72-33",
+            "72-35",
+            "72-49",
+            "72-53",
+            "72-55",
+            "72-59"
+        ],
+        "option_text": {
+            "72-9": "The dataset is publicly available"
+        },
+        "file_answers": {
+            "72-22": [],
+            "72-26": [
+                "E4.md",
+                "E_SOURCE_METADATA.md"
+            ],
+            "72-31": []
+        },
+        "note": "OSF stores \"<\" and \">\" in registered answers as &lt; and &gt; (12 characters, 5 and 7); the registered H1 record wcnbz shows the same. Title and description equal the file."
+    },
+    "project_created_from_draft": "wxd6u",
+    "schema_response_id": "6abcab7d3262163c9db644d3",
+    "release_rule_note": "The E4 release rule (E4 section 4, D-017) selects the latest ONS edition released strictly before the registry approval time, 2026-09-30T06:27:00.909545Z (schema response date_modified with reviews_state approved, as in audit/H1_REGISTRATION_TIMESTAMP.md). The edition is identified from official ONS metadata at step X.2."
+}
