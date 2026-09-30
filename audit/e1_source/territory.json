@@ -1,0 +1,23 @@
+{
+  "record_type": "E1 territory of each stretch of the selected column (prereg/E1.md section 4)",
+  "raw_sha256": "4c23dd392a498691eac92659aec283fb43f28118bd80511dc87fc595974195eb",
+  "selection_sha256": "375b80f90597a7ac849e877f8343a3f0cc550ba8664c7d128c8d8cd80a264601",
+  "sheet": "A1. Headline series",
+  "column": "B",
+  "stretches": [
+    {
+      "first_year": 1700,
+      "last_year": 2016,
+      "territory": "UK, geographically consistent estimate based on post-1922 borders",
+      "evidence": [
+        {
+          "location": "A1. Headline series!B4",
+          "quote": "Real UK GDP at market prices, geographically-consistent estimate based on post-1922 borders"
+        }
+      ]
+    }
+  ],
+  "note": null,
+  "use": "Documentation only: the column is used as the workbook gives it, with no re-splicing, re-basing, interpolation or territorial adjustment",
+  "recorded_utc": "2026-09-30T17:45:24.151071+00:00"
+}
