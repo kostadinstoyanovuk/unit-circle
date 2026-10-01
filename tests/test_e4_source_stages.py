@@ -14,8 +14,8 @@ from pathlib import Path
 import numpy as np
 import pytest
 
-from e4_workbook_builder import (Q2_FIRST, Q2_QNA, calendar_page, commit_all, e4_root, file_url, git, levels,
-                                 page_29_september, page_30_september, workbook)
+from e4_workbook_builder import (E1_CODE, Q2_FIRST, Q2_QNA, calendar_page, commit_all, e4_root, file_url, git,
+                                 levels, page_29_september, page_30_september, workbook)
 from e_official_artificial import x3_record
 from uc_e4.table import Stop
 from uc_ext_official import e4_source as s, gates, records
@@ -327,7 +327,7 @@ def test_level_tables_are_closed_without_x3_and_frozen_code(root):
 def test_level_tables_hold_the_numbers_apart_and_report_only_counts_and_hashes(root):
     values = levels(24, 6)
     mapped(root, workbook(values=values))
-    (root / gates.x3_record_path("e4")).write_text(json.dumps(x3_record("e4", CODE), indent=1))
+    (root / gates.x3_record_path("e4")).write_text(json.dumps(x3_record("e4", CODE, e1_code_sha256=E1_CODE), indent=1))
     commit_all(root, "constructed X.3 record")
     out = s.read_level_tables(root)
     table = out["tables"].levels.levels
@@ -336,6 +336,15 @@ def test_level_tables_hold_the_numbers_apart_and_report_only_counts_and_hashes(r
     assert out["summary"]["numeric_cells"] == int(present.sum()) and len(out["summary"]["levels_sha256"]) == 64
     assert set(out["summary"]) == {"n_vintages", "n_reference_quarters", "numeric_cells", "kinds_sha256",
                                    "levels_sha256", "mapping_sha256", "x3_record_sha256"}
+
+
+def test_level_tables_need_the_e1_part_of_the_code_identity_to_be_the_frozen_e1_code(root):
+    mapped(root, workbook(values=levels(24, 6)))
+    (root / gates.x3_record_path("e4")).write_text(
+        json.dumps(x3_record("e4", CODE, e1_code_sha256="f" * 64), indent=1))
+    commit_all(root, "constructed X.3 record stating another E1 code identity")
+    with pytest.raises(gates.GateClosed, match="E1 part of the E4 code identity.*the E4 X.3 record"):
+        s.read_level_tables(root)
 
 
 def test_map_needs_g4_and_the_edition_record_the_acquisition_cites(root):

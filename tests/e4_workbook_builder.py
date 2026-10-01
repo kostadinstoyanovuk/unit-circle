@@ -16,6 +16,8 @@ import zipfile
 
 import numpy as np
 
+from e_official_artificial import x3_record
+
 PACKAGE = Path(__file__).resolve().parents[1]
 DEV_SEED, DEV_STREAM = 20260930, 9201        # development coordinates (not registered)
 MAIN = "http://schemas.openxmlformats.org/spreadsheetml/2006/main"
@@ -23,6 +25,7 @@ REL = "http://schemas.openxmlformats.org/officeDocument/2006/relationships"
 PKG = "http://schemas.openxmlformats.org/package/2006/relationships"
 LABEL = "CONSTRUCTED TEST WORKBOOK - generated for software tests; not ONS data"
 DATE_STYLE, CUSTOM_DATE_STYLE, NUMBER_STYLE = 1, 2, 3      # cellXfs indices written by `styles_xml`
+E1_CODE = "e" * 64                           # the code identity of the constructed root's E1 X.3 record
 
 
 class Date:
@@ -317,23 +320,27 @@ gate_record = _module.gate_record
 
 
 def run_identity(root, *, registered):
-    return dict(code_sha256=json.loads((Path(root) / "tools/e4_test_identity.json").read_text())["code_sha256"])
+    identity = json.loads((Path(root) / "tools/e4_test_identity.json").read_text())
+    return dict(code_sha256=identity["code_sha256"], e1_code_sha256=identity["e1_code_sha256"])
 '''
 
 
-def e4_root(tmp_path, *, code_sha256="c" * 64):
+def e4_root(tmp_path, *, code_sha256="c" * 64, e1_code_sha256=E1_CODE):
     """A git repository with prereg/E4.md tagged prereg-E4 (annotated, pushed to a local bare origin), a test
-    copy of audit/E4_REGISTRATION.json naming that tag, the research .gitignore, a manifest and a test gate."""
+    copy of audit/E4_REGISTRATION.json naming that tag, a constructed E1 X.3 record (the frozen E1 code
+    identity that the E4 identity must contain), the research .gitignore, a manifest and a test gate."""
     origin, root = tmp_path / "origin.git", tmp_path / "research"
     subprocess.run(["git", "init", "-q", "--bare", str(origin)], check=True)
     for relative in ("prereg/E4.md", ".gitignore", "tools/run_e_checks.py"):
         (root / relative).parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(PACKAGE / relative, root / relative)
     (root / "tools/run_e4_checks.py").write_text(GATE_RUNNER, encoding="utf-8")
-    (root / "tools/e4_test_identity.json").write_text(json.dumps(dict(code_sha256=code_sha256)) + "\n")
+    (root / "tools/e4_test_identity.json").write_text(json.dumps(dict(code_sha256=code_sha256,
+                                                                     e1_code_sha256=e1_code_sha256)) + "\n")
     (root / "data/raw").mkdir(parents=True)
     (root / "data/raw/.gitkeep").write_text("")
     (root / "audit").mkdir()
+    (root / "audit/E1_X3.json").write_text(json.dumps(x3_record("e1", E1_CODE), indent=1) + "\n", encoding="utf-8")
     (root / "DATA_MANIFEST.csv").write_text("file,source_url,series_id,retrieved_utc,sha256,licence,notes\n"
                                             "data/raw/.gitkeep,https://example.invalid,constructed,2026-09-30T00:00:00Z,"
                                             + "0" * 64 + ",constructed,constructed test row\n", encoding="utf-8")

@@ -196,13 +196,28 @@ def code_identity(root, extension: str = "e1") -> dict:
 
 def check_code_frozen(root, x3: dict, extension: str | None = None) -> dict:
     """The code that runs X.4 is the code that ran X.3 (Annex B: not touched between them). The extension is
-    the one given or, failing that, the one the X.3 record names."""
-    identity = code_identity(root, (extension or str(x3.get("extension") or "e1")).lower())
+    the one given or, failing that, the one the X.3 record names. E4's identity includes E1's code (identity
+    option e1-superset), and that part must be E1's frozen code as well."""
+    extension = (extension or str(x3.get("extension") or "e1")).lower()
+    identity = code_identity(root, extension)
     if identity["code_sha256"] != x3["code_sha256"]:
         raise GateClosed("The analysis code differs from the code that ran the official synthetic checks "
                          f"(X.3 code {x3['code_sha256'][:12]}..., now {identity['code_sha256'][:12]}...); "
                          "Annex B forbids touching it between X.3 and X.4")
+    if extension == "e4":
+        check_e1_code_unchanged(root, identity, x3)
     return identity
+
+
+def check_e1_code_unchanged(root, identity: dict, x3: dict) -> None:
+    """The E1 part of E4's code identity is the code frozen at E1's X.3 (audit/E1_X3.json), in the code now
+    running and in the E4 X.3 record. A change to E1's frozen code would change both E4's hash and E1's."""
+    frozen = check_x3(root, "e1")["code_sha256"]
+    differing = [name for name, value in (("the code now running", identity.get("e1_code_sha256")),
+                                          ("the E4 X.3 record", x3.get("e1_code_sha256"))) if value != frozen]
+    if differing:
+        raise GateClosed(f"The E1 part of the E4 code identity is not E1's frozen code identity ({frozen[:12]}...): "
+                         f"it differs in {' and in '.join(differing)}; E1's frozen code is not touched")
 
 
 def check_code_location(root, extension: str | None = None) -> dict:
