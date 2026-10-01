@@ -89,6 +89,9 @@ BASE_A, BASE_B, BASE_C, SIGMA = 0.3, 0.1, 1.5, 3.5
 # substance. The absolute floor serves values at or near zero.
 FLOAT_REL, FLOAT_ABS = 1e-9, 1e-12
 NEAR_TIE = 1e-9                           # |S_b - S| <= 1e-9 is reported as a near tie, not silently classified
+# Lag columns whose squared correlation exceeds 1 - 1e-4 make the closed form lose more than about 1e-12 of
+# relative precision; such fits are made by the H1 section 4 lstsq recipe instead (never met on random data).
+ILL_CONDITIONED = 1e-4
 P_LABEL = "raw, not family-adjusted"
 
 SIZE_CLAUSE = ("prereg/E4.md", "section 11, Size (AT-15 adapted)",
@@ -190,6 +193,23 @@ def companion_modulus(phi1, phi2):
     return out
 
 
+def h1_lstsq_slopes(values):
+    """The H1 section 4 recipe for one fit, used where the closed form is ill-conditioned: centre each lag
+    column, divide by its root mean square centred magnitude, solve the two-column problem with
+    lstsq(rcond=None), require rank two and finite values, undo the scaling. Returns (phi1, phi2), NaN on a
+    failure."""
+    w = np.asarray(values, dtype=float)
+    y, l1, l2 = w[2:], w[1:-1], w[:-2]
+    c1, c2 = l1 - l1.mean(), l2 - l2.mean()
+    scale1, scale2 = math.sqrt(float(np.mean(c1 * c1))), math.sqrt(float(np.mean(c2 * c2)))
+    if not (scale1 > 0 and scale2 > 0 and math.isfinite(scale1) and math.isfinite(scale2)):
+        return math.nan, math.nan
+    beta, _, rank, _ = np.linalg.lstsq(np.column_stack([c1 / scale1, c2 / scale2]), y - y.mean(), rcond=None)
+    if rank < 2 or not np.all(np.isfinite(beta)):
+        return math.nan, math.nan
+    return float(beta[0] / scale1), float(beta[1] / scale2)
+
+
 def rolling_fit(x, window=WINDOW):
     """H1 section 4 for every window of the last axis at once. Each window of W values is fitted by OLS with an
     intercept, the last W - 2 values as responses and the window's own first two values only as lags, by the
@@ -197,7 +217,9 @@ def rolling_fit(x, window=WINDOW):
     Returns (phi1, phi2, modulus, ok), of shape (..., n - W + 1); entry k is the window ending at position
     k + W - 1. A window fails (ok False, modulus NaN) when a lag column has zero centred scale, the centred
     cross-product matrix is not positive definite (rank below two), or a coefficient or the modulus is not
-    finite; a non-finite value in a window propagates to a failure."""
+    finite; a non-finite value in a window propagates to a failure. A window whose lag columns are nearly
+    collinear (squared correlation above 1 - ILL_CONDITIONED) is refitted by the H1 section 4 lstsq recipe,
+    whose rank decision then applies."""
     x = np.asarray(x, dtype=float)
     n = x.shape[-1]
     if n < window:
@@ -220,6 +242,16 @@ def rolling_fit(x, window=WINDOW):
         modulus = companion_modulus(phi1, phi2)
         ok = ((s11 > 0) & (s22 > 0) & (det > 0) & np.isfinite(det) & np.isfinite(phi1) & np.isfinite(phi2)
               & np.isfinite(modulus))
+        r2 = (s12 * s12) / (s11 * s22)
+        ill = (s11 > 0) & (s22 > 0) & np.isfinite(r2) & (r2 > 1.0 - ILL_CONDITIONED)
+    if np.any(ill):
+        # The normal equations square the condition number; H1 section 4 decides rank and coefficients by
+        # lstsq(rcond=None) on the scaled centred columns, so such windows are refitted by that recipe.
+        for index in zip(*np.nonzero(ill)):
+            p1, p2 = h1_lstsq_slopes(view[index])
+            m = float(companion_modulus(p1, p2))
+            phi1[index], phi2[index], modulus[index] = p1, p2, m
+            ok[index] = math.isfinite(p1) and math.isfinite(p2) and math.isfinite(m)
     return phi1, phi2, np.where(ok, modulus, np.nan), ok
 
 
@@ -285,10 +317,15 @@ def fit_null(series):
     s11, s22, s12 = float(c1 @ c1), float(c2 @ c2), float(c1 @ c2)
     s1y, s2y = float(c1 @ yc), float(c2 @ yc)
     det = s11 * s22 - s12 * s12
-    if not (math.isfinite(det) and s11 > 0 and s22 > 0 and det > 0):
+    if s11 > 0 and s22 > 0 and math.isfinite(det) and s12 * s12 / (s11 * s22) > 1.0 - ILL_CONDITIONED:
+        phi1, phi2 = h1_lstsq_slopes(x)              # ill-conditioned: the H1 section 4 recipe decides
+        if not (math.isfinite(phi1) and math.isfinite(phi2)):
+            raise NullFailure("the full-sample fit is not identified (rank below two)")
+    elif not (math.isfinite(det) and s11 > 0 and s22 > 0 and det > 0):
         raise NullFailure("the full-sample fit is not identified (rank below two)")
-    phi1 = (s22 * s1y - s12 * s2y) / det
-    phi2 = (s11 * s2y - s12 * s1y) / det
+    else:
+        phi1 = (s22 * s1y - s12 * s2y) / det
+        phi2 = (s11 * s2y - s12 * s1y) / det
     intercept = my - phi1 * m1 - phi2 * m2
     residuals = y - intercept - phi1 * l1 - phi2 * l2
     if not (math.isfinite(phi1) and math.isfinite(phi2) and math.isfinite(intercept)

@@ -97,6 +97,19 @@ def test_delta_uses_positions_n_minus_1_and_n_minus_9_as_the_h1_recipe_gives_the
     assert v.series_delta(x[:47])[0] is None and v.series_delta(x[:48])[0] is not None       # n_v >= 48
 
 
+def test_nearly_collinear_windows_follow_the_h1_lstsq_rank_decision():
+    # A noise-free explosive AR(2) (roots 1.05 and 0.3): late windows hold lag columns whose correlation is one
+    # to rounding. The normal equations cannot decide their rank; lstsq(rcond=None) on the scaled columns, as
+    # H1 section 4 prescribes, finds rank two, and the modulus is that of the H1 recipe.
+    x = exact_ar2(0.0, 1.35, -0.315, (1.0, 2.0), 60)
+    modulus, ok = v.rolling_modulus(x)
+    assert ok.all()
+    for end in (52, 53, 54, 59):
+        assert modulus[end - 39] == pytest.approx(h1_window_modulus(x[end - 39:end + 1]), abs=1e-9)
+    with pytest.raises(v.NullFailure, match="not strictly stable"):
+        v.fit_null(x)
+
+
 def test_a_constant_series_fails_every_window_and_its_null():
     x = np.full(60, 2.5)
     _, _, modulus, ok = v.rolling_fit(x)
