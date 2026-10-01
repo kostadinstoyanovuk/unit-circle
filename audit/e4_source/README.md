@@ -15,3 +15,14 @@ These files record how the coverage of the ONS real-time database for GDP (ABMI)
 | 6 | 2026-09-29T19:54:15Z | https://www.ons.gov.uk/releases/gdpquarterlynationalaccountsukjanuarytomarch2026 | 200 | 52,169 | `9b29d621a870405f0335ad39fc227d9a6b8991dc705c50484c4a2dfcf91bffb2` |
 
 The saved pages themselves are kept with the programme's preparation records and are not reproduced here; each can be checked against the SHA-256 above. No workbook, archive, bulletin, time-series page or other data page was opened. What the pages state, and what they do not, is set out in `prereg/E4.md` Annex C.
+
+## X.2: pages saved on 1 October 2026
+
+The release rule of `prereg/E4.md` section 4 needs the release date and time of the edition. After the release of 30 September 2026, two pages were saved with `tools/acquire_e4.py list --fetch`, which applies an address list of its own (`docs/E4_X2_READINGS.md`, R-X2.6) and requested nothing else. `ons-requests-2026-10-01.jsonl` is its request log, one JSON object per request, with line ends normalised to LF (SHA-256 `b962cdbd56fc7d7ccb8c39a6f66999c8616ed035a027b69d61b6f4ad742d8ce4`).
+
+| # | Request (UTC) | Address | HTTP | Bytes | SHA-256 of the saved response |
+|---|---|---|---|---:|---|
+| 7 | 2026-10-01T04:53:00Z | https://www.ons.gov.uk/economy/grossdomesticproductgdp/datasets/realtimedatabaseforukgdpabmi | 200 | 178,091 | `0636cf8deca84482109d5ff1a960e540f70ed3d48650c153021b5d51970391dc` |
+| 8 | 2026-10-01T04:53:00Z | https://www.ons.gov.uk/releases/gdpquarterlynationalaccountsukapriltojune2026 | 200 | 52,547 | `ba28e7ab85b210581114af2998480860084937ac605287f7f336b7911169050a` |
+
+The dataset page states "Release date: 30 September 2026" and "Next release: 12 November 2026". The release-calendar record "GDP quarterly national accounts, UK: April to June 2026" is published, gives 30 September 2026 at 7:00am UK time, lists the dataset and gives the same next release. The registration was verified public at 06:27:00.9 UTC on 30 September 2026 (07:27 UK time), so the edition "Quarter 2 (Apr to June) 2026, quarterly national accounts" was released in the minute from 06:00 UTC, before it. The saved dataset page lists that edition first and dates the next release 12 November 2026, so no later edition was released before the registration (R-X2.2, R-X2.4). `edition.json` records the listing, every edition considered with its reason, the pages used and the choice. The pages are kept with the programme's preparation records, and each can be checked against the SHA-256 above. No workbook was requested at this step.

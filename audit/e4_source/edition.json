@@ -1,0 +1,2308 @@
+{
+  "record_type": "E4 edition selected under the release rule (prereg/E4.md section 4; Annex B step 2)",
+  "registration": {
+    "record": "audit/E4_REGISTRATION.json",
+    "sha256": "bc4f483ffe84aea9d82b4d86180ad9774b135a9ab8267434c11ab22910089645",
+    "registration_id": "dpxqf",
+    "public_registration_timestamp_utc": "2026-09-30T06:27:00.909545+00:00"
+  },
+  "pages": [
+    {
+      "kind": "dataset",
+      "source": "01_dataset_0636cf8deca8.html",
+      "url": "https://www.ons.gov.uk/economy/grossdomesticproductgdp/datasets/realtimedatabaseforukgdpabmi",
+      "retrieved_utc": "2026-10-01T04:53:00.148154+00:00",
+      "bytes": 178091,
+      "sha256": "0636cf8deca84482109d5ff1a960e540f70ed3d48650c153021b5d51970391dc"
+    },
+    {
+      "kind": "dataset",
+      "source": "01_realtimedatabaseforukgdpabmi_20260929T195308Z.html",
+      "url": "https://www.ons.gov.uk/economy/grossdomesticproductgdp/datasets/realtimedatabaseforukgdpabmi",
+      "retrieved_utc": "2026-09-29T19:53:08Z",
+      "bytes": 176388,
+      "sha256": "caef462265f03d648cce371e5beca175308ab678edc907e2ee1932ee582979b1"
+    },
+    {
+      "kind": "calendar",
+      "source": "02_calendar_ba28e7ab85b2.html",
+      "url": "https://www.ons.gov.uk/releases/gdpquarterlynationalaccountsukapriltojune2026",
+      "retrieved_utc": "2026-10-01T04:53:00.266339+00:00",
+      "bytes": 52547,
+      "sha256": "ba28e7ab85b210581114af2998480860084937ac605287f7f336b7911169050a"
+    }
+  ],
+  "readings": "docs/E4_X2_READINGS.md R-X2.1 to R-X2.5",
+  "registration_utc": "2026-09-30T06:27:00.909545+00:00",
+  "registration_day_uk": "2026-09-30",
+  "reference_page": "01_dataset_0636cf8deca8.html",
+  "editions": [
+    {
+      "label": "Quarter 2 (Apr to June) 2026, quarterly national accounts",
+      "listed_on": [
+        {
+          "page": "01_dataset_0636cf8deca8.html",
+          "position": 0
+        }
+      ],
+      "file_url": "https://www.ons.gov.uk/file?uri=/economy/grossdomesticproductgdp/datasets/realtimedatabaseforukgdpabmi/quarter2aprtojune2026quarterlynationalaccounts/gdpinchainedvolumemeasuresrealtimedatabaseabmi.xlsx",
+      "file_type": "xlsx",
+      "size_text": "604.9 KB",
+      "files": 1,
+      "edition_page_url": null,
+      "release_date": "2026-09-30",
+      "release_time_uk": "07:00",
+      "release_utc": "2026-09-30T06:00:00+00:00",
+      "eligible": true,
+      "reason": "released in the minute from 2026-09-30T06:00:00+00:00 (UTC), before the registration",
+      "missing_evidence": [],
+      "evidence": [
+        "dataset page 01_dataset_0636cf8deca8.html (SHA-256 0636cf8deca8...): release date 2026-09-30, edition listed first",
+        "release-calendar record 02_calendar_ba28e7ab85b2.html (SHA-256 ba28e7ab85b2...): 'GDP quarterly national accounts, UK: April to June 2026', released 2026-09-30 07:00 UK time, lists this dataset"
+      ]
+    },
+    {
+      "label": "Quarter 2 (Apr to June) 2026, first estimate",
+      "listed_on": [
+        {
+          "page": "01_dataset_0636cf8deca8.html",
+          "position": 1
+        },
+        {
+          "page": "01_realtimedatabaseforukgdpabmi_20260929T195308Z.html",
+          "position": 0
+        }
+      ],
+      "file_url": "https://www.ons.gov.uk/file?uri=/economy/grossdomesticproductgdp/datasets/realtimedatabaseforukgdpabmi/quarter2aprtojune2026firstestimate/gdpinchainedvolumemeasuresrealtimedatabaseabmi.xlsx",
+      "file_type": "xlsx",
+      "size_text": "602.0 KB",
+      "files": 1,
+      "edition_page_url": null,
+      "release_date": "2026-08-13",
+      "release_time_uk": null,
+      "release_utc": null,
+      "eligible": true,
+      "reason": "released on 2026-08-13 (UK), a day that ended before the registration",
+      "missing_evidence": [],
+      "evidence": [
+        "dataset page 01_realtimedatabaseforukgdpabmi_20260929T195308Z.html (SHA-256 caef462265f0...): release date 2026-08-13, edition listed first"
+      ]
+    },
+    {
+      "label": "Quarter 1 (Jan to Mar) 2026, quarterly national accounts",
+      "listed_on": [
+        {
+          "page": "01_dataset_0636cf8deca8.html",
+          "position": 2
+        },
+        {
+          "page": "01_realtimedatabaseforukgdpabmi_20260929T195308Z.html",
+          "position": 1
+        }
+      ],
+      "file_url": "https://www.ons.gov.uk/file?uri=/economy/grossdomesticproductgdp/datasets/realtimedatabaseforukgdpabmi/quarter1jantomar2026quarterlynationalaccounts/gdpinchainedvolumemeasuresrealtimedatabaseabmi.xlsx",
+      "file_type": "xlsx",
+      "size_text": "600.8 KB",
+      "files": 1,
+      "edition_page_url": null,
+      "release_date": null,
+      "release_time_uk": null,
+      "release_utc": null,
+      "eligible": false,
+      "reason": "the release date is not established from the saved ONS metadata (R-X2.1)",
+      "missing_evidence": [
+        "a saved copy of the dataset page on which 'Quarter 1 (Jan to Mar) 2026, quarterly national accounts' is listed first, which states its release date"
+      ],
+      "evidence": []
+    },
+    {
+      "label": "Quarter 1 (Jan to Mar) 2026, first estimate",
+      "listed_on": [
+        {
+          "page": "01_dataset_0636cf8deca8.html",
+          "position": 3
+        },
+        {
+          "page": "01_realtimedatabaseforukgdpabmi_20260929T195308Z.html",
+          "position": 2
+        }
+      ],
+      "file_url": "https://www.ons.gov.uk/file?uri=/economy/grossdomesticproductgdp/datasets/realtimedatabaseforukgdpabmi/quarter1jantomar2026firstestimate/gdpinchainedvolumemeasuresrealtimedatabaseabmi.xlsx",
+      "file_type": "xlsx",
+      "size_text": "599.8 KB",
+      "files": 1,
+      "edition_page_url": null,
+      "release_date": null,
+      "release_time_uk": null,
+      "release_utc": null,
+      "eligible": false,
+      "reason": "the release date is not established from the saved ONS metadata (R-X2.1)",
+      "missing_evidence": [
+        "a saved copy of the dataset page on which 'Quarter 1 (Jan to Mar) 2026, first estimate' is listed first, which states its release date"
+      ],
+      "evidence": []
+    },
+    {
+      "label": "Quarter 4 (Oct to Dec) 2025, quarterly national accounts",
+      "listed_on": [
+        {
+          "page": "01_dataset_0636cf8deca8.html",
+          "position": 4
+        },
+        {
+          "page": "01_realtimedatabaseforukgdpabmi_20260929T195308Z.html",
+          "position": 3
+        }
+      ],
+      "file_url": "https://www.ons.gov.uk/file?uri=/economy/grossdomesticproductgdp/datasets/realtimedatabaseforukgdpabmi/quarter4octtodec2025quarterlynationalaccounts/gdpinchainedvolumemeasuresrealtimedatabaseabmi.xlsx",
+      "file_type": "xlsx",
+      "size_text": "599.7 KB",
+      "files": 1,
+      "edition_page_url": null,
+      "release_date": null,
+      "release_time_uk": null,
+      "release_utc": null,
+      "eligible": false,
+      "reason": "the release date is not established from the saved ONS metadata (R-X2.1)",
+      "missing_evidence": [
+        "a saved copy of the dataset page on which 'Quarter 4 (Oct to Dec) 2025, quarterly national accounts' is listed first, which states its release date"
+      ],
+      "evidence": []
+    },
+    {
+      "label": "Quarter 4 (Oct to Dec) 2025, first estimate",
+      "listed_on": [
+        {
+          "page": "01_dataset_0636cf8deca8.html",
+          "position": 5
+        },
+        {
+          "page": "01_realtimedatabaseforukgdpabmi_20260929T195308Z.html",
+          "position": 4
+        }
+      ],
+      "file_url": "https://www.ons.gov.uk/file?uri=/economy/grossdomesticproductgdp/datasets/realtimedatabaseforukgdpabmi/quarter4octtodec2025firstestimate/gdpinchainedvolumemeasuresrealtimedatabaseabmi.xlsx",
+      "file_type": "xlsx",
+      "size_text": "594.4 KB",
+      "files": 1,
+      "edition_page_url": null,
+      "release_date": null,
+      "release_time_uk": null,
+      "release_utc": null,
+      "eligible": false,
+      "reason": "the release date is not established from the saved ONS metadata (R-X2.1)",
+      "missing_evidence": [
+        "a saved copy of the dataset page on which 'Quarter 4 (Oct to Dec) 2025, first estimate' is listed first, which states its release date"
+      ],
+      "evidence": []
+    },
+    {
+      "label": "Quarter 3 (July to Sept) 2025, quarterly national accounts",
+      "listed_on": [
+        {
+          "page": "01_dataset_0636cf8deca8.html",
+          "position": 6
+        },
+        {
+          "page": "01_realtimedatabaseforukgdpabmi_20260929T195308Z.html",
+          "position": 5
+        }
+      ],
+      "file_url": "https://www.ons.gov.uk/file?uri=/economy/grossdomesticproductgdp/datasets/realtimedatabaseforukgdpabmi/quarter3julytosept2025quarterlynationalaccounts/gdpinchainedvolumemeasuresrealtimedatabaseabmi.xlsx",
+      "file_type": "xlsx",
+      "size_text": "593.3 KB",
+      "files": 1,
+      "edition_page_url": null,
+      "release_date": null,
+      "release_time_uk": null,
+      "release_utc": null,
+      "eligible": false,
+      "reason": "the release date is not established from the saved ONS metadata (R-X2.1)",
+      "missing_evidence": [
+        "a saved copy of the dataset page on which 'Quarter 3 (July to Sept) 2025, quarterly national accounts' is listed first, which states its release date"
+      ],
+      "evidence": []
+    },
+    {
+      "label": "Quarter 3 (July to Sept) 2025, first estimate edition",
+      "listed_on": [
+        {
+          "page": "01_dataset_0636cf8deca8.html",
+          "position": 7
+        },
+        {
+          "page": "01_realtimedatabaseforukgdpabmi_20260929T195308Z.html",
+          "position": 6
+        }
+      ],
+      "file_url": "https://www.ons.gov.uk/file?uri=/economy/grossdomesticproductgdp/datasets/realtimedatabaseforukgdpabmi/quarter3julytosept2025firstestimateedition/gdpinchainedvolumemeasuresrealtimedatabaseabmi.xlsx",
+      "file_type": "xlsx",
+      "size_text": "588.5 KB",
+      "files": 1,
+      "edition_page_url": null,
+      "release_date": null,
+      "release_time_uk": null,
+      "release_utc": null,
+      "eligible": false,
+      "reason": "the release date is not established from the saved ONS metadata (R-X2.1)",
+      "missing_evidence": [
+        "a saved copy of the dataset page on which 'Quarter 3 (July to Sept) 2025, first estimate edition' is listed first, which states its release date"
+      ],
+      "evidence": []
+    },
+    {
+      "label": "Quarter 2 (Apr to June) 2025, quarterly national accounts",
+      "listed_on": [
+        {
+          "page": "01_dataset_0636cf8deca8.html",
+          "position": 8
+        },
+        {
+          "page": "01_realtimedatabaseforukgdpabmi_20260929T195308Z.html",
+          "position": 7
+        }
+      ],
+      "file_url": "https://www.ons.gov.uk/file?uri=/economy/grossdomesticproductgdp/datasets/realtimedatabaseforukgdpabmi/quarter2aprtojune2025quarterlynationalaccounts/gdpinchainedvolumemeasuresrealtimedatabaseabmi.xlsx",
+      "file_type": "xlsx",
+      "size_text": "589.3 KB",
+      "files": 1,
+      "edition_page_url": null,
+      "release_date": null,
+      "release_time_uk": null,
+      "release_utc": null,
+      "eligible": false,
+      "reason": "the release date is not established from the saved ONS metadata (R-X2.1)",
+      "missing_evidence": [
+        "a saved copy of the dataset page on which 'Quarter 2 (Apr to June) 2025, quarterly national accounts' is listed first, which states its release date"
+      ],
+      "evidence": []
+    },
+    {
+      "label": "Quarter 2 (Apr to June) 2025, first estimate",
+      "listed_on": [
+        {
+          "page": "01_dataset_0636cf8deca8.html",
+          "position": 9
+        },
+        {
+          "page": "01_realtimedatabaseforukgdpabmi_20260929T195308Z.html",
+          "position": 8
+        }
+      ],
+      "file_url": "https://www.ons.gov.uk/file?uri=/economy/grossdomesticproductgdp/datasets/realtimedatabaseforukgdpabmi/quarter2aprtojune2025firstestimate/gdpinchainedvolumemeasuresrealtimedatabaseabmi.xlsx",
+      "file_type": "xlsx",
+      "size_text": "585.4 KB",
+      "files": 1,
+      "edition_page_url": null,
+      "release_date": null,
+      "release_time_uk": null,
+      "release_utc": null,
+      "eligible": false,
+      "reason": "the release date is not established from the saved ONS metadata (R-X2.1)",
+      "missing_evidence": [
+        "a saved copy of the dataset page on which 'Quarter 2 (Apr to June) 2025, first estimate' is listed first, which states its release date"
+      ],
+      "evidence": []
+    },
+    {
+      "label": "Quarter 1 (Jan to Mar) 2025, quarterly national accounts",
+      "listed_on": [
+        {
+          "page": "01_dataset_0636cf8deca8.html",
+          "position": 10
+        },
+        {
+          "page": "01_realtimedatabaseforukgdpabmi_20260929T195308Z.html",
+          "position": 9
+        }
+      ],
+      "file_url": "https://www.ons.gov.uk/file?uri=/economy/grossdomesticproductgdp/datasets/realtimedatabaseforukgdpabmi/quarter1jantomar2025quarterlynationalaccounts/gdpinchainedvolumemeasuresrealtimedatabaseabmi.xlsx",
+      "file_type": "xlsx",
+      "size_text": "583.7 KB",
+      "files": 1,
+      "edition_page_url": null,
+      "release_date": null,
+      "release_time_uk": null,
+      "release_utc": null,
+      "eligible": false,
+      "reason": "the release date is not established from the saved ONS metadata (R-X2.1)",
+      "missing_evidence": [
+        "a saved copy of the dataset page on which 'Quarter 1 (Jan to Mar) 2025, quarterly national accounts' is listed first, which states its release date"
+      ],
+      "evidence": []
+    },
+    {
+      "label": "Quarter 1 (Jan to Mar) 2025, first estimate",
+      "listed_on": [
+        {
+          "page": "01_dataset_0636cf8deca8.html",
+          "position": 11
+        },
+        {
+          "page": "01_realtimedatabaseforukgdpabmi_20260929T195308Z.html",
+          "position": 10
+        }
+      ],
+      "file_url": "https://www.ons.gov.uk/file?uri=/economy/grossdomesticproductgdp/datasets/realtimedatabaseforukgdpabmi/quarter1jantomar2025firstestimate/gdpinchainedvolumemeasuresrealtimedatabaseabmi.xlsx",
+      "file_type": "xlsx",
+      "size_text": "584.8 KB",
+      "files": 1,
+      "edition_page_url": null,
+      "release_date": null,
+      "release_time_uk": null,
+      "release_utc": null,
+      "eligible": false,
+      "reason": "the release date is not established from the saved ONS metadata (R-X2.1)",
+      "missing_evidence": [
+        "a saved copy of the dataset page on which 'Quarter 1 (Jan to Mar) 2025, first estimate' is listed first, which states its release date"
+      ],
+      "evidence": []
+    },
+    {
+      "label": "Quarter 4 (Oct to Dec) 2024, quarterly national accounts",
+      "listed_on": [
+        {
+          "page": "01_dataset_0636cf8deca8.html",
+          "position": 12
+        },
+        {
+          "page": "01_realtimedatabaseforukgdpabmi_20260929T195308Z.html",
+          "position": 11
+        }
+      ],
+      "file_url": "https://www.ons.gov.uk/file?uri=/economy/grossdomesticproductgdp/datasets/realtimedatabaseforukgdpabmi/quarter4octtodec2024quarterlynationalaccounts/gdpinchainedvolumemeasuresrealtimedatabaseabmi.xlsx",
+      "file_type": "xlsx",
+      "size_text": "584.0 KB",
+      "files": 1,
+      "edition_page_url": null,
+      "release_date": null,
+      "release_time_uk": null,
+      "release_utc": null,
+      "eligible": false,
+      "reason": "the release date is not established from the saved ONS metadata (R-X2.1)",
+      "missing_evidence": [
+        "a saved copy of the dataset page on which 'Quarter 4 (Oct to Dec) 2024, quarterly national accounts' is listed first, which states its release date"
+      ],
+      "evidence": []
+    },
+    {
+      "label": "Quarter 4 (Oct to Dec) 2024, first estimate",
+      "listed_on": [
+        {
+          "page": "01_dataset_0636cf8deca8.html",
+          "position": 13
+        },
+        {
+          "page": "01_realtimedatabaseforukgdpabmi_20260929T195308Z.html",
+          "position": 12
+        }
+      ],
+      "file_url": "https://www.ons.gov.uk/file?uri=/economy/grossdomesticproductgdp/datasets/realtimedatabaseforukgdpabmi/quarter4octtodec2024firstestimate/gdpinchainedvolumemeasuresrealtimedatabaseabmi.xlsx",
+      "file_type": "xlsx",
+      "size_text": "579.3 KB",
+      "files": 1,
+      "edition_page_url": null,
+      "release_date": null,
+      "release_time_uk": null,
+      "release_utc": null,
+      "eligible": false,
+      "reason": "the release date is not established from the saved ONS metadata (R-X2.1)",
+      "missing_evidence": [
+        "a saved copy of the dataset page on which 'Quarter 4 (Oct to Dec) 2024, first estimate' is listed first, which states its release date"
+      ],
+      "evidence": []
+    },
+    {
+      "label": "Quarter 3 (July to Sept) 2024, quarterly national accounts",
+      "listed_on": [
+        {
+          "page": "01_dataset_0636cf8deca8.html",
+          "position": 14
+        },
+        {
+          "page": "01_realtimedatabaseforukgdpabmi_20260929T195308Z.html",
+          "position": 13
+        }
+      ],
+      "file_url": "https://www.ons.gov.uk/file?uri=/economy/grossdomesticproductgdp/datasets/realtimedatabaseforukgdpabmi/quarter3julytosept2024quarterlynationalaccounts/gdpinchainedvolumemeasuresrealtimedatabaseabmi1.xlsx",
+      "file_type": "xlsx",
+      "size_text": "577.7 KB",
+      "files": 1,
+      "edition_page_url": null,
+      "release_date": null,
+      "release_time_uk": null,
+      "release_utc": null,
+      "eligible": false,
+      "reason": "the release date is not established from the saved ONS metadata (R-X2.1)",
+      "missing_evidence": [
+        "a saved copy of the dataset page on which 'Quarter 3 (July to Sept) 2024, quarterly national accounts' is listed first, which states its release date"
+      ],
+      "evidence": []
+    },
+    {
+      "label": "Quarter 3 (July to Sept) 2024, first estimate",
+      "listed_on": [
+        {
+          "page": "01_dataset_0636cf8deca8.html",
+          "position": 15
+        },
+        {
+          "page": "01_realtimedatabaseforukgdpabmi_20260929T195308Z.html",
+          "position": 14
+        }
+      ],
+      "file_url": "https://www.ons.gov.uk/file?uri=/economy/grossdomesticproductgdp/datasets/realtimedatabaseforukgdpabmi/quarter3julytosept2024firstestimate/gdpinchainedvolumemeasuresrealtimedatabaseabmi.xlsx",
+      "file_type": "xlsx",
+      "size_text": "579.2 KB",
+      "files": 1,
+      "edition_page_url": null,
+      "release_date": null,
+      "release_time_uk": null,
+      "release_utc": null,
+      "eligible": false,
+      "reason": "the release date is not established from the saved ONS metadata (R-X2.1)",
+      "missing_evidence": [
+        "a saved copy of the dataset page on which 'Quarter 3 (July to Sept) 2024, first estimate' is listed first, which states its release date"
+      ],
+      "evidence": []
+    },
+    {
+      "label": "Quarter 2 (Apr to June) 2024, quarterly national accounts",
+      "listed_on": [
+        {
+          "page": "01_dataset_0636cf8deca8.html",
+          "position": 16
+        },
+        {
+          "page": "01_realtimedatabaseforukgdpabmi_20260929T195308Z.html",
+          "position": 15
+        }
+      ],
+      "file_url": "https://www.ons.gov.uk/file?uri=/economy/grossdomesticproductgdp/datasets/realtimedatabaseforukgdpabmi/quarter2aprtojune2024quarterlynationalaccounts/gdpinchainedvolumemeasuresrealtimedatabaseabmi.xlsx",
+      "file_type": "xlsx",
+      "size_text": "573.7 KB",
+      "files": 1,
+      "edition_page_url": null,
+      "release_date": null,
+      "release_time_uk": null,
+      "release_utc": null,
+      "eligible": false,
+      "reason": "the release date is not established from the saved ONS metadata (R-X2.1)",
+      "missing_evidence": [
+        "a saved copy of the dataset page on which 'Quarter 2 (Apr to June) 2024, quarterly national accounts' is listed first, which states its release date"
+      ],
+      "evidence": []
+    },
+    {
+      "label": "Quarter 2 (Apr to June) 2024, first estimate",
+      "listed_on": [
+        {
+          "page": "01_dataset_0636cf8deca8.html",
+          "position": 17
+        },
+        {
+          "page": "01_realtimedatabaseforukgdpabmi_20260929T195308Z.html",
+          "position": 16
+        }
+      ],
+      "file_url": "https://www.ons.gov.uk/file?uri=/economy/grossdomesticproductgdp/datasets/realtimedatabaseforukgdpabmi/quarter2aprtojune2024firstestimate/gdpinchainedvolumemeasuresrealtimedatabaseabmi.xlsx",
+      "file_type": "xlsx",
+      "size_text": "578.7 KB",
+      "files": 1,
+      "edition_page_url": null,
+      "release_date": null,
+      "release_time_uk": null,
+      "release_utc": null,
+      "eligible": false,
+      "reason": "the release date is not established from the saved ONS metadata (R-X2.1)",
+      "missing_evidence": [
+        "a saved copy of the dataset page on which 'Quarter 2 (Apr to June) 2024, first estimate' is listed first, which states its release date"
+      ],
+      "evidence": []
+    },
+    {
+      "label": "Quarter 1 (Jan to Mar) 2024, quarterly national accounts",
+      "listed_on": [
+        {
+          "page": "01_dataset_0636cf8deca8.html",
+          "position": 18
+        },
+        {
+          "page": "01_realtimedatabaseforukgdpabmi_20260929T195308Z.html",
+          "position": 17
+        }
+      ],
+      "file_url": "https://www.ons.gov.uk/file?uri=/economy/grossdomesticproductgdp/datasets/realtimedatabaseforukgdpabmi/quarter1jantomar2024quarterlynationalaccounts/gdpinchainedvolumemeasuresrealtimedatabaseabmi.xlsx",
+      "file_type": "xlsx",
+      "size_text": "571.7 KB",
+      "files": 1,
+      "edition_page_url": null,
+      "release_date": null,
+      "release_time_uk": null,
+      "release_utc": null,
+      "eligible": false,
+      "reason": "the release date is not established from the saved ONS metadata (R-X2.1)",
+      "missing_evidence": [
+        "a saved copy of the dataset page on which 'Quarter 1 (Jan to Mar) 2024, quarterly national accounts' is listed first, which states its release date"
+      ],
+      "evidence": []
+    },
+    {
+      "label": "Quarter 1 (Jan to Mar) 2024, first estimate",
+      "listed_on": [
+        {
+          "page": "01_dataset_0636cf8deca8.html",
+          "position": 19
+        },
+        {
+          "page": "01_realtimedatabaseforukgdpabmi_20260929T195308Z.html",
+          "position": 18
+        }
+      ],
+      "file_url": "https://www.ons.gov.uk/file?uri=/economy/grossdomesticproductgdp/datasets/realtimedatabaseforukgdpabmi/quarter1jantomar2024firstestimate/gdpinchainedvolumemeasuresrealtimedatabaseabmi.xlsx",
+      "file_type": "xlsx",
+      "size_text": "573.5 KB",
+      "files": 1,
+      "edition_page_url": null,
+      "release_date": null,
+      "release_time_uk": null,
+      "release_utc": null,
+      "eligible": false,
+      "reason": "the release date is not established from the saved ONS metadata (R-X2.1)",
+      "missing_evidence": [
+        "a saved copy of the dataset page on which 'Quarter 1 (Jan to Mar) 2024, first estimate' is listed first, which states its release date"
+      ],
+      "evidence": []
+    },
+    {
+      "label": "Quarter 4 (Oct to Dec) 2023, quarterly national accounts",
+      "listed_on": [
+        {
+          "page": "01_dataset_0636cf8deca8.html",
+          "position": 20
+        },
+        {
+          "page": "01_realtimedatabaseforukgdpabmi_20260929T195308Z.html",
+          "position": 19
+        }
+      ],
+      "file_url": "https://www.ons.gov.uk/file?uri=/economy/grossdomesticproductgdp/datasets/realtimedatabaseforukgdpabmi/quarter4octtodec2023quarterlynationalaccounts/gdpinchainedvolumemeasuresrealtimedatabaseabmi.xlsx",
+      "file_type": "xlsx",
+      "size_text": "568.5 KB",
+      "files": 1,
+      "edition_page_url": null,
+      "release_date": null,
+      "release_time_uk": null,
+      "release_utc": null,
+      "eligible": false,
+      "reason": "the release date is not established from the saved ONS metadata (R-X2.1)",
+      "missing_evidence": [
+        "a saved copy of the dataset page on which 'Quarter 4 (Oct to Dec) 2023, quarterly national accounts' is listed first, which states its release date"
+      ],
+      "evidence": []
+    },
+    {
+      "label": "Quarter 4 (Oct to Dec) 2023, first estimate",
+      "listed_on": [
+        {
+          "page": "01_dataset_0636cf8deca8.html",
+          "position": 21
+        },
+        {
+          "page": "01_realtimedatabaseforukgdpabmi_20260929T195308Z.html",
+          "position": 20
+        }
+      ],
+      "file_url": "https://www.ons.gov.uk/file?uri=/economy/grossdomesticproductgdp/datasets/realtimedatabaseforukgdpabmi/quarter4octtodec2023firstestimate/gdpinchainedvolumemeasuresrealtimedatabaseabmi.xlsx",
+      "file_type": "xlsx",
+      "size_text": "566.8 KB",
+      "files": 1,
+      "edition_page_url": null,
+      "release_date": null,
+      "release_time_uk": null,
+      "release_utc": null,
+      "eligible": false,
+      "reason": "the release date is not established from the saved ONS metadata (R-X2.1)",
+      "missing_evidence": [
+        "a saved copy of the dataset page on which 'Quarter 4 (Oct to Dec) 2023, first estimate' is listed first, which states its release date"
+      ],
+      "evidence": []
+    },
+    {
+      "label": "Quarter 3 (July to Sept) 2023, quarterly national accounts",
+      "listed_on": [
+        {
+          "page": "01_dataset_0636cf8deca8.html",
+          "position": 22
+        },
+        {
+          "page": "01_realtimedatabaseforukgdpabmi_20260929T195308Z.html",
+          "position": 21
+        }
+      ],
+      "file_url": "https://www.ons.gov.uk/file?uri=/economy/grossdomesticproductgdp/datasets/realtimedatabaseforukgdpabmi/quarter3julytosept2023quarterlynationalaccounts/gdpinchainedvolumemeasuresrealtimedatabaseabmi.xlsx",
+      "file_type": "xlsx",
+      "size_text": "565.7 KB",
+      "files": 1,
+      "edition_page_url": null,
+      "release_date": null,
+      "release_time_uk": null,
+      "release_utc": null,
+      "eligible": false,
+      "reason": "the release date is not established from the saved ONS metadata (R-X2.1)",
+      "missing_evidence": [
+        "a saved copy of the dataset page on which 'Quarter 3 (July to Sept) 2023, quarterly national accounts' is listed first, which states its release date"
+      ],
+      "evidence": []
+    },
+    {
+      "label": "Quarter 3 (July to Sept) 2023, first estimate",
+      "listed_on": [
+        {
+          "page": "01_dataset_0636cf8deca8.html",
+          "position": 23
+        },
+        {
+          "page": "01_realtimedatabaseforukgdpabmi_20260929T195308Z.html",
+          "position": 22
+        }
+      ],
+      "file_url": "https://www.ons.gov.uk/file?uri=/economy/grossdomesticproductgdp/datasets/realtimedatabaseforukgdpabmi/quarter3julytosept2023firstestimate/gdpinchainedvolumemeasuresrealtimedatabaseabmi.xlsx",
+      "file_type": "xlsx",
+      "size_text": "564.4 KB",
+      "files": 1,
+      "edition_page_url": null,
+      "release_date": null,
+      "release_time_uk": null,
+      "release_utc": null,
+      "eligible": false,
+      "reason": "the release date is not established from the saved ONS metadata (R-X2.1)",
+      "missing_evidence": [
+        "a saved copy of the dataset page on which 'Quarter 3 (July to Sept) 2023, first estimate' is listed first, which states its release date"
+      ],
+      "evidence": []
+    },
+    {
+      "label": "Quarter 2 (Apr to June) 2023, quarterly national accounts",
+      "listed_on": [
+        {
+          "page": "01_dataset_0636cf8deca8.html",
+          "position": 24
+        },
+        {
+          "page": "01_realtimedatabaseforukgdpabmi_20260929T195308Z.html",
+          "position": 23
+        }
+      ],
+      "file_url": "https://www.ons.gov.uk/file?uri=/economy/grossdomesticproductgdp/datasets/realtimedatabaseforukgdpabmi/quarter2aprtojune2023quarterlynationalaccounts/gdpinchainedvolumemeasuresrealtimedatabaseabmi.xlsx",
+      "file_type": "xlsx",
+      "size_text": "561.1 KB",
+      "files": 1,
+      "edition_page_url": null,
+      "release_date": null,
+      "release_time_uk": null,
+      "release_utc": null,
+      "eligible": false,
+      "reason": "the release date is not established from the saved ONS metadata (R-X2.1)",
+      "missing_evidence": [
+        "a saved copy of the dataset page on which 'Quarter 2 (Apr to June) 2023, quarterly national accounts' is listed first, which states its release date"
+      ],
+      "evidence": []
+    },
+    {
+      "label": "Quarter 2 (Apr to June) 2023, first estimate",
+      "listed_on": [
+        {
+          "page": "01_dataset_0636cf8deca8.html",
+          "position": 25
+        },
+        {
+          "page": "01_realtimedatabaseforukgdpabmi_20260929T195308Z.html",
+          "position": 24
+        }
+      ],
+      "file_url": "https://www.ons.gov.uk/file?uri=/economy/grossdomesticproductgdp/datasets/realtimedatabaseforukgdpabmi/quarter2aprtojune2023firstestimate/gdpinchainedvolumemeasuresrealtimedatabaseabmi.xlsx",
+      "file_type": "xlsx",
+      "size_text": "561.3 KB",
+      "files": 1,
+      "edition_page_url": null,
+      "release_date": null,
+      "release_time_uk": null,
+      "release_utc": null,
+      "eligible": false,
+      "reason": "the release date is not established from the saved ONS metadata (R-X2.1)",
+      "missing_evidence": [
+        "a saved copy of the dataset page on which 'Quarter 2 (Apr to June) 2023, first estimate' is listed first, which states its release date"
+      ],
+      "evidence": []
+    },
+    {
+      "label": "Quarter 1 (Jan to Mar) 2023, quarterly national accounts",
+      "listed_on": [
+        {
+          "page": "01_dataset_0636cf8deca8.html",
+          "position": 26
+        },
+        {
+          "page": "01_realtimedatabaseforukgdpabmi_20260929T195308Z.html",
+          "position": 25
+        }
+      ],
+      "file_url": "https://www.ons.gov.uk/file?uri=/economy/grossdomesticproductgdp/datasets/realtimedatabaseforukgdpabmi/quarter1jantomar2023quarterlynationalaccounts/gdpinchainedvolumemeasuresrealtimedatabaseabmiaccessible.xlsx",
+      "file_type": "xlsx",
+      "size_text": "559.7 KB",
+      "files": 1,
+      "edition_page_url": null,
+      "release_date": null,
+      "release_time_uk": null,
+      "release_utc": null,
+      "eligible": false,
+      "reason": "the release date is not established from the saved ONS metadata (R-X2.1)",
+      "missing_evidence": [
+        "a saved copy of the dataset page on which 'Quarter 1 (Jan to Mar) 2023, quarterly national accounts' is listed first, which states its release date"
+      ],
+      "evidence": []
+    },
+    {
+      "label": "Quarter 1 (Jan to Mar) 2023, first estimate",
+      "listed_on": [
+        {
+          "page": "01_dataset_0636cf8deca8.html",
+          "position": 27
+        },
+        {
+          "page": "01_realtimedatabaseforukgdpabmi_20260929T195308Z.html",
+          "position": 26
+        }
+      ],
+      "file_url": "https://www.ons.gov.uk/file?uri=/economy/grossdomesticproductgdp/datasets/realtimedatabaseforukgdpabmi/quarter1jantomar2023firstestimate/gdpinchainedvolumemeasuresrealtimedatabaseabmiaccessible.xlsx",
+      "file_type": "xlsx",
+      "size_text": "558.6 KB",
+      "files": 1,
+      "edition_page_url": null,
+      "release_date": null,
+      "release_time_uk": null,
+      "release_utc": null,
+      "eligible": false,
+      "reason": "the release date is not established from the saved ONS metadata (R-X2.1)",
+      "missing_evidence": [
+        "a saved copy of the dataset page on which 'Quarter 1 (Jan to Mar) 2023, first estimate' is listed first, which states its release date"
+      ],
+      "evidence": []
+    },
+    {
+      "label": "Quarter 4 (Oct to Dec) 2022, quarterly national accounts",
+      "listed_on": [
+        {
+          "page": "01_dataset_0636cf8deca8.html",
+          "position": 28
+        },
+        {
+          "page": "01_realtimedatabaseforukgdpabmi_20260929T195308Z.html",
+          "position": 27
+        }
+      ],
+      "file_url": "https://www.ons.gov.uk/file?uri=/economy/grossdomesticproductgdp/datasets/realtimedatabaseforukgdpabmi/quarter4octtodec2022quarterlynationalaccounts/gdpinchainedvolumemeasuresrealtimedatabaseabmiaccessible.xlsx",
+      "file_type": "xlsx",
+      "size_text": "553.2 KB",
+      "files": 1,
+      "edition_page_url": null,
+      "release_date": null,
+      "release_time_uk": null,
+      "release_utc": null,
+      "eligible": false,
+      "reason": "the release date is not established from the saved ONS metadata (R-X2.1)",
+      "missing_evidence": [
+        "a saved copy of the dataset page on which 'Quarter 4 (Oct to Dec) 2022, quarterly national accounts' is listed first, which states its release date"
+      ],
+      "evidence": []
+    },
+    {
+      "label": "Quarter 4 (Oct to Dec) 2022, first estimate",
+      "listed_on": [
+        {
+          "page": "01_dataset_0636cf8deca8.html",
+          "position": 29
+        },
+        {
+          "page": "01_realtimedatabaseforukgdpabmi_20260929T195308Z.html",
+          "position": 28
+        }
+      ],
+      "file_url": "https://www.ons.gov.uk/file?uri=/economy/grossdomesticproductgdp/datasets/realtimedatabaseforukgdpabmi/quarter4octtodec2022firstestimate/gdpinchainedvolumemeasuresrealtimedatabaseabmiaccessible.xlsx",
+      "file_type": "xlsx",
+      "size_text": "549.3 KB",
+      "files": 1,
+      "edition_page_url": null,
+      "release_date": null,
+      "release_time_uk": null,
+      "release_utc": null,
+      "eligible": false,
+      "reason": "the release date is not established from the saved ONS metadata (R-X2.1)",
+      "missing_evidence": [
+        "a saved copy of the dataset page on which 'Quarter 4 (Oct to Dec) 2022, first estimate' is listed first, which states its release date"
+      ],
+      "evidence": []
+    },
+    {
+      "label": "Quarter 3 (July to Sept) 2022, quarterly national accounts",
+      "listed_on": [
+        {
+          "page": "01_dataset_0636cf8deca8.html",
+          "position": 30
+        },
+        {
+          "page": "01_realtimedatabaseforukgdpabmi_20260929T195308Z.html",
+          "position": 29
+        }
+      ],
+      "file_url": "https://www.ons.gov.uk/file?uri=/economy/grossdomesticproductgdp/datasets/realtimedatabaseforukgdpabmi/quarter3julytosept2022quarterlynationalaccounts/gdpinchainedvolumemeasuresrealtimedatabaseabmiaccessible.xlsx",
+      "file_type": "xlsx",
+      "size_text": "549.9 KB",
+      "files": 1,
+      "edition_page_url": null,
+      "release_date": null,
+      "release_time_uk": null,
+      "release_utc": null,
+      "eligible": false,
+      "reason": "the release date is not established from the saved ONS metadata (R-X2.1)",
+      "missing_evidence": [
+        "a saved copy of the dataset page on which 'Quarter 3 (July to Sept) 2022, quarterly national accounts' is listed first, which states its release date"
+      ],
+      "evidence": []
+    },
+    {
+      "label": "Quarter 3 (July to Sept) 2022, first estimates",
+      "listed_on": [
+        {
+          "page": "01_dataset_0636cf8deca8.html",
+          "position": 31
+        },
+        {
+          "page": "01_realtimedatabaseforukgdpabmi_20260929T195308Z.html",
+          "position": 30
+        }
+      ],
+      "file_url": "https://www.ons.gov.uk/file?uri=/economy/grossdomesticproductgdp/datasets/realtimedatabaseforukgdpabmi/quarter3julytosept2022firstestimates/gdpinchainedvolumemeasuresrealtimedatabaseabmiaccessible.xlsx",
+      "file_type": "xlsx",
+      "size_text": "548.4 KB",
+      "files": 1,
+      "edition_page_url": null,
+      "release_date": null,
+      "release_time_uk": null,
+      "release_utc": null,
+      "eligible": false,
+      "reason": "the release date is not established from the saved ONS metadata (R-X2.1)",
+      "missing_evidence": [
+        "a saved copy of the dataset page on which 'Quarter 3 (July to Sept) 2022, first estimates' is listed first, which states its release date"
+      ],
+      "evidence": []
+    },
+    {
+      "label": "Quarter 2 (Apr to June) 2022, quarterly national accounts",
+      "listed_on": [
+        {
+          "page": "01_dataset_0636cf8deca8.html",
+          "position": 32
+        },
+        {
+          "page": "01_realtimedatabaseforukgdpabmi_20260929T195308Z.html",
+          "position": 31
+        }
+      ],
+      "file_url": "https://www.ons.gov.uk/file?uri=/economy/grossdomesticproductgdp/datasets/realtimedatabaseforukgdpabmi/quarter2aprtojune2022quarterlynationalaccounts/gdpinchainedvolumemeasuresrealtimedatabaseabmiaccessible.xlsx",
+      "file_type": "xlsx",
+      "size_text": "541.7 KB",
+      "files": 1,
+      "edition_page_url": null,
+      "release_date": null,
+      "release_time_uk": null,
+      "release_utc": null,
+      "eligible": false,
+      "reason": "the release date is not established from the saved ONS metadata (R-X2.1)",
+      "missing_evidence": [
+        "a saved copy of the dataset page on which 'Quarter 2 (Apr to June) 2022, quarterly national accounts' is listed first, which states its release date"
+      ],
+      "evidence": []
+    },
+    {
+      "label": "Quarter 2 (Apr to June) 2022, first estimate",
+      "listed_on": [
+        {
+          "page": "01_dataset_0636cf8deca8.html",
+          "position": 33
+        },
+        {
+          "page": "01_realtimedatabaseforukgdpabmi_20260929T195308Z.html",
+          "position": 32
+        }
+      ],
+      "file_url": "https://www.ons.gov.uk/file?uri=/economy/grossdomesticproductgdp/datasets/realtimedatabaseforukgdpabmi/quarter2aprtojune2022firstestimate/gdpinchainedvolumemeasuresrealtimedatabaseabmiaccessible2.xlsx",
+      "file_type": "xlsx",
+      "size_text": "542.9 KB",
+      "files": 1,
+      "edition_page_url": null,
+      "release_date": null,
+      "release_time_uk": null,
+      "release_utc": null,
+      "eligible": false,
+      "reason": "the release date is not established from the saved ONS metadata (R-X2.1)",
+      "missing_evidence": [
+        "a saved copy of the dataset page on which 'Quarter 2 (Apr to June) 2022, first estimate' is listed first, which states its release date"
+      ],
+      "evidence": []
+    },
+    {
+      "label": "Quarter 1 (Jan to Mar) 2022, quarterly national accounts",
+      "listed_on": [
+        {
+          "page": "01_dataset_0636cf8deca8.html",
+          "position": 34
+        },
+        {
+          "page": "01_realtimedatabaseforukgdpabmi_20260929T195308Z.html",
+          "position": 33
+        }
+      ],
+      "file_url": "https://www.ons.gov.uk/file?uri=/economy/grossdomesticproductgdp/datasets/realtimedatabaseforukgdpabmi/quarter1jantomar2022quarterlynationalaccounts/gdpinchainedvolumemeasuresrealtimedatabaseabmiaccessible.xlsx",
+      "file_type": "xlsx",
+      "size_text": "540.9 KB",
+      "files": 1,
+      "edition_page_url": null,
+      "release_date": null,
+      "release_time_uk": null,
+      "release_utc": null,
+      "eligible": false,
+      "reason": "the release date is not established from the saved ONS metadata (R-X2.1)",
+      "missing_evidence": [
+        "a saved copy of the dataset page on which 'Quarter 1 (Jan to Mar) 2022, quarterly national accounts' is listed first, which states its release date"
+      ],
+      "evidence": []
+    },
+    {
+      "label": "Quarter 1 (Jan to Mar) 2022, first estimate",
+      "listed_on": [
+        {
+          "page": "01_dataset_0636cf8deca8.html",
+          "position": 35
+        },
+        {
+          "page": "01_realtimedatabaseforukgdpabmi_20260929T195308Z.html",
+          "position": 34
+        }
+      ],
+      "file_url": "https://www.ons.gov.uk/file?uri=/economy/grossdomesticproductgdp/datasets/realtimedatabaseforukgdpabmi/quarter1jantomar2022firstestimate/gdpinchainedvolumemeasuresrealtimedatabaseabmiaccessible.xlsx",
+      "file_type": "xlsx",
+      "size_text": "538.7 KB",
+      "files": 1,
+      "edition_page_url": null,
+      "release_date": null,
+      "release_time_uk": null,
+      "release_utc": null,
+      "eligible": false,
+      "reason": "the release date is not established from the saved ONS metadata (R-X2.1)",
+      "missing_evidence": [
+        "a saved copy of the dataset page on which 'Quarter 1 (Jan to Mar) 2022, first estimate' is listed first, which states its release date"
+      ],
+      "evidence": []
+    },
+    {
+      "label": "Quarter 4 (Oct to Dec) 2021, quarterly national accounts",
+      "listed_on": [
+        {
+          "page": "01_dataset_0636cf8deca8.html",
+          "position": 36
+        },
+        {
+          "page": "01_realtimedatabaseforukgdpabmi_20260929T195308Z.html",
+          "position": 35
+        }
+      ],
+      "file_url": "https://www.ons.gov.uk/file?uri=/economy/grossdomesticproductgdp/datasets/realtimedatabaseforukgdpabmi/quarter4octtodec2021quarterlynationalaccounts/gdpinchainedvolumemeasuresrealtimedatabaseabmi.xlsx",
+      "file_type": "xlsx",
+      "size_text": "537.3 KB",
+      "files": 1,
+      "edition_page_url": null,
+      "release_date": null,
+      "release_time_uk": null,
+      "release_utc": null,
+      "eligible": false,
+      "reason": "the release date is not established from the saved ONS metadata (R-X2.1)",
+      "missing_evidence": [
+        "a saved copy of the dataset page on which 'Quarter 4 (Oct to Dec) 2021, quarterly national accounts' is listed first, which states its release date"
+      ],
+      "evidence": []
+    },
+    {
+      "label": "Quarter 4 (Oct to Dec) 2021, first estimate",
+      "listed_on": [
+        {
+          "page": "01_dataset_0636cf8deca8.html",
+          "position": 37
+        },
+        {
+          "page": "01_realtimedatabaseforukgdpabmi_20260929T195308Z.html",
+          "position": 36
+        }
+      ],
+      "file_url": "https://www.ons.gov.uk/file?uri=/economy/grossdomesticproductgdp/datasets/realtimedatabaseforukgdpabmi/quarter4octtodec2021firstestimate/gdpinchainedvolumemeasuresrealtimedatabaseabmiaccessible.xlsx",
+      "file_type": "xlsx",
+      "size_text": "533.8 KB",
+      "files": 1,
+      "edition_page_url": null,
+      "release_date": null,
+      "release_time_uk": null,
+      "release_utc": null,
+      "eligible": false,
+      "reason": "the release date is not established from the saved ONS metadata (R-X2.1)",
+      "missing_evidence": [
+        "a saved copy of the dataset page on which 'Quarter 4 (Oct to Dec) 2021, first estimate' is listed first, which states its release date"
+      ],
+      "evidence": []
+    },
+    {
+      "label": "Quarter 3 (July to Sept) 2021, quarterly national accounts",
+      "listed_on": [
+        {
+          "page": "01_dataset_0636cf8deca8.html",
+          "position": 38
+        },
+        {
+          "page": "01_realtimedatabaseforukgdpabmi_20260929T195308Z.html",
+          "position": 37
+        }
+      ],
+      "file_url": "https://www.ons.gov.uk/file?uri=/economy/grossdomesticproductgdp/datasets/realtimedatabaseforukgdpabmi/quarter3julytosept2021quarterlynationalaccounts/gdpinchainedvolumemeasuresrealtimedatabaseabmiaccessible.xlsx",
+      "file_type": "xlsx",
+      "size_text": "535.1 KB",
+      "files": 1,
+      "edition_page_url": null,
+      "release_date": null,
+      "release_time_uk": null,
+      "release_utc": null,
+      "eligible": false,
+      "reason": "the release date is not established from the saved ONS metadata (R-X2.1)",
+      "missing_evidence": [
+        "a saved copy of the dataset page on which 'Quarter 3 (July to Sept) 2021, quarterly national accounts' is listed first, which states its release date"
+      ],
+      "evidence": []
+    },
+    {
+      "label": "Quarter 3 (July to Sept) 2021, first estimate",
+      "listed_on": [
+        {
+          "page": "01_dataset_0636cf8deca8.html",
+          "position": 39
+        },
+        {
+          "page": "01_realtimedatabaseforukgdpabmi_20260929T195308Z.html",
+          "position": 38
+        }
+      ],
+      "file_url": "https://www.ons.gov.uk/file?uri=/economy/grossdomesticproductgdp/datasets/realtimedatabaseforukgdpabmi/quarter3julytosept2021firstestimate/gdpinchainedvolumemeasuresrealtimedatabaseabmiaccessible.xlsx",
+      "file_type": "xlsx",
+      "size_text": "532.1 KB",
+      "files": 1,
+      "edition_page_url": null,
+      "release_date": null,
+      "release_time_uk": null,
+      "release_utc": null,
+      "eligible": false,
+      "reason": "the release date is not established from the saved ONS metadata (R-X2.1)",
+      "missing_evidence": [
+        "a saved copy of the dataset page on which 'Quarter 3 (July to Sept) 2021, first estimate' is listed first, which states its release date"
+      ],
+      "evidence": []
+    },
+    {
+      "label": "Quarter 2 (Apr to June) 2021, quarterly national accounts",
+      "listed_on": [
+        {
+          "page": "01_dataset_0636cf8deca8.html",
+          "position": 40
+        },
+        {
+          "page": "01_realtimedatabaseforukgdpabmi_20260929T195308Z.html",
+          "position": 39
+        }
+      ],
+      "file_url": "https://www.ons.gov.uk/file?uri=/economy/grossdomesticproductgdp/datasets/realtimedatabaseforukgdpabmi/quarter2aprtojune2021quarterlynationalaccounts/gdpinchainedvolumemeasuresrealtimedatabaseabmi1.xls",
+      "file_type": "xls",
+      "size_text": "882.0 KB",
+      "files": 1,
+      "edition_page_url": null,
+      "release_date": null,
+      "release_time_uk": null,
+      "release_utc": null,
+      "eligible": false,
+      "reason": "the release date is not established from the saved ONS metadata (R-X2.1)",
+      "missing_evidence": [
+        "a saved copy of the dataset page on which 'Quarter 2 (Apr to June) 2021, quarterly national accounts' is listed first, which states its release date"
+      ],
+      "evidence": []
+    },
+    {
+      "label": "Quarter 2 (Apr to June) 2021, first estimate",
+      "listed_on": [
+        {
+          "page": "01_dataset_0636cf8deca8.html",
+          "position": 41
+        },
+        {
+          "page": "01_realtimedatabaseforukgdpabmi_20260929T195308Z.html",
+          "position": 40
+        }
+      ],
+      "file_url": "https://www.ons.gov.uk/file?uri=/economy/grossdomesticproductgdp/datasets/realtimedatabaseforukgdpabmi/quarter2aprtojune2021firstestimate/gdpinchainedvolumemeasuresrealtimedatabaseabmi.xls",
+      "file_type": "xls",
+      "size_text": "878.0 KB",
+      "files": 1,
+      "edition_page_url": null,
+      "release_date": null,
+      "release_time_uk": null,
+      "release_utc": null,
+      "eligible": false,
+      "reason": "the release date is not established from the saved ONS metadata (R-X2.1)",
+      "missing_evidence": [
+        "a saved copy of the dataset page on which 'Quarter 2 (Apr to June) 2021, first estimate' is listed first, which states its release date"
+      ],
+      "evidence": []
+    },
+    {
+      "label": "Quarter 1 (Jan to Mar) 2021, quarterly national accounts",
+      "listed_on": [
+        {
+          "page": "01_dataset_0636cf8deca8.html",
+          "position": 42
+        },
+        {
+          "page": "01_realtimedatabaseforukgdpabmi_20260929T195308Z.html",
+          "position": 41
+        }
+      ],
+      "file_url": "https://www.ons.gov.uk/file?uri=/economy/grossdomesticproductgdp/datasets/realtimedatabaseforukgdpabmi/quarter1jantomar2021quarterlynationalaccounts/gdpinchainedvolumemeasuresrealtimedatabaseabmi.xls",
+      "file_type": "xls",
+      "size_text": "876.5 KB",
+      "files": 1,
+      "edition_page_url": null,
+      "release_date": null,
+      "release_time_uk": null,
+      "release_utc": null,
+      "eligible": false,
+      "reason": "the release date is not established from the saved ONS metadata (R-X2.1)",
+      "missing_evidence": [
+        "a saved copy of the dataset page on which 'Quarter 1 (Jan to Mar) 2021, quarterly national accounts' is listed first, which states its release date"
+      ],
+      "evidence": []
+    },
+    {
+      "label": "Quarter 1 (Jan to Mar) 2021, first estimate",
+      "listed_on": [
+        {
+          "page": "01_dataset_0636cf8deca8.html",
+          "position": 43
+        },
+        {
+          "page": "01_realtimedatabaseforukgdpabmi_20260929T195308Z.html",
+          "position": 42
+        }
+      ],
+      "file_url": "https://www.ons.gov.uk/file?uri=/economy/grossdomesticproductgdp/datasets/realtimedatabaseforukgdpabmi/quarter1jantomar2021firstestimate/gdpinchainedvolumemeasuresrealtimedatabaseabmi1.xls",
+      "file_type": "xls",
+      "size_text": "874.0 KB",
+      "files": 1,
+      "edition_page_url": null,
+      "release_date": null,
+      "release_time_uk": null,
+      "release_utc": null,
+      "eligible": false,
+      "reason": "the release date is not established from the saved ONS metadata (R-X2.1)",
+      "missing_evidence": [
+        "a saved copy of the dataset page on which 'Quarter 1 (Jan to Mar) 2021, first estimate' is listed first, which states its release date"
+      ],
+      "evidence": []
+    },
+    {
+      "label": "Quarter 4 (Oct to Dec) 2020, quarterly national accounts",
+      "listed_on": [
+        {
+          "page": "01_dataset_0636cf8deca8.html",
+          "position": 44
+        },
+        {
+          "page": "01_realtimedatabaseforukgdpabmi_20260929T195308Z.html",
+          "position": 43
+        }
+      ],
+      "file_url": "https://www.ons.gov.uk/file?uri=/economy/grossdomesticproductgdp/datasets/realtimedatabaseforukgdpabmi/quarter4octtodec2020quarterlynationalaccounts/gdpinchainedvolumemeasuresrealtimedatabaseabmi.xls",
+      "file_type": "xls",
+      "size_text": "874.0 KB",
+      "files": 1,
+      "edition_page_url": null,
+      "release_date": null,
+      "release_time_uk": null,
+      "release_utc": null,
+      "eligible": false,
+      "reason": "the release date is not established from the saved ONS metadata (R-X2.1)",
+      "missing_evidence": [
+        "a saved copy of the dataset page on which 'Quarter 4 (Oct to Dec) 2020, quarterly national accounts' is listed first, which states its release date"
+      ],
+      "evidence": []
+    },
+    {
+      "label": "Quarter 4 (Oct to Dec) 2020, first estimate",
+      "listed_on": [
+        {
+          "page": "01_dataset_0636cf8deca8.html",
+          "position": 45
+        },
+        {
+          "page": "01_realtimedatabaseforukgdpabmi_20260929T195308Z.html",
+          "position": 44
+        }
+      ],
+      "file_url": "https://www.ons.gov.uk/file?uri=/economy/grossdomesticproductgdp/datasets/realtimedatabaseforukgdpabmi/quarter4octtodec2020firstestimate/gdpinchainedvolumemeasuresrealtimedatabaseabmi.xls",
+      "file_type": "xls",
+      "size_text": "863.0 KB",
+      "files": 1,
+      "edition_page_url": null,
+      "release_date": null,
+      "release_time_uk": null,
+      "release_utc": null,
+      "eligible": false,
+      "reason": "the release date is not established from the saved ONS metadata (R-X2.1)",
+      "missing_evidence": [
+        "a saved copy of the dataset page on which 'Quarter 4 (Oct to Dec) 2020, first estimate' is listed first, which states its release date"
+      ],
+      "evidence": []
+    },
+    {
+      "label": "Quarter 3 (July to Sept) 2020, quarterly national accounts",
+      "listed_on": [
+        {
+          "page": "01_dataset_0636cf8deca8.html",
+          "position": 46
+        },
+        {
+          "page": "01_realtimedatabaseforukgdpabmi_20260929T195308Z.html",
+          "position": 45
+        }
+      ],
+      "file_url": "https://www.ons.gov.uk/file?uri=/economy/grossdomesticproductgdp/datasets/realtimedatabaseforukgdpabmi/quarter3julytosept2020quarterlynationalaccounts/gdpinchainedvolumemeasuresrealtimedatabaseabmi.xls",
+      "file_type": "xls",
+      "size_text": "861.5 KB",
+      "files": 1,
+      "edition_page_url": null,
+      "release_date": null,
+      "release_time_uk": null,
+      "release_utc": null,
+      "eligible": false,
+      "reason": "the release date is not established from the saved ONS metadata (R-X2.1)",
+      "missing_evidence": [
+        "a saved copy of the dataset page on which 'Quarter 3 (July to Sept) 2020, quarterly national accounts' is listed first, which states its release date"
+      ],
+      "evidence": []
+    },
+    {
+      "label": "Quarter 3 (July to Sept) 2020, first estimates",
+      "listed_on": [
+        {
+          "page": "01_dataset_0636cf8deca8.html",
+          "position": 47
+        },
+        {
+          "page": "01_realtimedatabaseforukgdpabmi_20260929T195308Z.html",
+          "position": 46
+        }
+      ],
+      "file_url": "https://www.ons.gov.uk/file?uri=/economy/grossdomesticproductgdp/datasets/realtimedatabaseforukgdpabmi/quarter3julytosept2020firstestimates/gdpinchainedvolumemeasuresrealtimedatabaseabmi.xls",
+      "file_type": "xls",
+      "size_text": "869.0 KB",
+      "files": 1,
+      "edition_page_url": null,
+      "release_date": null,
+      "release_time_uk": null,
+      "release_utc": null,
+      "eligible": false,
+      "reason": "the release date is not established from the saved ONS metadata (R-X2.1)",
+      "missing_evidence": [
+        "a saved copy of the dataset page on which 'Quarter 3 (July to Sept) 2020, first estimates' is listed first, which states its release date"
+      ],
+      "evidence": []
+    },
+    {
+      "label": "Quarter 2 (Apr to June) 2020, quarterly national accounts",
+      "listed_on": [
+        {
+          "page": "01_dataset_0636cf8deca8.html",
+          "position": 48
+        },
+        {
+          "page": "01_realtimedatabaseforukgdpabmi_20260929T195308Z.html",
+          "position": 47
+        }
+      ],
+      "file_url": "https://www.ons.gov.uk/file?uri=/economy/grossdomesticproductgdp/datasets/realtimedatabaseforukgdpabmi/quarter2aprtojune2020quarterlynationalaccounts/gdpinchainedvolumemeasuresrealtimedatabaseabmi.xls",
+      "file_type": "xls",
+      "size_text": "867.0 KB",
+      "files": 1,
+      "edition_page_url": null,
+      "release_date": null,
+      "release_time_uk": null,
+      "release_utc": null,
+      "eligible": false,
+      "reason": "the release date is not established from the saved ONS metadata (R-X2.1)",
+      "missing_evidence": [
+        "a saved copy of the dataset page on which 'Quarter 2 (Apr to June) 2020, quarterly national accounts' is listed first, which states its release date"
+      ],
+      "evidence": []
+    },
+    {
+      "label": "Quarter 2 (Apr to June) 2020, first estimate",
+      "listed_on": [
+        {
+          "page": "01_dataset_0636cf8deca8.html",
+          "position": 49
+        },
+        {
+          "page": "01_realtimedatabaseforukgdpabmi_20260929T195308Z.html",
+          "position": 48
+        }
+      ],
+      "file_url": "https://www.ons.gov.uk/file?uri=/economy/grossdomesticproductgdp/datasets/realtimedatabaseforukgdpabmi/quarter2aprtojune2020firstestimate/gdpinchainedvolumemeasuresrealtimedatabaseabmi.xls",
+      "file_type": "xls",
+      "size_text": "868.0 KB",
+      "files": 1,
+      "edition_page_url": null,
+      "release_date": null,
+      "release_time_uk": null,
+      "release_utc": null,
+      "eligible": false,
+      "reason": "the release date is not established from the saved ONS metadata (R-X2.1)",
+      "missing_evidence": [
+        "a saved copy of the dataset page on which 'Quarter 2 (Apr to June) 2020, first estimate' is listed first, which states its release date"
+      ],
+      "evidence": []
+    },
+    {
+      "label": "Quarter 1 (Jan to Mar) 2020, quarterly national accounts",
+      "listed_on": [
+        {
+          "page": "01_dataset_0636cf8deca8.html",
+          "position": 50
+        },
+        {
+          "page": "01_realtimedatabaseforukgdpabmi_20260929T195308Z.html",
+          "position": 49
+        }
+      ],
+      "file_url": "https://www.ons.gov.uk/file?uri=/economy/grossdomesticproductgdp/datasets/realtimedatabaseforukgdpabmi/quarter1jantomar2020quarterlynationalaccounts/gdpinchainedvolumemeasuresrealtimedatabaseabmi.xls",
+      "file_type": "xls",
+      "size_text": "864.0 KB",
+      "files": 1,
+      "edition_page_url": null,
+      "release_date": null,
+      "release_time_uk": null,
+      "release_utc": null,
+      "eligible": false,
+      "reason": "the release date is not established from the saved ONS metadata (R-X2.1)",
+      "missing_evidence": [
+        "a saved copy of the dataset page on which 'Quarter 1 (Jan to Mar) 2020, quarterly national accounts' is listed first, which states its release date"
+      ],
+      "evidence": []
+    },
+    {
+      "label": "Quarter 1 (Jan to Mar) 2020, first estimate",
+      "listed_on": [
+        {
+          "page": "01_dataset_0636cf8deca8.html",
+          "position": 51
+        },
+        {
+          "page": "01_realtimedatabaseforukgdpabmi_20260929T195308Z.html",
+          "position": 50
+        }
+      ],
+      "file_url": "https://www.ons.gov.uk/file?uri=/economy/grossdomesticproductgdp/datasets/realtimedatabaseforukgdpabmi/quarter1jantomar2020firstestimate/gdpinchainedvolumemeasuresrealtimedatabaseabmi.xls",
+      "file_type": "xls",
+      "size_text": "862.5 KB",
+      "files": 1,
+      "edition_page_url": null,
+      "release_date": null,
+      "release_time_uk": null,
+      "release_utc": null,
+      "eligible": false,
+      "reason": "the release date is not established from the saved ONS metadata (R-X2.1)",
+      "missing_evidence": [
+        "a saved copy of the dataset page on which 'Quarter 1 (Jan to Mar) 2020, first estimate' is listed first, which states its release date"
+      ],
+      "evidence": []
+    },
+    {
+      "label": "Quarter 4 (Oct to Dec) 2019, quarterly national accounts",
+      "listed_on": [
+        {
+          "page": "01_dataset_0636cf8deca8.html",
+          "position": 52
+        },
+        {
+          "page": "01_realtimedatabaseforukgdpabmi_20260929T195308Z.html",
+          "position": 51
+        }
+      ],
+      "file_url": "https://www.ons.gov.uk/file?uri=/economy/grossdomesticproductgdp/datasets/realtimedatabaseforukgdpabmi/quarter4octtodec2019quarterlynationalaccounts/gdpinchainedvolumemeasuresrealtimedatabaseabmi.xls",
+      "file_type": "xls",
+      "size_text": "861.0 KB",
+      "files": 1,
+      "edition_page_url": null,
+      "release_date": null,
+      "release_time_uk": null,
+      "release_utc": null,
+      "eligible": false,
+      "reason": "the release date is not established from the saved ONS metadata (R-X2.1)",
+      "missing_evidence": [
+        "a saved copy of the dataset page on which 'Quarter 4 (Oct to Dec) 2019, quarterly national accounts' is listed first, which states its release date"
+      ],
+      "evidence": []
+    },
+    {
+      "label": "Quarter 4 (Oct to Dec) 2019, first estimate",
+      "listed_on": [
+        {
+          "page": "01_dataset_0636cf8deca8.html",
+          "position": 53
+        },
+        {
+          "page": "01_realtimedatabaseforukgdpabmi_20260929T195308Z.html",
+          "position": 52
+        }
+      ],
+      "file_url": "https://www.ons.gov.uk/file?uri=/economy/grossdomesticproductgdp/datasets/realtimedatabaseforukgdpabmi/quarter4octtodec2019firstestimate/gdpinchainedvolumemeasuresrealtimedatabaseabmi.xls",
+      "file_type": "xls",
+      "size_text": "859.5 KB",
+      "files": 1,
+      "edition_page_url": null,
+      "release_date": null,
+      "release_time_uk": null,
+      "release_utc": null,
+      "eligible": false,
+      "reason": "the release date is not established from the saved ONS metadata (R-X2.1)",
+      "missing_evidence": [
+        "a saved copy of the dataset page on which 'Quarter 4 (Oct to Dec) 2019, first estimate' is listed first, which states its release date"
+      ],
+      "evidence": []
+    },
+    {
+      "label": "Quarter 3 (July to Sept) 2019, quarterly national accounts",
+      "listed_on": [
+        {
+          "page": "01_dataset_0636cf8deca8.html",
+          "position": 54
+        },
+        {
+          "page": "01_realtimedatabaseforukgdpabmi_20260929T195308Z.html",
+          "position": 53
+        }
+      ],
+      "file_url": "https://www.ons.gov.uk/file?uri=/economy/grossdomesticproductgdp/datasets/realtimedatabaseforukgdpabmi/quarter3julytosept2019quarterlynationalaccounts/gdpinchainedvolumemeasuresrealtimedatabaseabmi.xls",
+      "file_type": "xls",
+      "size_text": "858.0 KB",
+      "files": 1,
+      "edition_page_url": null,
+      "release_date": null,
+      "release_time_uk": null,
+      "release_utc": null,
+      "eligible": false,
+      "reason": "the release date is not established from the saved ONS metadata (R-X2.1)",
+      "missing_evidence": [
+        "a saved copy of the dataset page on which 'Quarter 3 (July to Sept) 2019, quarterly national accounts' is listed first, which states its release date"
+      ],
+      "evidence": []
+    },
+    {
+      "label": "Quarter 3 (July to Sept) 2019, first estimate",
+      "listed_on": [
+        {
+          "page": "01_dataset_0636cf8deca8.html",
+          "position": 55
+        },
+        {
+          "page": "01_realtimedatabaseforukgdpabmi_20260929T195308Z.html",
+          "position": 54
+        }
+      ],
+      "file_url": "https://www.ons.gov.uk/file?uri=/economy/grossdomesticproductgdp/datasets/realtimedatabaseforukgdpabmi/quarter3julytosept2019firstestimate/abmirtdbgdpcvm2019q3m2.xls",
+      "file_type": "xls",
+      "size_text": "856.0 KB",
+      "files": 1,
+      "edition_page_url": null,
+      "release_date": null,
+      "release_time_uk": null,
+      "release_utc": null,
+      "eligible": false,
+      "reason": "the release date is not established from the saved ONS metadata (R-X2.1)",
+      "missing_evidence": [
+        "a saved copy of the dataset page on which 'Quarter 3 (July to Sept) 2019, first estimate' is listed first, which states its release date"
+      ],
+      "evidence": []
+    },
+    {
+      "label": "Quarter 2 (Apr to June) 2019, quarterly national accounts",
+      "listed_on": [
+        {
+          "page": "01_dataset_0636cf8deca8.html",
+          "position": 56
+        },
+        {
+          "page": "01_realtimedatabaseforukgdpabmi_20260929T195308Z.html",
+          "position": 55
+        }
+      ],
+      "file_url": "https://www.ons.gov.uk/file?uri=/economy/grossdomesticproductgdp/datasets/realtimedatabaseforukgdpabmi/quarter2aprtojune2019quarterlynationalaccounts/abmirtdbgdpcvm2019q2m3.xls",
+      "file_type": "xls",
+      "size_text": "854.5 KB",
+      "files": 1,
+      "edition_page_url": null,
+      "release_date": null,
+      "release_time_uk": null,
+      "release_utc": null,
+      "eligible": false,
+      "reason": "the release date is not established from the saved ONS metadata (R-X2.1)",
+      "missing_evidence": [
+        "a saved copy of the dataset page on which 'Quarter 2 (Apr to June) 2019, quarterly national accounts' is listed first, which states its release date"
+      ],
+      "evidence": []
+    },
+    {
+      "label": "Quarter 2 (Apr to June) 2019, first estimate",
+      "listed_on": [
+        {
+          "page": "01_dataset_0636cf8deca8.html",
+          "position": 57
+        },
+        {
+          "page": "01_realtimedatabaseforukgdpabmi_20260929T195308Z.html",
+          "position": 56
+        }
+      ],
+      "file_url": "https://www.ons.gov.uk/file?uri=/economy/grossdomesticproductgdp/datasets/realtimedatabaseforukgdpabmi/quarter2aprtojune2019firstestimate/rtdbabmi.xls",
+      "file_type": "xls",
+      "size_text": "928.5 KB",
+      "files": 1,
+      "edition_page_url": null,
+      "release_date": null,
+      "release_time_uk": null,
+      "release_utc": null,
+      "eligible": false,
+      "reason": "the release date is not established from the saved ONS metadata (R-X2.1)",
+      "missing_evidence": [
+        "a saved copy of the dataset page on which 'Quarter 2 (Apr to June) 2019, first estimate' is listed first, which states its release date"
+      ],
+      "evidence": []
+    },
+    {
+      "label": "Quarter 1 (Jan to Mar) 2019, quarterly national accounts",
+      "listed_on": [
+        {
+          "page": "01_dataset_0636cf8deca8.html",
+          "position": 58
+        },
+        {
+          "page": "01_realtimedatabaseforukgdpabmi_20260929T195308Z.html",
+          "position": 57
+        }
+      ],
+      "file_url": "https://www.ons.gov.uk/file?uri=/economy/grossdomesticproductgdp/datasets/realtimedatabaseforukgdpabmi/quarter1jantomar2019quarterlynationalaccounts/rtdbabmi.xls",
+      "file_type": "xls",
+      "size_text": "927.0 KB",
+      "files": 1,
+      "edition_page_url": null,
+      "release_date": null,
+      "release_time_uk": null,
+      "release_utc": null,
+      "eligible": false,
+      "reason": "the release date is not established from the saved ONS metadata (R-X2.1)",
+      "missing_evidence": [
+        "a saved copy of the dataset page on which 'Quarter 1 (Jan to Mar) 2019, quarterly national accounts' is listed first, which states its release date"
+      ],
+      "evidence": []
+    },
+    {
+      "label": "Quarter 1 (Jan to Mar) 2019, first estimate",
+      "listed_on": [
+        {
+          "page": "01_dataset_0636cf8deca8.html",
+          "position": 59
+        },
+        {
+          "page": "01_realtimedatabaseforukgdpabmi_20260929T195308Z.html",
+          "position": 58
+        }
+      ],
+      "file_url": "https://www.ons.gov.uk/file?uri=/economy/grossdomesticproductgdp/datasets/realtimedatabaseforukgdpabmi/quarter1jantomar2019firstestimate/rtdbabmi.xls",
+      "file_type": "xls",
+      "size_text": "928.0 KB",
+      "files": 1,
+      "edition_page_url": null,
+      "release_date": null,
+      "release_time_uk": null,
+      "release_utc": null,
+      "eligible": false,
+      "reason": "the release date is not established from the saved ONS metadata (R-X2.1)",
+      "missing_evidence": [
+        "a saved copy of the dataset page on which 'Quarter 1 (Jan to Mar) 2019, first estimate' is listed first, which states its release date"
+      ],
+      "evidence": []
+    },
+    {
+      "label": "Quarter 4 (Oct to Dec) 2018, quarterly national accounts",
+      "listed_on": [
+        {
+          "page": "01_dataset_0636cf8deca8.html",
+          "position": 60
+        },
+        {
+          "page": "01_realtimedatabaseforukgdpabmi_20260929T195308Z.html",
+          "position": 59
+        }
+      ],
+      "file_url": "https://www.ons.gov.uk/file?uri=/economy/grossdomesticproductgdp/datasets/realtimedatabaseforukgdpabmi/quarter4octtodec2018quarterlynationalaccounts/rtdbabmi.xls",
+      "file_type": "xls",
+      "size_text": "933.5 KB",
+      "files": 1,
+      "edition_page_url": null,
+      "release_date": null,
+      "release_time_uk": null,
+      "release_utc": null,
+      "eligible": false,
+      "reason": "the release date is not established from the saved ONS metadata (R-X2.1)",
+      "missing_evidence": [
+        "a saved copy of the dataset page on which 'Quarter 4 (Oct to Dec) 2018, quarterly national accounts' is listed first, which states its release date"
+      ],
+      "evidence": []
+    },
+    {
+      "label": "Quarter 4 (Oct to Dec) 2018, first estimate",
+      "listed_on": [
+        {
+          "page": "01_dataset_0636cf8deca8.html",
+          "position": 61
+        },
+        {
+          "page": "01_realtimedatabaseforukgdpabmi_20260929T195308Z.html",
+          "position": 60
+        }
+      ],
+      "file_url": "https://www.ons.gov.uk/file?uri=/economy/grossdomesticproductgdp/datasets/realtimedatabaseforukgdpabmi/quarter4octtodec2018firstestimate/abmirtdb.xls",
+      "file_type": "xls",
+      "size_text": "932.5 KB",
+      "files": 1,
+      "edition_page_url": null,
+      "release_date": null,
+      "release_time_uk": null,
+      "release_utc": null,
+      "eligible": false,
+      "reason": "the release date is not established from the saved ONS metadata (R-X2.1)",
+      "missing_evidence": [
+        "a saved copy of the dataset page on which 'Quarter 4 (Oct to Dec) 2018, first estimate' is listed first, which states its release date"
+      ],
+      "evidence": []
+    },
+    {
+      "label": "Quarter 3 (July to Sept) 2018, quarterly national accounts",
+      "listed_on": [
+        {
+          "page": "01_dataset_0636cf8deca8.html",
+          "position": 62
+        },
+        {
+          "page": "01_realtimedatabaseforukgdpabmi_20260929T195308Z.html",
+          "position": 61
+        }
+      ],
+      "file_url": "https://www.ons.gov.uk/file?uri=/economy/grossdomesticproductgdp/datasets/realtimedatabaseforukgdpabmi/quarter3julytosept2018quarterlynationalaccounts/rtdbabmi.xls",
+      "file_type": "xls",
+      "size_text": "926.0 KB",
+      "files": 1,
+      "edition_page_url": null,
+      "release_date": null,
+      "release_time_uk": null,
+      "release_utc": null,
+      "eligible": false,
+      "reason": "the release date is not established from the saved ONS metadata (R-X2.1)",
+      "missing_evidence": [
+        "a saved copy of the dataset page on which 'Quarter 3 (July to Sept) 2018, quarterly national accounts' is listed first, which states its release date"
+      ],
+      "evidence": []
+    },
+    {
+      "label": "Quarter 3 (July to Sept) 2018, first estimate",
+      "listed_on": [
+        {
+          "page": "01_dataset_0636cf8deca8.html",
+          "position": 63
+        },
+        {
+          "page": "01_realtimedatabaseforukgdpabmi_20260929T195308Z.html",
+          "position": 62
+        }
+      ],
+      "file_url": "https://www.ons.gov.uk/file?uri=/economy/grossdomesticproductgdp/datasets/realtimedatabaseforukgdpabmi/quarter3julytosept2018firstestimate/rtdbabmi.xls",
+      "file_type": "xls",
+      "size_text": "922.5 KB",
+      "files": 1,
+      "edition_page_url": null,
+      "release_date": null,
+      "release_time_uk": null,
+      "release_utc": null,
+      "eligible": false,
+      "reason": "the release date is not established from the saved ONS metadata (R-X2.1)",
+      "missing_evidence": [
+        "a saved copy of the dataset page on which 'Quarter 3 (July to Sept) 2018, first estimate' is listed first, which states its release date"
+      ],
+      "evidence": []
+    },
+    {
+      "label": "Quarter 2 (Apr to June) 2018, quarterly national accounts",
+      "listed_on": [
+        {
+          "page": "01_dataset_0636cf8deca8.html",
+          "position": 64
+        },
+        {
+          "page": "01_realtimedatabaseforukgdpabmi_20260929T195308Z.html",
+          "position": 63
+        }
+      ],
+      "file_url": "https://www.ons.gov.uk/file?uri=/economy/grossdomesticproductgdp/datasets/realtimedatabaseforukgdpabmi/quarter2aprtojune2018quarterlynationalaccounts/rtdbabmi.xls",
+      "file_type": "xls",
+      "size_text": "923.0 KB",
+      "files": 1,
+      "edition_page_url": null,
+      "release_date": null,
+      "release_time_uk": null,
+      "release_utc": null,
+      "eligible": false,
+      "reason": "the release date is not established from the saved ONS metadata (R-X2.1)",
+      "missing_evidence": [
+        "a saved copy of the dataset page on which 'Quarter 2 (Apr to June) 2018, quarterly national accounts' is listed first, which states its release date"
+      ],
+      "evidence": []
+    },
+    {
+      "label": "Quarter 2 (Apr to June) 2018, first estimate",
+      "listed_on": [
+        {
+          "page": "01_dataset_0636cf8deca8.html",
+          "position": 65
+        },
+        {
+          "page": "01_realtimedatabaseforukgdpabmi_20260929T195308Z.html",
+          "position": 64
+        }
+      ],
+      "file_url": "https://www.ons.gov.uk/file?uri=/economy/grossdomesticproductgdp/datasets/realtimedatabaseforukgdpabmi/quarter2aprtojune2018firstestimate/rtdbukgdpabmi.xls",
+      "file_type": "xls",
+      "size_text": "919.0 KB",
+      "files": 1,
+      "edition_page_url": null,
+      "release_date": null,
+      "release_time_uk": null,
+      "release_utc": null,
+      "eligible": false,
+      "reason": "the release date is not established from the saved ONS metadata (R-X2.1)",
+      "missing_evidence": [
+        "a saved copy of the dataset page on which 'Quarter 2 (Apr to June) 2018, first estimate' is listed first, which states its release date"
+      ],
+      "evidence": []
+    },
+    {
+      "label": "Quarter 1 (Jan to Mar) 2018, month 3",
+      "listed_on": [
+        {
+          "page": "01_dataset_0636cf8deca8.html",
+          "position": 66
+        },
+        {
+          "page": "01_realtimedatabaseforukgdpabmi_20260929T195308Z.html",
+          "position": 65
+        }
+      ],
+      "file_url": "https://www.ons.gov.uk/file?uri=/economy/grossdomesticproductgdp/datasets/realtimedatabaseforukgdpabmi/quarter1jantomar2018month3/dataset1.xls",
+      "file_type": "xls",
+      "size_text": "892.5 KB",
+      "files": 1,
+      "edition_page_url": null,
+      "release_date": null,
+      "release_time_uk": null,
+      "release_utc": null,
+      "eligible": false,
+      "reason": "the release date is not established from the saved ONS metadata (R-X2.1)",
+      "missing_evidence": [
+        "a saved copy of the dataset page on which 'Quarter 1 (Jan to Mar) 2018, month 3' is listed first, which states its release date"
+      ],
+      "evidence": []
+    },
+    {
+      "label": "Quarter 1 (Jan to Mar) 2018, month 2",
+      "listed_on": [
+        {
+          "page": "01_dataset_0636cf8deca8.html",
+          "position": 67
+        },
+        {
+          "page": "01_realtimedatabaseforukgdpabmi_20260929T195308Z.html",
+          "position": 66
+        }
+      ],
+      "file_url": "https://www.ons.gov.uk/file?uri=/economy/grossdomesticproductgdp/datasets/realtimedatabaseforukgdpabmi/quarter1jantomar2018month2/dataset1.xls",
+      "file_type": "xls",
+      "size_text": "891.0 KB",
+      "files": 1,
+      "edition_page_url": null,
+      "release_date": null,
+      "release_time_uk": null,
+      "release_utc": null,
+      "eligible": false,
+      "reason": "the release date is not established from the saved ONS metadata (R-X2.1)",
+      "missing_evidence": [
+        "a saved copy of the dataset page on which 'Quarter 1 (Jan to Mar) 2018, month 2' is listed first, which states its release date"
+      ],
+      "evidence": []
+    },
+    {
+      "label": "Quarter 4 (Oct to Dec) 2017, month 3",
+      "listed_on": [
+        {
+          "page": "01_dataset_0636cf8deca8.html",
+          "position": 68
+        },
+        {
+          "page": "01_realtimedatabaseforukgdpabmi_20260929T195308Z.html",
+          "position": 67
+        }
+      ],
+      "file_url": "https://www.ons.gov.uk/file?uri=/economy/grossdomesticproductgdp/datasets/realtimedatabaseforukgdpabmi/quarter4octtodec2017month3/abmirealtimedbgdpcvm.xls",
+      "file_type": "xls",
+      "size_text": "887.5 KB",
+      "files": 1,
+      "edition_page_url": null,
+      "release_date": null,
+      "release_time_uk": null,
+      "release_utc": null,
+      "eligible": false,
+      "reason": "the release date is not established from the saved ONS metadata (R-X2.1)",
+      "missing_evidence": [
+        "a saved copy of the dataset page on which 'Quarter 4 (Oct to Dec) 2017, month 3' is listed first, which states its release date"
+      ],
+      "evidence": []
+    },
+    {
+      "label": "Quarter 4 (Oct to Dec) 2017, Month 2",
+      "listed_on": [
+        {
+          "page": "01_dataset_0636cf8deca8.html",
+          "position": 69
+        },
+        {
+          "page": "01_realtimedatabaseforukgdpabmi_20260929T195308Z.html",
+          "position": 68
+        }
+      ],
+      "file_url": "https://www.ons.gov.uk/file?uri=/economy/grossdomesticproductgdp/datasets/realtimedatabaseforukgdpabmi/quarter4octtodec2017month2/abmirealtimedbgdpcvmcorrected.xls",
+      "file_type": "xls",
+      "size_text": "885.0 KB",
+      "files": 1,
+      "edition_page_url": "https://www.ons.gov.uk/economy/grossdomesticproductgdp/datasets/realtimedatabaseforukgdpabmi/quarter4octtodec2017month2",
+      "release_date": null,
+      "release_time_uk": null,
+      "release_utc": null,
+      "eligible": false,
+      "reason": "the release date is not established from the saved ONS metadata (R-X2.1)",
+      "missing_evidence": [
+        "a saved copy of the dataset page on which 'Quarter 4 (Oct to Dec) 2017, Month 2' is listed first, which states its release date"
+      ],
+      "evidence": []
+    },
+    {
+      "label": "Quarter 3 (July to Sept) 2017, month 3",
+      "listed_on": [
+        {
+          "page": "01_dataset_0636cf8deca8.html",
+          "position": 70
+        },
+        {
+          "page": "01_realtimedatabaseforukgdpabmi_20260929T195308Z.html",
+          "position": 69
+        }
+      ],
+      "file_url": "https://www.ons.gov.uk/file?uri=/economy/grossdomesticproductgdp/datasets/realtimedatabaseforukgdpabmi/quarter3julytosept2017month3/abmirealtimedbgdpcvm1.xls",
+      "file_type": "xls",
+      "size_text": "866.0 KB",
+      "files": 1,
+      "edition_page_url": null,
+      "release_date": null,
+      "release_time_uk": null,
+      "release_utc": null,
+      "eligible": false,
+      "reason": "the release date is not established from the saved ONS metadata (R-X2.1)",
+      "missing_evidence": [
+        "a saved copy of the dataset page on which 'Quarter 3 (July to Sept) 2017, month 3' is listed first, which states its release date"
+      ],
+      "evidence": []
+    },
+    {
+      "label": "Quarter 3 (July to Sept) 2017, month 2",
+      "listed_on": [
+        {
+          "page": "01_dataset_0636cf8deca8.html",
+          "position": 71
+        },
+        {
+          "page": "01_realtimedatabaseforukgdpabmi_20260929T195308Z.html",
+          "position": 70
+        }
+      ],
+      "file_url": "https://www.ons.gov.uk/file?uri=/economy/grossdomesticproductgdp/datasets/realtimedatabaseforukgdpabmi/quarter3julytosept2017month2/abmirealtimedbgdpcvm.xls",
+      "file_type": "xls",
+      "size_text": "489.5 KB",
+      "files": 1,
+      "edition_page_url": null,
+      "release_date": null,
+      "release_time_uk": null,
+      "release_utc": null,
+      "eligible": false,
+      "reason": "the release date is not established from the saved ONS metadata (R-X2.1)",
+      "missing_evidence": [
+        "a saved copy of the dataset page on which 'Quarter 3 (July to Sept) 2017, month 2' is listed first, which states its release date"
+      ],
+      "evidence": []
+    },
+    {
+      "label": "Quarter 2 (Apr to June) 2017, month 3",
+      "listed_on": [
+        {
+          "page": "01_dataset_0636cf8deca8.html",
+          "position": 72
+        },
+        {
+          "page": "01_realtimedatabaseforukgdpabmi_20260929T195308Z.html",
+          "position": 71
+        }
+      ],
+      "file_url": "https://www.ons.gov.uk/file?uri=/economy/grossdomesticproductgdp/datasets/realtimedatabaseforukgdpabmi/quarter2aprtojune2017month3/abmirealtimedbgdpcvm.xls",
+      "file_type": "xls",
+      "size_text": "860.5 KB",
+      "files": 1,
+      "edition_page_url": null,
+      "release_date": null,
+      "release_time_uk": null,
+      "release_utc": null,
+      "eligible": false,
+      "reason": "the release date is not established from the saved ONS metadata (R-X2.1)",
+      "missing_evidence": [
+        "a saved copy of the dataset page on which 'Quarter 2 (Apr to June) 2017, month 3' is listed first, which states its release date"
+      ],
+      "evidence": []
+    },
+    {
+      "label": "Quarter 2 (Apr to June) 2017 , month 2",
+      "listed_on": [
+        {
+          "page": "01_dataset_0636cf8deca8.html",
+          "position": 73
+        },
+        {
+          "page": "01_realtimedatabaseforukgdpabmi_20260929T195308Z.html",
+          "position": 72
+        }
+      ],
+      "file_url": "https://www.ons.gov.uk/file?uri=/economy/grossdomesticproductgdp/datasets/realtimedatabaseforukgdpabmi/quarter2aprtojune2017month2/abmirealtimedbgdpcvm.xls",
+      "file_type": "xls",
+      "size_text": "859.0 KB",
+      "files": 1,
+      "edition_page_url": null,
+      "release_date": null,
+      "release_time_uk": null,
+      "release_utc": null,
+      "eligible": false,
+      "reason": "the release date is not established from the saved ONS metadata (R-X2.1)",
+      "missing_evidence": [
+        "a saved copy of the dataset page on which 'Quarter 2 (Apr to June) 2017 , month 2' is listed first, which states its release date"
+      ],
+      "evidence": []
+    },
+    {
+      "label": "Quarter 1 (Jan to Mar) 2017, month 3",
+      "listed_on": [
+        {
+          "page": "01_dataset_0636cf8deca8.html",
+          "position": 74
+        },
+        {
+          "page": "01_realtimedatabaseforukgdpabmi_20260929T195308Z.html",
+          "position": 73
+        }
+      ],
+      "file_url": "https://www.ons.gov.uk/file?uri=/economy/grossdomesticproductgdp/datasets/realtimedatabaseforukgdpabmi/quarter1jantomar2017month3/abmirealtimedbgdpcvm.xls",
+      "file_type": "xls",
+      "size_text": "856.0 KB",
+      "files": 1,
+      "edition_page_url": null,
+      "release_date": null,
+      "release_time_uk": null,
+      "release_utc": null,
+      "eligible": false,
+      "reason": "the release date is not established from the saved ONS metadata (R-X2.1)",
+      "missing_evidence": [
+        "a saved copy of the dataset page on which 'Quarter 1 (Jan to Mar) 2017, month 3' is listed first, which states its release date"
+      ],
+      "evidence": []
+    },
+    {
+      "label": "Quarter 1 (Jan to Mar) 2017, month 2",
+      "listed_on": [
+        {
+          "page": "01_dataset_0636cf8deca8.html",
+          "position": 75
+        },
+        {
+          "page": "01_realtimedatabaseforukgdpabmi_20260929T195308Z.html",
+          "position": 74
+        }
+      ],
+      "file_url": "https://www.ons.gov.uk/file?uri=/economy/grossdomesticproductgdp/datasets/realtimedatabaseforukgdpabmi/quarter1jantomar2017month2/abmirealtimedbgdpcvm2017q1m2.xls",
+      "file_type": "xls",
+      "size_text": "854.5 KB",
+      "files": 1,
+      "edition_page_url": null,
+      "release_date": null,
+      "release_time_uk": null,
+      "release_utc": null,
+      "eligible": false,
+      "reason": "the release date is not established from the saved ONS metadata (R-X2.1)",
+      "missing_evidence": [
+        "a saved copy of the dataset page on which 'Quarter 1 (Jan to Mar) 2017, month 2' is listed first, which states its release date"
+      ],
+      "evidence": []
+    },
+    {
+      "label": "Quarter 4 (Oct to Dec) 2016, month 3",
+      "listed_on": [
+        {
+          "page": "01_dataset_0636cf8deca8.html",
+          "position": 76
+        },
+        {
+          "page": "01_realtimedatabaseforukgdpabmi_20260929T195308Z.html",
+          "position": 75
+        }
+      ],
+      "file_url": "https://www.ons.gov.uk/file?uri=/economy/grossdomesticproductgdp/datasets/realtimedatabaseforukgdpabmi/quarter4octtodec2016month3/abmirealtimedbgdpcvm.xls",
+      "file_type": "xls",
+      "size_text": "851.5 KB",
+      "files": 1,
+      "edition_page_url": null,
+      "release_date": null,
+      "release_time_uk": null,
+      "release_utc": null,
+      "eligible": false,
+      "reason": "the release date is not established from the saved ONS metadata (R-X2.1)",
+      "missing_evidence": [
+        "a saved copy of the dataset page on which 'Quarter 4 (Oct to Dec) 2016, month 3' is listed first, which states its release date"
+      ],
+      "evidence": []
+    },
+    {
+      "label": "Quarter 4 (Oct to Dec) 2016, month 2",
+      "listed_on": [
+        {
+          "page": "01_dataset_0636cf8deca8.html",
+          "position": 77
+        },
+        {
+          "page": "01_realtimedatabaseforukgdpabmi_20260929T195308Z.html",
+          "position": 76
+        }
+      ],
+      "file_url": "https://www.ons.gov.uk/file?uri=/economy/grossdomesticproductgdp/datasets/realtimedatabaseforukgdpabmi/quarter4octtodec2016month2/abmirealtimedbgdpcvm.xls",
+      "file_type": "xls",
+      "size_text": "850.5 KB",
+      "files": 1,
+      "edition_page_url": null,
+      "release_date": null,
+      "release_time_uk": null,
+      "release_utc": null,
+      "eligible": false,
+      "reason": "the release date is not established from the saved ONS metadata (R-X2.1)",
+      "missing_evidence": [
+        "a saved copy of the dataset page on which 'Quarter 4 (Oct to Dec) 2016, month 2' is listed first, which states its release date"
+      ],
+      "evidence": []
+    },
+    {
+      "label": "Quarter 3 (July to Sept) 2016, month 3",
+      "listed_on": [
+        {
+          "page": "01_dataset_0636cf8deca8.html",
+          "position": 78
+        },
+        {
+          "page": "01_realtimedatabaseforukgdpabmi_20260929T195308Z.html",
+          "position": 77
+        }
+      ],
+      "file_url": "https://www.ons.gov.uk/file?uri=/economy/grossdomesticproductgdp/datasets/realtimedatabaseforukgdpabmi/quarter3julytosept2016month3/abmirealtimedbgdpcvm.xls",
+      "file_type": "xls",
+      "size_text": "847.0 KB",
+      "files": 1,
+      "edition_page_url": null,
+      "release_date": null,
+      "release_time_uk": null,
+      "release_utc": null,
+      "eligible": false,
+      "reason": "the release date is not established from the saved ONS metadata (R-X2.1)",
+      "missing_evidence": [
+        "a saved copy of the dataset page on which 'Quarter 3 (July to Sept) 2016, month 3' is listed first, which states its release date"
+      ],
+      "evidence": []
+    },
+    {
+      "label": "Quarter 2 (Apr to June) 2016, month 3",
+      "listed_on": [
+        {
+          "page": "01_dataset_0636cf8deca8.html",
+          "position": 79
+        },
+        {
+          "page": "01_realtimedatabaseforukgdpabmi_20260929T195308Z.html",
+          "position": 78
+        }
+      ],
+      "file_url": "https://www.ons.gov.uk/file?uri=/economy/grossdomesticproductgdp/datasets/realtimedatabaseforukgdpabmi/quarter2aprtojune2016month3/abmirealtimedbgdpcvm.xls",
+      "file_type": "xls",
+      "size_text": "845.5 KB",
+      "files": 1,
+      "edition_page_url": null,
+      "release_date": null,
+      "release_time_uk": null,
+      "release_utc": null,
+      "eligible": false,
+      "reason": "the release date is not established from the saved ONS metadata (R-X2.1)",
+      "missing_evidence": [
+        "a saved copy of the dataset page on which 'Quarter 2 (Apr to June) 2016, month 3' is listed first, which states its release date"
+      ],
+      "evidence": []
+    },
+    {
+      "label": "Quarter 2 (Apr to June) 2016",
+      "listed_on": [
+        {
+          "page": "01_dataset_0636cf8deca8.html",
+          "position": 80
+        },
+        {
+          "page": "01_realtimedatabaseforukgdpabmi_20260929T195308Z.html",
+          "position": 79
+        }
+      ],
+      "file_url": "https://www.ons.gov.uk/file?uri=/economy/grossdomesticproductgdp/datasets/realtimedatabaseforukgdpabmi/quarter2aprtojune2016/realtimegdpdb2013cvmbasedjune16.xls",
+      "file_type": "xls",
+      "size_text": "850.0 KB",
+      "files": 1,
+      "edition_page_url": null,
+      "release_date": null,
+      "release_time_uk": null,
+      "release_utc": null,
+      "eligible": false,
+      "reason": "the release date is not established from the saved ONS metadata (R-X2.1)",
+      "missing_evidence": [
+        "a saved copy of the dataset page on which 'Quarter 2 (Apr to June) 2016' is listed first, which states its release date"
+      ],
+      "evidence": []
+    },
+    {
+      "label": "Quarter 1 (Jan to Mar) 2016, Month 3",
+      "listed_on": [
+        {
+          "page": "01_dataset_0636cf8deca8.html",
+          "position": 81
+        },
+        {
+          "page": "01_realtimedatabaseforukgdpabmi_20260929T195308Z.html",
+          "position": 80
+        }
+      ],
+      "file_url": "https://www.ons.gov.uk/file?uri=/economy/grossdomesticproductgdp/datasets/realtimedatabaseforukgdpabmi/quarter1jantomar2016month3/realtimegdpdb2012cvmbasedjune16.xls",
+      "file_type": "xls",
+      "size_text": "844.5 KB",
+      "files": 1,
+      "edition_page_url": null,
+      "release_date": null,
+      "release_time_uk": null,
+      "release_utc": null,
+      "eligible": false,
+      "reason": "the release date is not established from the saved ONS metadata (R-X2.1)",
+      "missing_evidence": [
+        "a saved copy of the dataset page on which 'Quarter 1 (Jan to Mar) 2016, Month 3' is listed first, which states its release date"
+      ],
+      "evidence": []
+    },
+    {
+      "label": "Quarter 4 (Oct to Dec) 2015, Month 3",
+      "listed_on": [
+        {
+          "page": "01_dataset_0636cf8deca8.html",
+          "position": 82
+        },
+        {
+          "page": "01_realtimedatabaseforukgdpabmi_20260929T195308Z.html",
+          "position": 81
+        }
+      ],
+      "file_url": "https://www.ons.gov.uk/file?uri=/economy/grossdomesticproductgdp/datasets/realtimedatabaseforukgdpabmi/quarter4octtodec2015month3/realtimegdpdb2012cvmbasedmarch16.xls",
+      "file_type": "xls",
+      "size_text": "842.0 KB",
+      "files": 1,
+      "edition_page_url": null,
+      "release_date": null,
+      "release_time_uk": null,
+      "release_utc": null,
+      "eligible": false,
+      "reason": "the release date is not established from the saved ONS metadata (R-X2.1)",
+      "missing_evidence": [
+        "a saved copy of the dataset page on which 'Quarter 4 (Oct to Dec) 2015, Month 3' is listed first, which states its release date"
+      ],
+      "evidence": []
+    }
+  ],
+  "selected": {
+    "label": "Quarter 2 (Apr to June) 2026, quarterly national accounts",
+    "listed_on": [
+      {
+        "page": "01_dataset_0636cf8deca8.html",
+        "position": 0
+      }
+    ],
+    "file_url": "https://www.ons.gov.uk/file?uri=/economy/grossdomesticproductgdp/datasets/realtimedatabaseforukgdpabmi/quarter2aprtojune2026quarterlynationalaccounts/gdpinchainedvolumemeasuresrealtimedatabaseabmi.xlsx",
+    "file_type": "xlsx",
+    "size_text": "604.9 KB",
+    "files": 1,
+    "edition_page_url": null,
+    "release_date": "2026-09-30",
+    "release_time_uk": "07:00",
+    "release_utc": "2026-09-30T06:00:00+00:00",
+    "eligible": true,
+    "reason": "released in the minute from 2026-09-30T06:00:00+00:00 (UTC), before the registration",
+    "missing_evidence": [],
+    "evidence": [
+      "dataset page 01_dataset_0636cf8deca8.html (SHA-256 0636cf8deca8...): release date 2026-09-30, edition listed first",
+      "release-calendar record 02_calendar_ba28e7ab85b2.html (SHA-256 ba28e7ab85b2...): 'GDP quarterly national accounts, UK: April to June 2026', released 2026-09-30 07:00 UK time, lists this dataset"
+    ]
+  },
+  "stop": null,
+  "complete": true,
+  "missing_evidence": [],
+  "accepted_missing_evidence": false,
+  "selected_utc": "2026-10-01T04:53:36.238950+00:00"
+}
