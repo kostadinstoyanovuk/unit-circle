@@ -17,7 +17,8 @@ From the stored 259-value input of each replicate record, and from nothing else:
   modulus and Delta = M(n_v - 1) - M(n_v - 9); a window that cannot be fitted anywhere in a vintage fails its
   statistic (R-9.2);
 - the fitted null of each vintage (all n_v values, n_v - 2 rows, strict stability as H1 section 6, centred
-  residuals);
+  residuals), compared with the null the record stores (`null_models`: coefficients, intercept, initial values,
+  residuals, the mean removed from them, modulus);
 - the generator state of each vintage before and after its draws, from `SeedSequence([seed, stream, cell,
   replicate])` with the cells of Annex A (size: cell j; power: cell 10 x kappa index + j);
 - every surrogate attempt (one `integers(0, n_v - 2, size=n_v - 2)` call per attempt, regeneration from the
@@ -45,7 +46,8 @@ tie. Exit status 0 means that everything checked agrees.
 - Results of this verifier on a machine other than the registered environment (Python 3.12.14 under the
   lock) are development results. Its integer results do not depend on the platform; its floats agree with
   the stored ones to rounding.
-- Stored null fits are compared only if the records hold them; otherwise the field is listed as not found.
+- The records of the E4 runner hold each vintage's fitted null and residuals (`null_models`). A record without them
+  is listed as a missing field (`replicate.null_models`), not as a disagreement; the null is then only recomputed.
 
 ## How to run it
 

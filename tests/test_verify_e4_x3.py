@@ -306,6 +306,47 @@ def test_a_consistent_development_design_agrees_in_every_check(tmp_path, design)
     assert payload["maxima"]["statistics"] == 0.0 and payload["maxima"]["S"] == 0.0
 
 
+def test_the_records_hold_each_vintages_fitted_null_and_the_verifier_compares_it(tmp_path, design):
+    for rec in design["size"] + design["power"]:
+        nulls = rec["null_models"]
+        assert sorted(nulls) == [0, 1, 2, 3, 4]
+        for j, n_v in enumerate(v.VINTAGES):
+            item = nulls[j]
+            assert len(item["residuals"]) == n_v - 2 and len(item["coefficients"]) == 2 and len(item["initial"]) == 2
+            assert abs(sum(item["residuals"])) < 1e-9                       # centred as H1 section 6 requires
+    payload = run(tmp_path, design["size"], design["power"])
+    assert payload["exit_status"] == 0, messages(payload)
+    assert "replicate.null_models" not in payload["missing_fields"]
+    assert payload["maxima"]["nulls"] is not None and payload["maxima"]["nulls"] < 1e-12
+    assert all(r["max_diff"]["nulls"] is not None for r in payload["per_record"])
+
+
+@pytest.mark.parametrize("edit, expected", [
+    (lambda item: item["residuals"].__setitem__(5, item["residuals"][5] + 1e-6), "residuals differ"),
+    (lambda item: item["residuals"].pop(), "residuals differ"),
+    (lambda item: item.update(intercept=item["intercept"] + 1e-6), "fitted null intercept"),
+    (lambda item: item.update(coefficients=[item["coefficients"][0] + 1e-6, item["coefficients"][1]]),
+     "fitted null phi1"),
+    (lambda item: item.update(initial=[item["initial"][0] + 1e-6, item["initial"][1]]), "initial differ"),
+    (lambda item: item.update(modulus=item["modulus"] + 1e-6), "fitted null modulus"),
+    (lambda item: item.update(residuals=["x"] * len(item["residuals"])), "residuals differ"),
+])
+def test_an_altered_stored_null_is_found(tmp_path, design, edit, expected):
+    size = copy.deepcopy(design["size"])
+    edit(size[1]["null_models"][2])
+    payload = run(tmp_path, size, design["power"])
+    assert payload["exit_status"] == 1 and "vintage 2" in messages(payload) and expected in messages(payload)
+
+
+def test_records_without_stored_nulls_are_listed_as_a_missing_field_not_a_disagreement(tmp_path, design):
+    size = copy.deepcopy(design["size"])
+    for rec in size:
+        del rec["null_models"]
+    payload = run(tmp_path, size, design["power"])
+    assert payload["exit_status"] == 0, messages(payload)
+    assert payload["missing_fields"] == {"replicate.null_models": len(size)}
+
+
 def test_sample_and_workers_give_the_same_verdict(tmp_path, design):
     payload = run(tmp_path, design["size"], design["power"], "--sample", "3", "--sample-seed", "20260930",
                   "--workers", "2")

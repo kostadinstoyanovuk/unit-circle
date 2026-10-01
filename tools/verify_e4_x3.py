@@ -338,7 +338,8 @@ def fit_null(series):
         raise NullFailure("not strictly stable (phi1 %.6g, phi2 %.6g, M %.6g)%s" % (
             phi1, phi2, modulus, "" if triangle == by_root else "; the triangle and root checks disagree"))
     return dict(phi1=phi1, phi2=phi2, intercept=intercept, modulus=modulus, n=n,
-                initial=(float(x[0]), float(x[1])), residuals=residuals - residuals.mean())
+                initial=(float(x[0]), float(x[1])), residuals=residuals - residuals.mean(),
+                residual_mean_removed=float(residuals.mean()))
 
 
 def generator(seed, stream, cell, replicate):
@@ -518,6 +519,10 @@ def build_record(x, *, seed, streams, check, cell_index, replicate, attempts, ka
     record["surrogate_exceedance_wilson"] = result["wilson"]
     record["analysis_rng_before"] = result["rng_before"]
     record["analysis_rng_after"] = result["rng_after"]
+    record["null_models"] = {j: dict(coefficients=[nl["phi1"], nl["phi2"]], intercept=nl["intercept"],
+                                     initial=list(nl["initial"]), residuals=[float(r) for r in nl["residuals"]],
+                                     residual_mean_removed=nl["residual_mean_removed"], modulus=nl["modulus"])
+                             for j, nl in enumerate(result["nulls"] or [])} or None
     record.update(record_type="replicate", registered=mode == "registered", mode=mode, master_seed=seed,
                   B=attempts, settings=settings or {}, code_sha256=code_sha256)
     return record
@@ -616,7 +621,7 @@ def check_numeric(job):
     res = dict(key=job["key"], where=job["where"], issues=issues, notes=notes, full=job["full"], S=None,
                p=None, K=None, retained=None, status=None, stored_status=job["stored"]["status"], valid=False,
                rejected=False, basis=None,
-               max_diff=dict(components=0.0, S=0.0, statistics=0.0, changes=0.0, regeneration=None),
+               max_diff=dict(components=0.0, S=0.0, statistics=0.0, changes=0.0, nulls=None, regeneration=None),
                near_ties=[], stored_near_ties=[], regeneration_identical=None)
     x = job["x"]
     if x is None:
@@ -663,11 +668,33 @@ def check_numeric(job):
     if result["nulls"] is not None:
         res["nulls"] = [dict(phi1=nl["phi1"], phi2=nl["phi2"], intercept=nl["intercept"], modulus=nl["modulus"])
                         for nl in result["nulls"]]
-        for j, (theirs, mine) in enumerate(zip(stored.get("nulls") or [], res["nulls"])):
-            for field in ("phi1", "phi2", "intercept"):
-                if theirs.get(field) is not None and not close(theirs[field], mine[field]):
+        largest = None
+        for j, (theirs, mine, fit) in enumerate(zip(stored.get("nulls") or [], res["nulls"], result["nulls"])):
+            for field in ("phi1", "phi2", "intercept", "modulus"):
+                if theirs.get(field) is None:
+                    continue
+                if not close(theirs[field], mine[field]):
                     issues.append("vintage %d fitted null %s %r, recomputed %r" % (j, field, theirs[field],
                                                                                   mine[field]))
+                else:
+                    largest = max(largest or 0.0, abs(float(theirs[field]) - float(mine[field])))
+            if theirs.get("residual_mean_removed") is not None:
+                if not close(theirs["residual_mean_removed"], fit["residual_mean_removed"]):
+                    issues.append("vintage %d mean removed from the residuals %r, recomputed %r" % (
+                        j, theirs["residual_mean_removed"], fit["residual_mean_removed"]))
+            for field in ("initial", "residuals"):
+                if theirs.get(field) is None:
+                    continue
+                try:
+                    diff, agree = max_abs_difference(theirs[field], fit[field])
+                except (TypeError, ValueError):
+                    diff, agree = None, False
+                if not agree:
+                    issues.append("vintage %d fitted null %s differ from the recomputed values (max |difference| %s)"
+                                  % (j, field, "shape or value" if diff is None else "%.3g" % diff))
+                elif diff is not None:
+                    largest = max(largest or 0.0, diff)
+        res["max_diff"]["nulls"] = largest
     for label, stored_states, mine in (("analysis_rng_before", job["analysis_rng_before"], result["rng_before"]),
                                        ("analysis_rng_after", job["analysis_rng_after"], result["rng_after"])):
         if not mine:
@@ -879,9 +906,10 @@ def _float_list(values, length=None):
 
 
 def stored_nulls(record, comparison):
-    """The fitted nulls of the five vintages if the record stores them (the layout is read defensively: a list
-    or a dict keyed 0..4 under null_models, nulls or null_model, each with phi1/phi2 or coefficients and an
-    intercept); None when absent."""
+    """The fitted nulls of the five vintages if the record stores them (the layout of the E4 runner's records:
+    `null_models`, a dict keyed 0..4, each with coefficients, intercept, initial values, residuals, the mean
+    removed from them and the modulus; read defensively, also a list or the keys nulls and null_model, and
+    phi1/phi2 in place of coefficients); None when absent."""
     m = len(VINTAGES)
     for holder in (comparison, record):
         for key in ("null_models", "nulls", "null_model"):
@@ -895,7 +923,9 @@ def stored_nulls(record, comparison):
                 coefficients = item.get("coefficients")
                 pair = coefficients if isinstance(coefficients, list) and len(coefficients) == 2 else [None, None]
                 out.append(dict(phi1=item.get("phi1", pair[0]), phi2=item.get("phi2", pair[1]),
-                                intercept=item.get("intercept")))
+                                intercept=item.get("intercept"), modulus=item.get("modulus"),
+                                residual_mean_removed=item.get("residual_mean_removed"),
+                                initial=item.get("initial"), residuals=item.get("residuals")))
             return out
     return None
 
@@ -1078,7 +1108,7 @@ def check_replicate(ctx, name, manifest, record, line_number):
                                wilson=comparison.get("q_wilson"), grid=comparison.get("p_grid_spacing"),
                                nulls=stored_nulls(record, comparison)))
         if job["stored"]["nulls"] is None:
-            rep.missing("replicate.comparison.null_models")
+            rep.missing("replicate.null_models")
         if record.get("generation_rng_before") is None:
             rep.missing("replicate.generation_rng_before")
         if record.get("analysis_rng_after") is None:
@@ -1423,7 +1453,7 @@ def verify(argv=None):
     results = run_jobs(ctx.jobs, args.workers)
     compute_seconds = time.time() - t0
     near_ties, stored_near_ties, identical, regen_max = [], [], 0, 0.0
-    maxima = dict(components=0.0, S=0.0, statistics=0.0, changes=0.0)
+    maxima = dict(components=0.0, S=0.0, statistics=0.0, changes=0.0, nulls=0.0)
     for res in results:
         for issue in res["issues"]:
             rep.problem(res["where"], issue)
@@ -1441,6 +1471,8 @@ def verify(argv=None):
     full = [r for r in results if r["full"]]
     rep.say("  observed Delta and S recomputed for %d records: max |difference| %.3g (Delta), %.3g (S)" % (
         len(results), maxima["components"], maxima["S"]))
+    rep.say("  fitted nulls (coefficients, intercept, modulus, initial values, residuals) compared for %d records: "
+            "max |difference| %.3g" % (sum(r["max_diff"]["nulls"] is not None for r in results), maxima["nulls"]))
     rep.say("  generator check (H1 section 9): stored input regenerated for %d records, bit-identical %d, max "
             "|difference| %.3g" % (sum(r["max_diff"]["regeneration"] is not None for r in results), identical,
                                    regen_max))

@@ -11,6 +11,8 @@ Streams (Annex A; ids are arguments): size generation (cell 0, replicate i); siz
 synthetic vintage 0-4, replicate i); power generation (cell = kappa index, replicate i); power surrogates
 (cell = 10 * kappa index + j, replicate i). A rejection is a valid raw p <= 0.05. Development runs cannot
 pass: only the registered seed, sizes and streams with every replicate valid can (uc_ext.common.summarize_*).
+Each record keeps the series, the five fitted nulls with their residuals (`null_models`, Annex B: retained record),
+every attempt and the generator states.
 """
 from __future__ import annotations
 
@@ -52,7 +54,7 @@ def _record(*, cell_name, cell_index, replicate, generate_rng, null_rngs, kappa,
     """One synthetic replicate. Failures are recorded, not raised (as uc_ext.common.compute_record does)."""
     result = dict(cell=cell_name, cell_index=cell_index, replicate=replicate, status="generation_failed",
                   input=None, input_sha256=None, kappa=kappa, S=None, p_value=None, observed=None, comparison=None,
-                  error=None, surrogate_requested=B, surrogate_attempted=0, surrogate_retained=0,
+                  null_models=None, error=None, surrogate_requested=B, surrogate_attempted=0, surrogate_retained=0,
                   surrogate_no_episode=0, surrogate_failed=0, surrogate_exceedances=None,
                   surrogate_exceedance_rate=None, surrogate_exceedance_wilson=None,
                   generation_rng_before=deepcopy(generate_rng.bit_generator.state),
@@ -65,6 +67,7 @@ def _record(*, cell_name, cell_index, replicate, generate_rng, null_rngs, kappa,
         comparison = joint.primary
         result.update(status=comparison.status, p_value=comparison.p_value, S=comparison.observed.value,
                       observed=serial(comparison.observed), comparison=serial(comparison),
+                      null_models=serial(joint.null_models) or None,
                       surrogate_attempted=comparison.attempted, surrogate_retained=comparison.retained,
                       surrogate_no_episode=comparison.no_episode, surrogate_failed=comparison.failed,
                       surrogate_exceedances=comparison.exceedances)

@@ -72,6 +72,34 @@ def test_five_episodes_are_all_structurally_eligible_and_use_the_whole_fixed_win
     assert rec["surrogate_retained"] == B and rec["surrogate_no_episode"] == 0 and rec["surrogate_failed"] == 0
 
 
+def test_each_record_keeps_the_fitted_null_and_residuals_of_its_five_vintages():
+    """Annex B: "each vintage's fitted null and residuals" are retained; the fits are those of prepare_null."""
+    from uc_core import surrogate as s
+    rec = Y.size_replicate(1, master_seed=DEV_SEED, streams=DS, B=B)
+    x = h1_design_series(stream_rng(DEV_SEED, DS.size_generation, 0, 1), kappa=1.0)
+    assert sorted(rec["null_models"]) == [0, 1, 2, 3, 4]
+    for j, vintage in enumerate(Y.truncation_vintages(x)):
+        model, stored = s.prepare_null(vintage), rec["null_models"][j]
+        assert stored["coefficients"] == list(model.coefficients) and stored["intercept"] == model.intercept
+        assert stored["initial"] == list(model.initial) == [vintage[0], vintage[1]]
+        assert stored["residuals"] == list(model.residuals) and len(stored["residuals"]) == len(vintage) - 2
+        assert stored["residual_mean_removed"] == model.residual_mean_removed and stored["modulus"] == model.modulus
+        assert abs(sum(stored["residuals"])) < 1e-9 and stored["modulus"] < 1
+    power = Y.power_replicate(1, 0, master_seed=DEV_SEED, streams=DS, B=B)
+    assert sorted(power["null_models"]) == [0, 1, 2, 3, 4]
+
+
+def test_a_failed_null_leaves_no_stored_null_and_the_status_says_so(monkeypatch):
+    from uc_core import surrogate as s
+
+    def refuse(growth):
+        raise s.NullModelError("forced")
+    monkeypatch.setattr(s, "prepare_null", refuse)
+    rec = Y.size_replicate(0, master_seed=DEV_SEED, streams=DS, B=B)
+    assert rec["status"] == "null_model_failed" and rec["null_models"] is None and rec["surrogate_attempted"] == 0
+    assert c.summarize_cell([rec], 1)["valid"] == 0
+
+
 def test_records_feed_the_shared_summaries_and_development_runs_cannot_pass():
     size = Y.run_size_check(master_seed=DEV_SEED, streams=DS, n_series=3, B=B)
     cell = size["summary"]["cell"]
