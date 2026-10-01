@@ -342,8 +342,11 @@ def test_imposed_onsets_come_from_the_record_under_the_registered_seed():
         variables.imposed_onsets(1927)
     with pytest.raises(c.RegisteredRunRefused):
         synthetic.x3_settings(master_seed=1927)
-    assert synthetic.x3_settings(master_seed=1927, power_onsets=(60, 120)) == dict(
-        power_onsets=[60, 120], power_onset_source="registered_onsets_record", retain_window_fits=True)
+    assert synthetic.x3_settings(master_seed=1927, power_onsets=(77, 148)) == dict(
+        power_onsets=[77, 148], power_onset_source="registered_onsets_record", retain_window_fits=True)
+    for other in ((60, 120), (77,), (77, 148, 160), (78, 148)):     # section 7: the record must equal (77, 148)
+        with pytest.raises(c.RegisteredRunRefused, match="section 7"):
+            synthetic.x3_settings(master_seed=1927, power_onsets=other)
     assert synthetic.x3_arguments(fixture) == synthetic.x3_input_arguments(fixture) == dict(onsets=(49, 99, 149))
     for settings in (dict(fixture, power_onset_source="guess"), dict(fixture, retain_window_fits=False),
                      dict(fixture, power_onsets=[47])):
@@ -447,6 +450,9 @@ def test_development_prerequisite_passes_and_names_its_parts():
     assert record["at12"]["diagonal"]["draws"] == constants.AT12_DRAWS["development"]
     expected = h1_design_series(c.stream_rng(DEV, 9220, 1, 0))
     assert record["input_sha256"] == c.sha256_values(expected) == record["reduction"]["input_sha256"]
+    assert record["f4"] == dict(passed=True, source="DECISIONS.md D-019; STATUS.md, original C1 foundations checks",
+                                rerun=False)
+    assert record["unit_tests"] == ["tests/test_e2_data_rules.py"]
 
 
 # ------------------------------------------------------------------- X.4 assembly on a synthetic series

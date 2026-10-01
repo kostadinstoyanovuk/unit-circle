@@ -17,8 +17,8 @@ from uc_ext import common as c
 
 from .constants import (AT12_DRAWS, AT12_STREAM, DESIGN_A1, DESIGN_A2, DESIGN_INTERCEPT, DESIGN_MEAN, DESIGN_SCALE,
                         DESIGN_SIGMA, DESIGN_SIGMA_CHOLESKY, DESIGN_TIME_CORRELATION, DEVELOPMENT_POWER_ONSETS, K,
-                        KAPPAS, N_OBS, PREREQUISITE_FIXTURE, REDUCTION_TOL, SENSITIVITY_WINDOWS,
-                        SERIES_PER_CELL, SIGNAL_LENGTH, SIZE_BOUNDS, SURROGATE_ATTEMPTS, WINDOW,
+                        KAPPAS, N_OBS, PREREQUISITE_F4, PREREQUISITE_FIXTURE, PREREQUISITE_UNIT_TESTS, REDUCTION_TOL,
+                        SENSITIVITY_WINDOWS, SERIES_PER_CELL, SIGNAL_LENGTH, SIZE_BOUNDS, SURROGATE_ATTEMPTS, WINDOW,
                         X3_RETAIN_WINDOW_FITS)
 from .procedure import csd_test, fixed_date_test, statistic
 from .streams import DEVELOPMENT_SEED, at12_stream, check_seed, stream_ids, stream_rng
@@ -274,4 +274,5 @@ def prerequisite_fixture(*, master_seed, allow_registered=False):
     at12_result = at12(draws, master_seed, at12_stream(master_seed))
     reduction = reduction_check(values)
     return dict(input_sha256=c.sha256_values(values), at12=at12_result, reduction=reduction,
+                f4=dict(PREREQUISITE_F4), unit_tests=list(PREREQUISITE_UNIT_TESTS),
                 passed=bool(at12_result["passed"] and reduction["passed"]))

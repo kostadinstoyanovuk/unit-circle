@@ -16,17 +16,49 @@ from uc_core.recession import episodes
 from uc_ext import common as c
 
 from .constants import (DEVELOPMENT_POWER_ONSETS, FIRST_LEVEL_QUARTER, H1_OFFSET, LAST_QUARTER, LOOKBACK, MERGE,
-                        MINIMUM_ONSET_GAP, MINIMUM_RUN, N_LEVELS, N_OBS, ONSETS_RECORD, QUARTER_LABEL, WINDOW)
+                        MINIMUM_ONSET_GAP, MINIMUM_RUN, N_LEVELS, N_OBS, ONSETS_RECORD, QUARTER_LABEL,
+                        REGISTERED_POWER_ONSETS, WINDOW)
 from .streams import RegisteredRunRefused
 
 
 # ------------------------------------------------------------------------------ sections 4-5: variables
 
 def _quarter_number(label):
-    match = QUARTER_LABEL.match(label) if isinstance(label, str) else None
+    match = QUARTER_LABEL.fullmatch(label) if isinstance(label, str) else None
     if not match:
         raise ValueError(f"Quarter label {label!r} is not of the form 'YYYY Qn'")
     return int(match.group(1)) * 4 + int(match.group(2)) - 1
+
+
+def quarterly_row_quarter(label):
+    """Section 4: the quarter of a quarterly row, or None for any other row (annual, monthly, header, note).
+
+    The label is taken after removing spaces at either end; a quarterly row label is then exactly four digits,
+    one space, the letter Q and one digit from 1 to 4. Returns the label in its canonical form 'YYYY Qn'.
+    """
+    if not isinstance(label, str):
+        return None
+    stripped = label.strip(" ")
+    return stripped if QUARTER_LABEL.fullmatch(stripped) else None
+
+
+def _in_span(label):
+    number = _quarter_number(label)
+    return (_quarter_number(f"{FIRST_LEVEL_QUARTER[0]} Q{FIRST_LEVEL_QUARTER[1]}") <= number
+            <= _quarter_number(f"{LAST_QUARTER[0]} Q{LAST_QUARTER[1]}"))
+
+
+def unemployment_rule(labels):
+    """Section 4: which rule supplies u. 'quarterly_rows' when the file has at least one quarterly row in
+    1971Q1-2019Q4, 'three_month_averages' only when it has none there.
+
+    A file with quarterly rows for part of the span does not trigger the fallback: it is 'quarterly_rows', and
+    its missing quarters then stop the analysis in variables(). Only labels are inspected, never values. Under
+    the fallback the X.2 tool must establish, before reading any value, the period each three-month average
+    covers (from the file's own records or ONS documentation); this function does not decide that.
+    """
+    quarterly = [quarterly_row_quarter(label) for label in labels]
+    return "quarterly_rows" if any(q is not None and _in_span(q) for q in quarterly) else "three_month_averages"
 
 
 def quarter_label(position):
@@ -66,7 +98,9 @@ def _select(quarters, values, name, check):
 def variables(gdp_quarters, gdp_levels, rate_quarters, rates):
     """Sections 4-5 stop rules and variables: (quarters, X) with X[t] = (g[t], du[t]), 195 x 2, 1971Q2-2019Q4.
 
-    Rows outside 1971Q1-2019Q4 are dropped by label alone; their values are not inspected. Raises ValueError
+    Rows outside 1971Q1-2019Q4 are dropped by label alone; their values are not inspected. Unemployment rows
+    whose label is not a quarterly row label after removing spaces at either end (section 4: annual, monthly,
+    header and note rows) are ignored; GDP labels must all be quarterly labels. Raises ValueError
     (stop and amend) on a missing, duplicated or unidentifiable quarter, a non-positive or non-finite level,
     or a rate outside [0, 100]. g = 400*diff(ln Y), the expression of uc_core.abmi.growth, so g equals H1's
     growth for the same quarters bit for bit; du = diff(u) in percentage points. Which MGSX rows supply u
@@ -74,7 +108,13 @@ def variables(gdp_quarters, gdp_levels, rate_quarters, rates):
     tool, which passes the chosen quarterly values here with 'YYYY Qn' labels.
     """
     levels = _select(gdp_quarters, gdp_levels, "GDP levels", lambda v: v > 0)
-    unemployment = _select(rate_quarters, rates, "Unemployment rates", lambda v: 0 <= v <= 100)
+    rate_quarters, rates = list(rate_quarters), list(rates)
+    if len(rate_quarters) != len(rates):
+        raise ValueError("Unemployment rates: quarters and values differ in length")
+    rows = [(quarterly_row_quarter(label), value) for label, value in zip(rate_quarters, rates)]
+    rows = [(label, value) for label, value in rows if label is not None]          # section 4: other rows ignored
+    unemployment = _select([label for label, _ in rows], [value for _, value in rows], "Unemployment rates",
+                           lambda v: 0 <= v <= 100)
     growth = 400 * np.diff(np.log(levels))
     return tuple(quarter_label(p) for p in range(N_OBS)), np.column_stack((growth, np.diff(unemployment)))
 
@@ -149,11 +189,15 @@ def read_onsets_record(path):
 
 
 def imposed_onsets(master_seed, onsets=None):
-    """R1: the imposed power onsets. Under the registered seed they must be supplied (from ONSETS_RECORD);
-    otherwise supplied onsets are used, or the development fixture."""
+    """R1: the imposed power onsets. Under the registered seed they must be supplied (from ONSETS_RECORD) and
+    equal the section 7 onsets of the text, (77, 148); otherwise supplied onsets are used, or the development
+    fixture."""
     if int(master_seed) == MASTER_SEED and onsets is None:
         raise RegisteredRunRefused(f"No section 7 onsets: registered E2 power onsets come from {ONSETS_RECORD} "
-                                     "(tools/e2_onsets.py at X.1), read by the runner")
+                                   "(tools/e2_onsets.py at X.1), read by the runner")
+    if int(master_seed) == MASTER_SEED and tuple(onsets) != REGISTERED_POWER_ONSETS:
+        raise RegisteredRunRefused(f"The onsets read from {ONSETS_RECORD} are {tuple(onsets)}, not the section 7 "
+                                   f"onsets {REGISTERED_POWER_ONSETS} of the registered text")
     return check_power_onsets(DEVELOPMENT_POWER_ONSETS if onsets is None else onsets)
 
 

@@ -15,7 +15,9 @@ N_LEVELS = 196                                       # 1971Q1-2019Q4, both serie
 N_OBS = N_LEVELS - 1                                 # 195 vectors X[t], 1971Q2-2019Q4
 K = 2                                                # (g, du)
 H1_OFFSET = 64                                       # E2 position p is H1 growth position p + 64 (1955Q2 + 64 = 1971Q2)
-QUARTER_LABEL = re.compile(r"^(\d{4}) Q([1-4])$")
+# Section 4: a quarterly row label, after removing spaces at either end, is four digits, one space, the letter Q
+# and one digit from 1 to 4 (matched whole, ASCII digits only).
+QUARTER_LABEL = re.compile(r"([0-9]{4}) Q([1-4])")
 # Sections 6-10.
 WINDOW = 40
 SENSITIVITY_WINDOWS = (32, 48)
@@ -46,17 +48,26 @@ DESIGN_SCALE = 100 / 88                                                # H1's v 
 # R1. The power check plants its signal at the section 7 W = 40 eligible onset positions, which exist only
 # once the addendum's table is completed from the H1-registered file (E2-3). They are not code: registered
 # runs read them from the record ONSETS_RECORD (written at X.1 by tools/e2_onsets.py, by rule, from the
-# H1-registered file), so no uc_ext file changes after E2's registration. Without that record every
+# H1-registered file), so no uc_e2 file changes after E2's registration. Without that record every
 # registered E2 check refuses to start. Development runs use a fixed coverage fixture (one-based quarters
 # 50, 100 and 150, the alternative design of E2-3 (b)) unless onsets are supplied; it is not derived from data.
 ONSETS_RECORD = "audit/E2_ONSETS.json"
 DEVELOPMENT_POWER_ONSETS = (49, 99, 149)
+# Sections 7 and 11: the two W = 40 eligible onsets listed in the text (1990Q3 and 2008Q2). A registered run
+# refuses unless the onsets read from ONSETS_RECORD are exactly these.
+REGISTERED_POWER_ONSETS = (77, 148)
 MINIMUM_ONSET_GAP = 10                              # section 11: distinct episode onsets are >= 10 apart
 
 # R2. X.3 prerequisites (Annex B): AT-12 through spectral_radius (AT-12's own draws and tolerances) and the
 # reduction test (the VAR code with k = 1 reproduces H1's rolling M(t) to 1e-10) on one synthetic H1-design
 # series drawn from stream 5220, cell 1, replicate 0 (a cell the size check does not use), W = 32, 40, 48.
 PREREQUISITE_PARTS = ("at12", "reduction")
+# F4 (plan p. 7) is taken from the research record as passed (DECISIONS.md D-019, STATUS.md); it is not re-run.
+# The unit tests of the section 4 and section 7 rules on constructed inputs are run beside the prerequisite
+# record and cited by it.
+PREREQUISITE_F4 = dict(passed=True, source="DECISIONS.md D-019; STATUS.md, original C1 foundations checks",
+                       rerun=False)
+PREREQUISITE_UNIT_TESTS = ("tests/test_e2_data_rules.py",)
 PREREQUISITE_FIXTURE = dict(stream="size_generation", cell=1, replicate=0)
 AT12_STREAM = 2012                                  # uc_core.linalg.at12's own stream
 AT12_DRAWS = dict(registered=100_000, development=2_000)
