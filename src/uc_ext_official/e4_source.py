@@ -1114,6 +1114,8 @@ def map_structure(root, *, amendment=None) -> dict:
         gates.check_committed(root, amendment)
         cited = dict(record=amendment, sha256=gates.sha256_file(root / amendment))
     content = _raw(root, acquisition)
+    if gates.sha256_file(root / EDITION_RECORD) != acquisition["edition_record_sha256"]:
+        raise gates.GateClosed(f"{EDITION_RECORD} differs from the edition record the acquisition cites")
     edition = load_edition(root)["selected"]
     attempt = _attempt_number(root)
     result = dict(record_type="E4 structure mapping at X.2 (prereg/E4.md section 4, steps 1 to 5)", attempt=attempt,

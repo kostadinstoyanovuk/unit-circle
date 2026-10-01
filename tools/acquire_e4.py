@@ -88,12 +88,13 @@ def _provenance(log):
 
 
 def pages_from(args, fetch):
+    """Pages requested now (--fetch) together with saved pages (for example the copy of 29 September 2026)."""
+    pages = []
     if args.fetch:
         if not args.pages_dir:
             raise ValueError("--fetch needs --pages-dir, where the pages and the request log are saved")
-        return e4_source.fetch_pages(args.fetch, fetch, args.pages_dir)
+        pages += e4_source.fetch_pages(args.fetch, fetch, args.pages_dir)
     known = _provenance(args.requests_log)
-    pages = []
     for kind, files in (("dataset", args.dataset_page), ("calendar", args.calendar_page),
                         ("edition", args.edition_page)):
         for path in files or []:

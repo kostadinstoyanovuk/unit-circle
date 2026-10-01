@@ -336,3 +336,31 @@ def test_level_tables_hold_the_numbers_apart_and_report_only_counts_and_hashes(r
     assert out["summary"]["numeric_cells"] == int(present.sum()) and len(out["summary"]["levels_sha256"]) == 64
     assert set(out["summary"]) == {"n_vintages", "n_reference_quarters", "numeric_cells", "kinds_sha256",
                                    "levels_sha256", "mapping_sha256", "x3_record_sha256"}
+
+
+def test_map_needs_g4_and_the_edition_record_the_acquisition_cites(root):
+    acquired(root)
+    git(root, "push", "-q", "origin", ":refs/tags/prereg-E4")
+    with pytest.raises(gates.GateClosed, match="not published identically"):
+        s.map_structure(root)
+    git(root, "push", "-q", "origin", "--tags")
+    edition = json.loads((root / s.EDITION_RECORD).read_text(encoding="utf-8"))
+    edition["note"] = "changed after the acquisition"
+    (root / s.EDITION_RECORD).write_text(json.dumps(edition, indent=2) + "\n", encoding="utf-8")
+    commit_all(root, "edition record changed")
+    with pytest.raises(gates.GateClosed, match="differs from the edition record"):
+        s.map_structure(root)
+    assert not (root / s.ATTEMPTS_LOG).exists()
+
+
+def test_fetched_and_saved_pages_are_evaluated_together(root, capsys):
+    def fake(url):
+        return ((page_30_september() if "releases" not in url else calendar_page(QNA_30, "30 September 2026")),
+                dict(content_type="text/html", status=200, retrieved_utc=AFTER))
+
+    saved_page = write_pages(root, ("d29.html", page_29_september()))[0]
+    tool().main(["--root", str(root), "list", "--fetch", s.DATASET_URL, "--fetch",
+                 "https://www.ons.gov.uk/releases/gdpquarterlynationalaccountsukapriltojune2026", "--pages-dir",
+                 str(root.parent / "fetched"), "--dataset-page", str(saved_page)], fetch=fake)
+    out = capsys.readouterr().out
+    assert f"Selected: {Q2_FIRST[0]}" in out and "time of day of the release on 2026-09-30" in out

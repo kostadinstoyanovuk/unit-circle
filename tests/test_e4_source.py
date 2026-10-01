@@ -416,3 +416,14 @@ def test_variants_of_the_saved_pages_for_30_september(released, selected, comple
     old = s.load_page("dataset", saved_page("landing_realtimedatabase_20260929T195308Z.html"), source="landing-29")
     result = rule(new, old, s.load_page("calendar", calendar, source="calendar-30"))
     assert result["selected"]["label"] == selected and result["complete"] is complete
+
+
+def test_merged_titles_comments_and_document_properties_are_printed_with_numbers_blanked():
+    content = workbook(title_rows=("Constructed title: index 12.5, 3% and £250m",), merged=("A1:F1",),
+                       comments=(("A1", "Comment with 1,234 and 123456"),), doc_title="Constructed 98765.4")
+    found = structure(content)
+    sheet = found["sheets"][0]
+    assert sheet["merged"] == ["A1:F1"] and found["document_properties"]["title"] == "Constructed [num]"
+    printed = " ".join(t["text"] for t in sheet["texts"])
+    assert "Constructed title: index [num], [num] and [num]" in printed and "Comment with [num] and [num]" in printed
+    assert found["stop"] is None
