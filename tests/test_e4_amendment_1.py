@@ -326,6 +326,8 @@ def stopped_then_amended(root, content=None):
     acquired(root, layout_workbook() if content is None else content)
     first = s.map_structure(root)["result"]
     assert first["status"] == "stopped" and first["stop"]["step"] == "4.3"
+    if content is None:          # registered (R-4.4): only the header with a four-digit year is found
+        assert [part["sheet"] for part in first["table"]["parts"]] == ["2018 - "]
     commit_all(root, "attempt 1")
     write_amendment(root)
 
