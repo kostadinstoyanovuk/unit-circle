@@ -1,0 +1,40 @@
+{
+  "record_type": "E4 source acquisition (prereg/E4.md section 4; Annex B step 2)",
+  "file": "data/raw/E4_ABMI_realtime_quarter2aprtojune2026quarterlynationalaccounts.xlsx",
+  "source": "ONS, GDP in chained volume measures - real-time database (ABMI)",
+  "edition_label": "Quarter 2 (Apr to June) 2026, quarterly national accounts",
+  "release": "2026-09-30 07:00 UK time (2026-09-30T06:00:00+00:00)",
+  "release_date": "2026-09-30",
+  "release_utc": "2026-09-30T06:00:00+00:00",
+  "source_url": "https://www.ons.gov.uk/file?uri=/economy/grossdomesticproductgdp/datasets/realtimedatabaseforukgdpabmi/quarter2aprtojune2026quarterlynationalaccounts/gdpinchainedvolumemeasuresrealtimedatabaseabmi.xlsx",
+  "landing_url": "https://www.ons.gov.uk/economy/grossdomesticproductgdp/datasets/realtimedatabaseforukgdpabmi",
+  "retrieval_method": "scripted HTTPS request",
+  "retrieved_utc": "2026-10-01T04:57:12.386736+00:00",
+  "http": {
+    "status": 200,
+    "final_url": "https://www.ons.gov.uk/file?uri=/economy/grossdomesticproductgdp/datasets/realtimedatabaseforukgdpabmi/quarter2aprtojune2026quarterlynationalaccounts/gdpinchainedvolumemeasuresrealtimedatabaseabmi.xlsx",
+    "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=utf-8",
+    "content_length": null,
+    "last_modified": null,
+    "etag": "\"b0159705ae38122e67185d1538969d5f55bf93f1\""
+  },
+  "bytes": 619451,
+  "sha256": "b6fc4ed277d9c7fe26716ba358ea5c4830f50e9f44869ebc94fdbd80159562ce",
+  "licence": "Open Government Licence v3.0",
+  "licence_url": "https://www.ons.gov.uk/economy/grossdomesticproductgdp/datasets/realtimedatabaseforukgdpabmi",
+  "read_only": true,
+  "repository_copy": "Not distributed in this repository (git-ignored); the SHA-256 identifies it",
+  "edition_record": "audit/e4_source/edition.json",
+  "edition_record_sha256": "5bcb1b107e5a165c008c0fae11b026f99d5fe211fcc9a2cc539281c54204cb9b",
+  "registration": {
+    "tag": "prereg-E4",
+    "tag_object": "a119b05be7d427a544e28c20aa05575946458a76",
+    "tag_commit": "cc28f421768a55890497c9b2e3d6121c7e05f201",
+    "protocol_sha256": "df7e2745b9f30dc9d9ed53526214f8d4f464f175f3180fcff3e1a92e4d03c7b9",
+    "registration_file_sha256": "bc4f483ffe84aea9d82b4d86180ad9774b135a9ab8267434c11ab22910089645",
+    "registration_id": "dpxqf",
+    "doi": "10.17605/OSF.IO/DPXQF",
+    "registration_url": "https://osf.io/dpxqf",
+    "public_first_verified_at_utc": "2026-09-30T06:30:17+00:00"
+  }
+}
