@@ -1,5 +1,5 @@
 """prereg/E4.md section 11 (truncation-only synthetic vintages) and Annex A's synthetic streams.
-Development runs only (seed 20260930, stream ids from 9000, small B); cloud rehearsal, not the registered X.3."""
+Development runs on constructed data only (seed 20260930, stream ids from 9000, small B); not the registered X.3."""
 import math
 
 import numpy as np

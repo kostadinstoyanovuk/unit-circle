@@ -1,5 +1,5 @@
 """prereg/E4.md sections 8 and 9: Delta_rt, the per-episode null, the draws, S_b, p, q and the Wilson interval.
-Development runs only: seed 20260930, stream ids from 9000, small B. Cloud rehearsal, not a registered result."""
+Development runs on constructed data only: seed 20260930, stream ids from 9000, small B; not a registered result."""
 import math
 
 import numpy as np
