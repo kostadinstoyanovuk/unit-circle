@@ -18,9 +18,10 @@ import numpy as np
 import pytest
 
 HERE = Path(__file__).resolve().parent
+sys.path.insert(0, str(HERE.parent / "tools"))   # worker processes started by "spawn" (Windows) import it by name
 spec = importlib.util.spec_from_file_location("verify_e4_x3", HERE.parent / "tools" / "verify_e4_x3.py")
 v = importlib.util.module_from_spec(spec)
-sys.modules[spec.name] = v           # worker processes find the module's functions by name
+sys.modules[spec.name] = v           # worker processes forked from this one find the functions by name
 spec.loader.exec_module(v)
 
 DEV_SEED = 20260930
