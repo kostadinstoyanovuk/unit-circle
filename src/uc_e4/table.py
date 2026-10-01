@@ -83,6 +83,22 @@ def _valid_year(y):
     return 1000 <= y <= 2999
 
 
+@dataclass(frozen=True)
+class ReadLabel:
+    """A vintage label handed over together with the release month that a registered amendment reads in it.
+
+    The source stage reads a label under the amendment's rules and passes the label text (with each run of
+    spaces and line breaks replaced by one space) and the month read; this model then treats the label as
+    any other label, so the analysis code does not depend on the amendment.
+    """
+    text: str
+    year: int
+    month: int
+
+    def __str__(self):
+        return self.text
+
+
 def parse_release_month(label) -> tuple[int, int]:
     """(year, month) of a vintage label, or ValueError (step 3). R-4.4.
 
@@ -90,7 +106,13 @@ def parse_release_month(label) -> tuple[int, int]:
     four-digit year: `2016-01`, `2016/01`, `01/2016`, `2016-01-15` (a date as text), or exactly one month
     name (three letters or in full) and exactly one four-digit year, in either order, with at most one
     day number and the ordinal suffixes. Two-digit years, two month names, other words and numbers do not parse.
+    A `ReadLabel` carries the reading of a registered amendment: its year and month, checked for range.
     """
+    if isinstance(label, ReadLabel):
+        if not (isinstance(label.year, int) and isinstance(label.month, int) and _valid_year(label.year)
+                and 1 <= label.month <= 12):
+            raise ValueError("year or month out of range")
+        return label.year, label.month
     if isinstance(label, _dt.date):                     # datetime is a subclass of date
         return label.year, label.month
     if not isinstance(label, str):
@@ -277,6 +299,8 @@ class Tables:
 
 
 def _label_text(label) -> str:
+    if isinstance(label, ReadLabel):
+        return label.text
     return label.isoformat() if isinstance(label, _dt.date) else str(label)
 
 
