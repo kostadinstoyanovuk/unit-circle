@@ -13,9 +13,10 @@ from uc_core.rolling import max_modulus as ar2_max_modulus
 from uc_core.secondary import episode_percentile_interval
 from uc_ext import common as c
 
-from .constants import (EPISODE_RESAMPLES, K, LOOKBACK, MERGE, MINIMUM_RUN, N_OBS, SENSITIVITY_WINDOWS, STREAM_IDS,
+from .constants import (EPISODE_RESAMPLES, K, LOOKBACK, MERGE, MINIMUM_RUN, N_OBS, SENSITIVITY_WINDOWS,
                         SURROGATE_ATTEMPTS, WINDOW)
 from .procedure import csd_test, primary_with_comparators, statistic
+from .streams import check_seed, stream_ids, stream_rng
 from .var import _observations, max_modulus, rolling_var2
 from .variables import imposed_onsets, quarter_label
 
@@ -76,7 +77,7 @@ def analyze(values, *, master_seed=MASTER_SEED, allow_registered=False, B=SURROG
     section 7 onsets (registered_onsets, from ONSETS_RECORD) for the R8 check. Retains the fitted coefficient
     matrices of every window (W = 32, 40, 48) and the null with its residual matrix.
     """
-    master_seed = c.check_seed(master_seed, allow_registered)
+    master_seed = check_seed(master_seed, allow_registered)
     B = s._integer(B, "B")
     interval_B = s._integer(interval_B, "interval_B")
     x = _observations(values)
@@ -85,8 +86,10 @@ def analyze(values, *, master_seed=MASTER_SEED, allow_registered=False, B=SURROG
     expected_onsets = (imposed_onsets(master_seed, registered_onsets)
                        if master_seed == MASTER_SEED or registered_onsets is not None else None)
 
+    ids = stream_ids(master_seed)
+
     def rng(name):
-        return c.stream_rng(master_seed, STREAM_IDS[name])
+        return stream_rng(master_seed, ids[name], allow_registered=allow_registered)
 
     joint = primary_with_comparators(x, B=B, rng=rng("primary"))
 

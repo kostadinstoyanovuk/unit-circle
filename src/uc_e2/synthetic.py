@@ -18,9 +18,10 @@ from uc_ext import common as c
 from .constants import (AT12_DRAWS, AT12_STREAM, DESIGN_A1, DESIGN_A2, DESIGN_INTERCEPT, DESIGN_MEAN, DESIGN_SCALE,
                         DESIGN_SIGMA, DESIGN_SIGMA_CHOLESKY, DESIGN_TIME_CORRELATION, DEVELOPMENT_POWER_ONSETS, K,
                         KAPPAS, N_OBS, PREREQUISITE_FIXTURE, REDUCTION_TOL, SENSITIVITY_WINDOWS,
-                        SERIES_PER_CELL, SIGNAL_LENGTH, SIZE_BOUNDS, STREAM_IDS, SURROGATE_ATTEMPTS, WINDOW,
+                        SERIES_PER_CELL, SIGNAL_LENGTH, SIZE_BOUNDS, SURROGATE_ATTEMPTS, WINDOW,
                         X3_RETAIN_WINDOW_FITS)
 from .procedure import csd_test, fixed_date_test, statistic
+from .streams import DEVELOPMENT_SEED, at12_stream, check_seed, stream_ids, stream_rng
 from .var import max_modulus, rolling_var2, spectral_radius
 from .variables import check_power_onsets, imposed_onsets
 
@@ -101,12 +102,14 @@ def _with_retention(record, settings):
 def size_replicate(replicate, *, master_seed, B=SURROGATE_ATTEMPTS, allow_registered=False, onsets=None):
     """One AT-15-analogue replicate: stream 5220 generation, stream 5221 joint residual-vector surrogates,
     E2 primary mode (W = 40, onsets from the synthetic g). `onsets` only enters the recorded settings."""
-    master_seed = c.check_seed(master_seed, allow_registered)
+    master_seed = check_seed(master_seed, allow_registered)
     settings = x3_settings(master_seed=master_seed, power_onsets=onsets)
     return _with_retention(c.compute_record(
         cell_name="size", cell_index=0, replicate=replicate,
-        generation_rng=c.stream_rng(master_seed, STREAM_IDS["size_generation"], 0, replicate),
-        analysis_rng=c.stream_rng(master_seed, STREAM_IDS["size_null"], 0, replicate),
+        generation_rng=stream_rng(master_seed, stream_ids(master_seed)["size_generation"], 0, replicate,
+                                  allow_registered=allow_registered),
+        analysis_rng=stream_rng(master_seed, stream_ids(master_seed)["size_null"], 0, replicate,
+                                allow_registered=allow_registered),
         generate=lambda g: design_series(g, kappa=1.),
         observe=lambda v: statistic(v),
         compare=lambda v, g: csd_test(v, B=B, rng=g),
@@ -117,14 +120,16 @@ def power_replicate(cell, replicate, *, master_seed, B=SURROGATE_ATTEMPTS, kappa
                     onsets=None):
     """One AT-16-analogue replicate: stream 5230 generation, stream 5231 fixed-date surrogates at the imposed
     onsets (R1: required under the registered seed), W = 40."""
-    master_seed = c.check_seed(master_seed, allow_registered)
+    master_seed = check_seed(master_seed, allow_registered)
     settings = x3_settings(master_seed=master_seed, power_onsets=onsets)
     onsets = tuple(settings["power_onsets"])
     kappa = kappas[cell]
     return _with_retention(c.compute_record(
         cell_name=f"power_{cell}", cell_index=cell, replicate=replicate,
-        generation_rng=c.stream_rng(master_seed, STREAM_IDS["power_generation"], cell, replicate),
-        analysis_rng=c.stream_rng(master_seed, STREAM_IDS["power_null"], cell, replicate),
+        generation_rng=stream_rng(master_seed, stream_ids(master_seed)["power_generation"], cell, replicate,
+                                  allow_registered=allow_registered),
+        analysis_rng=stream_rng(master_seed, stream_ids(master_seed)["power_null"], cell, replicate,
+                                allow_registered=allow_registered),
         generate=lambda g: design_series(g, kappa=kappa, onsets=onsets),
         observe=lambda v: statistic(v, fixed_onsets=onsets),
         compare=lambda v, g: fixed_date_test(v, onsets, B=B, rng=g),
@@ -133,11 +138,13 @@ def power_replicate(cell, replicate, *, master_seed, B=SURROGATE_ATTEMPTS, kappa
 
 def x3_input(check, cell, replicate, *, master_seed, kappas=KAPPAS, allow_registered=False, onsets=None):
     """The generated series of one X.3 replicate, rebuilt from its seed coordinates alone (resume checks)."""
-    master_seed = c.check_seed(master_seed, allow_registered)
+    master_seed = check_seed(master_seed, allow_registered)
     if check == "size" and cell == 0:
-        return design_series(c.stream_rng(master_seed, STREAM_IDS["size_generation"], 0, replicate), kappa=1.)
+        return design_series(stream_rng(master_seed, stream_ids(master_seed)["size_generation"], 0, replicate,
+                                        allow_registered=allow_registered), kappa=1.)
     if check == "power":
-        return design_series(c.stream_rng(master_seed, STREAM_IDS["power_generation"], cell, replicate),
+        return design_series(stream_rng(master_seed, stream_ids(master_seed)["power_generation"], cell, replicate,
+                                        allow_registered=allow_registered),
                              kappa=kappas[cell], onsets=imposed_onsets(master_seed, onsets))
     raise ValueError("Unknown X.3 check or cell")
 
@@ -147,7 +154,7 @@ def x3_settings(*, master_seed=None, power_onsets=None, **_):
     onsets and their source (R1) and the window-fit retention (R9). Under the registered seed the onsets must
     be supplied (the runner reads them from ONSETS_RECORD); otherwise the development fixture is the default."""
     registered = master_seed is not None and int(master_seed) == MASTER_SEED
-    onsets = imposed_onsets(MASTER_SEED if registered else c.DEVELOPMENT_MASTER_SEED, power_onsets)
+    onsets = imposed_onsets(MASTER_SEED if registered else DEVELOPMENT_SEED, power_onsets)
     source = ("registered_onsets_record" if registered else
               "development_fixture" if onsets == DEVELOPMENT_POWER_ONSETS else "development_supplied")
     return dict(power_onsets=list(onsets), power_onset_source=source, retain_window_fits=X3_RETAIN_WINDOW_FITS)
@@ -173,10 +180,10 @@ def _registered(master_seed, n_series, B, kappas=KAPPAS):
             and tuple(kappas) == KAPPAS)
 
 
-def run_size_check(*, master_seed=c.DEVELOPMENT_MASTER_SEED, n_series=SERIES_PER_CELL, B=SURROGATE_ATTEMPTS,
+def run_size_check(*, master_seed=DEVELOPMENT_SEED, n_series=SERIES_PER_CELL, B=SURROGATE_ATTEMPTS,
                    replicates=None, allow_registered=False, onsets=None, progress=None):
     """AT-15 analogue. `replicates` (default all) lets a caller split or resume the cell by coordinates."""
-    master_seed = c.check_seed(master_seed, allow_registered)
+    master_seed = check_seed(master_seed, allow_registered)
     n_series = s._integer(n_series, "n_series")
     records = []
     for replicate in (range(n_series) if replicates is None else replicates):
@@ -190,10 +197,10 @@ def run_size_check(*, master_seed=c.DEVELOPMENT_MASTER_SEED, n_series=SERIES_PER
     return dict(master_seed=master_seed, n_series=n_series, B=B, records=records, summary=summary)
 
 
-def run_power_check(*, master_seed=c.DEVELOPMENT_MASTER_SEED, n_series=SERIES_PER_CELL, B=SURROGATE_ATTEMPTS,
+def run_power_check(*, master_seed=DEVELOPMENT_SEED, n_series=SERIES_PER_CELL, B=SURROGATE_ATTEMPTS,
                     kappas=KAPPAS, cells=None, replicates=None, allow_registered=False, onsets=None, progress=None):
     """AT-16 analogue with D80. `cells`/`replicates` (default all) select coordinates for splitting."""
-    master_seed = c.check_seed(master_seed, allow_registered)
+    master_seed = check_seed(master_seed, allow_registered)
     n_series = s._integer(n_series, "n_series")
     kappas = tuple(float(k) for k in kappas)
     records = []
@@ -258,11 +265,13 @@ def prerequisite_fixture(*, master_seed, allow_registered=False):
     """The Annex B X.3 prerequisites: AT-12 through spectral_radius (AT-12's own draws under the registered
     seed, a smaller development count otherwise) and the reduction test on the synthetic H1-design series of
     stream 5220, cell 1, replicate 0. `passed` is true only when both pass."""
-    master_seed = c.check_seed(master_seed, allow_registered)
+    master_seed = check_seed(master_seed, allow_registered)
     registered = master_seed == MASTER_SEED
     draws = AT12_DRAWS["registered" if registered else "development"]
-    values = h1_design_series(c.stream_rng(master_seed, STREAM_IDS[PREREQUISITE_FIXTURE["stream"]],
-                                           PREREQUISITE_FIXTURE["cell"], PREREQUISITE_FIXTURE["replicate"]))
-    at12_result, reduction = at12(draws, master_seed), reduction_check(values)
+    values = h1_design_series(stream_rng(master_seed, stream_ids(master_seed)[PREREQUISITE_FIXTURE["stream"]],
+                                         PREREQUISITE_FIXTURE["cell"], PREREQUISITE_FIXTURE["replicate"],
+                                         allow_registered=allow_registered))
+    at12_result = at12(draws, master_seed, at12_stream(master_seed))
+    reduction = reduction_check(values)
     return dict(input_sha256=c.sha256_values(values), at12=at12_result, reduction=reduction,
                 passed=bool(at12_result["passed"] and reduction["passed"]))

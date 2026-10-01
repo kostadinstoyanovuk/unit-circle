@@ -17,6 +17,7 @@ from uc_ext import common as c
 
 from .constants import (DEVELOPMENT_POWER_ONSETS, FIRST_LEVEL_QUARTER, H1_OFFSET, LAST_QUARTER, LOOKBACK, MERGE,
                         MINIMUM_ONSET_GAP, MINIMUM_RUN, N_LEVELS, N_OBS, ONSETS_RECORD, QUARTER_LABEL, WINDOW)
+from .streams import RegisteredRunRefused
 
 
 # ------------------------------------------------------------------------------ sections 4-5: variables
@@ -151,7 +152,7 @@ def imposed_onsets(master_seed, onsets=None):
     """R1: the imposed power onsets. Under the registered seed they must be supplied (from ONSETS_RECORD);
     otherwise supplied onsets are used, or the development fixture."""
     if int(master_seed) == MASTER_SEED and onsets is None:
-        raise c.RegisteredRunRefused(f"No section 7 onsets: registered E2 power onsets come from {ONSETS_RECORD} "
+        raise RegisteredRunRefused(f"No section 7 onsets: registered E2 power onsets come from {ONSETS_RECORD} "
                                      "(tools/e2_onsets.py at X.1), read by the runner")
     return check_power_onsets(DEVELOPMENT_POWER_ONSETS if onsets is None else onsets)
 
