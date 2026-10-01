@@ -318,6 +318,33 @@ def test_identity_is_the_e1_identity_plus_uc_e4_and_this_runner(tmp_path):
     assert results["restored"][:2] == [code, e1_code]
 
 
+# ------------------------------------------------------------------------------- no data file is read
+
+OPENED = r'''
+import importlib.util, json, sys
+from pathlib import Path
+root, out = Path(sys.argv[1]).resolve(), sys.argv[2]
+opened = []
+sys.addaudithook(lambda event, args: opened.append(str(args[0])) if event == "open" and args[0] is not None else None)
+spec = importlib.util.spec_from_file_location("run_e4_checks", root / "tools/run_e4_checks.py")
+runner = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(runner)
+runner.main(["e4", "power", "--out", out, "--n-series", "1", "--B", "2", "--cells", "1"])
+runner.main(["e4", "summarize", "--out", out])
+print(json.dumps(opened))
+'''
+
+
+def test_a_run_and_its_summary_open_no_data_file(tmp_path):
+    out = tmp_path / "power.jsonl"
+    opened = subprocess_json(tmp_path, OPENED, TREE, out, cwd=TREE)
+    inside = [Path(p).resolve() for p in opened if not isinstance(p, int) and Path(p).is_absolute()
+              and Path(p).resolve().is_relative_to(TREE)]
+    assert inside and not [p for p in inside if p.relative_to(TREE).parts[0] in ("data", "audit", "figures")]
+    assert not [p for p in opened if str(p).lower().endswith((".xlsx", ".xls", ".csv"))]
+    assert {p.relative_to(TREE).parts[0] for p in inside} <= {"src", "tools", "prereg", "requirements.lock", ".git"}
+
+
 # ---------------------------------------------------------------- registered mode: refusals only
 
 REGISTERED = r'''
