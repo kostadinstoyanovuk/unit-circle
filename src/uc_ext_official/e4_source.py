@@ -1087,7 +1087,13 @@ def format_mapping(result: dict) -> str:
 
 
 def _mask(value):
-    return blank_numbers(mask_digits(value)) if value is not None else None
+    """A label as printed: a date as ISO text, a placeholder as its description, a text with numbers blanked as
+    in Annex C (labels such as 'Jan 2016' or '1955 Q1' are unchanged); None when there is no label."""
+    if value is None:
+        return None
+    if isinstance(value, _dt.date):
+        return value.isoformat()
+    return blank_numbers(value)
 
 
 def map_structure(root, *, amendment=None) -> dict:
@@ -1131,7 +1137,7 @@ def map_structure(root, *, amendment=None) -> dict:
                               columns=[column_letter(c) for c in shape["columns"]],
                               separator_columns=[column_letter(c) for c in shape["separator_columns"]],
                               separator_rows=shape["separator_rows"],
-                              vintage_labels=[_mask(l) if not isinstance(l, _dt.date) else l.isoformat()
+                              vintage_labels=[_mask(l)
                                               for l in part.vintage_labels],
                               quarter_labels=[_mask(q) for q in part.quarter_labels]))
         result["table"] = dict(parts=parts)
