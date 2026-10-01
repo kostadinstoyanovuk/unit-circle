@@ -16,7 +16,7 @@ DELTAS = dict(deltas=[dict(j=2, onset="1990Q3", delta_rt=-0.02), dict(j=3, onset
 
 
 def frozen_files(root):
-    return sorted(str(p.relative_to(root)) for p in root.rglob("*")
+    return sorted(p.relative_to(root).as_posix() for p in root.rglob("*")
                   if p.is_file() and (p.relative_to(root).parts[0] in ("audit", "figures"))
                   and p.name != "H1_RESULT.json")
 

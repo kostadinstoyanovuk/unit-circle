@@ -56,7 +56,7 @@ def small_b_run(tables, output):
 
 
 def files_of(run: Path) -> dict:
-    return {str(path.relative_to(run)): path.read_bytes() for path in sorted(run.rglob("*")) if path.is_file()}
+    return {path.relative_to(run).as_posix(): path.read_bytes() for path in sorted(run.rglob("*")) if path.is_file()}
 
 
 @pytest.fixture(scope="module")
@@ -94,7 +94,9 @@ def test_small_b_run_on_constructed_data_writes_the_complete_retained_record(run
     surrogates = (run / "report/primary-surrogates.csv").read_text(encoding="utf-8").splitlines()
     assert surrogates[0].split(",")[:4] == ["data_kind", "number", "status", "statistic"] and len(surrogates) == 21
     for path in run.rglob("*"):
-        if path.is_file() and path.suffix in (".json", ".csv", ".svg"):
+        # the records and tables are written with LF on every platform; the figure files are written by
+        # matplotlib, whose SVG writer uses the line ends of the platform, so they are not tested here
+        if path.is_file() and path.suffix in (".json", ".csv"):
             assert b"\r\n" not in path.read_bytes() and path.read_bytes().endswith(b"\n"), path
 
 
