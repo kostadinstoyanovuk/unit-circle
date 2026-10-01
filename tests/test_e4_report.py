@@ -138,7 +138,7 @@ def test_the_report_refuses_an_analysis_that_disagrees_with_its_paths_or_nulls(t
         write(tmp_path / "b", tables, altered)
     with pytest.raises(ValueError, match="Unknown E4 report kind"):
         report_e4.write_report(tmp_path / "c", tables=tables, result=result, input_record={}, input_sha256="0" * 64,
-                               D80=None, data_kind=x4.REHEARSAL_KIND, metadata={})
+                               D80=None, data_kind=x4.REGISTERED_KIND["e1"], metadata={})
     assert not any((tmp_path / name).exists() for name in "abc")
 
 
