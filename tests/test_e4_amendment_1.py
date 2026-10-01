@@ -256,6 +256,18 @@ def test_an_unread_label_stops_at_step_3_before_the_join_condition_as_registered
         build_tables(built["parts"])
 
 
+def test_what_does_not_change_a_cell_of_kind_other_and_the_order_rule_still_stop():
+    """Amendment 1, "What does not change": step 2 (kind other) and step 4 (release months that do not
+    increase in one direction) apply as registered to the joined parts."""
+    other = piece("A", [(1961, 9)], QUARTERS[:4])
+    other["cells"] = ((1.0,), ("1.5",), (2.0,), (3.0,))
+    with pytest.raises(Stop, match="step 4.2"):
+        build_tables(s.table_parts([other, piece("B", [(1983, 1)], QUARTERS)], NO_PLACES, False)["parts"])
+    zigzag = piece("A", [(1961, 9), (1961, 11), (1961, 10)], QUARTERS[:4])
+    with pytest.raises(Stop, match="step 4.4"):
+        build_tables(s.table_parts([zigzag, piece("B", [(1983, 1)], QUARTERS)], NO_PLACES, False)["parts"])
+
+
 # -------------------------------------------------------------- the amendment record (schema)
 
 @pytest.mark.parametrize("change, words", [
@@ -424,12 +436,14 @@ def test_no_level_appears_in_any_output_of_the_amended_mapping(root, capsys):
     cells[(60, 1)] = "Note: 9876543.21 is a planted value and is blanked"
     content = Book(title=LABEL).sheet("1961 - 1982", layout_cells(*sheet_1961(8))).sheet("2018 - ", cells).build()
     stopped_then_amended(root, content)
-    result = s.map_structure(root, amendment=AMENDMENT)["result"]
-    assert result["status"] == "mapped"
+    from test_e4_source_stages import tool
+    tool().main(["--root", str(root), "map", "--amendment", AMENDMENT])           # through the X.2 tool
+    assert json.loads((root / s.MAPPING_JSON).read_text(encoding="utf-8"))["status"] == "mapped"
     commit_all(root, "mapped")
     x3_committed(root)
     s.read_level_tables(root)
     streams = capsys.readouterr()
+    assert "Join (rule C): longest part '2018 - '" in streams.out and "Mapped." in streams.out
     outputs = [streams.out, streams.err] + [p.read_text(encoding="utf-8") for p in (root / "audit").rglob("*")
                                             if p.is_file()] + [(root / "DATA_MANIFEST.csv").read_text(encoding="utf-8")]
     for text in outputs:
