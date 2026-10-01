@@ -1,1 +1,2 @@
 {"amendment": null, "attempt": 1, "raw_sha256": "b6fc4ed277d9c7fe26716ba358ea5c4830f50e9f44869ebc94fdbd80159562ce", "reason": "a vintage label does not parse", "status": "stopped", "step": "4.3", "time_utc": "2026-10-01T04:57:34.824114+00:00"}
+{"amendment": {"record": "audit/E4_AMENDMENT_1.json", "sha256": "5dd33f6be2d3491bb600f98c7b4cdeffb50bdf0b2d110fdb86572eb0d23c4c29"}, "attempt": 2, "raw_sha256": "b6fc4ed277d9c7fe26716ba358ea5c4830f50e9f44869ebc94fdbd80159562ce", "reason": null, "status": "mapped", "step": null, "time_utc": "2026-10-01T18:03:02.163479+00:00"}

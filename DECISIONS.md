@@ -350,3 +350,22 @@ The amendment was filed on 1 October 2026 as an update of OSF registration dpxqf
 Two staff names that the workbook's file properties hold were replaced by "(name withheld)" in the committed record of attempt 1 before it was published, and the X.2 tool now prints and records "(name withheld)" for them; the title and notes check is unchanged.
 
 Consequences. The mapping is run again with `tools/acquire_e4.py map --amendment audit/E4_AMENDMENT_1.json` once the code that applies the amendment is merged and tested; it applies rules A, B and C and prints no level. A further stop is settled by a further amendment before any level is read. The code that applies the amendment adds one class to the hashed table module of E4, so the X.3 checks run on the code that includes it.
+
+## D-054 - 2026-10-01 - E4 X.2: the structure mapping of the acquired workbook completes under amendment 1
+
+The structure mapping was run again on 1 October 2026 at 18:03:02 UTC (attempt 2: `audit/e4_source/structure-attempt-2.json` and `.txt`; the completed mapping is also `structure-mapping.json` and `.txt`). It ran on the workbook acquired the same day (619,451 bytes, SHA-256 b6fc4ed2...562ce), under amendment 1 (`prereg/E4_amendment_1.md`, `audit/E4_AMENDMENT_1.json`, D-053), from commit 9711e48 in a fresh clone and in the registered environment (Python 3.12.14). The stage read text cells and cell types only; no numeric cell was read or printed. The code that applies the amendment was merged and tested before the run: the whole suite passed in the cloud (1,238 passed, 8 skipped, Python 3.12.3); on this computer under Python 3.12.14 it passed except for three tests whose assertions depended on Windows path separators and on the line ends of figure files, which were corrected in the tests, and the two test files then passed. E1's and E3's code identity, c42cbbf3...feef7, is unchanged; E4's identity includes the class that carries a vintage label with its release month and is fixed when X.3 starts.
+
+The mapping completed. Rule A read every vintage label (none was refused), rule B read the three header cells of the sheet "1961 - 1982" as the amendment states (column H as March 1962, CN as March 1969 and GQ as February 1978, each between labels two months apart), and rule C joined the four sheets on the first reference-quarter labels of the longest. Every figure that the amendment states was reproduced:
+
+| Sheet | Vintage labels | Release months | Reference-quarter rows | Last quarter | Rows added as empty cells |
+|---|---|---|---|---|---|
+| "1961 - 1982" | 255 | September 1961 to November 1982 | 110 | Q2 1982 | 176 |
+| "1983 - 2003" | 252 | December 1982 to November 2003 | 195 | Q3 2003 | 91 |
+| "2004 - 2017" | 174 | December 2003 to May 2018 | 253 | Q1 2018 | 33 |
+| "2018 - " | 67 | June 2018 to September 2026 | 286 | Q2 2026 | 0 |
+
+The table has 748 vintages and 286 reference quarters (1955 Q1 to 2026 Q2), that is 213,928 cells: 112,287 numeric and 101,641 empty, none a marker and none of another kind, so step 2 did not stop. The vintage ranges do not overlap and the release months run in one direction along the columns (step 4). Of the labels, 32 carry a price-base note and 241 a code (116 "M1" or "M2", 92 "QNA", 33 "1st"), the counts that the amendment gives. The earliest vintage is "Sep-61 [1954 prices]", the latest "Sep-26 [2024 prices] QNA" and the earliest reference quarter 1955Q1; they are in the manifest row of `DATA_MANIFEST.csv`. The list of the 748 labels with the release month read and the rule that read each is in the record (`label_readings`, SHA-256 15b9fd81...76e9a), and the level reader of X.4 re-reads and compares it.
+
+The readings that the code takes where the amendment is silent (`docs/E4_AMENDMENT_1_CODE.md`, L-1 to L-15) did not decide any label of this workbook: every normalised label is an English month name in title case, a hyphen-minus, a year of two to four digits, and optionally a price-base note and one of the four codes, with no tab, no non-breaking space and no other dash.
+
+Consequences. The levels are first read at X.4, after the official synthetic checks (X.3). X.3 runs on the code at the commit where it starts, and a change to a hashed file after it has started means that the 40 parts are run again.
