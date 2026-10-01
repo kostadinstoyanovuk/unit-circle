@@ -29,6 +29,15 @@ def _sign(x):
     return (x > 0) - (x < 0)
 
 
+def _as_date(value):
+    """A release date as a date: a release instant (a datetime) is reduced to its date."""
+    return value.date() if isinstance(value, dt.datetime) else value
+
+
+def _month_text(month):
+    return f"{month[0]}-{month[1]:02d}"
+
+
 def first_vintage_showing_onset(av: AvailabilityTable, lv: LevelTable, onset):
     """Vintage number of the first vintage in which quarters q_j and q_j + 1 both show negative growth
     (the first in which the H1 rule could see this onset), or None. Growth of quarter q is
@@ -47,13 +56,17 @@ def first_vintage_showing_onset(av: AvailabilityTable, lv: LevelTable, onset):
     return None
 
 
-def real_time_against_final(selections, deltas_rt, release_dates=None):
+def real_time_against_final(selections, deltas_rt, release_dates=None, tables=None):
     """One row per H1 eligible episode, unavailable ones included, and the summaries over E4-eligible ones.
 
     `deltas_rt` maps j -> Delta_rt for the E4-eligible episodes whose observed statistic exists; an eligible
-    episode without one (failed statistic) has None. difference = Delta_rt - Delta_final.
+    episode without one (failed statistic) has None. difference = Delta_rt - Delta_final. Section 10 asks for the
+    vintage's release date from ONS metadata where it can be established, otherwise the label month: with
+    `tables` each row also states the label month of its vintage (`release_month`) and `release_basis` says which
+    of the two is the stated release.
     """
     release_dates = release_dates or {}
+    vintages = tables.availability.vintages if tables is not None else None
     rows = []
     for sel in selections:
         d_rt = deltas_rt.get(sel.j) if sel.status == "eligible" else None
@@ -61,6 +74,8 @@ def real_time_against_final(selections, deltas_rt, release_dates=None):
                    reason=sel.reason, vintage=sel.vintage_label,
                    release_date=(release_dates[sel.vintage_label].isoformat()
                                  if sel.vintage_label in release_dates else None),
+                   release_month=(_month_text(vintages[sel.vintage].release_month)
+                                  if vintages is not None and sel.vintage is not None else None),
                    release_basis="ONS metadata" if sel.vintage_label in release_dates else LABEL_MONTH_ONLY,
                    n_v=sel.series.n_v if sel.series is not None else None,
                    delta_rt=d_rt, delta_final=sel.delta_final,
@@ -92,7 +107,7 @@ def two_clocks(tables, selections, release_dates=None):
         if vintage is None:
             before = None
         elif vintage.label in release_dates:
-            before = release_dates[vintage.label] <= end
+            before = _as_date(release_dates[vintage.label]) <= end
         else:
             m_end = (end.year, end.month)
             before = True if vintage.release_month < m_end else (False if vintage.release_month > m_end
@@ -103,11 +118,11 @@ def two_clocks(tables, selections, release_dates=None):
             j=sel.j, onset=quarter_text(sel.onset), reference_quarter=quarter_text(previous_quarter(sel.onset)),
             vintage=vintage.label if vintage else None,
             release_date=release_dates[vintage.label].isoformat() if vintage and vintage.label in release_dates else None,
-            release_month=f"{vintage.release_month[0]}-{vintage.release_month[1]:02d}" if vintage else None,
+            release_month=_month_text(vintage.release_month) if vintage else None,
             release_basis="ONS metadata" if vintage and vintage.label in release_dates else LABEL_MONTH_ONLY,
             onset_quarter_ends=end.isoformat(), release_before_end_of_onset_quarter=before,
             previous_vintage=previous.label if previous else None,
-            previous_release_month=(f"{previous.release_month[0]}-{previous.release_month[1]:02d}" if previous else None),
+            previous_release_month=_month_text(previous.release_month) if previous else None,
             months_since_previous=months_between(previous.release_month, vintage.release_month) if previous else None,
             first_vintage_showing_the_onset=av.vintages[seen].label if seen is not None else "none"))
     return dict(rows=rows, note="Description, not a test and not a claim of real-time warning (SD-07).")

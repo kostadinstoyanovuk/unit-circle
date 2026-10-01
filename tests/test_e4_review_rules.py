@@ -301,6 +301,34 @@ def test_a_release_on_the_last_day_of_the_onset_quarter_and_a_label_month_equal_
     assert [r["release_basis"] for r in rows] == ["label month only", "label month only", "ONS metadata"]
 
 
+def test_a_release_instant_is_reduced_to_its_date_in_the_two_clocks_table():
+    """A release date may arrive as a datetime (the release instant); the question is about the date."""
+    t = build_tables([_part("p", ("Jan 2016", "Feb 2016", "Mar 2016"), ROWS)])
+    selections = [SimpleNamespace(j=0, vintage=0, onset=(2016, 1))]
+    for released, before in ((dt.datetime(2016, 3, 31, 23, 30), True), (dt.datetime(2016, 4, 1, 0, 0), False),
+                             (dt.date(2016, 3, 31), True)):
+        rows = D.two_clocks(t, selections, {"Jan 2016": released})["rows"]
+        assert rows[0]["release_before_end_of_onset_quarter"] is before
+        assert rows[0]["release_date"] == released.isoformat() and rows[0]["release_basis"] == "ONS metadata"
+
+
+def test_the_real_time_table_states_the_label_month_of_the_vintage_where_it_is_given_the_tables():
+    """Section 10: the vintage's release date from ONS metadata where it can be established, otherwise the label
+    month. Each row states the label month; an episode with no vintage states none."""
+    t = build_tables([_part("p", ("Jan 2016", "Feb 2016", "Mar 2016"), ROWS)])
+
+    def selection(j, vintage, label, status="eligible"):
+        return SimpleNamespace(j=j, status=status, failed_step=None, reason=None, vintage=vintage, vintage_label=label,
+                               onset=(2016, 1), series=None, delta_final=-0.1)
+    selections = [selection(0, 1, "Feb 2016"), selection(1, 2, "Mar 2016"), selection(2, None, None, "unavailable")]
+    rows = D.real_time_against_final(selections, {0: -0.2}, {"Feb 2016": dt.date(2016, 2, 12)}, t)["rows"]
+    assert [r["release_month"] for r in rows] == ["2016-02", "2016-03", None]
+    assert [r["release_basis"] for r in rows] == ["ONS metadata", "label month only", "label month only"]
+    assert [r["release_date"] for r in rows] == ["2016-02-12", None, None]
+    plain = D.real_time_against_final(selections, {0: -0.2})["rows"]            # without the tables: as before
+    assert [r["release_month"] for r in plain] == [None, None, None]
+
+
 def test_development_ids_start_at_9000_and_bad_ids_are_refused_by_kind():
     assert check_run(R.DEV_SEED, dataclasses.replace(DS, primary=9000)) is False
     with pytest.raises(RegisteredRunRefused):

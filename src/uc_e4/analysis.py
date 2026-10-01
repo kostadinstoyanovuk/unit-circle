@@ -73,6 +73,6 @@ def analyze(tables, h1_episodes, *, master_seed, streams: Streams, allow_registe
         selections=serial(sel40), selections_w32=serial(sel32), selections_w48=serial(sel48),
         comparisons=dict(primary=primary, window32=win32, window48=win48, wild=wild),
         secondary_table=rows, episode_interval=interval,
-        real_time_against_final=real_time_against_final(sel40, deltas, release_dates),
+        real_time_against_final=real_time_against_final(sel40, deltas, release_dates, tables),
         two_clocks=two_clocks(tables, sel40, release_dates),
         manifest=tables.manifest)
