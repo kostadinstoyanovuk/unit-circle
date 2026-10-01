@@ -25,8 +25,8 @@ REGISTERED_ENDS = ((1972, 4), (1979, 3), (1990, 1), (2007, 4), (2019, 4), (2019,
 LABELS = ("Jan 2016", "Feb 2016", "Mar 2016", "Apr 2016", "May 2016", "Jun 2016")
 EXPECTED_REPORT = {"availability-counts.csv", "availability-markers.csv", "availability.csv", "comparisons.csv",
                    "episode-interval.csv", "episodes.csv", "manifest.json", "null-models.json",
-                   "primary-surrogates.csv", "real-time-against-final.csv", "real-time-summary.csv", "report.json", "report.txt",
-                   "rolling.csv", "selections.csv", "two-clocks.csv", "vintage-series.json",
+                   "primary-surrogates.csv", "real-time-against-final.csv", "real-time-summary.csv", "report.json",
+                   "report.txt", "rolling.csv", "selections.csv", "two-clocks.csv", "vintage-series.json",
                    *{f"{figure}.{suffix}" for figure in ("realtime", "surrogates") for suffix in ("svg", "png", "pdf")}}
 
 
@@ -343,3 +343,21 @@ def test_release_dates_are_dates_and_an_empty_mapping_means_label_months(tmp_pat
     record, digest = e4_run.input_record(constructed_tables(), "0" * 64, {})
     assert record["release_dates"] == {} and len(digest) == 64
     assert json.dumps(record).find("levels_sha256") > 0
+
+
+def test_the_command_refuses_without_the_gates_and_needs_a_directory_for_a_recomputation(tmp_path, capsys):
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("run_e4_tool", RESEARCH / "tools/run_e4.py")
+    tool = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(tool)
+    root = registered_root(tmp_path)
+    with pytest.raises(SystemExit, match="Refused: .*not from"):
+        tool.main(["--registered", "--root", str(root)])
+    with pytest.raises(SystemExit):
+        tool.main(["--registered", "--root", str(root), "--recomputation"])
+    assert "own --output-directory" in capsys.readouterr().err
+    (tmp_path / "dates.json").write_text("[]\n")
+    with pytest.raises(SystemExit):
+        tool.main(["--registered", "--root", str(root), "--release-dates", str(tmp_path / "dates.json")])
+    assert "JSON object" in capsys.readouterr().err
+    assert not (root / "runs").exists()

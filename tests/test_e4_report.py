@@ -103,6 +103,13 @@ def test_the_interval_and_the_descriptive_tables(two):
     assert clocks[2]["previous_vintage"] == "Mar 2016" and clocks[2]["months_since_previous"] == "1"
     selections = table(directory / "first/selections.csv")
     assert sorted({r["window"] for r in selections}) == ["32", "40", "48"] and len(selections) == 12
+    grid = table(directory / "first/availability.csv")
+    assert len(grid) == 260 and grid[0]["reference_quarter"] == "1955Q1" and len(grid[0]) == 3 + 6
+    assert {value for row in grid for key, value in row.items() if key[:3].isdigit()} == {"numeric", "empty"}
+    assert grid[-1]["reference_quarter"] == "2019Q4" and grid[-1]["000 Jan 2016"] == "empty"
+    assert grid[-1]["005 Jun 2016"] == "numeric" and grid[99]["000 Jan 2016"] == "numeric"   # 1979Q4
+    rolling = table(directory / "first/rolling.csv")
+    assert sorted({r["j"] for r in rolling}) == ["2", "3"] and all(r["growth"] != "" for r in rolling)
     counts = table(directory / "first/availability-counts.csv")
     assert [r["vintage"] for r in counts] == ["Jan 2016", "Feb 2016", "Mar 2016", "Apr 2016", "May 2016",
                                               "Jun 2016"]
