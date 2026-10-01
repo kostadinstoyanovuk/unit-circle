@@ -2,7 +2,8 @@
 
 `SeedSequence([master_seed, stream_id, cell, replicate])` with PCG64, all coordinates non-negative
 integers (H1 section 8, E4 Annex A). The registered plan is master seed 1927 with the ids below; a
-development run uses another seed and stream ids from 9000 upwards (the brief for this code).
+development run uses another seed and stream ids from 9000 upwards. A generator for a registered seed or id is
+built only with the caller's gate flag (`allow_registered=True`), here and in `check_run`.
 """
 from __future__ import annotations
 
@@ -66,9 +67,14 @@ def check_run(master_seed, streams: Streams, allow_registered=False):
     return False
 
 
-def stream_rng(master_seed, stream_id, cell=0, replicate=0) -> np.random.Generator:
+def stream_rng(master_seed, stream_id, cell=0, replicate=0, *, allow_registered=False) -> np.random.Generator:
+    """The generator of one stream coordinate. A registered seed or stream id needs the caller's gate flag."""
     for value in (master_seed, stream_id, cell, replicate):
         if isinstance(value, (bool, np.bool_)) or not isinstance(value, (int, np.integer)) or value < 0:
             raise ValueError("Seed coordinates must be non-negative integers")
+    if allow_registered is not True and (int(master_seed) == MASTER_SEED or int(stream_id) in REGISTERED_IDS_TO_AVOID):
+        raise RegisteredRunRefused("A generator for the registered seed or a registered stream id is built only "
+                                   "inside a gated registered run: pass allow_registered=True after the public "
+                                   "registration, the tag and the X.3 record have been verified")
     return np.random.Generator(np.random.PCG64(np.random.SeedSequence(
         [int(master_seed), int(stream_id), int(cell), int(replicate)])))

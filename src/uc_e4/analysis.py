@@ -23,10 +23,10 @@ SURROGATE_ATTEMPTS = 1000
 EPISODE_RESAMPLES = 10000
 
 
-def _run(selections, master_seed, stream, *, window, B, kind="residual", comparators=False):
+def _run(selections, master_seed, stream, *, window, B, kind="residual", comparators=False, registered=False):
     """One §§6-9 comparison over the E4-eligible episodes of `selections` (generator of j: stream, j, 0)."""
     episodes = [EpisodeInput(sel.j, sel.series.growth) for sel in selections if sel.status == "eligible"]
-    rngs = {e.j: stream_rng(master_seed, stream, e.j, 0) for e in episodes}
+    rngs = {e.j: stream_rng(master_seed, stream, e.j, 0, allow_registered=registered) for e in episodes}
     return compare(episodes, rngs, window=window, B=B, kind=kind, comparators=comparators)
 
 
@@ -38,10 +38,10 @@ def analyze(tables, h1_episodes, *, master_seed, streams: Streams, allow_registe
     sel40 = select_episodes(tables, h1_episodes, DEFAULT_WINDOW)
     sel32 = select_episodes(tables, h1_episodes, 32)
     sel48 = select_episodes(tables, h1_episodes, 48)
-    primary = _run(sel40, master_seed, streams.primary, window=40, B=B, comparators=True)
-    win32 = _run(sel32, master_seed, streams.window32, window=32, B=B)
-    win48 = _run(sel48, master_seed, streams.window48, window=48, B=B)
-    wild = _run(sel40, master_seed, streams.wild, window=40, B=B, kind="wild")
+    primary = _run(sel40, master_seed, streams.primary, window=40, B=B, comparators=True, registered=registered)
+    win32 = _run(sel32, master_seed, streams.window32, window=32, B=B, registered=registered)
+    win48 = _run(sel48, master_seed, streams.window48, window=48, B=B, registered=registered)
+    wild = _run(sel40, master_seed, streams.wild, window=40, B=B, kind="wild", registered=registered)
     eligible = [sel for sel in sel40 if sel.status == "eligible"]
     per_episode = {sel.j: measure(sel.series.growth, window=40)["primary"] for sel in eligible}
     deltas = {j: v[1] for j, v in per_episode.items() if v[0] == "ok"}
@@ -52,7 +52,8 @@ def analyze(tables, h1_episodes, *, master_seed, streams: Streams, allow_registe
         interval = dict(status="observed_statistic_failed", interval=None, error=obs.error)   # H1 section 8
     else:
         interval = serial(episode_percentile_interval(
-            obs.components, rng=stream_rng(master_seed, streams.interval, 0, 0), B=interval_B))
+            obs.components, rng=stream_rng(master_seed, streams.interval, 0, 0, allow_registered=registered),
+            B=interval_B))
     rows = [c.comparison_row("primary (W = 40, fixed dates per vintage)", serial(primary.primary), 40),
             c.comparison_row("W = 32", serial(win32.primary), 32),
             c.comparison_row("W = 48", serial(win48.primary), 48),

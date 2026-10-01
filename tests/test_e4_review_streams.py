@@ -70,12 +70,36 @@ def test_ids_below_9000_are_refused_and_bad_coordinates_are_errors():
             stream_rng(*coordinates)
 
 
-@pytest.mark.xfail(strict=True, reason="stream_rng builds a generator from the registered master seed and a "
-                                       "registered stream id without the gate flag; the refusal is made only by "
-                                       "check_run at the entry points")
-def test_the_generator_builder_refuses_registered_coordinates_without_the_gate_flag():
-    with pytest.raises(RegisteredRunRefused):
-        stream_rng(1927, 5400, 0, 0)
+@pytest.mark.parametrize("coordinates", [(1927, 5400, 0, 0), (R.DEV_SEED, 5400, 0, 0), (1927, 9400, 0, 0),
+                                         (R.DEV_SEED, 5431, 3, 7), (np.int64(1927), 9400, 0, 0)])
+def test_the_generator_builder_refuses_registered_coordinates_without_the_gate_flag(coordinates):
+    for flag in (False, None, 1, "yes"):
+        with pytest.raises(RegisteredRunRefused):
+            stream_rng(*coordinates, allow_registered=flag)       # the flag must be exactly True
+
+
+def test_the_gate_flag_lets_the_builder_make_the_registered_generators_of_annex_a():
+    expected = R.generator(1927, 5400, 3, 0).integers(0, 2 ** 62, size=6)
+    assert np.array_equal(stream_rng(1927, 5400, 3, 0, allow_registered=True).integers(0, 2 ** 62, size=6),
+                          expected)
+    development = R.generator(R.DEV_SEED, 9400, 3, 0).integers(0, 2 ** 62, size=6)
+    assert np.array_equal(stream_rng(R.DEV_SEED, 9400, 3, 0).integers(0, 2 ** 62, size=6), development)
+
+
+def test_the_entry_points_pass_the_verified_gate_on_to_the_builder():
+    from uc_core.validation_design import h1_design_series
+    from uc_e4 import synthetic as Y
+    # Only the generation of the series is made here: no registered analysis is run (stream ids and seed of Annex A).
+    for check, cell, stream in (("size", 0, 5420), ("power", 2, 5430)):
+        kappas = Y.KAPPAS
+        series = Y.x3_input(check, cell, 5, master_seed=1927, streams=REGISTERED_STREAMS, kappas=kappas,
+                            allow_registered=True)
+        direct = h1_design_series(R.generator(1927, stream, cell, 5), kappa=1.0 if check == "size" else kappas[cell])
+        assert np.array_equal(series, direct)
+        with pytest.raises(RegisteredRunRefused):
+            Y.x3_input(check, cell, 5, master_seed=1927, streams=REGISTERED_STREAMS, kappas=kappas)
+    # a development run needs no flag and still reaches the builder
+    assert len(Y.x3_input("size", 0, 1, master_seed=R.DEV_SEED, streams=DS)) == 259
 
 
 @pytest.fixture(scope="module")

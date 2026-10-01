@@ -84,19 +84,23 @@ def _record(*, cell_name, cell_index, replicate, generate_rng, null_rngs, kappa,
 
 def size_replicate(replicate, *, master_seed, streams: Streams, B=SURROGATE_ATTEMPTS, allow_registered=False):
     """AT-15 adapted, one series: base process (kappa = 1), the E4 procedure at the five truncations."""
-    check_run(master_seed, streams, allow_registered)
+    registered = check_run(master_seed, streams, allow_registered)
     return _record(cell_name="size", cell_index=0, replicate=replicate, kappa=1.0, B=B,
-                   generate_rng=stream_rng(master_seed, streams.size_generation, 0, replicate),
-                   null_rngs={j: stream_rng(master_seed, streams.size_null, j, replicate) for j in range(len(ONSETS))})
+                   generate_rng=stream_rng(master_seed, streams.size_generation, 0, replicate,
+                                           allow_registered=registered),
+                   null_rngs={j: stream_rng(master_seed, streams.size_null, j, replicate, allow_registered=registered)
+                              for j in range(len(ONSETS))})
 
 
 def power_replicate(cell, replicate, *, master_seed, streams: Streams, B=SURROGATE_ATTEMPTS, kappas=KAPPAS,
                     allow_registered=False):
     """AT-16 adapted, one series of power cell `cell` (kappa index): planted signal, five truncations."""
-    check_run(master_seed, streams, allow_registered)
+    registered = check_run(master_seed, streams, allow_registered)
     return _record(cell_name=f"power_{cell}", cell_index=cell, replicate=replicate, kappa=kappas[cell], B=B,
-                   generate_rng=stream_rng(master_seed, streams.power_generation, cell, replicate),
-                   null_rngs={j: stream_rng(master_seed, streams.power_null, 10 * cell + j, replicate)
+                   generate_rng=stream_rng(master_seed, streams.power_generation, cell, replicate,
+                                           allow_registered=registered),
+                   null_rngs={j: stream_rng(master_seed, streams.power_null, 10 * cell + j, replicate,
+                                            allow_registered=registered)
                               for j in range(len(ONSETS))})
 
 
@@ -106,11 +110,13 @@ def x3_input(check, cell, replicate, *, master_seed, streams: Streams, kappas=KA
     It makes exactly the generation draws of size_replicate and power_replicate, so that a runner can
     re-verify saved records before resuming or summarising (H1 section 8: "verifying already saved output").
     """
-    check_run(master_seed, streams, allow_registered)
+    registered = check_run(master_seed, streams, allow_registered)
     if check == "size" and cell == 0:
-        return h1_design_series(stream_rng(master_seed, streams.size_generation, 0, replicate), kappa=1.0)
+        return h1_design_series(stream_rng(master_seed, streams.size_generation, 0, replicate,
+                                           allow_registered=registered), kappa=1.0)
     if check == "power":
-        return h1_design_series(stream_rng(master_seed, streams.power_generation, cell, replicate), kappa=kappas[cell])
+        return h1_design_series(stream_rng(master_seed, streams.power_generation, cell, replicate,
+                                           allow_registered=registered), kappa=kappas[cell])
     raise ValueError("Unknown X.3 check or cell")
 
 
