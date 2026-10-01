@@ -1,0 +1,84 @@
+verify_e4_x3.py 1.0 (30 September 2026) - independent recomputation of the E4 X.3 outputs
+started (UTC) 2026-10-01T21:12:19+00:00; Python 3.12.14; NumPy 2.5.3; Windows-10-10.0.19045-SP0
+mode: registered design (200 series per cell, B = 1,000, seed 1927, streams of Annex A)
+
+[1] FILES, DESIGN AND RECORD STRUCTURE
+  x3_power_c0_r000-025.jsonl         power     6771992 bytes    27 lines   25 records 1 run-start line(s) OK
+  x3_power_c0_r025-050.jsonl         power     6772251 bytes    27 lines   25 records 1 run-start line(s) OK
+  x3_power_c0_r050-075.jsonl         power     6771607 bytes    27 lines   25 records 1 run-start line(s) OK
+  x3_power_c0_r075-100.jsonl         power     6772593 bytes    27 lines   25 records 1 run-start line(s) OK
+  x3_power_c0_r100-125.jsonl         power     6770844 bytes    27 lines   25 records 1 run-start line(s) OK
+  x3_power_c0_r125-150.jsonl         power     6772216 bytes    27 lines   25 records 1 run-start line(s) OK
+  x3_power_c0_r150-175.jsonl         power     6771754 bytes    27 lines   25 records 1 run-start line(s) OK
+  x3_power_c0_r175-200.jsonl         power     6771220 bytes    27 lines   25 records 1 run-start line(s) OK
+  x3_power_c1_r000-025.jsonl         power     6771037 bytes    27 lines   25 records 1 run-start line(s) OK
+  x3_power_c1_r025-050.jsonl         power     6771610 bytes    27 lines   25 records 1 run-start line(s) OK
+  x3_power_c1_r050-075.jsonl         power     6772139 bytes    27 lines   25 records 1 run-start line(s) OK
+  x3_power_c1_r075-100.jsonl         power     6770641 bytes    27 lines   25 records 1 run-start line(s) OK
+  x3_power_c1_r100-125.jsonl         power     6772299 bytes    27 lines   25 records 1 run-start line(s) OK
+  x3_power_c1_r125-150.jsonl         power     6771891 bytes    27 lines   25 records 1 run-start line(s) OK
+  x3_power_c1_r150-175.jsonl         power     6771811 bytes    27 lines   25 records 1 run-start line(s) OK
+  x3_power_c1_r175-200.jsonl         power     6772347 bytes    27 lines   25 records 1 run-start line(s) OK
+  x3_power_c2_r000-025.jsonl         power     6772685 bytes    27 lines   25 records 1 run-start line(s) OK
+  x3_power_c2_r025-050.jsonl         power     6772640 bytes    27 lines   25 records 1 run-start line(s) OK
+  x3_power_c2_r050-075.jsonl         power     6773196 bytes    27 lines   25 records 1 run-start line(s) OK
+  x3_power_c2_r075-100.jsonl         power     6773118 bytes    27 lines   25 records 1 run-start line(s) OK
+  x3_power_c2_r100-125.jsonl         power     6772041 bytes    27 lines   25 records 1 run-start line(s) OK
+  x3_power_c2_r125-150.jsonl         power     6771406 bytes    27 lines   25 records 1 run-start line(s) OK
+  x3_power_c2_r150-175.jsonl         power     6771252 bytes    27 lines   25 records 1 run-start line(s) OK
+  x3_power_c2_r175-200.jsonl         power     6772028 bytes    27 lines   25 records 1 run-start line(s) OK
+  x3_power_c3_r000-025.jsonl         power     6773211 bytes    27 lines   25 records 1 run-start line(s) OK
+  x3_power_c3_r025-050.jsonl         power     6771539 bytes    27 lines   25 records 1 run-start line(s) OK
+  x3_power_c3_r050-075.jsonl         power     6772257 bytes    27 lines   25 records 1 run-start line(s) OK
+  x3_power_c3_r075-100.jsonl         power     6772683 bytes    27 lines   25 records 1 run-start line(s) OK
+  x3_power_c3_r100-125.jsonl         power     6773033 bytes    27 lines   25 records 1 run-start line(s) OK
+  x3_power_c3_r125-150.jsonl         power     6773018 bytes    27 lines   25 records 1 run-start line(s) OK
+  x3_power_c3_r150-175.jsonl         power     6772418 bytes    27 lines   25 records 1 run-start line(s) OK
+  x3_power_c3_r175-200.jsonl         power     6772891 bytes    27 lines   25 records 1 run-start line(s) OK
+  x3_size_r000-025.jsonl             size     6771695 bytes    27 lines   25 records 1 run-start line(s) OK
+  x3_size_r025-050.jsonl             size     6771503 bytes    27 lines   25 records 1 run-start line(s) OK
+  x3_size_r050-075.jsonl             size     6771651 bytes    27 lines   25 records 1 run-start line(s) OK
+  x3_size_r075-100.jsonl             size     6772516 bytes    27 lines   25 records 1 run-start line(s) OK
+  x3_size_r100-125.jsonl             size     6771264 bytes    27 lines   25 records 1 run-start line(s) OK
+  x3_size_r125-150.jsonl             size     6771614 bytes    27 lines   25 records 1 run-start line(s) OK
+  x3_size_r150-175.jsonl             size     6771448 bytes    27 lines   25 records 1 run-start line(s) OK
+  x3_size_r175-200.jsonl             size     6771586 bytes    27 lines   25 records 1 run-start line(s) OK
+  coordinates: expected 1000, present 1000, missing 0, duplicated 0, outside the design 0
+  manifests: 40; fingerprint: mode registered, master seed 1927, code bbd66fdde9cb..., e1 code c42cbbf35734..., commit a63c044af70d00b598f95660cf6f5209e8b62fd1, Python 3.12.14
+  E1 code identity recorded in the manifests equals E1's frozen identity (c42cbbf3...): True
+  prereg/E4.md beside this script: SHA-256 registered True; clauses quoted here verbatim True
+
+[2] RECOMPUTATION FROM THE STORED INPUTS (1000 records; every attempt regenerated for 1000; workers 6)
+  observed Delta and S recomputed for 1000 records: max |difference| 3.72e-15 (Delta), 7.42e-16 (S)
+  fitted nulls (coefficients, intercept, modulus, initial values, residuals) compared for 1000 records: max |difference| 7.99e-15
+  generator check (H1 section 9): stored input regenerated for 1000 records, bit-identical 407, max |difference| 3.55e-15
+  every surrogate attempt regenerated for 1000 records: max |difference| 7.52e-14 (S_b), 3.77e-13 (Delta_b); near ties (|S_b - S| <= 1e-9): 0 recomputed, 0 among stored statistics
+  recomputation time 142.7 s
+
+[3] CELL SUMMARIES FROM THE RECOMPUTED p-VALUES (denominator 200 per cell; a rejection is a valid raw p <= 0.05)
+  size: R = 9 of 200; valid 200; rate 0.045; Wilson 95% [0.0239, 0.0833]; MC s.e. 0.0146586; mean S -0.006790561 (s.e. 0.00450388); accounting bounds [0.045, 0.045]
+  power kappa 1.0: R = 12 of 200; valid 200; rate 0.06; Wilson 95% [0.0347, 0.1019]; mean S -0.00085597016 (s.e. 0.00448259)
+  power kappa 1.2: R = 12 of 200; valid 200; rate 0.06; Wilson 95% [0.0347, 0.1019]; mean S 0.0036411441 (s.e. 0.00462316)
+  power kappa 1.4: R = 34 of 200; valid 200; rate 0.17; Wilson 95% [0.1243, 0.2282]; mean S 0.039024555 (s.e. 0.00472927)
+  power kappa 1.6: R = 49 of 200; valid 200; rate 0.245; Wilson 95% [0.1906, 0.3090]; mean S 0.054347904 (s.e. 0.00522468)
+  kappa 1.0 -> 1.2: difference +0.0000; s.e. 0.02375; 1.96 s.e. 0.04655; decrease flag False
+  kappa 1.2 -> 1.4: difference +0.1100; s.e. 0.03142; 1.96 s.e. 0.06159; decrease flag False
+  kappa 1.4 -> 1.6: difference +0.0750; s.e. 0.04038; 1.96 s.e. 0.07914; decrease flag False
+  D80: undefined: no kappa <= 1.6 reaches 0.80
+
+[4] THE REGISTERED RULE ON THESE NUMBERS
+  precondition: registered design in every manifest (mode registered, seed 1927, 200 series, B = 1,000): yes
+  SIZE (prereg/E4.md, section 11, Size (AT-15 adapted)): PASS - rate in band True, all valid True
+    registered: "Pass: rejection rate between **0.02 and 0.09** inclusive, with all 200 valid. A rejection in the cells is a valid raw p ≤ 0.05, as in H1 §9."
+  POWER (prereg/E4.md, section 11, Reporting and D80): PASS - every cell complete and valid True, no flagged decrease True; D80 undefined
+    registered: "**Reporting and D80.** As H1 §9, including the 1.96-SE decrease flag and the first-raw-crossing D80." and (prereg/H1.md, section 9, Cell reporting) "If any cell is invalid/incomplete or a decrease exceeds this threshold, AT-16 does not pass and G2 remains pending."
+
+[5] COMPARISON WITH THE RUNNER'S SUMMARIES
+  x3_power_summary.json: 62 fields compared, 0 differ; absent fields none
+  x3_size_summary.json: 12 fields compared, 0 differ; absent fields none
+
+[6] RESULT
+  notes: 0 (in the JSON report)
+  problems and disagreements: 0
+  exit status 0 (everything checked agrees)
+  finished in 151.0 s

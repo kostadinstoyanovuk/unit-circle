@@ -1,0 +1,52 @@
+{
+ "check": "AT-1 to AT-4 through uc_core.ar (Annex B step 3)",
+ "passed": true,
+ "commit": "a63c044af70d00b598f95660cf6f5209e8b62fd1",
+ "python": "3.12.14",
+ "tests": [
+  {
+   "test": "AT-1 least squares 1749-1924: phi (1.336, -0.650), M 0.806, period 10.57 y, half-life 3.2 y",
+   "passed": true,
+   "phi": [
+    1.3359496152045296,
+    -0.649853468582151
+   ],
+   "M": 0.8061348947801175,
+   "period": 10.57475037500636,
+   "half_life": 3.2163977390624474
+  },
+  {
+   "test": "AT-2 Yule-Walker 1749-1924: (1.326, -0.642), M 0.801, period 10.55 y",
+   "passed": true,
+   "phi": [
+    1.3262603368466923,
+    -0.6418867557612992
+   ],
+   "M": 0.8011783545261936,
+   "period": 10.545598578959948,
+   "half_life": 3.1269088745730755
+  },
+  {
+   "test": "AT-3 least squares 1925-2008: (1.414, -0.762), M 0.873, period 10.02 y",
+   "passed": true,
+   "phi": [
+    1.4138646330959013,
+    -0.7623731048322342
+   ],
+   "M": 0.8731397968436866,
+   "period": 10.017016338275777,
+   "half_life": 5.109459041031064
+  },
+  {
+   "test": "AT-4 least squares on x/0.6 + 5: identical phi to 1e-6",
+   "passed": true,
+   "max_difference": 4.440892098500626e-16
+  },
+  {
+   "test": "the indicator path uc_core.rolling.max_modulus equals fit_ols on one full window",
+   "passed": true,
+   "rolling_M": 0.8061348947801175,
+   "ar_M": 0.8061348947801175
+  }
+ ]
+}

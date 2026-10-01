@@ -1,0 +1,234 @@
+{
+ "created_utc": "2026-10-01T18:18:06+00:00",
+ "commit": "a63c044af70d00b598f95660cf6f5209e8b62fd1",
+ "expected_commit": "a63c044af70d00b598f95660cf6f5209e8b62fd1",
+ "clean_before": true,
+ "python": "3.12.14",
+ "platform": "Windows-10-10.0.19045-SP0",
+ "executable": "C:\\Users\\user\\Desktop\\Unit Circle Programme\\unit-circle\\.venv\\Scripts\\python.exe",
+ "cpu_count": 16,
+ "ons_pages": "C:\\Users\\user\\Desktop\\Unit Circle Programme\\Programme Records\\tmp\\ons-pages-test",
+ "checks": [
+  {
+   "check": "S4: environment identity under the research lock, and the code identities of this clone",
+   "passed": true,
+   "code_sha256": "bbd66fdde9cb5cbbaa690eb4c1bb8ba17b11ea1c0c8cd0389502d10aea094bec",
+   "e1_code_sha256": "c42cbbf35734eb4f8c12aff22384371aa4fad107ae283f6d2f5f6f93c12feef7",
+   "identity_option": "e1-superset",
+   "expected_code_sha256": "bbd66fdde9cb5cbbaa690eb4c1bb8ba17b11ea1c0c8cd0389502d10aea094bec",
+   "expected_e1_code_sha256": "c42cbbf35734eb4f8c12aff22384371aa4fad107ae283f6d2f5f6f93c12feef7",
+   "python": "3.12.14",
+   "platform": "Windows-10-10.0.19045-SP0",
+   "commit": "a63c044af70d00b598f95660cf6f5209e8b62fd1",
+   "packages": {
+    "colorama": "0.4.6",
+    "contourpy": "1.4.0",
+    "cycler": "0.12.1",
+    "fonttools": "4.66.0",
+    "formulaic": "1.2.2",
+    "hypothesis": "6.168.1",
+    "iniconfig": "2.3.0",
+    "interface_meta": "2.0.1",
+    "kiwisolver": "1.5.1",
+    "matplotlib": "3.11.2",
+    "mpmath": "1.3.0",
+    "narwhals": "2.26.0",
+    "numpy": "2.5.3",
+    "packaging": "26.3",
+    "pandas": "3.0.6",
+    "patsy": "1.0.3",
+    "pillow": "12.3.0",
+    "pluggy": "1.6.0",
+    "Pygments": "2.21.0",
+    "pyparsing": "3.3.3",
+    "pypdf": "6.19.0",
+    "pytest": "9.1.1",
+    "python-dateutil": "2.9.0.post0",
+    "scipy": "1.18.1",
+    "six": "1.17.0",
+    "sortedcontainers": "2.4.0",
+    "statsmodels": "0.15.0",
+    "sympy": "1.14.0",
+    "typing_extensions": "4.16.0",
+    "tzdata": "2026.4",
+    "wrapt": "2.4.1"
+   },
+   "executable": "C:\\Users\\user\\Desktop\\Unit Circle Programme\\unit-circle\\.venv\\Scripts\\python.exe",
+   "source_files": {
+    "uc_ext/__init__.py": "6f587147d40fb09710f564fe6d84e46c2c344fca175261614b9a44cdf4abf452",
+    "uc_ext/common.py": "87e0606c09d0c44e1e05fd7f33e51acdbd7b82547b1f9d4404ed9c78c1b1b5a3",
+    "uc_ext/e1.py": "86ed1d1b45cb86b414edcd12dbcc97cf52b05841a0dfe47be7eb0d4af04df797",
+    "uc_ext/e3.py": "340ed782e19e07b0ab92df8d502d2cd9ae72cae5b1c2fabae1132c01903bb8dc",
+    "uc_core/__init__.py": "eb58d4da1cee47cc0ecdd77ff6aa2cbd40aa5ab245e5239cd53ee96b31616d20",
+    "uc_core/abmi.py": "462766c55cb184100617bc0f8162514d9bd87788f0fbc8ba9b697ebdc8e79e5f",
+    "uc_core/ar.py": "19ea466d4829de08a18a6d1efd1ba10aebcf55cc3e7efc556f87001ed352a936",
+    "uc_core/constants.py": "33c66c58573bab32bd58a451c8d6e060dbae67b609d70ea4a4bfa1da9879b8d8",
+    "uc_core/h1.py": "21f90fd64c20dc3c8afe812f2811a06b00c44efed881c80ef0d576eaf689bdf8",
+    "uc_core/h1_official.py": "ffb06000eb11ea30e55f4b00b6c41249cfa90f47ff06400209a356e171964998",
+    "uc_core/h1_reporting.py": "4337e31e442523fe4188d83d82afcd1a87a24b262472e2a3bff86cbd865b5328",
+    "uc_core/linalg.py": "b1c137d6452daa744eb7fb4b52b23d494b7a6edae35177b792fe8086e2a35d28",
+    "uc_core/recession.py": "e9dcde4abac3bcf98fd027d2dd7735da1de61b65b8ae69f005d4793849359834",
+    "uc_core/rolling.py": "e335a4dcf3d159294ac5e84a99b27f46a21b347c400cdfbcae236f7f3843d5ee",
+    "uc_core/samuelson.py": "c4f8b1864d4291a25b421bb967feceecfc04b966d5d64b1ecc015cc1e0c8e44d",
+    "uc_core/schur.py": "4ea468f4562cf601cd63ec50c4c02715d20e917f06aee842b09e40c76e1a1768",
+    "uc_core/secondary.py": "86f48150597325941bb949af0f52e128a1cd55cd708b44a90ae9689126207b56",
+    "uc_core/statespace.py": "3b5db3ebc2941da8208cc89a74577083e9de927500071e2b0786efc353a96ddd",
+    "uc_core/surrogate.py": "9447006ecc02483bcd657a85ea993361ea3c53a0034641d4b068466a7b8e2e00",
+    "uc_core/validation_design.py": "2d729c9017de57cdb3bb761a85a2e221b93186f1e9c8ee74cba7f436c4a8d8c0",
+    "uc_core/validation_runner.py": "99ac2e62733b6db34857e77f33c06cc3085f6a856f6280e02a77ab8e4537cbb0",
+    "uc_core/validation_store.py": "68552e171bfe92b406358b706ed37384c2fcb05d1c0453fb4abd297aefdfad4d",
+    "uc_core/yule.py": "5071e313d0ba21d78cbcd8e8cf6bf78d2ae47aa97b2b15806b4603d882fbc91a",
+    "tools/run_e_checks.py": "31c2a2f26ff03b214d1a19d96d60a6d9e6af1aebc161a53881c5701f97001b9d",
+    "uc_e4/__init__.py": "2da30b08feb7f1f0968f3730cc8b2a1694ee8c4295a0f1027ecb81f4f6289d8f",
+    "uc_e4/analysis.py": "7fc86dadc875fd41ebfb991ae9f592ae13d81d2f9004f957ed3e377c1d017eaf",
+    "uc_e4/descriptive.py": "9802e4d590861107987c2cadf57f4fe0381cd8b9d04aa814d018da9ac0636b69",
+    "uc_e4/procedure.py": "38fdf5b234a4669c8b934930d9290676a7425b432e1ab6a2d371eb4254def6d0",
+    "uc_e4/streams.py": "1fc0dbbaf480dd42a2fe2a0a7b814365e66415609914c7dbf2b6bb69195500f0",
+    "uc_e4/synthetic.py": "7b99f48389f18844c8e8a00fc07bbcb331ec80c8fd0cb87675236f9d040ecc75",
+    "uc_e4/table.py": "c433006c86a24c4646d069dca3352a4d5d21620693a988995698e74f025c39da",
+    "uc_e4/vintage.py": "1aa43a0e1b93593a5b2b886cfa456cf6146a205df8db1ff80156532b4befe09a",
+    "tools/run_e4_checks.py": "174a1a31061a9d374797df29d5305b84d6fd9d810fddc5e7406a30d1b099ef66"
+   }
+  },
+  {
+   "name": "unit_tests_sections_4_5_7",
+   "argv": [
+    "C:\\Users\\user\\Desktop\\Unit Circle Programme\\unit-circle\\.venv\\Scripts\\python.exe",
+    "-m",
+    "pytest",
+    "-q",
+    "-p",
+    "no:cacheprovider",
+    "tests/test_e4_table.py",
+    "tests/test_e4_vintage.py",
+    "tests/test_e4_procedure.py"
+   ],
+   "exit": 0,
+   "started_utc": "2026-10-01T18:18:08+00:00",
+   "seconds": 4.7,
+   "last_line": "139 passed in 4.28s",
+   "check": "Annex B step 3: unit tests of sections 4, 5 and 7 on constructed workbooks and availability tables (tests/test_e4_table.py, tests/test_e4_vintage.py, tests/test_e4_procedure.py)",
+   "passed_tests": 139,
+   "skipped_tests": 0,
+   "passed": true
+  },
+  {
+   "check": "AT-1 to AT-4 through uc_core.ar (Annex B step 3)",
+   "passed": true,
+   "commit": "a63c044af70d00b598f95660cf6f5209e8b62fd1",
+   "python": "3.12.14",
+   "tests": [
+    {
+     "test": "AT-1 least squares 1749-1924: phi (1.336, -0.650), M 0.806, period 10.57 y, half-life 3.2 y",
+     "passed": true,
+     "phi": [
+      1.3359496152045296,
+      -0.649853468582151
+     ],
+     "M": 0.8061348947801175,
+     "period": 10.57475037500636,
+     "half_life": 3.2163977390624474
+    },
+    {
+     "test": "AT-2 Yule-Walker 1749-1924: (1.326, -0.642), M 0.801, period 10.55 y",
+     "passed": true,
+     "phi": [
+      1.3262603368466923,
+      -0.6418867557612992
+     ],
+     "M": 0.8011783545261936,
+     "period": 10.545598578959948,
+     "half_life": 3.1269088745730755
+    },
+    {
+     "test": "AT-3 least squares 1925-2008: (1.414, -0.762), M 0.873, period 10.02 y",
+     "passed": true,
+     "phi": [
+      1.4138646330959013,
+      -0.7623731048322342
+     ],
+     "M": 0.8731397968436866,
+     "period": 10.017016338275777,
+     "half_life": 5.109459041031064
+    },
+    {
+     "test": "AT-4 least squares on x/0.6 + 5: identical phi to 1e-6",
+     "passed": true,
+     "max_difference": 4.440892098500626e-16
+    },
+    {
+     "test": "the indicator path uc_core.rolling.max_modulus equals fit_ols on one full window",
+     "passed": true,
+     "rolling_M": 0.8061348947801175,
+     "ar_M": 0.8061348947801175
+    }
+   ]
+  },
+  {
+   "name": "gate_e4",
+   "argv": [
+    "C:\\Users\\user\\Desktop\\Unit Circle Programme\\unit-circle\\.venv\\Scripts\\python.exe",
+    "tools/run_e4_checks.py",
+    "e4",
+    "summarize",
+    "--registered",
+    "--root",
+    ".",
+    "--out",
+    "runs/extensions/E4/absent.jsonl"
+   ],
+   "exit": 1,
+   "started_utc": "2026-10-01T18:18:13+00:00",
+   "seconds": 2.1,
+   "last_line": "",
+   "check": "registered e4 gate on this machine (stops at the missing runs/extensions/E4/absent.jsonl)",
+   "passed": true,
+   "stderr_last": [
+    "FileNotFoundError: [Errno 2] No such file or directory: 'runs\\\\extensions\\\\E4\\\\absent.jsonl'"
+   ]
+  },
+  {
+   "check": "git check-ignore through verify_output_location on this platform (the 40 planned part files and the two summaries)",
+   "passed": true,
+   "planned": 42,
+   "accepted": 42,
+   "negative_control_refused": true
+  },
+  {
+   "name": "test_full_suite",
+   "argv": [
+    "C:\\Users\\user\\Desktop\\Unit Circle Programme\\unit-circle\\.venv\\Scripts\\python.exe",
+    "-m",
+    "pytest",
+    "-q",
+    "-p",
+    "no:cacheprovider"
+   ],
+   "exit": 0,
+   "started_utc": "2026-10-01T18:18:16+00:00",
+   "seconds": 541.3,
+   "last_line": "1245 passed, 1 skipped in 540.52s (0:09:00)",
+   "check": "the whole test suite at the pinned commit (Python 3.12.14 under the research lock)",
+   "passed_tests": 1245,
+   "skipped_tests": 1,
+   "passed": true
+  },
+  {
+   "check": "no E4 output file exists before the parts start",
+   "passed": true,
+   "listing": []
+  }
+ ],
+ "f1": {
+  "check": "F1 status as the repository records it (plan p. 7)",
+  "recorded": "| F1 Time series | Estimators pass AT-1-AT-4 | Passed ([M1A_REPORT.md](M1A_REPORT.md)); hand derivations of the AR(2) autocorrelation and spectral density are not recorded in this repository |"
+ },
+ "identity": {
+  "code_sha256": "bbd66fdde9cb5cbbaa690eb4c1bb8ba17b11ea1c0c8cd0389502d10aea094bec",
+  "e1_code_sha256": "c42cbbf35734eb4f8c12aff22384371aa4fad107ae283f6d2f5f6f93c12feef7",
+  "identity_option": "e1-superset"
+ },
+ "clean_after": true,
+ "finished_utc": "2026-10-01T18:27:18+00:00",
+ "passed": true
+}

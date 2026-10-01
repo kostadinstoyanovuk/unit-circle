@@ -1,0 +1,3 @@
+F1 (plan p. 7) as audit/FOUNDATIONS_REPORT.md records it at commit a63c044af70d00b598f95660cf6f5209e8b62fd1:
+
+| F1 Time series | Estimators pass AT-1-AT-4 | Passed ([M1A_REPORT.md](M1A_REPORT.md)); hand derivations of the AR(2) autocorrelation and spectral density are not recorded in this repository |

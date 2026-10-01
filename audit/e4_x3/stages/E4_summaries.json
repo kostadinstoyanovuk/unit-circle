@@ -1,0 +1,32 @@
+{
+ "finished_utc": "2026-10-01T21:10:54+00:00",
+ "headline": {
+  "size_rate": 0.045,
+  "size_bounds": [
+   0.02,
+   0.09
+  ],
+  "size_passed": true,
+  "size_valid": 200,
+  "size_failures": {},
+  "power_rates": [
+   0.06,
+   0.06,
+   0.17,
+   0.245
+  ],
+  "power_valid": [
+   200,
+   200,
+   200,
+   200
+  ],
+  "decrease_flags": [
+   false,
+   false,
+   false
+  ],
+  "D80": null,
+  "power_passed": true
+ }
+}
