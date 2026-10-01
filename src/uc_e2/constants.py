@@ -56,7 +56,9 @@ DEVELOPMENT_POWER_ONSETS = (49, 99, 149)
 # Sections 7 and 11: the two W = 40 eligible onsets listed in the text (1990Q3 and 2008Q2). A registered run
 # refuses unless the onsets read from ONSETS_RECORD are exactly these.
 REGISTERED_POWER_ONSETS = (77, 148)
-MINIMUM_ONSET_GAP = 10                              # section 11: distinct episode onsets are >= 10 apart
+# Supplied onsets are checked to be at least 10 apart, as the onsets of any two section 7 episodes are (a run
+# lasts at least two quarters, and runs whose distance is 8 or less merge).
+MINIMUM_ONSET_GAP = 10
 
 # R2. X.3 prerequisites (Annex B): AT-12 through spectral_radius (AT-12's own draws and tolerances) and the
 # reduction test (the VAR code with k = 1 reproduces H1's rolling M(t) to 1e-10) on one synthetic H1-design
