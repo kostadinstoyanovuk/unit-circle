@@ -25,7 +25,7 @@ REGISTERED_ENDS = ((1972, 4), (1979, 3), (1990, 1), (2007, 4), (2019, 4), (2019,
 LABELS = ("Jan 2016", "Feb 2016", "Mar 2016", "Apr 2016", "May 2016", "Jun 2016")
 EXPECTED_REPORT = {"availability-counts.csv", "availability-markers.csv", "availability.csv", "comparisons.csv",
                    "episode-interval.csv", "episodes.csv", "manifest.json", "null-models.json",
-                   "primary-surrogates.csv", "real-time-against-final.csv", "real-time-summary.csv", "report.json",
+                   "primary-surrogates.csv", "real-time-against-final.csv", "real-time-summary.csv", "report.json", "report.txt",
                    "rolling.csv", "selections.csv", "two-clocks.csv", "vintage-series.json",
                    *{f"{figure}.{suffix}" for figure in ("realtime", "surrogates") for suffix in ("svg", "png", "pdf")}}
 

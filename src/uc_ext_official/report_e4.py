@@ -22,6 +22,8 @@ JSON:
   null-models.json             the fitted null and centred residuals of every compared vintage series (Annex B)
   report.json                  the tables above except availability.csv, rolling.csv and the two JSON files,
                                with the outcome at freeze (section 11)
+Text:
+  report.txt                   a short human-readable statement of the same result
 Figures (svg, png and pdf with fixed metadata): `realtime`, the real-time and final-data changes of every
 episode with their signs, and `surrogates`, the primary S_b with S_rt marked. Both are drawn, with a note, when
 no episode is E4-eligible.
@@ -340,6 +342,71 @@ def surrogate_figure(directory: Path, *, retained, row, m_E4, title, salt=SALT):
     plt.close(fig)
 
 
+# ------------------------------------------------------------------------------------- text
+
+def _number(value, digits=4):
+    return "unavailable" if value is None else f"{value:+.{digits}f}"
+
+
+def text_report(report: dict, data_kind: str) -> str:
+    """The short human-readable statement of the result: every episode, S_rt, k/m_E4, the raw p with its label,
+    K, B', q and Wilson, the outcome at freeze with SD-07's limit, the secondary table and the descriptive
+    summaries. Every number is the one in report.json."""
+    primary, interpretation = report["primary"], report["interpretation"]
+    lines = [TITLE["registered" if data_kind == x4.REGISTERED_KIND["e4"] else "constructed"],
+             f"Data kind: {data_kind}", "",
+             f"E4-eligible episodes: m_E4 = {report['m_E4']} of {len(report['episodes'])} H1 eligible episodes",
+             "Episodes (section 7; W = 40):"]
+    for row in report["episodes"]:
+        if row["status"] != "eligible":
+            lines.append(f"  j = {row['j']}, onset {row['onset']}: unavailable at step {row['failed_step']} "
+                         f"({row['reason']})")
+        else:
+            lines.append(f"  j = {row['j']}, onset {row['onset']}: v_j = {row['vintage']}, n_v = {row['n_v']}, "
+                         f"Delta_rt = {_number(row['delta_rt'])}, Delta_final = {_number(row['delta_final'])}, "
+                         f"difference = {_number(row['difference'])}")
+    wilson = primary["q_wilson"]
+    lines += ["", "Primary comparison (sections 8 and 9):",
+              f"  status {primary['status']}; S_rt = {_number(primary['S_rt'])}; k/m_E4 = {primary['k_over_m']}",
+              f"  raw p = {'unavailable' if primary['raw_p'] is None else format(primary['raw_p'], '.4f')} "
+              f"({primary['p_label']}); K = {primary['K']}; B' = {primary['B_prime']}; "
+              f"q = {'unavailable' if primary['q'] is None else format(primary['q'], '.4f')}; Wilson 95% "
+              + ("unavailable" if not wilson else f"[{wilson[0]:.4f}, {wilson[1]:.4f}]"),
+              f"  Holm input at family closure: {primary['holm_input']}"]
+    interval = report["episode_interval"]
+    bounds = interval.get("interval")
+    lines.append(f"Episode interval (90%, section 10): {interval.get('status')}"
+                 + (f" [{bounds[0]:+.4f}, {bounds[1]:+.4f}]" if bounds else ""))
+    lines += ["", f"Outcome at freeze (section 11): {interpretation['conclusion']}"]
+    if interpretation.get("text"):
+        lines.append(f"  {interpretation['text']}")
+    lines += [f"  Basis: {interpretation['basis']}",
+              f"  Branch B diagnostic: {interpretation['branch_B']['status']}"
+              + (f", condition {interpretation['branch_B']['condition']}"
+                 if interpretation["branch_B"].get("condition") is not None else "")
+              + f" (D80 = {interpretation['D80']}). {interpretation['branch_B']['scope']}",
+              f"  Limit: {interpretation['limit']}"]
+    if interpretation.get("nonpositive_note"):
+        lines.append(f"  {interpretation['nonpositive_note']}")
+    lines += ["", "Secondary comparisons (section 10; none replaces the confirmatory comparison):"]
+    for row in report["comparisons"]:
+        p = row["p_value"]
+        lines.append(f"  {row['analysis']}: status {row['status']}, value {_number(row['value'])}, m = {row['m']}, "
+                     f"raw p = {'unavailable' if p is None else format(p, '.4f')}")
+    summary = report["real_time_against_final"]["summary"]
+    lines += ["", "Real time against final (section 10, description, no test): "
+              f"S_rt - S_final,m = {_number(summary['mean_difference'])}; same sign in {summary['same_sign']} "
+              f"of {summary['m_E4']}",
+              "Two clocks (section 10, SD-07; description, not a claim of real-time warning):"]
+    for row in report["two_clocks"]["rows"]:
+        lines.append(f"  j = {row['j']}, onset {row['onset']}: v_j = {row['vintage']} "
+                     f"({row['release_date'] or row['release_month']}, {row['release_basis']}); released before the "
+                     f"end of the onset quarter: {row['release_before_end_of_onset_quarter']}; months since the "
+                     f"previous vintage: {row['months_since_previous']}; first vintage showing the onset: "
+                     f"{row['first_vintage_showing_the_onset']}")
+    return "\n".join(lines) + "\n"
+
+
 # ------------------------------------------------------------------------------------ report
 
 def assemble(tables, result, *, input_record, input_sha256, D80) -> dict:
@@ -435,5 +502,6 @@ def write_report(directory, *, tables, result, input_record, input_sha256, D80, 
     surrogate_figure(directory, retained=[r["statistic"] for r in report["primary_surrogates"]
                                           if r["status"] == "retained"],
                      row=report["comparisons"][0], m_E4=report["m_E4"], title=title)
+    records.write_once(directory / "report.txt", text_report(report, data_kind).encode("utf-8"))
     return rc.finish(directory, report=report, analysis_report_rows=report["comparisons"], data_kind=data_kind,
                      metadata=metadata, interpretation=report["interpretation"])
