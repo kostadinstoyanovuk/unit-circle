@@ -1365,6 +1365,10 @@ def collect_paths(args):
 def verify(argv=None):
     """Run every check, print the report and return the JSON payload (also written to --report)."""
     args = parse_arguments(argv)
+    try:
+        sys.stdout.reconfigure(encoding="utf-8", errors="replace")      # quoted clauses hold non-ASCII signs
+    except (AttributeError, ValueError):
+        pass
     started = time.time()
     rep = Report(args.max_print, args.quiet)
     ctx = Context(args, rep)
