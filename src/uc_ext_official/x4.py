@@ -1,17 +1,20 @@
-"""X.4 and X.5 for E1 and E3: one registered run, outputs verified against their own hashes, then frozen.
+"""X.4 and X.5 for E1, E3 and E4: one registered run, outputs verified against their own hashes, then frozen.
 
 A run directory holds run-log.json, the complete analysis (analysis.json; for E3 also every surrogate
 fit in surrogate-fits.json.gz), report/ (tables, figures and manifest.json with the SHA-256 of every
 report file) and RUN_COMPLETE.json with the SHA-256 of the log, the analysis files and the report
 manifest. The run re-reads everything it wrote before it reports success; the freeze verifies the
 same hashes again, copies the outputs into audit/ek/ and figures/, verifies the copies, and writes
-audit/Ek_RESULT.json. Tags (e1-frozen, e3-frozen) are named in printed instructions only.
+audit/Ek_RESULT.json. Tags (e1-frozen, e3-frozen, e4-frozen) are named in printed instructions only.
 
-Outcome wording (prereg/E1.md and prereg/E3.md section 11, as H1 section 10). DR-E1 and DR-E3 decide
-with the Holm-adjusted p at family closure (DR-2); at freeze only the raw p exists and is reported as
-"raw, not family-adjusted". Because a Holm-adjusted p is never below its raw p, a raw p above 0.05
-already fixes the inconclusive branch; a raw p at or below 0.05 leaves the decision to family closure
-and no rejection is declared from it.
+Outcome wording (prereg/E1.md, prereg/E3.md and prereg/E4.md section 11, as H1 section 10). DR-E1, DR-E3
+and DR-E4 decide with the Holm-adjusted p at family closure (DR-2); at freeze only the raw p exists and is
+reported as "raw, not family-adjusted". Because a Holm-adjusted p is never below its raw p, a raw p above
+0.05 already fixes the inconclusive branch; a raw p at or below 0.05 leaves the decision to family closure
+and no rejection is declared from it. E4 adds its reference ("fixed-date AR(2) surrogates fitted to each
+episode's first vintage containing the quarter before onset"), the limit of SD-07 (revision sensitivity,
+not warning available before the onset quarter began) and its not-estimable rule (m_E4 = 0 is recorded as
+failed with Holm input 1, section 7); the E1 and E3 wording is unchanged.
 """
 from __future__ import annotations
 
@@ -25,14 +28,21 @@ from uc_core.validation_runner import serial
 
 from . import gates, records
 
-REGISTERED_OUTPUT = dict(e1="runs/e1-registered", e3="runs/e3-registered")
-REGISTERED_KIND = dict(e1="boe_millennium_e1_registered", e3="uk_abmi_e3_registered")
+REGISTERED_OUTPUT = dict(e1="runs/e1-registered", e3="runs/e3-registered", e4="runs/e4-registered")
+REGISTERED_KIND = dict(e1="boe_millennium_e1_registered", e3="uk_abmi_e3_registered",
+                       e4="ons_realtime_abmi_e4_registered")
 REHEARSAL_KIND = "artificial_pipeline_rehearsal"
 PRIMARY_RUN, RECOMPUTATION = "registered primary run", "recomputation"
 RAW_P_LABEL = "raw, not family-adjusted"
 LEVEL = 0.05
 FIGURES = ("persistence", "surrogates")
+FIGURES_BY_EXTENSION = dict(e1=FIGURES, e3=FIGURES, e4=("realtime", "surrogates"))
 FIGURE_EXTENSIONS = ("svg", "png", "pdf")
+E4_REFERENCE = ("fixed-date AR(2) surrogates fitted to each episode's first vintage containing the quarter "
+                "before onset")
+E4_LIMIT = ("E4 measures the revision sensitivity of the H1 statistic in the first vintage that contains the "
+            "quarter before onset; it is not a test of warning available before the onset quarter began, and the "
+            "onset dates come from final data (prereg/E4.md sections 2 and 11; SD-07).")
 STATEMENTS = dict(
     e1=dict(reject=("The observed mean pre-onset change in annual data was unusually large relative to the "
                     "registered fitted constant-AR(2) surrogate procedure."),
@@ -41,7 +51,13 @@ STATEMENTS = dict(
     e3=dict(reject=("The observed mean pre-onset change was unusually large relative to the registered fitted "
                     "constant-AR(2) surrogate procedure with a re-estimated time-varying AR(2)."),
             inconclusive=("The primary comparison did not detect an unusually large pre-onset change under the "
-                          "registered surrogate model.")))
+                          "registered surrogate model.")),
+    e4=dict(reject=("The observed mean real-time pre-onset change was unusually large relative to "
+                    f"{E4_REFERENCE}. This concerns the revision sensitivity of the H1 statistic, not warning "
+                    "available before the onset quarter began."),
+            inconclusive=("The E4 comparison did not detect an unusually large real-time pre-onset change relative "
+                          f"to {E4_REFERENCE}. This concerns the revision sensitivity of the H1 statistic, not "
+                          "warning available before the onset quarter began.")))
 BRANCH_B_SCOPE = "A labelled diagnostic, not a finding of absence or equivalence (H1 section 10)."
 
 
@@ -49,8 +65,39 @@ def _finite(value):
     return not isinstance(value, bool) and isinstance(value, (int, float)) and math.isfinite(value)
 
 
-def interpretation(extension: str, row: dict, interval, D80) -> dict:
-    """The section 11 outcome at freeze for the primary comparison row (uc_ext report row)."""
+def interpretation(extension: str, row: dict, interval, D80, details=None) -> dict:
+    """The section 11 outcome at freeze for the primary comparison row (uc_ext report row).
+
+    `details` is read for E4 only: {"deltas": [{"j", "onset", "delta_rt"}, ...]}, every Delta_rt that the
+    outcome statement reports (prereg/E4.md section 11). The E1 and E3 results are those of the shared rule.
+    """
+    result = _interpretation(extension, row, interval, D80)
+    if extension == "e4":
+        result = _e4_interpretation(result, row, details)
+    return result
+
+
+def _e4_interpretation(result: dict, row: dict, details) -> dict:
+    """E4 additions (prereg/E4.md sections 7 and 11): the reference, SD-07's limit, every Delta_rt with k/m_E4,
+    and the not-estimable rule: m_E4 = 0 is recorded as failed and enters DR-2 with Holm input 1."""
+    deltas = list((details or {}).get("deltas") or [])
+    m, k = row.get("m"), row.get("k")
+    result.update(reference=E4_REFERENCE, limit=E4_LIMIT, deltas=deltas,
+                  k_over_m=(f"{k}/{m}" if k is not None and m else None))
+    if result["conclusion"] in ("not_estimable", "failed"):
+        result.update(recorded_as="failed", holm_input=1.0)
+        if result["conclusion"] == "not_estimable" and not m:
+            result.update(
+                text=("E4 is not estimable: no H1 eligible episode is E4-eligible (m_E4 = 0). It is neither a "
+                      "rejection nor a non-rejection."),
+                basis=("m_E4 = 0: E4 is not estimable, is recorded as failed and enters DR-2 with Holm input 1 "
+                       "(prereg/E4.md section 7; H1 section 11). Its raw p stays missing."))
+    else:
+        result.update(recorded_as=result["conclusion"], holm_input=result["raw_p"])
+    return result
+
+
+def _interpretation(extension: str, row: dict, interval, D80) -> dict:
     name = gates.extension_name(extension)
     value, p, status = row.get("value"), row.get("p_value"), row.get("status")
     if value is not None and not _finite(value):
@@ -180,7 +227,8 @@ def summary(extension: str, run: Path, log: dict, manifest: dict, frozen: dict) 
         episode_interval=dict(status=interval.get("status"), interval=interval.get("interval"),
                               episodes=interval.get("episode_count"), requested=interval.get("requested")),
         comparisons=rows, episodes=report["episodes"], frozen_files=frozen)
-    for key in ("exogenous_episodes", "territory_flags", "descriptive"):
+    for key in ("exogenous_episodes", "territory_flags", "descriptive",
+                "selections", "real_time_against_final", "two_clocks", "availability_summary"):   # the last four: E4
         if key in report:
             record[key] = report[key]
     return record
@@ -196,7 +244,8 @@ def freeze(root, run, extension: str) -> dict:
     if target.exists() or result_path.exists():
         raise records.RecordExists(f"audit/{extension}/ or audit/{name}_RESULT.json already exists; "
                                    "a result is frozen once")
-    figures = {f"{figure}.{suffix}" for figure in FIGURES for suffix in FIGURE_EXTENSIONS}
+    figures = {f"{figure}.{suffix}" for figure in FIGURES_BY_EXTENSION.get(extension, FIGURES)
+               for suffix in FIGURE_EXTENSIONS}
     existing = [f"figures/{extension}_{file}" for file in sorted(figures & set(manifest["file_sha256"]))
                 if (root / "figures" / f"{extension}_{file}").exists()]
     if existing:
