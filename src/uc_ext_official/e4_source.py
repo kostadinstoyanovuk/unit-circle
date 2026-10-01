@@ -36,11 +36,11 @@ from zoneinfo import ZoneInfo
 
 import numpy as np
 
-from uc_e4.table import (KINDS, ErrorValue, RawPart, Stop, availability_report, build_tables, mask_digits,
-                         parse_quarter, parse_release_month)
+from uc_e4.table import (KINDS, ErrorValue, RawPart, ReadLabel, Stop, availability_report, build_tables,
+                         mask_digits, parse_quarter, parse_release_month)
 
 from . import gates, records
-from .workbook import Workbook, WorkbookError, column_letter, serial_to_date
+from .workbook import Workbook, WorkbookError, column_index, column_letter, serial_to_date
 
 LONDON = ZoneInfo("Europe/London")
 UTC = _dt.timezone.utc
@@ -767,7 +767,8 @@ def _is_quarter(cell) -> bool:
         return False
 
 
-def _is_vintage(cell) -> bool:
+def _is_vintage(cell, label_reading=None) -> bool:
+    """A header cell that is a vintage label: a date, or a text that parses (R-4.4; under amendment 1, rule A)."""
     if cell is None:
         return False
     if cell.kind == "date":
@@ -775,7 +776,10 @@ def _is_vintage(cell) -> bool:
     if cell.kind != "text":
         return False
     try:
-        parse_release_month(cell.text)
+        if label_reading is None:
+            parse_release_month(cell.text)
+        else:
+            read_vintage_label(cell.text, century_pivot=label_reading["rule_a"]["century_pivot"])
         return True
     except ValueError:
         return False
@@ -821,13 +825,300 @@ def _quarter_label(cell):
     return cell.text if cell.kind == "text" else _Placeholder(f"({cell.kind})")
 
 
-def find_blocks(by_row, sheet_name) -> list[dict]:
+# ------------------------------------------------- amendment 1: vintage labels and the join of the parts
+#
+# E4 amendment 1 (docs/E4_AMENDMENT_1_CODE.md) settles, for the acquired workbook, how a vintage label is read
+# (rule A), three header cells read by place (rule B) and the join of parts whose reference-quarter rows differ
+# in number (rule C). The grammar of rule A is fixed here, as the amendment states it; the century pivot and the
+# readings by place are taken from the committed amendment record, so that the record shows what was read how.
+# Without an amendment record that carries a `label_reading` section, nothing below is used and the registered
+# readings apply (R-4.4, R-4.7).
+
+RULE_A_CODES = ("M1", "M2", "1st", "QNA")
+JOIN_RULE = "first_labels_of_longest_part"
+WITHHELD_PROPERTIES = ("creator", "lastModifiedBy")
+NAME_WITHHELD = "(name withheld)"
+_FULL_MONTHS = ("january", "february", "march", "april", "may", "june", "july", "august", "september", "october",
+                "november", "december")
+# Rule A: an English month name in full or as its first three letters (read without regard to case).
+_RULE_A_MONTHS = {name: number for number, full in enumerate(_FULL_MONTHS, start=1) for name in (full, full[:3])}
+_RULE_A_SPACE = re.compile(r"[ \r\n]+")
+_RULE_A = re.compile(r"([A-Za-z]+) ?- ?([0-9]{4}|[0-9]{2})( \[[0-9]{4} prices\])?(?: ("
+                     + "|".join(re.escape(code) for code in RULE_A_CODES) + "))?")
+
+
+def normalise_label(text) -> str:
+    """Rule A: each run of spaces and line breaks replaced by one space, and the ends trimmed."""
+    return _RULE_A_SPACE.sub(" ", str(text)).strip(" ")
+
+
+def read_vintage_label(text, *, century_pivot) -> ReadLabel:
+    """Amendment 1, rule A: the release month of one vintage label, or ValueError with the reason.
+
+    After normalising the white space, the label is a month name (in full or its first three letters), a
+    hyphen with at most one space on either side, a year of two or four digits, optionally ' [dddd prices]',
+    optionally one code (M1, M2, 1st, QNA) after one space. The release month is the month named in the year
+    given; a two-digit year yy is 19yy when yy >= `century_pivot`, else 20yy. The note and the code do not change
+    the month. The `ReadLabel` keeps the normalised text.
+    """
+    if not isinstance(text, str):
+        raise ValueError("not a text")
+    normal = normalise_label(text)
+    match = _RULE_A.fullmatch(normal)
+    if match is None:
+        raise ValueError("not of the form of rule A (month name, hyphen, year of two or four digits, optional "
+                         "price-base note, optional code)")
+    name, year_text = match.group(1), match.group(2)
+    month = _RULE_A_MONTHS.get(name.lower())
+    if month is None:
+        raise ValueError("the month is not an English month name in full or its first three letters")
+    year = int(year_text)
+    if len(year_text) == 2:
+        year += 1900 if year >= century_pivot else 2000
+    if not 1000 <= year <= 2999:
+        raise ValueError("year out of range")
+    return ReadLabel(normal, year, month)
+
+
+def label_form(text) -> dict:
+    """Whether a label of the form of rule A carries a price-base note and a code (for the printed counts)."""
+    match = _RULE_A.fullmatch(normalise_label(text))
+    return dict(note=bool(match and match.group(3)), code=bool(match and match.group(4)))
+
+
+def validate_label_reading(section) -> dict:
+    """The `label_reading` section of an amendment record, checked; GateClosed when it is malformed.
+
+    Schema (docs/E4_AMENDMENT_1_CODE.md): {"rule_a": {"century_pivot": int, "codes": [the four codes]},
+    "readings_by_place": [{"sheet", "column", "text", "release_month": "YYYY-MM"}, ...],
+    "join": {"rule": "first_labels_of_longest_part"}}; no other keys.
+    """
+    def closed(why):
+        raise gates.GateClosed(f"The amendment record's label_reading section is malformed: {why}")
+
+    if not isinstance(section, dict) or set(section) != {"rule_a", "readings_by_place", "join"}:
+        closed("it must hold exactly rule_a, readings_by_place and join")
+    rule_a = section["rule_a"]
+    if not isinstance(rule_a, dict) or set(rule_a) != {"century_pivot", "codes"}:
+        closed("rule_a must hold exactly century_pivot and codes")
+    pivot = rule_a["century_pivot"]
+    if type(pivot) is not int or not 1 <= pivot <= 99:
+        closed("century_pivot must be an integer from 1 to 99")
+    codes = rule_a["codes"]
+    if not isinstance(codes, list) or len(codes) != len(set(map(str, codes))) or set(codes) != set(RULE_A_CODES):
+        closed("codes must be exactly " + ", ".join(RULE_A_CODES) + " (the grammar of rule A is fixed in the code)")
+    places = section["readings_by_place"]
+    if not isinstance(places, list):
+        closed("readings_by_place must be a list")
+    entries, seen = [], set()
+    for entry in places:
+        if not isinstance(entry, dict) or set(entry) != {"sheet", "column", "text", "release_month"}:
+            closed("each reading by place holds exactly sheet, column, text and release_month")
+        if not all(isinstance(entry[key], str) and entry[key].strip() for key in entry):
+            closed("each field of a reading by place is a non-empty text")
+        if not re.fullmatch(r"[A-Z]{1,3}", entry["column"]):
+            closed(f"column {entry['column']!r} is not a column letter")
+        month = re.fullmatch(r"([0-9]{4})-([0-9]{2})", entry["release_month"])
+        if not month or not 1000 <= int(month.group(1)) <= 2999 or not 1 <= int(month.group(2)) <= 12:
+            closed(f"release_month {entry['release_month']!r} is not a month written YYYY-MM")
+        key = (entry["sheet"], entry["column"])
+        if key in seen:
+            closed(f"two readings by place for sheet {entry['sheet']!r}, column {entry['column']}")
+        seen.add(key)
+        entries.append(dict(entry, year=int(month.group(1)), month=int(month.group(2))))
+    if section["join"] != {"rule": JOIN_RULE}:
+        closed(f"join must be {{'rule': '{JOIN_RULE}'}}")
+    return dict(rule_a=dict(century_pivot=pivot, codes=list(RULE_A_CODES)), readings_by_place=entries,
+                join=dict(rule=JOIN_RULE))
+
+
+def load_label_reading(root, amendment):
+    """The checked `label_reading` section of a committed amendment record, or None when it has none."""
+    try:
+        record = records.read_json(Path(root) / amendment)
+    except (OSError, ValueError) as error:
+        raise gates.GateClosed(f"The amendment record {amendment} cannot be read as JSON: {error}") from None
+    if not isinstance(record, dict):
+        raise gates.GateClosed(f"The amendment record {amendment} is not a JSON object")
+    if "label_reading" not in record:
+        return None
+    return validate_label_reading(record["label_reading"])
+
+
+class _Unparsed:
+    """A text vintage label that rule A does not read: handed over as neither text nor date, so that the
+    registered step 3 stops on it in the registered order of stops (R-4.9); it prints as its own text."""
+    __slots__ = ("text",)
+
+    def __init__(self, text):
+        self.text = text
+
+    def __str__(self):
+        return self.text
+
+    __repr__ = __str__
+
+
+def _months(year, month):
+    return 12 * year + month - 1
+
+
+def _month_text(year, month):
+    return f"{year}-{month:02d}"
+
+
+def _read_by_place(sheet, column, value, entry, by_column, pivot):
+    """Rule B at one place: the exact listed text, and the labels on either side read by rule A as two months
+    apart with the listed month between them; otherwise Stop at step 3 naming the place."""
+    place = f"sheet {sheet!r}, column {column_letter(column)}"
+    detail = dict(sheet=sheet, column=column_letter(column))
+    if not isinstance(value, str) or normalise_label(value) != normalise_label(entry["text"]):
+        raise Stop("4.3", f"reading by place at {place}: the cell does not hold exactly the listed text",
+                   dict(detail, label=mask_digits(value)))
+    sides = []
+    for other in (column - 1, column + 1):
+        try:
+            sides.append((other, read_vintage_label(by_column.get(other), century_pivot=pivot)))
+        except ValueError as error:
+            raise Stop("4.3", f"reading by place at {place}: the label in column {column_letter(other)} does not "
+                       f"read by rule A ({error})", dict(detail, neighbour=column_letter(other))) from None
+    (left, before), (right, after) = sides
+    listed = _months(entry["year"], entry["month"])
+    if abs(_months(after.year, after.month) - _months(before.year, before.month)) != 2 or 2 * listed != (
+            _months(before.year, before.month) + _months(after.year, after.month)):
+        raise Stop("4.3", f"reading by place at {place}: the labels on either side do not read as two months apart "
+                   "with the listed month between them", dict(detail, before=_month_text(before.year, before.month),
+                                                              after=_month_text(after.year, after.month)))
+    label = ReadLabel(normalise_label(value), entry["year"], entry["month"])
+    applied = dict(sheet=sheet, column=column_letter(column), text=label.text,
+                   release_month=_month_text(label.year, label.month),
+                   before=dict(column=column_letter(left), text=before.text,
+                               release_month=_month_text(before.year, before.month)),
+                   after=dict(column=column_letter(right), text=after.text,
+                              release_month=_month_text(after.year, after.month)))
+    return label, applied
+
+
+def _read_labels(piece, reading, date1904):
+    """The vintage labels of one part: as registered without a reading; under amendment 1, rule B at its places
+    on this sheet, rule A for every other text label, a date-typed cell as registered (a date)."""
+    columns = piece["columns"]
+    raw = [_label_value(piece["header"].get(col), date1904, piece["serials"]) for col in columns]
+    if reading is None:
+        return tuple(raw), [], [], []
+    pivot = reading["rule_a"]["century_pivot"]
+    by_column = dict(zip(columns, raw))
+    places = {column_index(e["column"]): e for e in reading["readings_by_place"] if e["sheet"] == piece["sheet"]}
+    labels, readings, applied, failures = [], [], [], []
+    for column, value in zip(columns, raw):
+        where = dict(sheet=piece["sheet"], column=column_letter(column))
+        if column in places:
+            label, used = _read_by_place(piece["sheet"], column, value, places[column], by_column, pivot)
+            applied.append(used)
+            rule = "B"
+        elif isinstance(value, str):
+            try:
+                label, rule = read_vintage_label(value, century_pivot=pivot), "A"
+            except ValueError as error:
+                label, rule = _Unparsed(normalise_label(value)), None
+                failures.append(dict(where, label=mask_digits(label.text), why=str(error)))
+        elif isinstance(value, _dt.date):
+            label, rule = value, "date"
+        else:
+            label, rule = value, None
+        labels.append(label)
+        if rule is not None:
+            year, month = parse_release_month(label)
+            readings.append(dict(where, text=str(label) if rule != "date" else label.isoformat(), year=year,
+                                 month=month, rule=rule))
+    return tuple(labels), readings, applied, failures
+
+
+def _join_on_first_labels(pieces):
+    """Rule C: each part's reference-quarter labels are, in order, the first labels of the longest part's;
+    each shorter part is extended to the longest part's labels with empty cells (None). Stop 4.1 otherwise."""
+    longest = max(range(len(pieces)), key=lambda i: len(pieces[i]["quarter_labels"]))
+    reference = tuple(pieces[longest]["quarter_labels"])
+    padded = []
+    for piece in pieces:
+        labels = tuple(piece["quarter_labels"])
+        if labels != reference[:len(labels)]:
+            i = next(i for i, (a, b) in enumerate(zip(labels, reference)) if a != b)
+            raise Stop("4.1", f"parts cannot be joined under amendment 1, rule C: the reference-quarter labels of the "
+                       f"part on sheet {piece['sheet']!r} are not the first labels of the longest part (sheet "
+                       f"{pieces[longest]['sheet']!r}): row {piece['rows'][i]} (position {i + 1}) holds "
+                       f"{mask_digits(labels[i])!r} where the longest part holds {mask_digits(reference[i])!r}",
+                       dict(sheet=piece["sheet"], row=piece["rows"][i], position=i + 1,
+                            longest_part=pieces[longest]["sheet"]))
+        extra = len(reference) - len(labels)
+        empty = tuple(None for _ in piece["columns"])
+        padded.append(dict(piece, quarter_labels=reference, cells=tuple(piece["cells"]) + (empty,) * extra,
+                           padded_rows=extra))
+    return padded, dict(rule=JOIN_RULE, longest_part=pieces[longest]["sheet"], rows=len(reference),
+                        padded_rows={p["sheet"]: p["padded_rows"] for p in padded})
+
+
+def table_parts(pieces, reading, date1904) -> dict:
+    """The raw parts of the table, built in one way for the mapping and for the level reader (X.4).
+
+    `pieces`: per part, in sheet order, dict(sheet, columns, rows, header {column: Cell}, serials,
+    quarter_labels, cells). Without a reading (None) the parts are exactly the registered ones. Under amendment 1
+    the labels are read by rules A and B, and, once every vintage label parses, the parts are joined on the
+    first labels of the longest part (rule C, padding). Returns the parts and what was read how.
+    """
+    known = {(p["sheet"], col) for p in pieces for col in p["columns"]}
+    for entry in (reading or {}).get("readings_by_place", []):
+        if (entry["sheet"], column_index(entry["column"])) not in known:
+            raise Stop("4.3", f"reading by place at sheet {entry['sheet']!r}, column {entry['column']}: there is no "
+                       "vintage label of the table at that place", dict(sheet=entry["sheet"], column=entry["column"]))
+    built, readings, applied, failures, summary = [], [], [], [], []
+    for piece in pieces:
+        labels, piece_readings, piece_applied, piece_failures = _read_labels(piece, reading, date1904)
+        built.append(dict(piece, labels=labels))
+        readings += piece_readings
+        applied += piece_applied
+        failures += piece_failures
+        if reading is not None:
+            forms = dict(plain=0, with_note=0, with_code=0, by_place=0, date=0, not_read=0)
+            for r in piece_readings:
+                if r["rule"] == "A":
+                    form = label_form(r["text"])
+                    forms["with_note"] += form["note"]
+                    forms["with_code"] += form["code"]
+                    forms["plain"] += not (form["note"] or form["code"])
+                else:
+                    forms["by_place" if r["rule"] == "B" else "date"] += 1
+            forms["not_read"] = len(labels) - len(piece_readings)
+            months = [(r["year"], r["month"]) for r in piece_readings]
+            summary.append(dict(sheet=piece["sheet"], vintage_labels=len(labels), forms=forms,
+                                first_release_month=_month_text(*min(months)) if months else None,
+                                last_release_month=_month_text(*max(months)) if months else None,
+                                reference_quarter_rows=len(piece["quarter_labels"]),
+                                last_quarter=_mask(piece["quarter_labels"][-1]) if piece["quarter_labels"] else None))
+    join = None
+    if reading is not None and len(built) > 1 and not failures and all(
+            isinstance(label, (ReadLabel, _dt.date)) for p in built for label in p["labels"]):
+        built, join = _join_on_first_labels(built)
+    parts = [RawPart(p["sheet"], p["labels"], tuple(p["quarter_labels"]), tuple(p["cells"])) for p in built]
+    amended = None if reading is None else dict(parts=summary, readings_by_place=applied, join=join,
+                                                rule_a_failures=failures,
+                                                century_pivot=reading["rule_a"]["century_pivot"])
+    return dict(parts=parts, label_readings=readings, amended=amended)
+
+
+def label_readings_sha256(readings) -> str:
+    return gates.sha256_bytes(json.dumps(readings, sort_keys=True, ensure_ascii=False,
+                                         separators=(",", ":")).encode("utf-8"))
+
+
+def find_blocks(by_row, sheet_name, label_reading=None) -> list[dict]:
     """R-X2.7: candidate vintage-by-quarter tables on one sheet, from labels and cell types only.
 
     A label column holds at least two reference-quarter labels (runs split where a row of vintage labels
     intervenes); its header row is the nearest row above the first of them with a vintage label to the right
     of the label column. The table's columns run from the first to the last non-empty cell of the header row
     right of the label column; its rows from the first to the last reference-quarter label of the run.
+    Under amendment 1 (`label_reading`) a text header cell is a vintage label when rule A reads it.
     """
     quarters = defaultdict(list)
     for row, cells in by_row.items():
@@ -839,7 +1130,8 @@ def find_blocks(by_row, sheet_name) -> list[dict]:
         rows.sort()
         runs, current = [], [rows[0]]
         for a, b in zip(rows, rows[1:]):
-            if any(_is_vintage(cell) for r in range(a + 1, b) for c, cell in by_row.get(r, {}).items() if c > column):
+            if any(_is_vintage(cell, label_reading) for r in range(a + 1, b)
+                   for c, cell in by_row.get(r, {}).items() if c > column):
                 runs.append(current)
                 current = [b]
             else:
@@ -849,7 +1141,8 @@ def find_blocks(by_row, sheet_name) -> list[dict]:
             if len(run) < 2:
                 continue
             header = next((r for r in range(run[0] - 1, 0, -1)
-                           if any(_is_vintage(cell) for c, cell in by_row.get(r, {}).items() if c > column)), None)
+                           if any(_is_vintage(cell, label_reading)
+                                  for c, cell in by_row.get(r, {}).items() if c > column)), None)
             blocks.append(dict(sheet=sheet_name, label_column=column, header_row=header, first_row=run[0],
                                last_row=run[-1]))
     return blocks
@@ -904,16 +1197,17 @@ def _document_texts(workbook) -> list[dict]:
             for key, value in sorted(workbook.document_properties().items())]
 
 
-def read_structure(workbook: Workbook) -> dict:
+def read_structure(workbook: Workbook, label_reading=None) -> dict:
     """Everything the mapping prints, from text cells and cell types: sheets, titles and notes (numbers
-    blanked), comments, the table geometry and its raw parts, or the step 4.1 stop found."""
+    blanked), comments, the table geometry and its raw parts, or the step 4.1 stop found. Under amendment 1
+    (`label_reading`, a checked section) the parts are built by `table_parts` with rules A, B and C."""
     date1904 = workbook.date1904
-    sheets, texts, parts, shaped, stop = [], _document_texts(workbook), [], [], None
+    sheets, texts, pieces, shaped, stop = [], _document_texts(workbook), [], [], None
     for sheet in workbook.sheets:
         by_row = defaultdict(dict)
         for cell in workbook.cells(sheet, dates=True):
             by_row[cell.row][cell.column] = cell
-        blocks = find_blocks(by_row, sheet.name)
+        blocks = find_blocks(by_row, sheet.name, label_reading)
         headed = [b for b in blocks if b["header_row"] is not None]
         inside = set()
         sheet_shaped = []
@@ -951,16 +1245,27 @@ def read_structure(workbook: Workbook) -> dict:
                                                                    if by_row[shape["header_row"]].get(col) is not None
                                                                    and by_row[shape["header_row"]][col].kind == "date"})
                                if cell.kind == "date"}      # only date-typed header cells: a bare number is not read
-                labels = tuple(_label_value(by_row[shape["header_row"]].get(col), date1904, serials)
-                               for col in shape["columns"])
+                header = {col: by_row[shape["header_row"]].get(col) for col in shape["columns"]}
                 quarter_labels = tuple(_quarter_label(by_row[r].get(shape["label_column"])) for r in shape["rows"])
                 cells = tuple(tuple(_body_value(by_row[r].get(col)) for col in shape["columns"]) for r in shape["rows"])
-                parts.append(RawPart(sheet.name, labels, quarter_labels, cells))
+                pieces.append(dict(sheet=sheet.name, columns=list(shape["columns"]), rows=list(shape["rows"]),
+                                   header=header, serials=serials, quarter_labels=quarter_labels, cells=cells))
+    parts, readings, amended = [], [], None
+    if label_reading is None:
+        parts = table_parts(pieces, None, date1904)["parts"]
+    elif stop is None and pieces:
+        try:
+            built = table_parts(pieces, label_reading, date1904)
+            parts, readings, amended = built["parts"], built["label_readings"], built["amended"]
+        except Stop as error:
+            stop = error
     if stop is None and not parts:
         stop = Stop("4.1", "there is no vintage-by-quarter table (no column of reference-quarter labels with a row "
                     "of vintage labels above it)")
-    return dict(sheets=sheets, texts=texts, parts=parts, shaped=shaped, stop=stop,
-                document_properties={k: blank_numbers(v) for k, v in workbook.document_properties().items()})
+    return dict(sheets=sheets, texts=texts, parts=parts, shaped=shaped, stop=stop, label_readings=readings,
+                amended=amended,
+                document_properties={k: (NAME_WITHHELD if k in WITHHELD_PROPERTIES else blank_numbers(v))
+                                     for k, v in workbook.document_properties().items()})
 
 
 # --------------------------------------------------------------- title, cover and notes (release rule)
@@ -1066,6 +1371,7 @@ def format_mapping(result: dict) -> str:
                           + (f", separator rows {', '.join(map(str, part['separator_rows']))}" if part["separator_rows"] else ""),
                       "Vintage labels: " + " | ".join(part["vintage_labels"]),
                       "Reference-quarter labels: " + " | ".join(part["quarter_labels"])]
+    lines += _format_amended(result)
     report = result.get("availability")
     if report:
         lines += ["", "Availability per vintage (cells of each kind; no level):",
@@ -1087,6 +1393,45 @@ def format_mapping(result: dict) -> str:
         lines.append("Stop and amend (prereg/E4.md section 13): the amendment is registered before any level is read, "
                      "then the mapping is run again. " + result["stop"]["consequence"])
     return "\n".join(lines) + "\n"
+
+
+def _format_amended(result) -> list:
+    """What the mapping prints under amendment 1: labels by form, release-month ranges, rows and last quarter
+    per part, the readings by place applied with their neighbours, and the join. Labels and counts only."""
+    if result.get("amendment") is None:
+        return []
+    lines = ["", f"Amendment cited: {result['amendment']['record']} (SHA-256 {result['amendment']['sha256']})"]
+    if "label_reading" not in result:
+        return lines + ["Vintage labels read and parts joined as registered (the record has no label_reading section)."]
+    reading = result["label_reading"]
+    lines.append(f"Vintage labels read under amendment 1: rule A (two-digit years from {reading['rule_a']['century_pivot']}"
+                 f" are 19yy, others 20yy; codes {', '.join(reading['rule_a']['codes'])}), rule B at "
+                 f"{len(reading['readings_by_place'])} place(s), rule C join ({reading['join']['rule']}).")
+    amended = result.get("amended_reading")
+    if not amended:
+        return lines
+    for part in amended["parts"]:
+        forms = part["forms"]
+        lines.append(f"  part {part['sheet']!r}: {part['vintage_labels']} vintage labels (plain {forms['plain']}, with "
+                     f"note {forms['with_note']}, with code {forms['with_code']}, by place {forms['by_place']}, date "
+                     f"{forms['date']}, not read {forms['not_read']}); release months {part['first_release_month']} to "
+                     f"{part['last_release_month']}; {part['reference_quarter_rows']} reference-quarter rows, last "
+                     f"{part['last_quarter']}")
+    lines.append("Readings by place applied:")
+    lines += [f"  {p['sheet']!r} column {p['column']}: {p['text']!r} read as {p['release_month']} (column "
+              f"{p['before']['column']} {p['before']['text']!r} {p['before']['release_month']}; column "
+              f"{p['after']['column']} {p['after']['text']!r} {p['after']['release_month']})"
+              for p in amended["readings_by_place"]] or ["  none"]
+    if amended["rule_a_failures"]:
+        lines.append("Vintage labels that rule A does not read (digits as #):")
+        lines += [f"  {f['sheet']!r} column {f['column']}: {f['label']!r}: {f['why']}" for f in amended["rule_a_failures"]]
+    join = amended.get("join")
+    if join:
+        order = (result.get("manifest") or {}).get("parts")
+        lines.append(f"Join (rule C): longest part {join['longest_part']!r} ({join['rows']} reference-quarter rows); rows "
+                     "padded with empty cells: " + ", ".join(f"{sheet!r} {n}" for sheet, n in join["padded_rows"].items())
+                     + (f"; parts in the order of their vintage ranges: {order}" if order else ""))
+    return lines
 
 
 def _mask(value):
@@ -1113,9 +1458,15 @@ def map_structure(root, *, amendment=None) -> dict:
         if amendment is None:
             raise gates.GateClosed("The previous mapping attempt stopped: name the committed amendment record that "
                                    "settles it (section 13) before the mapping is run again")
+    reading = None
     if amendment is not None:
         gates.check_committed(root, amendment)
         cited = dict(record=amendment, sha256=gates.sha256_file(root / amendment))
+        reading = load_label_reading(root, amendment)
+        if reading is None and last is not None and last.get("step") in ("4.1", "4.3"):
+            raise gates.GateClosed(f"The previous mapping attempt stopped at step {last.get('step')} (join or labels), "
+                                   f"and the amendment record {amendment} has no label_reading section stating how the "
+                                   "labels are read and the parts joined (docs/E4_AMENDMENT_1_CODE.md)")
     content = _raw(root, acquisition)
     if gates.sha256_file(root / EDITION_RECORD) != acquisition["edition_record_sha256"]:
         raise gates.GateClosed(f"{EDITION_RECORD} differs from the edition record the acquisition cites")
@@ -1125,10 +1476,18 @@ def map_structure(root, *, amendment=None) -> dict:
                   file=acquisition["file"], raw_sha256=acquisition["sha256"], edition=edition, amendment=cited,
                   registration_id=gate.get("registration_id"), mapped_utc=gates.now_utc(), sheets=[],
                   document_properties={}, readings="docs/E4_X2_READINGS.md")
+    if reading is not None:
+        result["label_reading"] = dict(rule_a=reading["rule_a"], join=reading["join"],
+                                       readings_by_place=[{k: e[k] for k in ("sheet", "column", "text", "release_month")}
+                                                          for e in reading["readings_by_place"]])
     try:
-        structure = read_structure(Workbook(content))
+        structure = read_structure(Workbook(content), label_reading=reading)
         result.update(sheets=structure["sheets"], document_properties=structure["document_properties"])
-        conflicts = check_title_and_notes(structure["texts"], edition)
+        if reading is not None:
+            result["amended_reading"] = structure["amended"]
+        withheld = {f"document property {key}" for key in WITHHELD_PROPERTIES}
+        conflicts = [dict(c, text=NAME_WITHHELD) if c["where"] in withheld else c
+                     for c in check_title_and_notes(structure["texts"], edition)]
         result["conflicts"] = conflicts
         if conflicts:
             raise SourceStop("release rule", f"{len(conflicts)} text(s) of the title, cover or notes name another "
@@ -1152,6 +1511,9 @@ def map_structure(root, *, amendment=None) -> dict:
                                                    for k, v in tables.manifest.items()},
                       kinds_sha256=gates.sha256_bytes(np.ascontiguousarray(tables.availability.kinds).tobytes()),
                       status="mapped", stop=None)
+        if reading is not None:
+            result.update(label_readings=structure["label_readings"],
+                          label_readings_sha256=label_readings_sha256(structure["label_readings"]))
     except Stop as stop:
         kind = "release rule" if isinstance(stop, SourceStop) else "structure mapping"
         result.update(status="stopped", stop=dict(
@@ -1203,10 +1565,18 @@ def read_level_tables(root) -> dict:
     mapping = records.read_json(root / MAPPING_JSON)
     if mapping.get("status") != "mapped" or mapping.get("raw_sha256") != acquisition["sha256"]:
         raise gates.GateClosed(f"{MAPPING_JSON} does not record a completed mapping of the acquired workbook")
+    reading = None
+    cited = mapping.get("amendment")
+    if cited is not None:
+        gates.check_committed(root, cited["record"])
+        if gates.sha256_file(root / cited["record"]) != cited["sha256"]:
+            raise gates.GateClosed(f"{cited['record']} differs from the amendment record that the mapping cites")
+        reading = load_label_reading(root, cited["record"])
+    if (reading is None) != ("label_readings" not in mapping):
+        raise gates.GateClosed(f"{MAPPING_JSON} and the amendment record it cites disagree on how the labels are read")
     workbook = Workbook(_raw(root, acquisition))
     date1904 = workbook.date1904
-    parts = []
-    from .workbook import column_index
+    pieces = []
     for part in mapping["table"]["parts"]:
         sheet = workbook.sheet(part["sheet"])
         label_column, header_row = column_index(part["label_column"]), part["header_row"]
@@ -1215,7 +1585,6 @@ def read_level_tables(root) -> dict:
         grid = {(cell.row, cell.column): cell for cell in workbook.cells(
             sheet, numbers=True, dates=True, rows=set(rows) | {header_row}, columns=set(columns) | {label_column})}
         serials = {key: cell.text for key, cell in grid.items() if key[0] == header_row and cell.kind == "date"}
-        labels = tuple(_label_value(grid.get((header_row, c)), date1904, serials) for c in columns)
         quarter_labels = tuple(_quarter_label(grid.get((r, label_column))) for r in rows)
         cells = []
         for r in rows:
@@ -1224,8 +1593,14 @@ def read_level_tables(root) -> dict:
                 cell = grid.get((r, c))
                 row.append(float(cell.text) if cell is not None and cell.kind == "number" else _body_value(cell))
             cells.append(tuple(row))
-        parts.append(RawPart(part["sheet"], labels, quarter_labels, tuple(cells)))
-    tables = build_tables(parts)
+        pieces.append(dict(sheet=part["sheet"], columns=columns, rows=rows,
+                           header={c: grid.get((header_row, c)) for c in columns}, serials=serials,
+                           quarter_labels=quarter_labels, cells=tuple(cells)))
+    built = table_parts(pieces, reading, date1904)              # the same construction as the mapping's
+    if reading is not None and (built["label_readings"] != mapping["label_readings"]
+                                or label_readings_sha256(built["label_readings"]) != mapping["label_readings_sha256"]):
+        raise gates.GateClosed("The vintage labels re-read under the amendment differ from those the mapping records")
+    tables = build_tables(built["parts"])
     kinds = gates.sha256_bytes(np.ascontiguousarray(tables.availability.kinds).tobytes())
     if kinds != mapping["kinds_sha256"]:
         raise gates.GateClosed("The availability of the re-read table differs from the recorded mapping")

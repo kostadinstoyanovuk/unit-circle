@@ -363,3 +363,135 @@ def e4_root(tmp_path, *, code_sha256="c" * 64, e1_code_sha256=E1_CODE):
 def commit_all(root, message="test step"):
     git(root, "add", "-A")
     git(root, "commit", "-q", "--allow-empty", "-m", message)
+
+
+# -------------------------------------------- the layout that E4 amendment 1 describes (constructed labels)
+
+FULL_MONTHS = ("January", "February", "March", "April", "May", "June", "July", "August", "September", "October",
+               "November", "December")
+# The three places of amendment 1, rule B, with the header texts that the amendment quotes (text only).
+PLACES = (("1961 - 1982", "H", "Sep-62 [1958 prices]", "1962-03"),
+          ("1961 - 1982", "CN", "Mar-62 [1963 prices]", "1969-03"),
+          ("1961 - 1982", "GQ", "Feb-772", "1978-02"))
+
+
+def short_label(year, month, *, full=False, four=False, note=None, code=None, before_code="\n", hyphen="-"):
+    """A constructed vintage label in the form of amendment 1 ('Oct-61'), with an optional note and code."""
+    text = f"{FULL_MONTHS[month - 1] if full else MONTHS[month - 1]}{hyphen}{year if four else f'{year % 100:02d}'}"
+    if note:
+        text += f" [{note} prices]"
+    if code:
+        text += before_code + code
+    return text
+
+
+def month_run(first, n):
+    year, month = first
+    out = []
+    for _ in range(n):
+        out.append((year, month))
+        year, month = (year + 1, 1) if month == 12 else (year, month + 1)
+    return out
+
+
+def label_reading(*, pivot=61, places=PLACES, codes=("M1", "M2", "1st", "QNA")):
+    """A constructed `label_reading` section of an amendment record (docs/E4_AMENDMENT_1_CODE.md)."""
+    return dict(rule_a=dict(century_pivot=pivot, codes=list(codes)),
+                readings_by_place=[dict(sheet=s, column=c, text=t, release_month=m) for s, c, t, m in places],
+                join=dict(rule="first_labels_of_longest_part"))
+
+
+def layout_cells(labels, n_quarters, *, values=None, title="Constructed real-time table of artificial levels"):
+    """One sheet in the layout of amendment 1: vintage labels in row 4 from column B, reference-quarter labels
+    in column A from row 5 (from 1955 Q1, no gap). The first half of the vintages has no level in the last row."""
+    numbers = levels(n_quarters, len(labels)) if values is None else values
+    cells = {(1, 1): LABEL, (2, 1): title, (4, 1): "Reference quarter"}
+    for k, label in enumerate(labels):
+        cells[(4, 2 + k)] = label
+    for i, quarter in enumerate(quarter_labels(n=n_quarters)):
+        cells[(5 + i, 1)] = quarter
+        for k in range(len(labels)):
+            covered = i < n_quarters - 1 or k >= len(labels) // 2
+            cells[(5 + i, 2 + k)] = float(numbers[i, k]) if covered else None
+    return cells
+
+
+def sheet_1961(n_quarters=20, *, changes=None):
+    """'1961 - 1982': 199 labels in columns B to GR, one month after the other from September 1961, so that the
+    neighbours of H, CN and GQ are the months the amendment names; H, CN and GQ hold the three quoted texts."""
+    labels = [short_label(y, m) for y, m in month_run((1961, 9), 199)]
+    labels[1] = short_label(1961, 10, note=1950)                       # a constructed note
+    labels[3] = short_label(1961, 12, code="M1")
+    labels[4] = short_label(1962, 1, note=1950, code="M2")
+    for _, column, text, _ in PLACES:
+        labels[column_number(column) - 2] = text
+    for column, text in (changes or {}).items():
+        labels[column_number(column) - 2] = text
+    return labels, n_quarters
+
+
+def column_number(letters):
+    number = 0
+    for ch in letters:
+        number = number * 26 + ord(ch) - 64
+    return number
+
+
+def sheet_1983(n_quarters=28):
+    """'1983 - 2003': 40 labels from December 1982 with codes on the next line, and a tie: two labels of one
+    release month side by side (the second with a note)."""
+    months = month_run((1982, 12), 39)
+    months.insert(12, months[11])
+    labels = [short_label(y, m, code=("M1" if k % 3 == 0 else "M2" if k % 3 == 1 else None))
+              for k, (y, m) in enumerate(months)]
+    labels[12] = short_label(*months[12], note=1980)
+    return labels, n_quarters
+
+
+def sheet_2004(n_quarters=36):
+    """'2004 - 2017': 40 labels from December 2003 with the codes QNA and 1st on the next line."""
+    return [short_label(y, m, code=("QNA" if k % 2 else "1st")) for k, (y, m) in enumerate(month_run((2003, 12), 40))], \
+        n_quarters
+
+
+def sheet_2018(n_quarters=44):
+    """'2018 - ': 40 labels from June 2018 with the irregular forms the amendment describes, constructed: the
+    month in full, a four-digit year, spaces around the hyphen, a trailing space and line break, a code after a
+    space."""
+    months = month_run((2018, 6), 40)
+    labels = [short_label(y, m, code="M1") for y, m in months]
+    labels[3] = short_label(*months[3], full=True, code="QNA", before_code=" ")
+    labels[5] = short_label(*months[5], four=True, code="1st", before_code=" ", hyphen="- ")
+    labels[7] = short_label(*months[7], code="1st", before_code=" ", hyphen="- ") + " "
+    labels[9] = short_label(*months[9]) + " \n1st"
+    labels[11] = short_label(*months[11], code="M2", before_code=" ")
+    return labels, n_quarters
+
+
+def layout_workbook(sheets=None, *, cover=True, properties=None):
+    """The four sheets of amendment 1's layout (constructed labels and numbers), after a cover sheet."""
+    sheets = sheets if sheets is not None else [("1961 - 1982", *sheet_1961()), ("1983 - 2003", *sheet_1983()),
+                                                ("2004 - 2017", *sheet_2004()), ("2018 - ", *sheet_2018())]
+    book = Book(title=LABEL)
+    if cover:
+        book.sheet("Cover", {(1, 1): LABEL, (4, 1): "M1 and M2: constructed codes of the estimate"})
+    for name, labels, n_quarters in sheets:
+        book.sheet(name, layout_cells(labels, n_quarters))
+    content = book.build()
+    return with_core_properties(content, **properties) if properties else content
+
+
+def with_core_properties(content, **properties):
+    """The same package with docProps/core.xml holding the title and the given properties (creator,
+    lastModifiedBy, ...)."""
+    names = dict(creator="dc:creator", lastModifiedBy="cp:lastModifiedBy", title="dc:title", subject="dc:subject")
+    body = "".join(f"<{names[k]}>{escape(v)}</{names[k]}>" for k, v in dict(dict(title=LABEL), **properties).items())
+    source, buffer = zipfile.ZipFile(io.BytesIO(content)), io.BytesIO()
+    with zipfile.ZipFile(buffer, "w", zipfile.ZIP_DEFLATED) as package:
+        for item in source.infolist():
+            if item.filename != "docProps/core.xml":
+                package.writestr(item, source.read(item.filename))
+        package.writestr("docProps/core.xml", '<cp:coreProperties xmlns:cp="http://schemas.openxmlformats.org/'
+                         'package/2006/metadata/core-properties" xmlns:dc="http://purl.org/dc/elements/1.1/">'
+                         f"{body}</cp:coreProperties>")
+    return buffer.getvalue()
