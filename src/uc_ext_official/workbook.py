@@ -21,7 +21,46 @@ OFFICE_DOCUMENT = "/officeDocument"
 SHARED_STRINGS = "/sharedStrings"
 COMMENTS = "/comments"
 THREADED_COMMENT = "/threadedComment"
+STYLES = "/styles"
 REFERENCE = re.compile(r"^([A-Z]{1,3})([1-9][0-9]*)$")
+# Built-in number formats that display a date or a time (ECMA-376 Part 1, 18.8.30, including the
+# East Asian built-in date formats 27-36 and 50-58).
+BUILTIN_DATE_FORMATS = frozenset(range(14, 23)) | frozenset(range(27, 37)) | frozenset({45, 46, 47}) | frozenset(
+    range(50, 59))
+
+
+def is_date_format(code: str) -> bool:
+    """True when a custom number-format code displays a date or a time: after removing quoted text,
+    escaped and padding characters, bracketed sections (colours, conditions, locales) and scientific
+    exponents (E+, E-), a day, month, year, hour or second code (d, m, y, h, s) remains. 'General' is not
+    a date."""
+    text = re.sub(r'"[^"]*"', "", code or "")
+    text = re.sub(r"\\.|_.|\*.", "", text)
+    text = re.sub(r"\[[^\]]*\]", "", text)
+    text = re.sub(r"[eE][+-]", "", text)
+    if text.strip().lower() == "general":
+        return False
+    return bool(re.search(r"[dmyhs]", text, re.IGNORECASE))
+
+
+def serial_to_date(serial: str, date1904: bool = False):
+    """The calendar date of a date-formatted cell's serial number (the fraction of a day is dropped).
+
+    1900 system: serial 1 is 1900-01-01, serial 60 is the non-existent 1900-02-29 (refused), and from 61 on
+    the date is 1899-12-30 plus the serial. 1904 system: 1904-01-01 plus the serial. ValueError otherwise.
+    """
+    import datetime as _dt
+    import math
+    value = float(serial)
+    if not math.isfinite(value) or value < 0:
+        raise ValueError("not a date serial number")
+    days = int(value)
+    if date1904:
+        return _dt.date(1904, 1, 1) + _dt.timedelta(days=days)
+    if days == 0 or days == 60:
+        raise ValueError("serial 0 or 60 is not a calendar date in the 1900 system")
+    return (_dt.date(1899, 12, 31) + _dt.timedelta(days=days)) if days < 60 else (
+        _dt.date(1899, 12, 30) + _dt.timedelta(days=days))
 
 
 class WorkbookError(ValueError):
@@ -121,6 +160,7 @@ class Workbook:
         self._relationships = self._read_relationships(self.workbook_path)
         self.sheets = self._read_sheets()
         self._shared = None
+        self._date_styles = None
 
     # -------------------------------------------------------------------- package structure
 
@@ -189,17 +229,62 @@ class Workbook:
                             if paths else ())
         return self._shared
 
+    @property
+    def date_styles(self) -> frozenset:
+        """Indices of the cell formats (cellXfs) whose number format displays a date or a time.
+
+        Read from the workbook's styles part (built-in format ids and custom format codes); empty when the
+        package has no styles part. Only formats are read here, never a cell value.
+        """
+        if self._date_styles is None:
+            paths = [target for kind, target in self._relationships.values() if kind.endswith(STYLES)]
+            found = set()
+            if paths:
+                root = self._xml(paths[0])
+                custom = {}
+                for element in root.iter():
+                    if _local(element.tag) == "numFmt":
+                        try:
+                            custom[int(element.get("numFmtId", ""))] = element.get("formatCode", "")
+                        except ValueError:
+                            continue
+                for element in root:
+                    if _local(element.tag) != "cellXfs":
+                        continue
+                    for index, xf in enumerate(child for child in element if _local(child.tag) == "xf"):
+                        try:
+                            number_format = int(xf.get("numFmtId", "0"))
+                        except ValueError:
+                            continue
+                        if (number_format in custom and is_date_format(custom[number_format])) or (
+                                number_format not in custom and number_format in BUILTIN_DATE_FORMATS):
+                            found.add(index)
+            self._date_styles = frozenset(found)
+        return self._date_styles
+
+    @property
+    def date1904(self) -> bool:
+        """True when the workbook uses the 1904 date system (workbookPr date1904)."""
+        for element in self._xml(self.workbook_path).iter():
+            if _local(element.tag) == "workbookPr":
+                return str(element.get("date1904", "")).lower() in ("1", "true")
+        return False
+
     # --------------------------------------------------------------------------------- cells
 
     def cells(self, sheet: Sheet, *, numbers: bool = False, max_row: int | None = None,
-              columns: set[int] | None = None, rows: set[int] | None = None) -> Iterator[Cell]:
+              columns: set[int] | None = None, rows: set[int] | None = None,
+              dates: bool = False) -> Iterator[Cell]:
         """Every non-blank cell of a sheet in document order (row by row).
 
         numbers=False (the default) never reads a numeric value: such cells come back with kind
         'number' and text None. max_row stops the stream after that row; columns and rows restrict the
         cells returned, and a cell outside them is skipped before its content is read (cells are
-        located by their references, not by their values).
+        located by their references, not by their values). dates=True (not the default) returns a
+        numeric cell whose format displays a date (`date_styles`) with kind 'date'; its text is the raw
+        serial number only when numbers=True. With dates=False the behaviour is unchanged.
         """
+        date_styles = self.date_styles if dates else frozenset()
         if sheet.path not in self._names:
             raise WorkbookError(f"The package has no part {sheet.path} for sheet {sheet.name!r}")
         row_number, column_number = 0, 0
@@ -230,6 +315,12 @@ class Workbook:
                         element.clear()
                         continue
                     kind, text = self._classify(element, numbers)
+                    if kind == "number" and date_styles and element.get("s") is not None:
+                        try:
+                            if int(element.get("s")) in date_styles:
+                                kind = "date"
+                        except ValueError:
+                            pass
                     element.clear()
                     if kind != "empty":
                         yield Cell(row_number, column_number, kind, text)
