@@ -947,7 +947,10 @@ def read_structure(workbook: Workbook) -> dict:
                        for col in shape["columns"]):
                     serials = {(cell.row, cell.column): cell.text
                                for cell in workbook.cells(sheet, numbers=True, dates=True, rows={shape["header_row"]},
-                                                          columns=set(shape["columns"])) if cell.kind == "date"}
+                                                          columns={col for col in shape["columns"]
+                                                                   if by_row[shape["header_row"]].get(col) is not None
+                                                                   and by_row[shape["header_row"]][col].kind == "date"})
+                               if cell.kind == "date"}      # only date-typed header cells: a bare number is not read
                 labels = tuple(_label_value(by_row[shape["header_row"]].get(col), date1904, serials)
                                for col in shape["columns"])
                 quarter_labels = tuple(_quarter_label(by_row[r].get(shape["label_column"])) for r in shape["rows"])
