@@ -37,7 +37,8 @@ def test_the_freeze_copies_the_registered_run_verifies_the_copies_and_writes_the
         assert gates.sha256_file(root / path) == digest
     assert record["frozen_files"]["audit/e4/vintage-series.json"] == manifest["file_sha256"]["vintage-series.json"]
     interpretation = record["interpretation"]
-    assert interpretation == manifest["interpretation"] and interpretation["recorded_as"] == interpretation["conclusion"]
+    assert interpretation == manifest["interpretation"]
+    assert interpretation["recorded_as"] == interpretation["conclusion"]
     assert record["primary"]["eligible_episodes"] == 1 and record["primary"]["p_label"] == "raw, not family-adjusted"
     assert record["family"]["holm_input"] == record["primary"]["raw_p"] == interpretation["holm_input"]
     assert record["family"]["adjusted_p"] is None
