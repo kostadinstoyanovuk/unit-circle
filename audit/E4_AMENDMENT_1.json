@@ -1,0 +1,133 @@
+{
+    "record_type": "OSF registration update for extension E4: amendment 1 (prereg/E4.md section 4, steps 1 and 3)",
+    "registration_id": "dpxqf",
+    "registration_url": "https://osf.io/dpxqf",
+    "doi": "10.17605/OSF.IO/DPXQF",
+    "amendment_url": "https://osf.io/dpxqf/overview",
+    "amendment_api_url": "https://api.osf.io/v2/schema_responses/6abe9941d40876d16600279d/",
+    "amends": {
+        "text": "prereg/E4.md section 4, \"Structure mapping at X.2, from headers and availability only\": the reading of the vintage labels (step 3) and the condition for joining the parts of the table (step 1)",
+        "registered_text_sha256": "df7e2745b9f30dc9d9ed53526214f8d4f464f175f3180fcff3e1a92e4d03c7b9",
+        "prereg_tag": "prereg-E4",
+        "prereg_tag_commit": "cc28f421768a55890497c9b2e3d6121c7e05f201",
+        "follows": "audit/e4_source/structure-attempt-1.json (attempt 1 of the structure mapping, stopped at step 4.3)"
+    },
+    "attachment": "prereg/E4_amendment_1.md",
+    "attachment_sha256": "667ef5f4dfe0370ccdf6b38b16e0b35ca9f1e5990ac918438c5bc39a30bab068",
+    "attachment_bytes": 8087,
+    "attachment_note": "The text file was not uploaded to OSF: the update form's file upload is disabled. The filed sentence in answer 72-16 cites this path and this SHA-256, and this committed file is the text it cites. The file is not among the archived OSF files.",
+    "label_reading": {
+        "rule_a": {
+            "century_pivot": 61,
+            "codes": [
+                "M1",
+                "M2",
+                "1st",
+                "QNA"
+            ]
+        },
+        "readings_by_place": [
+            {
+                "sheet": "1961 - 1982",
+                "column": "H",
+                "text": "Sep-62 [1958 prices]",
+                "release_month": "1962-03"
+            },
+            {
+                "sheet": "1961 - 1982",
+                "column": "CN",
+                "text": "Mar-62 [1963 prices]",
+                "release_month": "1969-03"
+            },
+            {
+                "sheet": "1961 - 1982",
+                "column": "GQ",
+                "text": "Feb-772",
+                "release_month": "1978-02"
+            }
+        ],
+        "join": {
+            "rule": "first_labels_of_longest_part"
+        }
+    },
+    "label_reading_note": "The section the X.2 tool reads (docs/E4_AMENDMENT_1_CODE.md): the century pivot of rule A, the four codes, the three readings by place as the amendment's table states them, and the join rule C. The grammar of rule A is the text of the amendment.",
+    "stop_amended": {
+        "attempt": 1,
+        "step": "4.3",
+        "reason": "a vintage label does not parse",
+        "time_utc": "2026-10-01T04:57:34.824114+00:00",
+        "record": "audit/e4_source/structure-attempt-1.json",
+        "commit": "eb19706"
+    },
+    "workbook": {
+        "file": "data/raw/E4_ABMI_realtime_quarter2aprtojune2026quarterlynationalaccounts.xlsx",
+        "edition_label": "Quarter 2 (Apr to June) 2026, quarterly national accounts",
+        "bytes": 619451,
+        "sha256": "b6fc4ed277d9c7fe26716ba358ea5c4830f50e9f44869ebc94fdbd80159562ce",
+        "acquisition_record": "audit/E4_ACQUISITION.json",
+        "commit": "24459d9"
+    },
+    "how_filed": "An update of the registration, not a new registration: the justification for the update and one changed answer, 72-16 (Data identifiers), to which one sentence was added after the 1232 characters of the registered text. The owner submitted the update and approved it from the OSF email (DECISIONS.md D-053).",
+    "schema_response_id": "6abe9941d40876d16600279d",
+    "previous_response_id": "6abcab7d3262163c9db644d3",
+    "original_schema_response_id": "6abcab7d3262163c9db644d3",
+    "update_draft_created_utc": "2026-10-01T17:32:49.646557Z",
+    "submitted_utc": "2026-10-01T17:38:27.954383Z",
+    "approved_utc": "2026-10-01T17:38:50.338986Z",
+    "approval_note": "The registry recorded the update as approved at approved_utc (date_modified of the schema response with reviews_state approved, as in audit/H1_REGISTRATION_TIMESTAMP.md).",
+    "public_first_verified_at_utc": "2026-10-01T17:39:22Z",
+    "anonymous_api_check": {
+        "checked_at_utc": "2026-10-01T17:39:22Z",
+        "client": "unauthenticated OSF API v2 requests",
+        "public": true,
+        "pending_registration_approval": false,
+        "embargoed": false,
+        "withdrawn": false,
+        "archiving": false,
+        "revision_state": "approved",
+        "update_state": "approved",
+        "update_is_original_response": false,
+        "schema_responses_listed": 2,
+        "updated_response_keys": [
+            "72-16"
+        ]
+    },
+    "filed_justification": "The registered rules stop the structure mapping: the vintage labels carry codes and notes, and the four sheets list different numbers of reference quarters. This amendment settles both from header text, before any value is read.",
+    "filed_justification_sha256": "b64bacb6a4483f5c8cd660ec101a3889ef3ccda73dfda008bf7a83eaf3db1208",
+    "answer_72_16": {
+        "previous_text_sha256": "633b9e21544fe2f1e3e769f9cc6e6ca8112fde38eeec5f2d1038ac2b5173feb8",
+        "previous_characters": 1232,
+        "sentence_added": "Amendment 1: E4.md section 4, steps 1 and 3, are settled for the acquired workbook before any numeric cell was read: a vintage label is read as a month and a year (a price-base note or a code does not change the month), three mistyped header cells of the sheet \"1961 - 1982\" (columns H, CN and GQ) are read by place, and the four sheets of the table are joined on the first reference-quarter labels of the longest sheet; full text in prereg/E4_amendment_1.md (SHA-256 667ef5f4dfe0370ccdf6b38b16e0b35ca9f1e5990ac918438c5bc39a30bab068).",
+        "filed_text_sha256": "975760f9c252bc0d91bda9e061e87f07492c08836e3f5f04b2b0e7a3c86715a8",
+        "filed_characters": 1767,
+        "checked_at_utc": "2026-10-01T17:39:22Z",
+        "note": "The filed text is the registered text, one space and the added sentence. The SHA-256 values are of the UTF-8 strings OSF returned anonymously."
+    },
+    "answers_compared": {
+        "compared_with": "the registered response 6abcab7d3262163c9db644d3",
+        "compared_at_utc": "2026-10-01T17:39:22Z",
+        "answers": 27,
+        "differ": [
+            "72-16"
+        ],
+        "identical": 26
+    },
+    "registered_attachments_after_update": [
+        {
+            "file_name": "E4.md",
+            "osf_file_id": "6abcab846f68128ffbd0e929",
+            "bytes": 35967,
+            "downloaded_sha256": "df7e2745b9f30dc9d9ed53526214f8d4f464f175f3180fcff3e1a92e4d03c7b9",
+            "downloaded_at_utc": "2026-10-01T17:39:27Z"
+        },
+        {
+            "file_name": "E_SOURCE_METADATA.md",
+            "osf_file_id": "6abcab846f68128ffbd0e92a",
+            "bytes": 10647,
+            "downloaded_sha256": "44625af43da8aa8d709a172655a749f1c75972b2c4db9d0356dee906a3e4dc08",
+            "downloaded_at_utc": "2026-10-01T17:39:29Z"
+        }
+    ],
+    "registered_attachments_unchanged": true,
+    "data_status": "No numeric cell of the ONS workbook had been read when the amendment was filed. The workbook was downloaded once, on 1 October 2026 (audit/E4_ACQUISITION.json), and the structure mapping stopped once, at step 3 (audit/e4_source/structure-attempt-1.json), after printing sheet names, titles, notes and header labels only."
+}
