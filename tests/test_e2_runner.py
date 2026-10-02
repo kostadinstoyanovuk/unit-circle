@@ -5,7 +5,11 @@ registered environment.
 """
 import importlib.util
 import json
+import os
 from pathlib import Path
+import shutil
+import subprocess
+import sys
 
 import pytest
 
@@ -119,3 +123,63 @@ def test_refusals_before_any_computation(tmp_path, argv, message):
     with pytest.raises(SystemExit, match=message):
         run(*argv, "--out", str(tmp_path / "x.jsonl"))
     assert not (tmp_path / "x.jsonl").exists()
+
+
+# ------------------------------------------------------------------------------------- code identity
+
+def research_copy(tmp_path):
+    """A copy of the files the X.3 identity reads, as a separate git repository (test-only)."""
+    root = tmp_path / "research"
+    for package in ("uc_core", "uc_ext", "uc_e2"):
+        shutil.copytree(ROOT / "src" / package, root / "src" / package, ignore=shutil.ignore_patterns("__pycache__"))
+    for name in ("tools/run_e_checks.py", "tools/run_e2_checks.py", "tools/run_validation.py",
+                 "tools/verify_validation_runner.py", "prereg/H1.md", "requirements.lock"):
+        (root / name).parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(ROOT / name, root / name)
+    (root / ".gitignore").write_text("__pycache__/\nruns/\n")
+    for args in (["init", "-q"], ["add", "-A"], ["commit", "-q", "-m", "constructed research root"]):
+        subprocess.run(["git", "-c", "user.name=t", "-c", "user.email=t@example.invalid", *args], cwd=root,
+                       check=True, capture_output=True)
+    return root
+
+
+IDENTITY = r'''
+import importlib.util, json, sys
+from pathlib import Path
+root = Path(sys.argv[1]).resolve()
+sys.path.insert(0, str(root / "src"))
+spec = importlib.util.spec_from_file_location("run_e2_checks", root / "tools/run_e2_checks.py")
+runner = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(runner)
+def identity():
+    value = runner.run_identity(root, registered=False)
+    return [value["code_sha256"], value["e1_code_sha256"]]
+results = dict(base=identity())
+for name in ("src/uc_e2/streams.py", "tools/run_e2_checks.py", "src/uc_ext/common.py"):
+    path = root / name
+    original = path.read_bytes()
+    path.write_bytes(original + b"# constructed change\n")
+    results[name] = identity()
+    path.write_bytes(original)
+results["restored"] = identity()
+print(json.dumps(results))
+'''
+
+
+def test_identity_changes_with_uc_e2_and_the_runner_but_its_e1_part_only_with_e1_code(tmp_path):
+    here = RUNNER.run_identity(ROOT, registered=False)
+    root = research_copy(tmp_path)
+    script = tmp_path / "identity.py"
+    script.write_text(IDENTITY)
+    environment = {k: v for k, v in os.environ.items() if k != "PYTHONPATH"}
+    environment["PYTHONDONTWRITEBYTECODE"] = "1"
+    completed = subprocess.run([sys.executable, str(script), str(root)], capture_output=True, text=True,
+                               env=environment, cwd=root)
+    assert completed.returncode == 0, completed.stderr
+    results = json.loads(completed.stdout.splitlines()[-1])
+    code, e1_code = results["base"]
+    assert (code, e1_code) == (here["code_sha256"], here["e1_code_sha256"])        # the bytes decide
+    for name in ("src/uc_e2/streams.py", "tools/run_e2_checks.py"):
+        assert results[name][0] != code and results[name][1] == e1_code, name
+    assert results["src/uc_ext/common.py"][0] != code and results["src/uc_ext/common.py"][1] != e1_code
+    assert results["restored"] == [code, e1_code]
