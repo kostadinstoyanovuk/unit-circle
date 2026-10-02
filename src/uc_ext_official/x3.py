@@ -1,13 +1,14 @@
 """The X.3 evidence record, audit/Ek_X3.json: what the registered official synthetic checks found.
 
-The E1, E3 and E4 addenda (section 11, Annex B X.3) run the size and power checks after registration and
-before any E1 value is read, any E3 statistic is computed on UK data or any E4 real-time level is read; E3
-first passes its section 11 prerequisites. Their outputs are the X.3 runner's JSON Lines files
-(tools/run_e_checks.py for E1 and E3, tools/run_e4_checks.py for E4), which are large and kept outside git.
+The E1, E2, E3 and E4 addenda (section 11, Annex B X.3) run the size and power checks after registration and
+before any E1 value is read, any E3 statistic is computed on UK data, any E2 unemployment value is read or
+any E4 real-time level is read; E2 and E3 first pass their prerequisites. Their outputs are the X.3 runner's
+JSON Lines files (tools/run_e_checks.py for E1 and E3, tools/run_e2_checks.py for E2, tools/run_e4_checks.py
+for E4), which are large and kept outside git.
 This module summarises them with the runner's own registered `summarize` (which re-verifies the gate, the
 lock and every saved record), checks that they belong to one registered run of one code identity, and
-builds the committed record the X.2 and X.4 gates read. For E4 the inputs must also use the stream plan of
-Annex A and record one E1 code identity (e1_code_sha256), which the record states with the stream plan.
+builds the committed record the X.2 and X.4 gates read. For E2 and E4 the inputs must also use the stream plan
+of Annex A and record one E1 code identity (e1_code_sha256), which the record states with the stream plan.
 
 The record is written whether the checks passed or not ("X3": "passed" or "failed"); a failed check
 stays visible. Inputs that are not one registered run (development files, mixed code, seeds or
@@ -25,6 +26,11 @@ from . import gates, records
 # prereg/E4.md, Annex A: the stream ids of the registered E4 run and of its X.3 checks (5403 is unused).
 E4_REGISTERED_STREAMS = dict(primary=5400, window32=5401, window48=5402, wild=5404, interval=5405,
                              size_generation=5420, size_null=5421, power_generation=5430, power_null=5431)
+# prereg/E2.md, Annex A: the stream ids of the registered E2 run and of its X.3 checks, and the stream of AT-12.
+E2_REGISTERED_STREAMS = dict(primary=5200, window32=5201, window48=5202, fixed=5203, wild=5204, interval=5205,
+                             size_generation=5220, size_null=5221, power_generation=5230, power_null=5231,
+                             at12=2012)
+REGISTERED_STREAMS = dict(e2=E2_REGISTERED_STREAMS, e4=E4_REGISTERED_STREAMS)
 
 
 class X3InputError(ValueError):
@@ -43,9 +49,9 @@ def summarize(root, extension: str, files) -> dict:
     return json.loads(buffer.getvalue())
 
 
-def prerequisite_evidence(root, path) -> dict:
-    """The E3 prerequisite file: its manifest fingerprint and its one prerequisite record."""
-    runner = gates.load_runner(root, "e3")
+def prerequisite_evidence(root, path, extension: str = "e3") -> dict:
+    """The E2 or E3 prerequisite file: its manifest fingerprint and its one prerequisite record."""
+    runner = gates.load_runner(root, extension)
     manifest, _, others = gates._closed(runner.read_output, path)
     found = [line for line in others if line.get("record_type") == "prerequisite"]
     if len(found) != 1:
@@ -67,17 +73,25 @@ def _check_inputs(extension, check, summary, problems):
             problems.append(f"{where} does not use 200 series and B = 1000")
         if check == "power" and tuple(fingerprint.get("kappas") or ()) != gates.REGISTERED_KAPPAS:
             problems.append(f"{where} does not use kappa 1.0, 1.2, 1.4, 1.6")
-        if extension == "e4" and fingerprint.get("streams") != E4_REGISTERED_STREAMS:
-            problems.append(f"{where} does not use the stream plan of prereg/E4.md Annex A")
+        if extension in REGISTERED_STREAMS and fingerprint.get("streams") != REGISTERED_STREAMS[extension]:
+            problems.append(f"{where} does not use the stream plan of prereg/{extension.upper()}.md Annex A")
     if not summary.get("inputs"):
         problems.append(f"no {check} output was supplied")
 
 
+def _named_prerequisite(fingerprint):
+    """The SHA-256 of the prerequisite record that an output names: E3 records the hash itself, E2 a dict
+    (path, sha256, passed) that holds it."""
+    named = fingerprint.get("prerequisite")
+    return named.get("sha256") if isinstance(named, dict) else named
+
+
 def evidence_entries(paths) -> list[dict]:
     """Supporting evidence named by the operator (for example the logs of the Annex B X.3 prerequisite tests:
-    F1, AT-1 to AT-4 and the section 7 unit test for E1; F2 and AT-11 for E3; F1, AT-1 to AT-4 and the unit
-    tests of sections 4, 5 and 7 for E4), each with its SHA-256.
-    Recorded, not evaluated: the gates read only the passed flags of the size, power and E3 prerequisite checks."""
+    F1, AT-1 to AT-4 and the section 7 unit test for E1; the unit tests of sections 4 and 7 for E2; F2 and
+    AT-11 for E3; F1, AT-1 to AT-4 and the unit tests of sections 4, 5 and 7 for E4), each with its SHA-256.
+    Recorded, not evaluated: the gates read only the passed flags of the size, power and (E2, E3) prerequisite
+    checks."""
     entries = []
     for path in paths or ():
         path = Path(path)
@@ -89,12 +103,13 @@ def evidence_entries(paths) -> list[dict]:
 
 def build_record(extension: str, size: dict, power: dict, prerequisite: dict | None = None, *,
                  created_utc: str, evidence=()) -> dict:
-    """The X.3 record from the size and power summaries (and, for E3, the prerequisite evidence).
+    """The X.3 record from the size and power summaries (and, for E2 and E3, the prerequisite evidence).
 
     Raises X3InputError unless every input is a registered output of this extension with the registered
-    seed, sizes and kappa grid, all made by one code identity (for E3, each naming the supplied prerequisite
-    file; for E4, each with the stream plan of Annex A and one E1 code identity). Otherwise returns the
-    record, passed or failed; an E4 record also states the stream plan, e1_code_sha256 and the identity option.
+    seed, sizes and kappa grid, all made by one code identity (for E2 and E3, each naming the supplied
+    prerequisite file; for E2 and E4, each with the stream plan of Annex A and one E1 code identity).
+    Otherwise returns the record, passed or failed; an E2 or E4 record also states the stream plan,
+    e1_code_sha256 and the identity option.
     """
     name = gates.extension_name(extension)
     problems = []
@@ -107,24 +122,24 @@ def build_record(extension: str, size: dict, power: dict, prerequisite: dict | N
     settings = {json.dumps(fingerprint.get("settings"), sort_keys=True) for fingerprint in fingerprints}
     if len(settings) > 1:
         problems.append("the outputs were made under different settings")
-    if extension == "e4":
+    if extension in gates.E1_SUPERSET_EXTENSIONS:
         e1_codes = {fingerprint.get("e1_code_sha256") for fingerprint in fingerprints}
         if len(e1_codes) != 1 or not gates.HEX64.match(str(next(iter(e1_codes)))):
             problems.append("the outputs do not record one E1 code identity (e1_code_sha256)")
         if len({fingerprint.get("identity_option") for fingerprint in fingerprints} - {None}) != 1:
             problems.append("the outputs do not record one identity option")
-    if extension == "e3":
+    if extension in gates.PREREQUISITE_EXTENSIONS:
         if prerequisite is None:
-            problems.append("E3 needs its prerequisite record (section 11)")
+            problems.append(f"{name} needs its prerequisite record (section 11)")
         else:
             manifest = prerequisite["manifest"]
             if (manifest.get("extension"), manifest.get("check"), manifest.get("mode"),
-                    manifest.get("master_seed")) != ("e3", "prerequisite", "registered", gates.REGISTERED_SEED):
-                problems.append("the prerequisite file is not a registered E3 prerequisite record")
+                    manifest.get("master_seed")) != (extension, "prerequisite", "registered", gates.REGISTERED_SEED):
+                problems.append(f"the prerequisite file is not a registered {name} prerequisite record")
             if manifest.get("code_sha256") not in codes:
                 problems.append("the prerequisite was made by another code identity")
-            if any(fingerprint.get("prerequisite") != prerequisite["sha256"] for fingerprint in fingerprints):
-                problems.append("an E3 output does not name the supplied prerequisite file")
+            if any(_named_prerequisite(fingerprint) != prerequisite["sha256"] for fingerprint in fingerprints):
+                problems.append(f"an {name} output does not name the supplied prerequisite file")
     elif prerequisite is not None:
         problems.append(f"{name} has no separate prerequisite record")
     if problems:
@@ -161,7 +176,7 @@ def build_record(extension: str, size: dict, power: dict, prerequisite: dict | N
                "outside this design (H1 section 9)."))
     if prerequisite is not None:
         record.update(prerequisite_passed=prerequisite_passed, prerequisite=prerequisite)
-    if extension == "e4":
+    if extension in gates.E1_SUPERSET_EXTENSIONS:
         record.update(streams=fingerprints[0]["streams"], e1_code_sha256=fingerprints[0]["e1_code_sha256"],
                       identity_option=fingerprints[0]["identity_option"])
     return record
@@ -177,7 +192,7 @@ def record_x3(root, extension: str, *, size_files, power_files, prerequisite_fil
     evidence = evidence_entries(evidence_files)
     size = summarize(root, extension, size_files)
     power = summarize(root, extension, power_files)
-    prerequisite = prerequisite_evidence(root, prerequisite_file) if prerequisite_file else None
+    prerequisite = prerequisite_evidence(root, prerequisite_file, extension) if prerequisite_file else None
     record = build_record(extension, size, power, prerequisite, created_utc=gates.now_utc(), evidence=evidence)
     records.write_once(target, records.pretty(record))
     return record

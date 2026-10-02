@@ -1,15 +1,16 @@
-"""Gates for the registered E1, E3 and E4 execution steps, fail closed (prereg/E1.md, E3.md and E4.md, Annex B).
+"""Gates for the registered E1, E2, E3 and E4 execution steps, fail closed (prereg/E1.md to E4.md, Annex B).
 
 - Registration (G4): the X.3 runner's own check (`verify_extension_gate` of tools/run_e_checks.py for E1 and
-  E3, of tools/run_e4_checks.py for E4), reused unchanged:
+  E3, of tools/run_e2_checks.py for E2, of tools/run_e4_checks.py for E4), reused unchanged:
   a clean research tree, the annotated tag prereg-Ek published identically on origin, prereg/Ek.md equal
   to the tagged file, and audit/Ek_REGISTRATION.json showing an approved public registration whose
   archived protocol has the tagged bytes.
 - Official synthetic checks (X.3): audit/Ek_X3.json, committed, recording that the registered size and
-  power checks (and, for E3, the section 11 prerequisites) passed with the registered seed and sizes.
+  power checks (and, for E2 and E3, the prerequisites of section 11 and Annex B) passed with the registered
+  seed and sizes.
 - Frozen code (Annex B, X.3 -> X.4): the code identity the extension's X.3 runner computes (every uc_ext and
-  uc_core source, the runner, and the environment identity of the lock; for E4 also every uc_e4 source and its
-  own runner) equals the one recorded in the X.3 record.
+  uc_core source, the runner, and the environment identity of the lock; for E2 and E4 also every uc_e2 or
+  uc_e4 source and the extension's own runner) equals the one recorded in the X.3 record.
 - Location: a registered run imports uc_core, uc_ext and this package from the research root it runs in.
 
 Every refusal raises GateClosed with the reason; nothing is written by this module.
@@ -29,9 +30,11 @@ REGISTERED_SEED = 1927
 REGISTERED_SERIES = 200
 REGISTERED_ATTEMPTS = 1000
 REGISTERED_KAPPAS = (1.0, 1.2, 1.4, 1.6)
-EXTENSIONS = ("e1", "e3", "e4")
+EXTENSIONS = ("e1", "e2", "e3", "e4")
 RUNNER = "tools/run_e_checks.py"                 # E1 and E3
-RUNNERS = dict(e1=RUNNER, e3=RUNNER, e4="tools/run_e4_checks.py")
+RUNNERS = dict(e1=RUNNER, e2="tools/run_e2_checks.py", e3=RUNNER, e4="tools/run_e4_checks.py")
+PREREQUISITE_EXTENSIONS = ("e2", "e3")           # their X.3 records also state a passed prerequisite record
+E1_SUPERSET_EXTENSIONS = ("e2", "e4")            # identity option e1-superset: E1's identity sources plus their own
 HEX64 = re.compile(r"^[0-9a-f]{64}$")
 
 
@@ -91,7 +94,7 @@ _RUNNERS = {}
 
 def load_runner(root, extension: str = "e1"):
     """The research root's own X.3 runner for `extension` (tools/run_e_checks.py for E1 and E3,
-    tools/run_e4_checks.py for E4), loaded once per path."""
+    tools/run_e2_checks.py for E2, tools/run_e4_checks.py for E4), loaded once per path."""
     relative = runner_path(extension)
     path = (Path(root) / relative).resolve()
     if path not in _RUNNERS:
@@ -157,7 +160,8 @@ def validate_x3_record(record: dict, extension: str) -> dict:
         problems.append(f"it is not an {name} X.3 record")
     if record.get("X3") != "passed":
         problems.append(f"X3 is {record.get('X3')!r}, not 'passed'")
-    for key in ("size_passed", "power_passed") + (("prerequisite_passed",) if extension == "e3" else ()):
+    for key in ("size_passed", "power_passed") + (("prerequisite_passed",) if extension in PREREQUISITE_EXTENSIONS
+                                                 else ()):
         if record.get(key) is not True:
             problems.append(f"{key} is not true")
     if (record.get("mode"), record.get("master_seed"), record.get("n_series"), record.get("B")) != (
@@ -196,36 +200,42 @@ def code_identity(root, extension: str = "e1") -> dict:
 
 def check_code_frozen(root, x3: dict, extension: str | None = None) -> dict:
     """The code that runs X.4 is the code that ran X.3 (Annex B: not touched between them). The extension is
-    the one given or, failing that, the one the X.3 record names. E4's identity includes E1's code (identity
-    option e1-superset), and that part must be E1's frozen code as well."""
+    the one given or, failing that, the one the X.3 record names. E2's and E4's identities include E1's code
+    (identity option e1-superset), and that part must be E1's frozen code as well."""
     extension = (extension or str(x3.get("extension") or "e1")).lower()
     identity = code_identity(root, extension)
     if identity["code_sha256"] != x3["code_sha256"]:
         raise GateClosed("The analysis code differs from the code that ran the official synthetic checks "
                          f"(X.3 code {x3['code_sha256'][:12]}..., now {identity['code_sha256'][:12]}...); "
                          "Annex B forbids touching it between X.3 and X.4")
-    if extension == "e4":
-        check_e1_code_unchanged(root, identity, x3)
+    if extension in E1_SUPERSET_EXTENSIONS:
+        check_e1_code_unchanged(root, identity, x3, extension)
     return identity
 
 
-def check_e1_code_unchanged(root, identity: dict, x3: dict) -> None:
-    """The E1 part of E4's code identity is the code frozen at E1's X.3 (audit/E1_X3.json), in the code now
-    running and in the E4 X.3 record. A change to E1's frozen code would change both E4's hash and E1's."""
+def check_e1_code_unchanged(root, identity: dict, x3: dict, extension: str | None = None) -> None:
+    """The E1 part of an E2 or E4 code identity is the code frozen at E1's X.3 (audit/E1_X3.json), in the code
+    now running and in the extension's X.3 record. A change to E1's frozen code would change both the
+    extension's hash and E1's."""
+    name = str(extension or x3.get("extension") or "E4").upper()
     frozen = check_x3(root, "e1")["code_sha256"]
-    differing = [name for name, value in (("the code now running", identity.get("e1_code_sha256")),
-                                          ("the E4 X.3 record", x3.get("e1_code_sha256"))) if value != frozen]
+    differing = [where for where, value in (("the code now running", identity.get("e1_code_sha256")),
+                                            (f"the {name} X.3 record", x3.get("e1_code_sha256"))) if value != frozen]
     if differing:
-        raise GateClosed(f"The E1 part of the E4 code identity is not E1's frozen code identity ({frozen[:12]}...): "
+        raise GateClosed(f"The E1 part of the {name} code identity is not E1's frozen code identity ({frozen[:12]}...): "
                          f"it differs in {' and in '.join(differing)}; E1's frozen code is not touched")
 
 
 def check_code_location(root, extension: str | None = None) -> dict:
-    """uc_core, uc_ext and uc_ext_official (and, for E4, uc_e4) are imported from the research root's src/."""
+    """uc_core, uc_ext and uc_ext_official (and, for E2, uc_e2; for E4, uc_e4) are imported from the research
+    root's src/."""
     import uc_core
     import uc_ext
     import uc_ext_official
     packages = [uc_core, uc_ext, uc_ext_official]
+    if extension == "e2":
+        import uc_e2
+        packages.append(uc_e2)
     if extension == "e4":
         import uc_e4
         packages.append(uc_e4)

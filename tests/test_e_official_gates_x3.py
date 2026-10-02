@@ -176,7 +176,7 @@ def test_runner_refusals_become_gate_refusals(tmp_path):
     with pytest.raises(gates.GateClosed, match="prereg-E1 is absent"):
         gates.check_registration(root, "e1")
     with pytest.raises(ValueError):
-        gates.extension_name("e2")
+        gates.extension_name("e5")
 
 
 def test_time_helpers():

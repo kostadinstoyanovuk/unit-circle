@@ -1,18 +1,19 @@
-"""The gate loader knows E4 as a third extension with its own runner; E1 and E3 keep theirs."""
+"""The gate loader knows E4 as an extension with its own runner (E2 has its own as well, see test_e2_gates.py);
+E1 and E3 keep theirs."""
 import pytest
 
 from uc_ext_official import gates
 
 
-def test_three_extensions_each_with_its_runner():
-    assert gates.EXTENSIONS == ("e1", "e3", "e4")
+def test_four_extensions_each_with_its_runner():
+    assert gates.EXTENSIONS == ("e1", "e2", "e3", "e4")
     assert gates.runner_path("e1") == gates.runner_path("e3") == "tools/run_e_checks.py"
     assert gates.runner_path("e4") == "tools/run_e4_checks.py"
     assert gates.extension_name("e4") == "E4"
     assert gates.x3_record_path("e4") == "audit/E4_X3.json"
     assert gates.registration_record_path("e4") == "audit/E4_REGISTRATION.json"
     with pytest.raises(ValueError):
-        gates.runner_path("e2")
+        gates.runner_path("e5")
 
 
 def test_a_missing_e4_runner_is_a_gate_refusal(tmp_path):
