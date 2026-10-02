@@ -1,0 +1,246 @@
+{
+  "record_type": "Labelled recomputation of the E4 registered analysis: a determinism check, not a registered result, never frozen and never a substitute for audit/E4_RESULT.json",
+  "registered_result": "audit/E4_RESULT.json and audit/e4/ (tag e4-frozen)",
+  "registered_run": {
+    "commit": "6ded1b990d27665f2c7f8d10d5cc75983c45aec9",
+    "kind": "registered primary run",
+    "started_utc": "2026-10-02T02:09:26.483525+00:00",
+    "finished_utc": "2026-10-02T02:12:20.250803+00:00",
+    "seconds": 173.7
+  },
+  "recomputation": {
+    "commit": "e1ec72a2bf6b127e97078075c68256501fe11f79",
+    "kind": "recomputation",
+    "started_utc": "2026-10-02T02:24:04.478628+00:00",
+    "finished_utc": "2026-10-02T02:26:57.456700+00:00",
+    "seconds": 173.0,
+    "output_directory": "runs/e4-recomputation-20261002 in the clean clone of the registered run (runs/ is not committed)"
+  },
+  "same_inputs": {
+    "code_sha256": "bbd66fdde9cb5cbbaa690eb4c1bb8ba17b11ea1c0c8cd0389502d10aea094bec",
+    "e1_code_sha256": "c42cbbf35734eb4f8c12aff22384371aa4fad107ae283f6d2f5f6f93c12feef7",
+    "workbook_sha256": "b6fc4ed277d9c7fe26716ba358ea5c4830f50e9f44869ebc94fdbd80159562ce",
+    "workbook_sha256_equals_acquisition_record": true,
+    "input_sha256": "bc78701c52c1724103d3f823904cd9bf66ef0fe52a289e996ff18ea49f25b7d1",
+    "master_seed": 1927,
+    "B": 1000,
+    "interval_B": 10000,
+    "streams": {
+      "interval": 5405,
+      "power_generation": 5430,
+      "power_null": 5431,
+      "primary": 5400,
+      "size_generation": 5420,
+      "size_null": 5421,
+      "wild": 5404,
+      "window32": 5401,
+      "window48": 5402
+    },
+    "tables": {
+      "kinds_sha256": "082350e62a6e64d53ba3b589070accdf18af99280cce4616ea71b4fb1bf79296",
+      "levels_sha256": "3f2cb7238ef1f90af7b99d9f72f3eb3518f43fef46077c1446ecbb39c369ac5b",
+      "mapping_sha256": "c10a579fe0c7723a65ca65398070ccddb5c2a77ad1d2f89c8b6bd95fab30c4cc",
+      "n_reference_quarters": 286,
+      "n_vintages": 748,
+      "numeric_cells": 112287,
+      "x3_record_sha256": "22840956581f173836c44ce2587dd2bb274bc5028648c28b708a72edd4dd8765"
+    },
+    "h1_record_sha256": "30132ce15edf8e06094e395f587e4f2fc742576f182e872be21b1538cb993323",
+    "x3_record_sha256": "22840956581f173836c44ce2587dd2bb274bc5028648c28b708a72edd4dd8765",
+    "release_dates": {}
+  },
+  "comparison": [
+    {
+      "output": "RUN_COMPLETE.json",
+      "registered_file": "audit/e4/RUN_COMPLETE.json",
+      "registered_sha256": "5e793ce85c8a8772bc58e02919d37e6cca2b3cc8132a2b980433e032740e5f8b",
+      "recomputation_sha256": "8b010a47446bd3f66b8988f614b0f4964ce82f70b7df886e55108a806d30ee61",
+      "identical": false
+    },
+    {
+      "output": "analysis.json",
+      "registered_file": "audit/e4/analysis.json",
+      "registered_sha256": "777536449eaa72124d721b68f4fb310960b904545ae9b9cde2e461adc8bfafb4",
+      "recomputation_sha256": "777536449eaa72124d721b68f4fb310960b904545ae9b9cde2e461adc8bfafb4",
+      "identical": true
+    },
+    {
+      "output": "report/availability-counts.csv",
+      "registered_file": "audit/e4/availability-counts.csv",
+      "registered_sha256": "c4a5c8f404e86c58c455053263ff9cd24baac5171dde705b57e935a1f37d6e05",
+      "recomputation_sha256": "c4a5c8f404e86c58c455053263ff9cd24baac5171dde705b57e935a1f37d6e05",
+      "identical": true
+    },
+    {
+      "output": "report/availability-markers.csv",
+      "registered_file": "audit/e4/availability-markers.csv",
+      "registered_sha256": "6d2796ad1982a401209b81855c7ff02318361376ae352842067651f486766311",
+      "recomputation_sha256": "6d2796ad1982a401209b81855c7ff02318361376ae352842067651f486766311",
+      "identical": true
+    },
+    {
+      "output": "report/availability.csv",
+      "registered_file": "audit/e4/availability.csv",
+      "registered_sha256": "af384a61da8881573497971acfedd2d61f1f0415803ff28c99d9d2373e9ff8f0",
+      "recomputation_sha256": "af384a61da8881573497971acfedd2d61f1f0415803ff28c99d9d2373e9ff8f0",
+      "identical": true
+    },
+    {
+      "output": "report/comparisons.csv",
+      "registered_file": "audit/e4/comparisons.csv",
+      "registered_sha256": "76f83d27dd7b87a4db56f302f3f950c486495d171b75789059ea78a2dc913a72",
+      "recomputation_sha256": "76f83d27dd7b87a4db56f302f3f950c486495d171b75789059ea78a2dc913a72",
+      "identical": true
+    },
+    {
+      "output": "report/episode-interval.csv",
+      "registered_file": "audit/e4/episode-interval.csv",
+      "registered_sha256": "2d39d5d5f3d2c4c29426c402655eb04b3415b7b271ae99da378c2aeeb45a330a",
+      "recomputation_sha256": "2d39d5d5f3d2c4c29426c402655eb04b3415b7b271ae99da378c2aeeb45a330a",
+      "identical": true
+    },
+    {
+      "output": "report/episodes.csv",
+      "registered_file": "audit/e4/episodes.csv",
+      "registered_sha256": "bd180b759d87675f3ff572245ac0d11603ea535fe3d86cddc33ea7cb6e3a2586",
+      "recomputation_sha256": "bd180b759d87675f3ff572245ac0d11603ea535fe3d86cddc33ea7cb6e3a2586",
+      "identical": true
+    },
+    {
+      "output": "report/manifest.json",
+      "registered_file": "audit/e4/manifest.json",
+      "registered_sha256": "d26dc495a52905f048b55e688eb97fc75ebe33aa75638a8191f0d6851f221c02",
+      "recomputation_sha256": "14dd495b083b1daef9e7b2c3b2a8c54f411e25d47299e69d3f3122bffa28fc24",
+      "identical": false
+    },
+    {
+      "output": "report/null-models.json",
+      "registered_file": "audit/e4/null-models.json",
+      "registered_sha256": "0a060404a53e1bffca386eb8adba73120562e22a75738598e7413d6336134dae",
+      "recomputation_sha256": "0a060404a53e1bffca386eb8adba73120562e22a75738598e7413d6336134dae",
+      "identical": true
+    },
+    {
+      "output": "report/primary-surrogates.csv",
+      "registered_file": "audit/e4/primary-surrogates.csv",
+      "registered_sha256": "8eedb13d57f6b7a4ac15063e415c6c67303294765dce36216a8b93465d411702",
+      "recomputation_sha256": "8eedb13d57f6b7a4ac15063e415c6c67303294765dce36216a8b93465d411702",
+      "identical": true
+    },
+    {
+      "output": "report/real-time-against-final.csv",
+      "registered_file": "audit/e4/real-time-against-final.csv",
+      "registered_sha256": "59390f654222ad7619c19e5172f1fa7a0c242c49be2f0846b594f34cda03eaf8",
+      "recomputation_sha256": "59390f654222ad7619c19e5172f1fa7a0c242c49be2f0846b594f34cda03eaf8",
+      "identical": true
+    },
+    {
+      "output": "report/real-time-summary.csv",
+      "registered_file": "audit/e4/real-time-summary.csv",
+      "registered_sha256": "dc7597a115aa520dd631a20b17abaef3dd5541269847af219a3f5f28e2d425a5",
+      "recomputation_sha256": "dc7597a115aa520dd631a20b17abaef3dd5541269847af219a3f5f28e2d425a5",
+      "identical": true
+    },
+    {
+      "output": "report/realtime.pdf",
+      "registered_file": "figures/e4_realtime.pdf",
+      "registered_sha256": "e1fec94555ed6547c620b93d3d6d48a09800448a30e29c6ebad1b1136dce0940",
+      "recomputation_sha256": "e1fec94555ed6547c620b93d3d6d48a09800448a30e29c6ebad1b1136dce0940",
+      "identical": true
+    },
+    {
+      "output": "report/realtime.png",
+      "registered_file": "figures/e4_realtime.png",
+      "registered_sha256": "cc25d8df213b9b1e7cb23c2604eafa4d5366ed6692842494a10f276a787fcecc",
+      "recomputation_sha256": "cc25d8df213b9b1e7cb23c2604eafa4d5366ed6692842494a10f276a787fcecc",
+      "identical": true
+    },
+    {
+      "output": "report/realtime.svg",
+      "registered_file": "figures/e4_realtime.svg",
+      "registered_sha256": "22a89bdea3874a2bf8de35ec68a4ccfab1e7f29d1c7747b4d1f016be702a0d23",
+      "recomputation_sha256": "22a89bdea3874a2bf8de35ec68a4ccfab1e7f29d1c7747b4d1f016be702a0d23",
+      "identical": true
+    },
+    {
+      "output": "report/report.json",
+      "registered_file": "audit/e4/report.json",
+      "registered_sha256": "83fb19db98db943d67104ca80e1a2934612de9288e8801d66fc583481e7da726",
+      "recomputation_sha256": "83fb19db98db943d67104ca80e1a2934612de9288e8801d66fc583481e7da726",
+      "identical": true
+    },
+    {
+      "output": "report/report.txt",
+      "registered_file": "audit/e4/report.txt",
+      "registered_sha256": "19527c962c920da84e724e858d8fe6412aca07338383a94bb5a9b35769f83313",
+      "recomputation_sha256": "19527c962c920da84e724e858d8fe6412aca07338383a94bb5a9b35769f83313",
+      "identical": true
+    },
+    {
+      "output": "report/rolling.csv",
+      "registered_file": "audit/e4/rolling.csv",
+      "registered_sha256": "2d0010a943b3da442558eb242733c2fb170ad569789ac35fe3f5c19e6bde1e93",
+      "recomputation_sha256": "2d0010a943b3da442558eb242733c2fb170ad569789ac35fe3f5c19e6bde1e93",
+      "identical": true
+    },
+    {
+      "output": "report/selections.csv",
+      "registered_file": "audit/e4/selections.csv",
+      "registered_sha256": "0ddbd76e6a8943ed35d1dfed3f9bb869373531fad8f9b7daf06552368a0c34c4",
+      "recomputation_sha256": "0ddbd76e6a8943ed35d1dfed3f9bb869373531fad8f9b7daf06552368a0c34c4",
+      "identical": true
+    },
+    {
+      "output": "report/surrogates.pdf",
+      "registered_file": "figures/e4_surrogates.pdf",
+      "registered_sha256": "08aec1493a7f9857260912a4e8d05d0f844e6ddb4c1cd1489c6195e502bcd69a",
+      "recomputation_sha256": "08aec1493a7f9857260912a4e8d05d0f844e6ddb4c1cd1489c6195e502bcd69a",
+      "identical": true
+    },
+    {
+      "output": "report/surrogates.png",
+      "registered_file": "figures/e4_surrogates.png",
+      "registered_sha256": "9395caf2b5f7dfc15574d3289b78114808884b294a9b806e181616149aa7a51c",
+      "recomputation_sha256": "9395caf2b5f7dfc15574d3289b78114808884b294a9b806e181616149aa7a51c",
+      "identical": true
+    },
+    {
+      "output": "report/surrogates.svg",
+      "registered_file": "figures/e4_surrogates.svg",
+      "registered_sha256": "b85be441fd273f17d3875dab2954dc4256877bdc8a44d1fb03e0934701e61e0b",
+      "recomputation_sha256": "b85be441fd273f17d3875dab2954dc4256877bdc8a44d1fb03e0934701e61e0b",
+      "identical": true
+    },
+    {
+      "output": "report/two-clocks.csv",
+      "registered_file": "audit/e4/two-clocks.csv",
+      "registered_sha256": "760d43579c78a48ac456f48c0e10d56d21642fb72591b4241037a4c129127bea",
+      "recomputation_sha256": "760d43579c78a48ac456f48c0e10d56d21642fb72591b4241037a4c129127bea",
+      "identical": true
+    },
+    {
+      "output": "report/vintage-series.json",
+      "registered_file": "audit/e4/vintage-series.json",
+      "registered_sha256": "f86cef209564fdc5df5b365c424676db01277049ad43459a8c01e55e33f99546",
+      "recomputation_sha256": "f86cef209564fdc5df5b365c424676db01277049ad43459a8c01e55e33f99546",
+      "identical": true
+    },
+    {
+      "output": "run-log.json",
+      "registered_file": "audit/e4/run-log.json",
+      "registered_sha256": "c4993425432a631b065b9a4ec760d653bed9290d2951cb8db47753997f8a5ac3",
+      "recomputation_sha256": "b718d8da1a7121e5773fbd8581b38dbfda2fa79d064a854a08ac115105873beb",
+      "identical": false
+    }
+  ],
+  "run_log_fields_that_differ": [
+    "commit",
+    "environment.commit",
+    "finished_utc",
+    "imported.ext_commit",
+    "kind",
+    "seconds",
+    "started_utc"
+  ],
+  "result": "Every analysis output and every table and figure are byte-identical to the registered run. Only the run log differs, in the fields listed (commit, kind and times), with the report manifest, which lists the run log's hash, and the completion record, which lists both hashes. The levels were re-read from the workbook, the surrogate series were regenerated from the registered seed and every rolling fit was repeated."
+}
