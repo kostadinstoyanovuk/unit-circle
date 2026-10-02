@@ -7,12 +7,15 @@ audit/h1/** -text
 figures/h1_* -text
 # Official X.3 outputs are stored byte for byte, so they match the hashes recorded by the runs.
 audit/e1_x3/** -text
+audit/e2_x3/** -text
 audit/e3_x3/** -text
 audit/e4_x3/** -text
-# Frozen E1, E3 and E4 outputs are stored byte for byte, so they match the hashes recorded by the runs.
+# Frozen E1, E2, E3 and E4 outputs are stored byte for byte, so they match the hashes recorded by the runs.
 audit/e1/** -text
+audit/e2/** -text
 audit/e3/** -text
 audit/e4/** -text
 figures/e1_* -text
+figures/e2_* -text
 figures/e3_* -text
 figures/e4_* -text

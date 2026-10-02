@@ -1,0 +1,97 @@
+{
+ "record": "E2 section 7 onsets",
+ "rule": "H1 section 5 applied to g at E2 positions 0-194 (H1 growth positions 64-258); eligibility structural (r >= W + 8)",
+ "h1_growth_sha256": "e9536c69ec12dbc1d214ead404f600ace70457d467ddf0d768099dc983be2b8b",
+ "window": 40,
+ "m_E2": 2,
+ "power_onsets": [
+  77,
+  148
+ ],
+ "episodes": [
+  {
+   "onset": 9,
+   "onset_quarter": "1973 Q3",
+   "end": 17,
+   "end_quarter": "1975 Q3",
+   "runs": [
+    [
+     9,
+     11
+    ],
+    [
+     16,
+     17
+    ]
+   ],
+   "eligible": {
+    "32": false,
+    "40": false,
+    "48": false
+   },
+   "also_h1_onset": true
+  },
+  {
+   "onset": 35,
+   "onset_quarter": "1980 Q1",
+   "end": 39,
+   "end_quarter": "1981 Q1",
+   "runs": [
+    [
+     35,
+     39
+    ]
+   ],
+   "eligible": {
+    "32": false,
+    "40": false,
+    "48": false
+   },
+   "also_h1_onset": true
+  },
+  {
+   "onset": 77,
+   "onset_quarter": "1990 Q3",
+   "end": 84,
+   "end_quarter": "1992 Q2",
+   "runs": [
+    [
+     77,
+     81
+    ],
+    [
+     83,
+     84
+    ]
+   ],
+   "eligible": {
+    "32": true,
+    "40": true,
+    "48": true
+   },
+   "also_h1_onset": true
+  },
+  {
+   "onset": 148,
+   "onset_quarter": "2008 Q2",
+   "end": 152,
+   "end_quarter": "2009 Q2",
+   "runs": [
+    [
+     148,
+     152
+    ]
+   ],
+   "eligible": {
+    "32": true,
+    "40": true,
+    "48": true
+   },
+   "also_h1_onset": true
+  }
+ ],
+ "h1_frozen_commit": "98891ba1fba7f1cc8f61af842d40ddac75884b14",
+ "abmi_acquisition_record": "data/raw/ABMI_acquisition.json",
+ "abmi_file": "data/raw/ABMI_QNA.csv",
+ "abmi_sha256": "b97f9b0f5d9c94aa711804a43752f83d3d2f0fcf7062f2eff8dbd6f236221262"
+}

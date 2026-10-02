@@ -1,6 +1,6 @@
 # E2 analysis code: readings taken where the E2 addendum is silent
 
-This document lists every reading that the E2 analysis code (`src/uc_e2`) takes where the E2 addendum does not settle an outcome: the quotation, the choice, the reason and the test. Sections are cited as numbered in the addendum text (sections 4 to 13, Annexes A and B). E2 is not yet registered; every reading must be checked against the registered text before the X.3 checks start, because every file of `src/uc_e2` is part of E2's code identity.
+This document lists every reading that the E2 analysis code (`src/uc_e2`) takes where the E2 addendum does not settle an outcome: the quotation, the choice, the reason and the test. Sections are cited as numbered in the addendum text (sections 4 to 13, Annexes A and B). E2 was registered on 2 October 2026 (OSF 4ncz2; `prereg/E2.md`, SHA-256 7b103bb2cc314977cb30446a924d8d975850369f01ebc4819eb6da24f1e08786). Each reading was checked against the registered text before the X.3 checks start, because every file of `src/uc_e2` is part of E2's code identity, and the owner adopted all sixteen as they stand on 2 October 2026 (DECISIONS.md D-060).
 
 Labels: (a) verified by running the test named; (b) read from a named source at a named place; (c) inferred.
 
@@ -40,4 +40,4 @@ Labels: (a) verified by running the test named; (b) read from a named source at 
 
 **R16 Scope of a failed window.** Quotation (section 6): "Later non-finite or unidentified windows fail the affected analysis, as in H1 §4." Choice: as `uc_core.rolling.max_modulus`, a failed window anywhere after the warm-up fails the M(t) path of that analysis, and with it the statistics that need the path; the episode is not removed. Test: `test_window_failures_raise_with_their_endpoint_and_unstable_fits_are_kept`. (a)
 
-The development results cited here were obtained on Python 3.12.3 with the package versions of `requirements.lock`; registered runs use Python 3.12.14 under the lock.
+The development results cited here were obtained on Python 3.12.3 with the package versions of `requirements.lock`; registered runs use Python 3.12.14 under the lock. The whole suite was run again under Python 3.12.14 and the lock before the code was published (`audit/e2_x3/preflight/test_full_suite.txt`).
