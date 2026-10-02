@@ -1,0 +1,80 @@
+PASS  every frozen file equals its recorded SHA-256: 26 files
+PASS  Delta_final of 1973Q3 equals the frozen H1 change: -0.172240
+PASS  Delta_final of 1980Q1 equals the frozen H1 change: -0.063776
+PASS  Delta_final of 1990Q3 equals the frozen H1 change: -0.203415
+PASS  Delta_final of 2008Q2 equals the frozen H1 change: 0.066248
+PASS  j=0: rolling.csv holds the stored growth series: 73 positions
+PASS  j=0: Delta_rt at W=40 refitted equals the stored one: +0.352555
+PASS  j=0: Delta_rt at W=32 refitted equals the stored one: +0.216615
+PASS  j=0: Delta_rt at W=48 refitted equals the stored one: +0.192006
+PASS  j=0: Kendall tau-b equals the stored one: +0.5500
+PASS  j=0: lag-one change equals the stored one: +0.0697
+PASS  j=1: rolling.csv holds the stored growth series: 99 positions
+PASS  j=1: Delta_rt at W=40 refitted equals the stored one: +0.001595
+PASS  j=1: Delta_rt at W=32 refitted equals the stored one: -0.076568
+PASS  j=1: Delta_rt at W=48 refitted equals the stored one: -0.006685
+PASS  j=1: Kendall tau-b equals the stored one: +0.4333
+PASS  j=1: lag-one change equals the stored one: -0.0129
+PASS  j=2: rolling.csv holds the stored growth series: 141 positions
+PASS  j=2: Delta_rt at W=40 refitted equals the stored one: -0.375249
+PASS  j=2: Delta_rt at W=32 refitted equals the stored one: +0.331445
+PASS  j=2: Delta_rt at W=48 refitted equals the stored one: +0.081139
+PASS  j=2: Kendall tau-b equals the stored one: -0.4000
+PASS  j=2: lag-one change equals the stored one: +0.5379
+PASS  j=3: rolling.csv holds the stored growth series: 212 positions
+PASS  j=3: Delta_rt at W=40 refitted equals the stored one: -0.018437
+PASS  j=3: Delta_rt at W=32 refitted equals the stored one: +0.156838
+PASS  j=3: Delta_rt at W=48 refitted equals the stored one: +0.228018
+PASS  j=3: Kendall tau-b equals the stored one: -0.0500
+PASS  j=3: lag-one change equals the stored one: -0.0038
+PASS  largest deviation over every refitted modulus, coefficient and lag-one value is below 1e-9: 1.49e-14
+PASS  S_rt = mean of the four Delta_rt equals the stored value: -0.009884
+PASS  k = number of positive Delta_rt: 2
+PASS  W=32: the mean change equals the stored statistic: +0.1571
+PASS  W=48: the mean change equals the stored statistic: +0.1236
+PASS  Kendall: the mean tau-b equals the stored statistic: +0.1333
+PASS  lag-one: the mean change equals the stored statistic: +0.1478
+PASS  S_final,m and the mean difference are the stored ones: -0.0933, +0.0834
+PASS  same-sign count is the stored one: 1
+PASS  j=0: null modulus agrees: 0.3590
+PASS  j=0: stored residuals are the centred OLS residuals: 71 residuals
+PASS  j=1: null modulus agrees: 0.4466
+PASS  j=1: stored residuals are the centred OLS residuals: 97 residuals
+PASS  j=2: null modulus agrees: 0.1761
+PASS  j=2: stored residuals are the centred OLS residuals: 139 residuals
+PASS  j=3: null modulus agrees: 0.3367
+PASS  j=3: stored residuals are the centred OLS residuals: 210 residuals
+PASS  primary.primary: attempts are 1,000 retained, none failed: retained 1000
+PASS  primary.primary: exceedances recount: 551
+PASS  primary.primary: p = (1+K)/(B'+1): 0.5514
+PASS  primary.primary: q and its Wilson interval: 0.551 [0.5200, 0.5816]
+PASS  window32.primary: attempts are 1,000 retained, none failed: retained 1000
+PASS  window32.primary: exceedances recount: 15
+PASS  window32.primary: p = (1+K)/(B'+1): 0.0160
+PASS  window32.primary: q and its Wilson interval: 0.015 [0.0091, 0.0246]
+PASS  window48.primary: attempts are 1,000 retained, none failed: retained 1000
+PASS  window48.primary: exceedances recount: 22
+PASS  window48.primary: p = (1+K)/(B'+1): 0.0230
+PASS  window48.primary: q and its Wilson interval: 0.022 [0.0146, 0.0331]
+PASS  wild.primary: attempts are 1,000 retained, none failed: retained 1000
+PASS  wild.primary: exceedances recount: 533
+PASS  wild.primary: p = (1+K)/(B'+1): 0.5335
+PASS  wild.primary: q and its Wilson interval: 0.533 [0.5020, 0.5637]
+PASS  primary.trend: attempts are 1,000 retained, none failed: retained 1000
+PASS  primary.trend: exceedances recount: 275
+PASS  primary.trend: p = (1+K)/(B'+1): 0.2757
+PASS  primary.trend: q and its Wilson interval: 0.275 [0.2482, 0.3035]
+PASS  primary.lag1: attempts are 1,000 retained, none failed: retained 1000
+PASS  primary.lag1: exceedances recount: 1
+PASS  primary.lag1: p = (1+K)/(B'+1): 0.0020
+PASS  primary.lag1: q and its Wilson interval: 0.001 [0.0002, 0.0056]
+PASS  secondary table row 'primary (W = 40, fixed dates per vintage)' has p = (1+K)/(B'+1): p 0.5514
+PASS  secondary table row 'W = 32' has p = (1+K)/(B'+1): p 0.0160
+PASS  secondary table row 'W = 48' has p = (1+K)/(B'+1): p 0.0230
+PASS  secondary table row 'wild signs (W = 40)' has p = (1+K)/(B'+1): p 0.5335
+PASS  secondary table row 'Kendall trend (W = 40)' has p = (1+K)/(B'+1): p 0.2757
+PASS  secondary table row 'lag-one comparator (W = 40)' has p = (1+K)/(B'+1): p 0.0020
+PASS  episode interval replay: endpoints: [-0.1968, +0.1771]
+PASS  episode interval replay: every resample mean: 10000 means
+CHECKS 100, FAILED 0
+VERIFIED

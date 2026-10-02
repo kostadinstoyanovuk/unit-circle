@@ -1,0 +1,37 @@
+UK real GDP in the first vintage containing the quarter before onset (ONS ABMI), E4
+Data kind: ons_realtime_abmi_e4_registered
+
+E4-eligible episodes: m_E4 = 4 of 4 H1 eligible episodes
+Episodes (section 7; W = 40):
+  j = 0, onset 1973Q3: v_j = Sep-73 [1970 prices], n_v = 73, Delta_rt = +0.3526, Delta_final = -0.1722, difference = +0.5248
+  j = 1, onset 1980Q1: v_j = Feb-80, n_v = 99, Delta_rt = +0.0016, Delta_final = -0.0638, difference = +0.0654
+  j = 2, onset 1990Q3: v_j = Aug-90, n_v = 141, Delta_rt = -0.3752, Delta_final = -0.2034, difference = -0.1718
+  j = 3, onset 2008Q2: v_j = Apr-08 M1, n_v = 212, Delta_rt = -0.0184, Delta_final = +0.0662, difference = -0.0847
+
+Primary comparison (sections 8 and 9):
+  status ok; S_rt = -0.0099; k/m_E4 = 2/4
+  raw p = 0.5514 (raw, not family-adjusted); K = 551; B' = 1000; q = 0.5510; Wilson 95% [0.5200, 0.5816]
+  Holm input at family closure: 0.5514485514485514
+Episode interval (90%, section 10): ok [-0.1968, +0.1771]
+
+Outcome at freeze (section 11): inconclusive
+  The E4 comparison did not detect an unusually large real-time pre-onset change relative to fixed-date AR(2) surrogates fitted to each episode's first vintage containing the quarter before onset. This concerns the revision sensitivity of the H1 statistic, not warning available before the onset quarter began.
+  Basis: Raw p = 0.5514 > 0.05 (raw, not family-adjusted). A Holm-adjusted p is never below its raw p, so the adjusted p at family closure also exceeds 0.05 and the registered outcome is inconclusive; the adjusted value itself is reported at closure.
+  Branch B diagnostic: unavailable (D80 = None). A labelled diagnostic, not a finding of absence or equivalence (H1 section 10).
+  Limit: E4 measures the revision sensitivity of the H1 statistic in the first vintage that contains the quarter before onset; it is not a test of warning available before the onset quarter began, and the onset dates come from final data (prereg/E4.md sections 2 and 11; SD-07).
+  The observed mean change S is nonpositive; an upper-tail comparison does not show an absolute positive rise in persistence.
+
+Secondary comparisons (section 10; none replaces the confirmatory comparison):
+  primary (W = 40, fixed dates per vintage): status ok, value -0.0099, m = 4, raw p = 0.5514
+  W = 32: status ok, value +0.1571, m = 4, raw p = 0.0160
+  W = 48: status ok, value +0.1236, m = 4, raw p = 0.0230
+  wild signs (W = 40): status ok, value -0.0099, m = 4, raw p = 0.5335
+  Kendall trend (W = 40): status ok, value +0.1333, m = 4, raw p = 0.2757
+  lag-one comparator (W = 40): status ok, value +0.1478, m = 4, raw p = 0.0020
+
+Real time against final (section 10, description, no test): S_rt - S_final,m = +0.0834; same sign in 1 of 4
+Two clocks (section 10, SD-07; description, not a claim of real-time warning):
+  j = 0, onset 1973Q3: v_j = Sep-73 [1970 prices] (1973-09, label month only); released before the end of the onset quarter: undetermined: label month only; months since the previous vintage: 1; first vintage showing the onset: Sep-77
+  j = 1, onset 1980Q1: v_j = Feb-80 (1980-02, label month only); released before the end of the onset quarter: True; months since the previous vintage: 1; first vintage showing the onset: Sep-80
+  j = 2, onset 1990Q3: v_j = Aug-90 (1990-08, label month only); released before the end of the onset quarter: True; months since the previous vintage: 1; first vintage showing the onset: Feb-91
+  j = 3, onset 2008Q2: v_j = Apr-08 M1 (2008-04, label month only); released before the end of the onset quarter: True; months since the previous vintage: 1; first vintage showing the onset: Feb-09 M2

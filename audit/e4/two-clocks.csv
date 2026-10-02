@@ -1,0 +1,5 @@
+data_kind,j,onset,reference_quarter,vintage,release_date,release_month,release_basis,onset_quarter_ends,release_before_end_of_onset_quarter,previous_vintage,previous_release_month,months_since_previous,first_vintage_showing_the_onset,note
+ons_realtime_abmi_e4_registered,0,1973Q3,1973Q2,Sep-73 [1970 prices],,1973-09,label month only,1973-09-30,undetermined: label month only,Aug-73,1973-08,1,Sep-77,"Description, not a test and not a claim of real-time warning (SD-07)."
+ons_realtime_abmi_e4_registered,1,1980Q1,1979Q4,Feb-80,,1980-02,label month only,1980-03-31,True,Jan-80,1980-01,1,Sep-80,"Description, not a test and not a claim of real-time warning (SD-07)."
+ons_realtime_abmi_e4_registered,2,1990Q3,1990Q2,Aug-90,,1990-08,label month only,1990-09-30,True,Jul-90,1990-07,1,Feb-91,"Description, not a test and not a claim of real-time warning (SD-07)."
+ons_realtime_abmi_e4_registered,3,2008Q2,2008Q1,Apr-08 M1,,2008-04,label month only,2008-06-30,True,Mar-08 QNA,2008-03,1,Feb-09 M2,"Description, not a test and not a claim of real-time warning (SD-07)."

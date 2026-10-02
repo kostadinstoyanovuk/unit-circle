@@ -1,0 +1,13 @@
+data_kind,window,minimum_n_v,j,onset,reference_quarter,status,failed_step,reason,vintage,vintage_number,previous_vintage,first_quarter,run_ended_by,n_levels,n_v,series_status,stop,stop_note
+ons_realtime_abmi_e4_registered,40,48,0,1973Q3,1973Q2,eligible,,,Sep-73 [1970 prices],144,Aug-73,1955Q1,floor,74,73,ok,,
+ons_realtime_abmi_e4_registered,40,48,1,1980Q1,1979Q4,eligible,,,Feb-80,221,Jan-80,1955Q1,floor,100,99,ok,,
+ons_realtime_abmi_e4_registered,40,48,2,1990Q3,1990Q2,eligible,,,Aug-90,347,Jul-90,1955Q1,floor,142,141,ok,,
+ons_realtime_abmi_e4_registered,40,48,3,2008Q2,2008Q1,eligible,,,Apr-08 M1,559,Mar-08 QNA,1955Q1,floor,213,212,ok,,
+ons_realtime_abmi_e4_registered,32,40,0,1973Q3,1973Q2,eligible,,,Sep-73 [1970 prices],144,Aug-73,1955Q1,floor,74,73,ok,,
+ons_realtime_abmi_e4_registered,32,40,1,1980Q1,1979Q4,eligible,,,Feb-80,221,Jan-80,1955Q1,floor,100,99,ok,,
+ons_realtime_abmi_e4_registered,32,40,2,1990Q3,1990Q2,eligible,,,Aug-90,347,Jul-90,1955Q1,floor,142,141,ok,,
+ons_realtime_abmi_e4_registered,32,40,3,2008Q2,2008Q1,eligible,,,Apr-08 M1,559,Mar-08 QNA,1955Q1,floor,213,212,ok,,
+ons_realtime_abmi_e4_registered,48,56,0,1973Q3,1973Q2,eligible,,,Sep-73 [1970 prices],144,Aug-73,1955Q1,floor,74,73,ok,,
+ons_realtime_abmi_e4_registered,48,56,1,1980Q1,1979Q4,eligible,,,Feb-80,221,Jan-80,1955Q1,floor,100,99,ok,,
+ons_realtime_abmi_e4_registered,48,56,2,1990Q3,1990Q2,eligible,,,Aug-90,347,Jul-90,1955Q1,floor,142,141,ok,,
+ons_realtime_abmi_e4_registered,48,56,3,2008Q2,2008Q1,eligible,,,Apr-08 M1,559,Mar-08 QNA,1955Q1,floor,213,212,ok,,

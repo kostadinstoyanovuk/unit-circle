@@ -1,0 +1,5 @@
+data_kind,j,onset,reference_quarter,status,failed_step,reason,vintage,previous_vintage,release_date,release_basis,n_v,statistic,delta_rt,delta_rt_sign,delta_final,delta_final_sign,difference
+ons_realtime_abmi_e4_registered,0,1973Q3,1973Q2,eligible,,,Sep-73 [1970 prices],Aug-73,,label month only,73,ok,0.35255512947887435,positive,-0.17224005804748768,negative,0.524795187526362
+ons_realtime_abmi_e4_registered,1,1980Q1,1979Q4,eligible,,,Feb-80,Jan-80,,label month only,99,ok,0.0015954188754245813,positive,-0.0637759910597118,negative,0.06537140993513638
+ons_realtime_abmi_e4_registered,2,1990Q3,1990Q2,eligible,,,Aug-90,Jul-90,,label month only,141,ok,-0.37524916326130064,negative,-0.20341527862560144,negative,-0.1718338846356992
+ons_realtime_abmi_e4_registered,3,2008Q2,2008Q1,eligible,,,Apr-08 M1,Mar-08 QNA,,label month only,212,ok,-0.018436978549285443,negative,0.06624758368705608,positive,-0.08468456223634152

@@ -1,0 +1,5 @@
+data_kind,j,onset,status,failed_step,reason,vintage,release_date,release_basis,n_v,delta_rt,delta_final,difference
+ons_realtime_abmi_e4_registered,0,1973Q3,eligible,,,Sep-73 [1970 prices],,label month only,73,0.35255512947887435,-0.17224005804748768,0.524795187526362
+ons_realtime_abmi_e4_registered,1,1980Q1,eligible,,,Feb-80,,label month only,99,0.0015954188754245813,-0.0637759910597118,0.06537140993513638
+ons_realtime_abmi_e4_registered,2,1990Q3,eligible,,,Aug-90,,label month only,141,-0.37524916326130064,-0.20341527862560144,-0.1718338846356992
+ons_realtime_abmi_e4_registered,3,2008Q2,eligible,,,Apr-08 M1,,label month only,212,-0.018436978549285443,0.06624758368705608,-0.08468456223634152

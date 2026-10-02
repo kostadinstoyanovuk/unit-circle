@@ -1,0 +1,2 @@
+data_kind,status,lower,upper,episodes,requested,attempted,note,error
+ons_realtime_abmi_e4_registered,ok,-0.19684307090529304,0.17707527417714947,4,10000,10000,,

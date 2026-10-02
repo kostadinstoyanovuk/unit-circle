@@ -1,0 +1,2 @@
+data_kind,m_E4,S_rt,S_final_m,mean_difference,same_sign,note
+ons_realtime_abmi_e4_registered,4,-0.009883898364071789,-0.09329593601143621,0.08341203764736442,1,No test is attached. Same sign counts episodes where both changes are positive or both negative.
