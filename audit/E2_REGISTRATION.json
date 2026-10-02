@@ -1,0 +1,137 @@
+{
+    "record_type": "OSF registration evidence for extension E2 (gate G4)",
+    "registration_id": "4ncz2",
+    "registration_url": "https://osf.io/4ncz2",
+    "doi": "10.17605/OSF.IO/4NCZ2",
+    "title": "E2: Did UK recessions give warning in the joint dynamics of output and unemployment? A registered extension of OSF wcnbz with a VAR(2) of GDP growth and the change in the unemployment rate, 1971-2019",
+    "registration_type": "OSF Registries, Secondary Data Preregistration (the template of H1, wcnbz)",
+    "registration_license": "CC-By Attribution 4.0 International",
+    "linked_registration": "wcnbz (H1), cited in the description; separate registration per DECISIONS.md D-023, G-6",
+    "api_date_registered_utc": "2026-10-02T02:00:26.639296Z",
+    "approval": "Submitted by the owner from the OSF draft (the registration was created at 2026-10-02T02:00:26.639296Z; registration date_modified 2026-10-02T02:00:26.277143Z). The registry recorded the original response as approved at 2026-10-02T02:02:01.649751Z (schema response 6abf103dc650b42aaa995004, date_modified with reviews_state approved); state approved, public, not embargoed, not withdrawn",
+    "public_registration_timestamp_utc": "2026-10-02T02:02:01.649751Z",
+    "public_first_verified_at_utc": "2026-10-02T02:02:26Z",
+    "anonymous_api_check": {
+        "checked_at_utc": "2026-10-02T02:02:26Z",
+        "client": "unauthenticated OSF API v2 requests",
+        "public": true,
+        "pending_registration_approval": false,
+        "embargoed": false,
+        "withdrawn": false,
+        "archiving": false,
+        "revision_state": "approved"
+    },
+    "attachments_question": "Codebook documentation (72-26), as in H1",
+    "expected_attachment_sha256": {
+        "prereg/E2.md": "7b103bb2cc314977cb30446a924d8d975850369f01ebc4819eb6da24f1e08786",
+        "prereg/E_SOURCE_METADATA.md": "44625af43da8aa8d709a172655a749f1c75972b2c4db9d0356dee906a3e4dc08"
+    },
+    "archived_attachments": [
+        {
+            "file_name": "E2.md",
+            "osf_file_id": "6abf104718d289de57f7a893",
+            "bytes": 43116,
+            "osf_sha256": "7b103bb2cc314977cb30446a924d8d975850369f01ebc4819eb6da24f1e08786",
+            "downloaded_sha256": "7b103bb2cc314977cb30446a924d8d975850369f01ebc4819eb6da24f1e08786",
+            "downloaded_at_utc": "2026-10-02T02:02:35Z"
+        },
+        {
+            "file_name": "E_SOURCE_METADATA.md",
+            "osf_file_id": "6abf104718d289de57f7a894",
+            "bytes": 10647,
+            "osf_sha256": "44625af43da8aa8d709a172655a749f1c75972b2c4db9d0356dee906a3e4dc08",
+            "downloaded_sha256": "44625af43da8aa8d709a172655a749f1c75972b2c4db9d0356dee906a3e4dc08",
+            "downloaded_at_utc": "2026-10-02T02:02:39Z"
+        }
+    ],
+    "archived_attachment_bytes_verified": true,
+    "source_commit": "46174d12c716d2c9ef0bfb4e7e8ed958f259e7c6",
+    "prereg_tag": "prereg-E2",
+    "prereg_tag_commit": "46174d12c716d2c9ef0bfb4e7e8ed958f259e7c6",
+    "data_status": "No MGSX observation, and no file or page that shows an MGSX value, had been acquired, opened or previewed at registration or at verification; the Bank of England workbook acquired for E1 on 29 September 2026 holds UK employment and unemployment series but no E2 step reads it (prereg/E2.md section 0); the H1-registered ABMI file was acquired under H1 on 28 September 2026.",
+    "programme_state_at_registration": "STATUS.md at the registration commit records H1 frozen (28 September), E3 frozen (29 September) and E1 frozen (30 September), all three inconclusive; E4 registered on 30 September (OSF dpxqf), its real-time edition selected and its workbook downloaded once on 1 October (X.2), its official synthetic checks passed and recorded on 1 October (X.3, D-057), and its registered analysis not run on real data. No extension was run or frozen between the fixing of the E2 text on 1 October 2026 and the registry's approval, so the exposure rows of prereg/E2.md section 0 were true when the registration took effect. E2 was not registered before this record, and no E2 code or statistic existed in the repository.",
+    "registered_answers": {
+        "compared_with": "prereg/E2_OSF_responses.md at commit 46174d1 (SHA-256 ed12cfc820aa9d30717ce03c838880df4e2e4b95212d1619c1c240320af01e3b)",
+        "compared_on": "the anonymous registration response of 2026-10-02T02:02:26Z",
+        "identical": [
+            "72-2",
+            "72-7",
+            "72-14",
+            "72-16",
+            "72-18",
+            "72-20",
+            "72-24",
+            "72-29",
+            "72-33",
+            "72-35",
+            "72-37",
+            "72-39",
+            "72-41",
+            "72-44",
+            "72-46",
+            "72-49",
+            "72-51",
+            "72-53",
+            "72-57",
+            "72-59",
+            "72-61"
+        ],
+        "identical_after_html_escape_of_lt_and_gt": [
+            "72-4",
+            "72-55"
+        ],
+        "option_text": {
+            "72-9": "The dataset is publicly available"
+        },
+        "file_answers": {
+            "72-22": [],
+            "72-26": [
+                "E2.md",
+                "E_SOURCE_METADATA.md"
+            ],
+            "72-31": []
+        },
+        "note": "OSF stores \"<\" and \">\" in registered answers as &lt; and &gt;; the registered H1 record wcnbz shows the same. Title, description, tags, licence, subjects and contributor equal the file."
+    },
+    "project_created_from_draft": "a7sgx",
+    "schema_response_id": "6abf103dc650b42aaa995004",
+    "release_rule_note": "The E2 release rule (E2 section 4, D-017, D-023 E2-6) selects the latest LMS publication released strictly before the registry approval time, 2026-10-02T02:02:01.649751Z (schema response date_modified with reviews_state approved, as in audit/H1_REGISTRATION_TIMESTAMP.md). The submission record of E2 section 4 names the September 2026 edition (released 15 September 2026, 06:00 UTC) as the latest released before submission and the October 2026 edition (20 October 2026, 06:00 UTC) as the next. The edition is identified from official ONS metadata at step X.2.",
+    "release_rule_check_after_approval": {
+        "read_at_utc": "2026-10-02T02:02:50Z",
+        "reader": "audit/e2_source/e2_calendar_fetch.py (release calendar only, as for the submission record)",
+        "requests": [
+            {
+                "url": "https://www.ons.gov.uk/releasecalendar?keywords=labour+market+overview&release-type=type-published&sort=date-newest",
+                "http": 200,
+                "bytes": 63562,
+                "sha256": "037aca59fe92298215259e6d31fd77313dc25b2e99e21ed2c23f569750f5125c",
+                "utc": "2026-10-02T02:02:50Z"
+            },
+            {
+                "url": "https://www.ons.gov.uk/releasecalendar?keywords=labour+market+overview&release-type=type-upcoming&sort=date-newest",
+                "http": 200,
+                "bytes": 63311,
+                "sha256": "74580ce44ac09014ef0c3247c19bffe8e141059accf60a1ac979dc127993e815",
+                "utc": "2026-10-02T02:02:59Z"
+            },
+            {
+                "url": "https://www.ons.gov.uk/releases/labourmarketstatisticstimeseriesseptember2026",
+                "http": 200,
+                "bytes": 44321,
+                "sha256": "57959d389150908091e767a52f943e80c2a1c5e09982a80691d1e77937690d8d",
+                "utc": "2026-10-02T02:03:08Z"
+            },
+            {
+                "url": "https://www.ons.gov.uk/releases/labourmarketstatisticstimeseriesoctober2026",
+                "http": 200,
+                "bytes": 41989,
+                "sha256": "f1a141fc46c19b05d4261b4f0ba4b9d0ba3bcaa6e74595f9df466ab4e7238dc0",
+                "utc": "2026-10-02T02:03:08Z"
+            }
+        ],
+        "latest_published_before_approval": "Labour market statistics time series: September 2026 (released 15 September 2026, 7:00am UK time, 06:00 UTC; the published listing gives no later release of that title)",
+        "next_scheduled": "Labour market statistics time series: October 2026 (scheduled for 20 October 2026, 7:00am UK time, 06:00 UTC; confirmed; its record states it is not yet published)",
+        "unchanged_since_submission": true,
+        "note": "Read between 2026-10-02T02:02:50Z and 2026-10-02T02:03:08Z, 49 to 67 seconds after the registry's recorded approval (2026-10-02T02:02:01.649751Z). The September record states \"Released: 15 September 2026 7:00am\" and \"Next release: 20 October 2026\"."
+    }
+}
