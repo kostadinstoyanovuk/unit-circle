@@ -1,0 +1,7 @@
+$ UC_E4_ONS_PAGES=C:\Users\user\Desktop\Unit Circle Programme\Programme Records\tmp\ons-pages-test C:\Users\user\Desktop\Unit Circle Programme\unit-circle\.venv\Scripts\python.exe -m pytest -q -p no:cacheprovider tests/test_e2_data_rules.py tests/test_e2_onsets.py
+--- exit 0
+--- stdout
+..............................                                           [100%]
+30 passed in 13.84s
+
+--- stderr

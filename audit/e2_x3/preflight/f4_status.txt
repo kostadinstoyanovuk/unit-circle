@@ -1,0 +1,5 @@
+F4 (plan p. 7) and AT-12 as audit/FOUNDATIONS_REPORT.md records them at commit 2a752bbf76751f37190d396afde275ae2d6bbfbf:
+
+# Foundations checks: AT-8, AT-11, AT-12, local level and Lemma A in Lean
+| AT-12: companion spectral radius | F4 | Passed: diagonal VAR(1) exact (error 0); AR(2) companion against root modulus, largest error 4.9e-15. |
+| F4 Linear algebra | AT-12 | Passed (this report) |

@@ -1,0 +1,63 @@
+{
+ "record_type": "prerequisite",
+ "mode": "registered",
+ "master_seed": 1927,
+ "registered": true,
+ "code_sha256": "db442259d47b6b46edf887a05633d35d23f19fd447ed23367b18d02fa55da35f",
+ "input_sha256": "236510f8a35bd3644819c2a81a4525f76a06ad1ef5b323f90d0fb7430c7fa1f1",
+ "at12": {
+  "diagonal": {
+   "draws": 100000,
+   "max_abs_error": 0.0,
+   "passed": true
+  },
+  "ar2": {
+   "draws": 100000,
+   "skipped": 0,
+   "max_abs_error": 4.884981308350689e-15,
+   "passed": true
+  },
+  "seed": [
+   1927,
+   2012
+  ],
+  "passed": true
+ },
+ "reduction": {
+  "input_sha256": "236510f8a35bd3644819c2a81a4525f76a06ad1ef5b323f90d0fb7430c7fa1f1",
+  "tolerance": 1e-10,
+  "windows": [
+   {
+    "window": 32,
+    "fitted": 228,
+    "max_abs_difference": 2.220446049250313e-16,
+    "warmup_same": true,
+    "passed": true
+   },
+   {
+    "window": 40,
+    "fitted": 220,
+    "max_abs_difference": 1.6653345369377348e-16,
+    "warmup_same": true,
+    "passed": true
+   },
+   {
+    "window": 48,
+    "fitted": 212,
+    "max_abs_difference": 2.220446049250313e-16,
+    "warmup_same": true,
+    "passed": true
+   }
+  ],
+  "passed": true
+ },
+ "f4": {
+  "passed": true,
+  "source": "DECISIONS.md D-019; STATUS.md, original C1 foundations checks",
+  "rerun": false
+ },
+ "unit_tests": [
+  "tests/test_e2_data_rules.py"
+ ],
+ "passed": true
+}

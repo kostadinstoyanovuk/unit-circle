@@ -1,0 +1,7 @@
+$ C:\Users\user\Desktop\Unit Circle Programme\unit-circle\.venv\Scripts\python.exe -m pytest -q -p no:cacheprovider tests/test_e2_data_rules.py
+--- exit 0
+--- stdout
+............................                                             [100%]
+28 passed in 1.42s
+
+--- stderr

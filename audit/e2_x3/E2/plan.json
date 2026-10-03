@@ -1,0 +1,1233 @@
+{
+ "extension": "e2",
+ "runner": "tools/run_e2_checks.py",
+ "parts_per_cell": 8,
+ "series_per_cell": 200,
+ "power_cells": [
+  0,
+  1,
+  2,
+  3
+ ],
+ "threads": {
+  "OMP_NUM_THREADS": "1",
+  "OPENBLAS_NUM_THREADS": "1",
+  "MKL_NUM_THREADS": "1"
+ },
+ "prerequisite": {
+  "name": "prerequisite",
+  "check": "prerequisite",
+  "out": "runs/extensions/E2/x3_prerequisite.jsonl",
+  "argv": [
+   "e2",
+   "prerequisite",
+   "--registered",
+   "--root",
+   ".",
+   "--out",
+   "runs/extensions/E2/x3_prerequisite.jsonl"
+  ]
+ },
+ "parts": [
+  {
+   "name": "size_r000-025",
+   "check": "size",
+   "cells": [
+    0
+   ],
+   "replicates": [
+    0,
+    25
+   ],
+   "series": 25,
+   "out": "runs/extensions/E2/x3_size_r000-025.jsonl",
+   "argv": [
+    "e2",
+    "size",
+    "--registered",
+    "--root",
+    ".",
+    "--replicates",
+    "0:25",
+    "--prerequisite",
+    "runs/extensions/E2/x3_prerequisite.jsonl",
+    "--out",
+    "runs/extensions/E2/x3_size_r000-025.jsonl"
+   ]
+  },
+  {
+   "name": "size_r025-050",
+   "check": "size",
+   "cells": [
+    0
+   ],
+   "replicates": [
+    25,
+    50
+   ],
+   "series": 25,
+   "out": "runs/extensions/E2/x3_size_r025-050.jsonl",
+   "argv": [
+    "e2",
+    "size",
+    "--registered",
+    "--root",
+    ".",
+    "--replicates",
+    "25:50",
+    "--prerequisite",
+    "runs/extensions/E2/x3_prerequisite.jsonl",
+    "--out",
+    "runs/extensions/E2/x3_size_r025-050.jsonl"
+   ]
+  },
+  {
+   "name": "size_r050-075",
+   "check": "size",
+   "cells": [
+    0
+   ],
+   "replicates": [
+    50,
+    75
+   ],
+   "series": 25,
+   "out": "runs/extensions/E2/x3_size_r050-075.jsonl",
+   "argv": [
+    "e2",
+    "size",
+    "--registered",
+    "--root",
+    ".",
+    "--replicates",
+    "50:75",
+    "--prerequisite",
+    "runs/extensions/E2/x3_prerequisite.jsonl",
+    "--out",
+    "runs/extensions/E2/x3_size_r050-075.jsonl"
+   ]
+  },
+  {
+   "name": "size_r075-100",
+   "check": "size",
+   "cells": [
+    0
+   ],
+   "replicates": [
+    75,
+    100
+   ],
+   "series": 25,
+   "out": "runs/extensions/E2/x3_size_r075-100.jsonl",
+   "argv": [
+    "e2",
+    "size",
+    "--registered",
+    "--root",
+    ".",
+    "--replicates",
+    "75:100",
+    "--prerequisite",
+    "runs/extensions/E2/x3_prerequisite.jsonl",
+    "--out",
+    "runs/extensions/E2/x3_size_r075-100.jsonl"
+   ]
+  },
+  {
+   "name": "size_r100-125",
+   "check": "size",
+   "cells": [
+    0
+   ],
+   "replicates": [
+    100,
+    125
+   ],
+   "series": 25,
+   "out": "runs/extensions/E2/x3_size_r100-125.jsonl",
+   "argv": [
+    "e2",
+    "size",
+    "--registered",
+    "--root",
+    ".",
+    "--replicates",
+    "100:125",
+    "--prerequisite",
+    "runs/extensions/E2/x3_prerequisite.jsonl",
+    "--out",
+    "runs/extensions/E2/x3_size_r100-125.jsonl"
+   ]
+  },
+  {
+   "name": "size_r125-150",
+   "check": "size",
+   "cells": [
+    0
+   ],
+   "replicates": [
+    125,
+    150
+   ],
+   "series": 25,
+   "out": "runs/extensions/E2/x3_size_r125-150.jsonl",
+   "argv": [
+    "e2",
+    "size",
+    "--registered",
+    "--root",
+    ".",
+    "--replicates",
+    "125:150",
+    "--prerequisite",
+    "runs/extensions/E2/x3_prerequisite.jsonl",
+    "--out",
+    "runs/extensions/E2/x3_size_r125-150.jsonl"
+   ]
+  },
+  {
+   "name": "size_r150-175",
+   "check": "size",
+   "cells": [
+    0
+   ],
+   "replicates": [
+    150,
+    175
+   ],
+   "series": 25,
+   "out": "runs/extensions/E2/x3_size_r150-175.jsonl",
+   "argv": [
+    "e2",
+    "size",
+    "--registered",
+    "--root",
+    ".",
+    "--replicates",
+    "150:175",
+    "--prerequisite",
+    "runs/extensions/E2/x3_prerequisite.jsonl",
+    "--out",
+    "runs/extensions/E2/x3_size_r150-175.jsonl"
+   ]
+  },
+  {
+   "name": "size_r175-200",
+   "check": "size",
+   "cells": [
+    0
+   ],
+   "replicates": [
+    175,
+    200
+   ],
+   "series": 25,
+   "out": "runs/extensions/E2/x3_size_r175-200.jsonl",
+   "argv": [
+    "e2",
+    "size",
+    "--registered",
+    "--root",
+    ".",
+    "--replicates",
+    "175:200",
+    "--prerequisite",
+    "runs/extensions/E2/x3_prerequisite.jsonl",
+    "--out",
+    "runs/extensions/E2/x3_size_r175-200.jsonl"
+   ]
+  },
+  {
+   "name": "power_c0_r000-025",
+   "check": "power",
+   "cells": [
+    0
+   ],
+   "replicates": [
+    0,
+    25
+   ],
+   "series": 25,
+   "out": "runs/extensions/E2/x3_power_c0_r000-025.jsonl",
+   "argv": [
+    "e2",
+    "power",
+    "--registered",
+    "--root",
+    ".",
+    "--cells",
+    "0",
+    "--replicates",
+    "0:25",
+    "--prerequisite",
+    "runs/extensions/E2/x3_prerequisite.jsonl",
+    "--out",
+    "runs/extensions/E2/x3_power_c0_r000-025.jsonl"
+   ]
+  },
+  {
+   "name": "power_c0_r025-050",
+   "check": "power",
+   "cells": [
+    0
+   ],
+   "replicates": [
+    25,
+    50
+   ],
+   "series": 25,
+   "out": "runs/extensions/E2/x3_power_c0_r025-050.jsonl",
+   "argv": [
+    "e2",
+    "power",
+    "--registered",
+    "--root",
+    ".",
+    "--cells",
+    "0",
+    "--replicates",
+    "25:50",
+    "--prerequisite",
+    "runs/extensions/E2/x3_prerequisite.jsonl",
+    "--out",
+    "runs/extensions/E2/x3_power_c0_r025-050.jsonl"
+   ]
+  },
+  {
+   "name": "power_c0_r050-075",
+   "check": "power",
+   "cells": [
+    0
+   ],
+   "replicates": [
+    50,
+    75
+   ],
+   "series": 25,
+   "out": "runs/extensions/E2/x3_power_c0_r050-075.jsonl",
+   "argv": [
+    "e2",
+    "power",
+    "--registered",
+    "--root",
+    ".",
+    "--cells",
+    "0",
+    "--replicates",
+    "50:75",
+    "--prerequisite",
+    "runs/extensions/E2/x3_prerequisite.jsonl",
+    "--out",
+    "runs/extensions/E2/x3_power_c0_r050-075.jsonl"
+   ]
+  },
+  {
+   "name": "power_c0_r075-100",
+   "check": "power",
+   "cells": [
+    0
+   ],
+   "replicates": [
+    75,
+    100
+   ],
+   "series": 25,
+   "out": "runs/extensions/E2/x3_power_c0_r075-100.jsonl",
+   "argv": [
+    "e2",
+    "power",
+    "--registered",
+    "--root",
+    ".",
+    "--cells",
+    "0",
+    "--replicates",
+    "75:100",
+    "--prerequisite",
+    "runs/extensions/E2/x3_prerequisite.jsonl",
+    "--out",
+    "runs/extensions/E2/x3_power_c0_r075-100.jsonl"
+   ]
+  },
+  {
+   "name": "power_c0_r100-125",
+   "check": "power",
+   "cells": [
+    0
+   ],
+   "replicates": [
+    100,
+    125
+   ],
+   "series": 25,
+   "out": "runs/extensions/E2/x3_power_c0_r100-125.jsonl",
+   "argv": [
+    "e2",
+    "power",
+    "--registered",
+    "--root",
+    ".",
+    "--cells",
+    "0",
+    "--replicates",
+    "100:125",
+    "--prerequisite",
+    "runs/extensions/E2/x3_prerequisite.jsonl",
+    "--out",
+    "runs/extensions/E2/x3_power_c0_r100-125.jsonl"
+   ]
+  },
+  {
+   "name": "power_c0_r125-150",
+   "check": "power",
+   "cells": [
+    0
+   ],
+   "replicates": [
+    125,
+    150
+   ],
+   "series": 25,
+   "out": "runs/extensions/E2/x3_power_c0_r125-150.jsonl",
+   "argv": [
+    "e2",
+    "power",
+    "--registered",
+    "--root",
+    ".",
+    "--cells",
+    "0",
+    "--replicates",
+    "125:150",
+    "--prerequisite",
+    "runs/extensions/E2/x3_prerequisite.jsonl",
+    "--out",
+    "runs/extensions/E2/x3_power_c0_r125-150.jsonl"
+   ]
+  },
+  {
+   "name": "power_c0_r150-175",
+   "check": "power",
+   "cells": [
+    0
+   ],
+   "replicates": [
+    150,
+    175
+   ],
+   "series": 25,
+   "out": "runs/extensions/E2/x3_power_c0_r150-175.jsonl",
+   "argv": [
+    "e2",
+    "power",
+    "--registered",
+    "--root",
+    ".",
+    "--cells",
+    "0",
+    "--replicates",
+    "150:175",
+    "--prerequisite",
+    "runs/extensions/E2/x3_prerequisite.jsonl",
+    "--out",
+    "runs/extensions/E2/x3_power_c0_r150-175.jsonl"
+   ]
+  },
+  {
+   "name": "power_c0_r175-200",
+   "check": "power",
+   "cells": [
+    0
+   ],
+   "replicates": [
+    175,
+    200
+   ],
+   "series": 25,
+   "out": "runs/extensions/E2/x3_power_c0_r175-200.jsonl",
+   "argv": [
+    "e2",
+    "power",
+    "--registered",
+    "--root",
+    ".",
+    "--cells",
+    "0",
+    "--replicates",
+    "175:200",
+    "--prerequisite",
+    "runs/extensions/E2/x3_prerequisite.jsonl",
+    "--out",
+    "runs/extensions/E2/x3_power_c0_r175-200.jsonl"
+   ]
+  },
+  {
+   "name": "power_c1_r000-025",
+   "check": "power",
+   "cells": [
+    1
+   ],
+   "replicates": [
+    0,
+    25
+   ],
+   "series": 25,
+   "out": "runs/extensions/E2/x3_power_c1_r000-025.jsonl",
+   "argv": [
+    "e2",
+    "power",
+    "--registered",
+    "--root",
+    ".",
+    "--cells",
+    "1",
+    "--replicates",
+    "0:25",
+    "--prerequisite",
+    "runs/extensions/E2/x3_prerequisite.jsonl",
+    "--out",
+    "runs/extensions/E2/x3_power_c1_r000-025.jsonl"
+   ]
+  },
+  {
+   "name": "power_c1_r025-050",
+   "check": "power",
+   "cells": [
+    1
+   ],
+   "replicates": [
+    25,
+    50
+   ],
+   "series": 25,
+   "out": "runs/extensions/E2/x3_power_c1_r025-050.jsonl",
+   "argv": [
+    "e2",
+    "power",
+    "--registered",
+    "--root",
+    ".",
+    "--cells",
+    "1",
+    "--replicates",
+    "25:50",
+    "--prerequisite",
+    "runs/extensions/E2/x3_prerequisite.jsonl",
+    "--out",
+    "runs/extensions/E2/x3_power_c1_r025-050.jsonl"
+   ]
+  },
+  {
+   "name": "power_c1_r050-075",
+   "check": "power",
+   "cells": [
+    1
+   ],
+   "replicates": [
+    50,
+    75
+   ],
+   "series": 25,
+   "out": "runs/extensions/E2/x3_power_c1_r050-075.jsonl",
+   "argv": [
+    "e2",
+    "power",
+    "--registered",
+    "--root",
+    ".",
+    "--cells",
+    "1",
+    "--replicates",
+    "50:75",
+    "--prerequisite",
+    "runs/extensions/E2/x3_prerequisite.jsonl",
+    "--out",
+    "runs/extensions/E2/x3_power_c1_r050-075.jsonl"
+   ]
+  },
+  {
+   "name": "power_c1_r075-100",
+   "check": "power",
+   "cells": [
+    1
+   ],
+   "replicates": [
+    75,
+    100
+   ],
+   "series": 25,
+   "out": "runs/extensions/E2/x3_power_c1_r075-100.jsonl",
+   "argv": [
+    "e2",
+    "power",
+    "--registered",
+    "--root",
+    ".",
+    "--cells",
+    "1",
+    "--replicates",
+    "75:100",
+    "--prerequisite",
+    "runs/extensions/E2/x3_prerequisite.jsonl",
+    "--out",
+    "runs/extensions/E2/x3_power_c1_r075-100.jsonl"
+   ]
+  },
+  {
+   "name": "power_c1_r100-125",
+   "check": "power",
+   "cells": [
+    1
+   ],
+   "replicates": [
+    100,
+    125
+   ],
+   "series": 25,
+   "out": "runs/extensions/E2/x3_power_c1_r100-125.jsonl",
+   "argv": [
+    "e2",
+    "power",
+    "--registered",
+    "--root",
+    ".",
+    "--cells",
+    "1",
+    "--replicates",
+    "100:125",
+    "--prerequisite",
+    "runs/extensions/E2/x3_prerequisite.jsonl",
+    "--out",
+    "runs/extensions/E2/x3_power_c1_r100-125.jsonl"
+   ]
+  },
+  {
+   "name": "power_c1_r125-150",
+   "check": "power",
+   "cells": [
+    1
+   ],
+   "replicates": [
+    125,
+    150
+   ],
+   "series": 25,
+   "out": "runs/extensions/E2/x3_power_c1_r125-150.jsonl",
+   "argv": [
+    "e2",
+    "power",
+    "--registered",
+    "--root",
+    ".",
+    "--cells",
+    "1",
+    "--replicates",
+    "125:150",
+    "--prerequisite",
+    "runs/extensions/E2/x3_prerequisite.jsonl",
+    "--out",
+    "runs/extensions/E2/x3_power_c1_r125-150.jsonl"
+   ]
+  },
+  {
+   "name": "power_c1_r150-175",
+   "check": "power",
+   "cells": [
+    1
+   ],
+   "replicates": [
+    150,
+    175
+   ],
+   "series": 25,
+   "out": "runs/extensions/E2/x3_power_c1_r150-175.jsonl",
+   "argv": [
+    "e2",
+    "power",
+    "--registered",
+    "--root",
+    ".",
+    "--cells",
+    "1",
+    "--replicates",
+    "150:175",
+    "--prerequisite",
+    "runs/extensions/E2/x3_prerequisite.jsonl",
+    "--out",
+    "runs/extensions/E2/x3_power_c1_r150-175.jsonl"
+   ]
+  },
+  {
+   "name": "power_c1_r175-200",
+   "check": "power",
+   "cells": [
+    1
+   ],
+   "replicates": [
+    175,
+    200
+   ],
+   "series": 25,
+   "out": "runs/extensions/E2/x3_power_c1_r175-200.jsonl",
+   "argv": [
+    "e2",
+    "power",
+    "--registered",
+    "--root",
+    ".",
+    "--cells",
+    "1",
+    "--replicates",
+    "175:200",
+    "--prerequisite",
+    "runs/extensions/E2/x3_prerequisite.jsonl",
+    "--out",
+    "runs/extensions/E2/x3_power_c1_r175-200.jsonl"
+   ]
+  },
+  {
+   "name": "power_c2_r000-025",
+   "check": "power",
+   "cells": [
+    2
+   ],
+   "replicates": [
+    0,
+    25
+   ],
+   "series": 25,
+   "out": "runs/extensions/E2/x3_power_c2_r000-025.jsonl",
+   "argv": [
+    "e2",
+    "power",
+    "--registered",
+    "--root",
+    ".",
+    "--cells",
+    "2",
+    "--replicates",
+    "0:25",
+    "--prerequisite",
+    "runs/extensions/E2/x3_prerequisite.jsonl",
+    "--out",
+    "runs/extensions/E2/x3_power_c2_r000-025.jsonl"
+   ]
+  },
+  {
+   "name": "power_c2_r025-050",
+   "check": "power",
+   "cells": [
+    2
+   ],
+   "replicates": [
+    25,
+    50
+   ],
+   "series": 25,
+   "out": "runs/extensions/E2/x3_power_c2_r025-050.jsonl",
+   "argv": [
+    "e2",
+    "power",
+    "--registered",
+    "--root",
+    ".",
+    "--cells",
+    "2",
+    "--replicates",
+    "25:50",
+    "--prerequisite",
+    "runs/extensions/E2/x3_prerequisite.jsonl",
+    "--out",
+    "runs/extensions/E2/x3_power_c2_r025-050.jsonl"
+   ]
+  },
+  {
+   "name": "power_c2_r050-075",
+   "check": "power",
+   "cells": [
+    2
+   ],
+   "replicates": [
+    50,
+    75
+   ],
+   "series": 25,
+   "out": "runs/extensions/E2/x3_power_c2_r050-075.jsonl",
+   "argv": [
+    "e2",
+    "power",
+    "--registered",
+    "--root",
+    ".",
+    "--cells",
+    "2",
+    "--replicates",
+    "50:75",
+    "--prerequisite",
+    "runs/extensions/E2/x3_prerequisite.jsonl",
+    "--out",
+    "runs/extensions/E2/x3_power_c2_r050-075.jsonl"
+   ]
+  },
+  {
+   "name": "power_c2_r075-100",
+   "check": "power",
+   "cells": [
+    2
+   ],
+   "replicates": [
+    75,
+    100
+   ],
+   "series": 25,
+   "out": "runs/extensions/E2/x3_power_c2_r075-100.jsonl",
+   "argv": [
+    "e2",
+    "power",
+    "--registered",
+    "--root",
+    ".",
+    "--cells",
+    "2",
+    "--replicates",
+    "75:100",
+    "--prerequisite",
+    "runs/extensions/E2/x3_prerequisite.jsonl",
+    "--out",
+    "runs/extensions/E2/x3_power_c2_r075-100.jsonl"
+   ]
+  },
+  {
+   "name": "power_c2_r100-125",
+   "check": "power",
+   "cells": [
+    2
+   ],
+   "replicates": [
+    100,
+    125
+   ],
+   "series": 25,
+   "out": "runs/extensions/E2/x3_power_c2_r100-125.jsonl",
+   "argv": [
+    "e2",
+    "power",
+    "--registered",
+    "--root",
+    ".",
+    "--cells",
+    "2",
+    "--replicates",
+    "100:125",
+    "--prerequisite",
+    "runs/extensions/E2/x3_prerequisite.jsonl",
+    "--out",
+    "runs/extensions/E2/x3_power_c2_r100-125.jsonl"
+   ]
+  },
+  {
+   "name": "power_c2_r125-150",
+   "check": "power",
+   "cells": [
+    2
+   ],
+   "replicates": [
+    125,
+    150
+   ],
+   "series": 25,
+   "out": "runs/extensions/E2/x3_power_c2_r125-150.jsonl",
+   "argv": [
+    "e2",
+    "power",
+    "--registered",
+    "--root",
+    ".",
+    "--cells",
+    "2",
+    "--replicates",
+    "125:150",
+    "--prerequisite",
+    "runs/extensions/E2/x3_prerequisite.jsonl",
+    "--out",
+    "runs/extensions/E2/x3_power_c2_r125-150.jsonl"
+   ]
+  },
+  {
+   "name": "power_c2_r150-175",
+   "check": "power",
+   "cells": [
+    2
+   ],
+   "replicates": [
+    150,
+    175
+   ],
+   "series": 25,
+   "out": "runs/extensions/E2/x3_power_c2_r150-175.jsonl",
+   "argv": [
+    "e2",
+    "power",
+    "--registered",
+    "--root",
+    ".",
+    "--cells",
+    "2",
+    "--replicates",
+    "150:175",
+    "--prerequisite",
+    "runs/extensions/E2/x3_prerequisite.jsonl",
+    "--out",
+    "runs/extensions/E2/x3_power_c2_r150-175.jsonl"
+   ]
+  },
+  {
+   "name": "power_c2_r175-200",
+   "check": "power",
+   "cells": [
+    2
+   ],
+   "replicates": [
+    175,
+    200
+   ],
+   "series": 25,
+   "out": "runs/extensions/E2/x3_power_c2_r175-200.jsonl",
+   "argv": [
+    "e2",
+    "power",
+    "--registered",
+    "--root",
+    ".",
+    "--cells",
+    "2",
+    "--replicates",
+    "175:200",
+    "--prerequisite",
+    "runs/extensions/E2/x3_prerequisite.jsonl",
+    "--out",
+    "runs/extensions/E2/x3_power_c2_r175-200.jsonl"
+   ]
+  },
+  {
+   "name": "power_c3_r000-025",
+   "check": "power",
+   "cells": [
+    3
+   ],
+   "replicates": [
+    0,
+    25
+   ],
+   "series": 25,
+   "out": "runs/extensions/E2/x3_power_c3_r000-025.jsonl",
+   "argv": [
+    "e2",
+    "power",
+    "--registered",
+    "--root",
+    ".",
+    "--cells",
+    "3",
+    "--replicates",
+    "0:25",
+    "--prerequisite",
+    "runs/extensions/E2/x3_prerequisite.jsonl",
+    "--out",
+    "runs/extensions/E2/x3_power_c3_r000-025.jsonl"
+   ]
+  },
+  {
+   "name": "power_c3_r025-050",
+   "check": "power",
+   "cells": [
+    3
+   ],
+   "replicates": [
+    25,
+    50
+   ],
+   "series": 25,
+   "out": "runs/extensions/E2/x3_power_c3_r025-050.jsonl",
+   "argv": [
+    "e2",
+    "power",
+    "--registered",
+    "--root",
+    ".",
+    "--cells",
+    "3",
+    "--replicates",
+    "25:50",
+    "--prerequisite",
+    "runs/extensions/E2/x3_prerequisite.jsonl",
+    "--out",
+    "runs/extensions/E2/x3_power_c3_r025-050.jsonl"
+   ]
+  },
+  {
+   "name": "power_c3_r050-075",
+   "check": "power",
+   "cells": [
+    3
+   ],
+   "replicates": [
+    50,
+    75
+   ],
+   "series": 25,
+   "out": "runs/extensions/E2/x3_power_c3_r050-075.jsonl",
+   "argv": [
+    "e2",
+    "power",
+    "--registered",
+    "--root",
+    ".",
+    "--cells",
+    "3",
+    "--replicates",
+    "50:75",
+    "--prerequisite",
+    "runs/extensions/E2/x3_prerequisite.jsonl",
+    "--out",
+    "runs/extensions/E2/x3_power_c3_r050-075.jsonl"
+   ]
+  },
+  {
+   "name": "power_c3_r075-100",
+   "check": "power",
+   "cells": [
+    3
+   ],
+   "replicates": [
+    75,
+    100
+   ],
+   "series": 25,
+   "out": "runs/extensions/E2/x3_power_c3_r075-100.jsonl",
+   "argv": [
+    "e2",
+    "power",
+    "--registered",
+    "--root",
+    ".",
+    "--cells",
+    "3",
+    "--replicates",
+    "75:100",
+    "--prerequisite",
+    "runs/extensions/E2/x3_prerequisite.jsonl",
+    "--out",
+    "runs/extensions/E2/x3_power_c3_r075-100.jsonl"
+   ]
+  },
+  {
+   "name": "power_c3_r100-125",
+   "check": "power",
+   "cells": [
+    3
+   ],
+   "replicates": [
+    100,
+    125
+   ],
+   "series": 25,
+   "out": "runs/extensions/E2/x3_power_c3_r100-125.jsonl",
+   "argv": [
+    "e2",
+    "power",
+    "--registered",
+    "--root",
+    ".",
+    "--cells",
+    "3",
+    "--replicates",
+    "100:125",
+    "--prerequisite",
+    "runs/extensions/E2/x3_prerequisite.jsonl",
+    "--out",
+    "runs/extensions/E2/x3_power_c3_r100-125.jsonl"
+   ]
+  },
+  {
+   "name": "power_c3_r125-150",
+   "check": "power",
+   "cells": [
+    3
+   ],
+   "replicates": [
+    125,
+    150
+   ],
+   "series": 25,
+   "out": "runs/extensions/E2/x3_power_c3_r125-150.jsonl",
+   "argv": [
+    "e2",
+    "power",
+    "--registered",
+    "--root",
+    ".",
+    "--cells",
+    "3",
+    "--replicates",
+    "125:150",
+    "--prerequisite",
+    "runs/extensions/E2/x3_prerequisite.jsonl",
+    "--out",
+    "runs/extensions/E2/x3_power_c3_r125-150.jsonl"
+   ]
+  },
+  {
+   "name": "power_c3_r150-175",
+   "check": "power",
+   "cells": [
+    3
+   ],
+   "replicates": [
+    150,
+    175
+   ],
+   "series": 25,
+   "out": "runs/extensions/E2/x3_power_c3_r150-175.jsonl",
+   "argv": [
+    "e2",
+    "power",
+    "--registered",
+    "--root",
+    ".",
+    "--cells",
+    "3",
+    "--replicates",
+    "150:175",
+    "--prerequisite",
+    "runs/extensions/E2/x3_prerequisite.jsonl",
+    "--out",
+    "runs/extensions/E2/x3_power_c3_r150-175.jsonl"
+   ]
+  },
+  {
+   "name": "power_c3_r175-200",
+   "check": "power",
+   "cells": [
+    3
+   ],
+   "replicates": [
+    175,
+    200
+   ],
+   "series": 25,
+   "out": "runs/extensions/E2/x3_power_c3_r175-200.jsonl",
+   "argv": [
+    "e2",
+    "power",
+    "--registered",
+    "--root",
+    ".",
+    "--cells",
+    "3",
+    "--replicates",
+    "175:200",
+    "--prerequisite",
+    "runs/extensions/E2/x3_prerequisite.jsonl",
+    "--out",
+    "runs/extensions/E2/x3_power_c3_r175-200.jsonl"
+   ]
+  }
+ ],
+ "summarize": {
+  "size": [
+   "e2",
+   "summarize",
+   "--registered",
+   "--root",
+   ".",
+   "--out",
+   "runs/extensions/E2/x3_size_r000-025.jsonl",
+   "--out",
+   "runs/extensions/E2/x3_size_r025-050.jsonl",
+   "--out",
+   "runs/extensions/E2/x3_size_r050-075.jsonl",
+   "--out",
+   "runs/extensions/E2/x3_size_r075-100.jsonl",
+   "--out",
+   "runs/extensions/E2/x3_size_r100-125.jsonl",
+   "--out",
+   "runs/extensions/E2/x3_size_r125-150.jsonl",
+   "--out",
+   "runs/extensions/E2/x3_size_r150-175.jsonl",
+   "--out",
+   "runs/extensions/E2/x3_size_r175-200.jsonl"
+  ],
+  "power": [
+   "e2",
+   "summarize",
+   "--registered",
+   "--root",
+   ".",
+   "--out",
+   "runs/extensions/E2/x3_power_c0_r000-025.jsonl",
+   "--out",
+   "runs/extensions/E2/x3_power_c0_r025-050.jsonl",
+   "--out",
+   "runs/extensions/E2/x3_power_c0_r050-075.jsonl",
+   "--out",
+   "runs/extensions/E2/x3_power_c0_r075-100.jsonl",
+   "--out",
+   "runs/extensions/E2/x3_power_c0_r100-125.jsonl",
+   "--out",
+   "runs/extensions/E2/x3_power_c0_r125-150.jsonl",
+   "--out",
+   "runs/extensions/E2/x3_power_c0_r150-175.jsonl",
+   "--out",
+   "runs/extensions/E2/x3_power_c0_r175-200.jsonl",
+   "--out",
+   "runs/extensions/E2/x3_power_c1_r000-025.jsonl",
+   "--out",
+   "runs/extensions/E2/x3_power_c1_r025-050.jsonl",
+   "--out",
+   "runs/extensions/E2/x3_power_c1_r050-075.jsonl",
+   "--out",
+   "runs/extensions/E2/x3_power_c1_r075-100.jsonl",
+   "--out",
+   "runs/extensions/E2/x3_power_c1_r100-125.jsonl",
+   "--out",
+   "runs/extensions/E2/x3_power_c1_r125-150.jsonl",
+   "--out",
+   "runs/extensions/E2/x3_power_c1_r150-175.jsonl",
+   "--out",
+   "runs/extensions/E2/x3_power_c1_r175-200.jsonl",
+   "--out",
+   "runs/extensions/E2/x3_power_c2_r000-025.jsonl",
+   "--out",
+   "runs/extensions/E2/x3_power_c2_r025-050.jsonl",
+   "--out",
+   "runs/extensions/E2/x3_power_c2_r050-075.jsonl",
+   "--out",
+   "runs/extensions/E2/x3_power_c2_r075-100.jsonl",
+   "--out",
+   "runs/extensions/E2/x3_power_c2_r100-125.jsonl",
+   "--out",
+   "runs/extensions/E2/x3_power_c2_r125-150.jsonl",
+   "--out",
+   "runs/extensions/E2/x3_power_c2_r150-175.jsonl",
+   "--out",
+   "runs/extensions/E2/x3_power_c2_r175-200.jsonl",
+   "--out",
+   "runs/extensions/E2/x3_power_c3_r000-025.jsonl",
+   "--out",
+   "runs/extensions/E2/x3_power_c3_r025-050.jsonl",
+   "--out",
+   "runs/extensions/E2/x3_power_c3_r050-075.jsonl",
+   "--out",
+   "runs/extensions/E2/x3_power_c3_r075-100.jsonl",
+   "--out",
+   "runs/extensions/E2/x3_power_c3_r100-125.jsonl",
+   "--out",
+   "runs/extensions/E2/x3_power_c3_r125-150.jsonl",
+   "--out",
+   "runs/extensions/E2/x3_power_c3_r150-175.jsonl",
+   "--out",
+   "runs/extensions/E2/x3_power_c3_r175-200.jsonl"
+  ]
+ }
+}
