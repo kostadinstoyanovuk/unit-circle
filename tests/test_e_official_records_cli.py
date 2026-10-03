@@ -75,8 +75,8 @@ def not_integrated(tmp_path):
 def test_record_e_x3_refuses_outside_an_integrated_root(tmp_path):
     with pytest.raises(SystemExit, match="Refused: .*not integrated"):
         tool("record_e_x3").main(["e1", "--size", "a", "--power", "b", *not_integrated(tmp_path)])
-    with pytest.raises(SystemExit):
-        tool("record_e_x3").main(["e2", "--size", "a", "--power", "b"])
+    with pytest.raises(SystemExit, match="Refused"):
+        tool("record_e_x3").main(["e2", "--size", "a", "--power", "b", *not_integrated(tmp_path)])
 
 
 def test_acquire_e1_arguments_and_refusals(tmp_path, capsys):
